@@ -1,5 +1,5 @@
 ---
-layout: mysql中on
+layout: 开发中遇到mysql的一些零碎的基础知识
 title: mysql中的正则定界符
 date: 2018-09-06 19:45:55
 categories: mysql
@@ -23,11 +23,9 @@ SELECT
   n.cat_id,
   c.cat_id
 FROM site_news n LEFT JOIN site_news_category c
-    ON n.cat_id = c.cat_id AND c.cat_id = 21;
+    ON n.cat_id = 1
 ```
-它的结果居然是这个样子的:
-![sql result](/img/20180906-sql.png)
-命名都把site_news_category.cat_id设置成21了...甚至on之后在加一个条件 and c.cat_id is not null,其结果集也是如此
+他的结果集居然是site_news的所有的记录。
 
 把sql语句改成这个样子
 ```sql
@@ -45,6 +43,18 @@ WHERE c.cat_id = 21;
 > 假如是左连接的话，如果左边表的某条记录不符合连接条件，那么它不进行连接，但是仍然留在结果集中（此时右边部分的连接结果为NULL）
 
 才知道困惑我的原因竟在于此
+
+原来,on只是作为两个表的链接条件而使用的.具体的筛选,还需要使用where处理
+
+### mysql中的on、where、having之间的区别 
+    
+在select语句中，这三者筛选是有时序的。on最先，where次之，having最后。
+
+在通过两张及两张以上的表链接来返回记录时，首先会产生一个中间的临时表。on是产生临时表所需要的条件。同时，记住上述所说的话。
+
+之后where是在这张临时表的基础之上起作用的。另外where的条件是数据表中原有的字段。
+
+然后就是having在where之后的基础起作用。having对聚合函数及as产生的别名有效
 
 ### mysql把搜索到的内容展示成一行
 ```sql
