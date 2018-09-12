@@ -16,7 +16,7 @@ SELECT * FROM user WHERE find_in_set(nick_name, '不觉风止');
 ```
 用like就太繁琐了,需要考虑多种情况
 
-### mysql中join之后的条件
+### mysql中join之后的on
 看一个sql语句
 ```sql
 SELECT
@@ -59,5 +59,12 @@ WHERE c.cat_id = 21;
 ### mysql把搜索到的内容展示成一行
 ```sql
 SELECT group_concat(key) FROM config WHERE group = 'points';
+```
+
+### UPDATE把一个表中的字段与另一个表的字段对应上
+```sql
+update store_reply s, base_user c
+set s.head_img_url = c.head_img_url
+where s.user_id = c.id;
 ```
 
