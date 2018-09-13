@@ -1,6 +1,8 @@
 ---
 title: WAMP的一些基本配置
-categories: 环境配置
+date: 2018-09-06 19:50:59
+categories: 开发环境
+tags: wamp的使用
 ---
 
 # 环境变量的配置
