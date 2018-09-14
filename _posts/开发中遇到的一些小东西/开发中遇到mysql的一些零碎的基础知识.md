@@ -3,7 +3,7 @@ layout: 开发中遇到mysql的一些零碎的基础知识
 title: mysql中的正则定界符
 date: 2018-09-06 19:45:55
 categories: mysql
-tags: mysql零碎的基础知识
+tags: mysql
 ---
 
 ### mysql一行信息中匹配特定的数据
@@ -67,4 +67,17 @@ update store_reply s, base_user c
 set s.head_img_url = c.head_img_url
 where s.user_id = c.id;
 ```
+
+### INSERT另外一个表的数据
+```sql
+INSERT INTO favorite_num (rid, favorite_num)
+  SELECT
+    rid,
+    count(id)
+  FROM store_favorite
+  GROUP BY rid;
+```
+
+两个表的字段顺序对应上就可以了
+
 
