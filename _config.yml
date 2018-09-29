@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 陈孟辉的个人技术博客
+title: 陈孟辉的学习笔记
 subtitle: 加油吧骚年
-description:
-keywords: 网站开发 编程技术 博客 陈孟辉
+description: "日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。"
+keywords: 开发菜鸟 网站开发 编程技术 博客 陈孟辉
 author: 陈孟辉
 language: zh
 timezone:
@@ -43,7 +43,7 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -52,7 +52,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: aath
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,4 +81,20 @@ deploy:
   type: git
   repo: git@github.com:chenmenghui/chenmenghui.github.com.git
   branch: "master"
-  message: "{{ now('YYYY-MM-DD HH:mm:ss') }} " 
+  message: "{{ now('YYYY-MM-DD HH:mm:ss') }} "
+
+# favicon
+favicon: /favicon.ico
+
+# Aside
+## search
+## avatar
+## aside-description
+## links
+search: false
+avatar: http://olnzpdi2u.bkt.clouddn.com/avatar.jpg
+aside-description: "日积月藏，不做咸鱼"
+#links:
+#  百度: https://www.baidu.com/
+#  谷歌: https://www.google.com/
+#  知乎: https://www.zhihu.com/
