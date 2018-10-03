@@ -75,10 +75,12 @@ var_dump($product1); // 可以看到包含对象ID的字符串
 public function write(ShopProduct $shopProduct) { 
     // todo
 }
-```
-现在write()方法至接受包含ShopProduct对象的$shopProduct参数.
 
 最新的php7也可以把string之类东西作为类型提示.刚刚说的处理这类问题需要#检测类型#,#转化类型#或#良好的文档#,现在就会通过直接指定解决了.
+
+需要注意的是,虽然自动类型检查是防止bug的极佳途径,但是自动类型检查实在代码运行的时候才能生效.
+
+## 继承
 
 # 高级特性
 
