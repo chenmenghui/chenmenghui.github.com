@@ -44,3 +44,8 @@ tags:
 ## cgi下的配置
 
 在wamp打开xdebug配置之后,chrome浏览器下载xdebug helper插件并启用,phpstorm开启监听debug功能(第四张图右上角一个类似电话的图标),然后在根据对应提示即可使用.
+
+1. wamp打开xdebug配置
+2. phpstorm开启监听debug功能(上面的第四张图右上角一个类似电话的图片)
+3. 浏览器访问时添加debug session参数.或浏览器下载对应插件开启debug功能(如chrome浏览器使用xdebug helper)
+4. 根据提示,配置映射路径
