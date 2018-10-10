@@ -9,10 +9,13 @@ tags: PHP基础知识
 
 ### register_shutdown_function
 
+### array_multisort
+
 > bool array_multisort ( array &$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $... ]]] )
 
-array_multisort() 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。
+[array_multisort()](http://php.net/manual/zh/function.array-multisort.php) 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。
 
+这种类似于从sql语句中的sort by排序还是挺有用的.
 ```php
 <?php
 $data = [
@@ -59,10 +62,11 @@ $data = [
 ];
 
 foreach ($data as $key => $value) {
-    $class[$key] = $value['class'];
-    $score[$key] = $value['score'];
+    $column['class'][$key] = $value['class'];
+    $column['score'][$key] = $value['score'];
 }
-array_multisort($class, SORT_ASC, SORT_STRING , $score, SORT_DESC, $data);
+// 类似于sql中的 select * from student order by `class` asc, score desc;
+array_multisort($column['class'], SORT_ASC, SORT_STRING , $column['score'], SORT_DESC, $data);
 var_dump($data);
 ```
  
