@@ -5,7 +5,10 @@ categories:
 - test
 tags: blog图标
 ---
+
 # 图表
+
+1. 这是一个图表示例
 
 | 参数           | 说明                 |   默认值            |
 | ------------- |-------------------|------------------|
@@ -19,7 +22,7 @@ tags: blog图标
 
 # 流程图
 
-```flow    #由于渲染问题，请自行将 · 替换为 `
+```flow   
 st=>start: Start:>http://www.google.com[blank]
 e=>end:>http://www.google.com
 op1=>operation: My Operation
