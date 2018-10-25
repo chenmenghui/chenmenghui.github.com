@@ -465,13 +465,31 @@ $process->sale(new Product('pen', 12));
 - 类函数和对象函数:测试对象,类,属性和方法的函数
 - 反射API:一组强大的内置类,可以在代码运行时访问类信息
 
-# PHP和包
+## PHP和包
 
-# PHP包和命名空间
+## PHP包和命名空间
 
-## 命名空间
+尽管php本身不支持包的概念,开发人员却一直在使用*文件系统*和*命名模式*将代码组织成类似于包的结构.
+
+### 命名空间
 
 命名空间是一个容器,他可以将类 函数和变量放在其中.在命名空间中,可以无条件访问这些项.在命名空间之外,必须导入或引用命名空间,才能访问它所包含的项.
+
+```viewpoint
+才发现这个命名空间和那个函数作用域很像,居然可以这个样子来思考这个命名空间.
+```
+
+### 使用文件系统模拟包
+
+无论哪个版本的php中,都可以使用提供了包结构的文件系统来组织类.
+
+### PEAR风格的命名方式
+
+如果不使用命名空间,可以使用文件系统来定义包.每个类都根据包路径来命名,每个路径名以下划线分割.
+
+### 包含路径
+
+要使程序代码不再直接依赖于类库代码程序中包含的类库,需要将调用类库的代码和类库代码进行解耦,即让文件可以在系统的任何地方进行调用.这可以通过把包放到include_path指定引用目录中即可.
 
 ## 自动加载
 
@@ -479,19 +497,19 @@ __autoload()方法是一种根据类和文件的结构,管理类库文件包含�
 
 一个文件定义一个类,一一对应,便于管理.这种方法虽然会带来额外的开销(包含文件会带来开销),但这种组织方式特别有效.尤其是系统需要在运行时使用新类的时候.
 
-#  类函数和对象函数
+##  类函数和对象函数
 
 在PHP代码运行时可能无法知道正在使用的类是哪个,这是因为php中类是可以通过字符串动态加载到,而字符串是不固定的.
 
-在实际开发中,需要先检查类是否存在,它是否拥有讲课使用的方法等,以避免可能存在的风险.
+在实际开发中,需要先检查类是否存在,它是否拥有使用的方法等,以避免可能存在的风险.
 
-## 查找类
+### 查找类
 
 class_exists()函数接受表示类的字符串,检查并返回布尔值.
 
 print_r(get_declared_classess())可以列出用户定义的类和php内置的类.注意它只返回在函数调用时已声明的类.可以继续运行require等增加脚本中类的数目.
 
-## 了解对象或类
+### 了解对象或类
 
 [get_class](http://php.net/manual/zh/function.get-class.php)
 
@@ -501,11 +519,83 @@ print_r(get_declared_classess())可以列出用户定义的类和php内置的类
 
 用于确定一个 PHP 变量是否属于某一类 class 的实例
 
-## 了解类中的方法
+### 了解类中的方法
 
-get_class_method 
+get_class_method ()
+
+is_callable()
+
+method_exists()
+
+PHP5中,方法存在不一定能被调用(private等)
+
+### 了解类的属性
+
+get_class_vars()
+
+### 了解继承
+
+get_parent_class()
+
+is_subclass_of()
+只会告诉继承关系,而不会告诉类是否实现了一个接口.
+
+instanceof 
+
+class_implements()
+返回由接口构成的数组.
+
+### 方法调用
+
+```php
+$product = getProduct(); // 获得对象
+$method = 'getTitle'; // 定义方法名
+print $product->$method(); // 调用方法
+```
+
+```php
+$returnVal = call_user_func('myFunction');
+$returnVal = call_user_func([$myObject, 'methodName']); // 调用类方法 call_user_function_array()
+```
+
+```php
+$product = getProduct(); // 获得对象
+
+call_user_func([$product, 'setDiscount'], 20);
+等价于
+$product->setDiscount(20);
+等价于
+$method = 'setDiscount';
+$product->$method(20);;
+```
+
+## 反射API
+
+PHP中的反射API就像java中的java.lang.reflect包一样.它由一系列可以分析属性/方法和类的内置类构成.这个比上述的类函数要有方便灵活有效地多.
+
+### 入门
+
+反射API的部分类
+
+| 类 | 描述 |
+| --- | --- |
+| Reflection | 为类的摘要信息提供静态函数export() |
+| ReflectionClass | 类信息和工具 |
+| ReflectionMethod | 类方法信息和工具 |
+| ReflectionParameter | 方法参数信息 |
+| ReflectionProperty | 类属性信息 |
+| ReflectionFunction | 函数信息和工具 |
+| ReflectionExtension | PHP扩展信息 |
+| ReflectionException | 错误类 |
+
+利用反射API中的这些类,可以在运行时访问对象/函数和脚本中的扩展的信息
 
 
+---
+这一章主要讲了包(一种结构化代码)的概念.
+在这里,包和类是息息相关的.
+即便  
+---
 
 # 对象与设计
 
