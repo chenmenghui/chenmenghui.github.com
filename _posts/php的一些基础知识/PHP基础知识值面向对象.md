@@ -1,5 +1,5 @@
 ---
-title: PHP基础知识值面相对象
+title: PHP基础知识值面向对象
 date: 2018-09-06
 categories: 
 - PHP
