@@ -1,0 +1,37 @@
+---
+title: PHP导出excel
+date: 2018/10/30
+categories: PHP
+tags: 
+- PHP
+---
+
+就是拼接字符串,类似于csv格式.不过需要注意header头
+
+拼接成如
+```
+(id)\t(title)\t(content)\t(status)\t\n
+(1)\t(title)\t\(content)\t(1)\t\n
+```
+的字符串
+```php
+<?php
+header("Content-Type:application/vnd.ms-excel");
+header("Content-Disposition:attachment;filename=test.xls");
+
+$head = ['id', 'title', 'content', 'status'];
+$body = [
+    [1, 'title', 'content', 1],
+    [2, 'title', 'content', 2],
+    [3, 'title', 'content', 3]
+];
+
+array_unshift($body, $head);
+
+$table = array_map(function ($row) {
+   return implode("\t", $row) ;
+}, $body);
+$table = implode("\n", $table);
+
+echo iconv('utf-8', 'gbk//TRANSLIT', $table);
+```
