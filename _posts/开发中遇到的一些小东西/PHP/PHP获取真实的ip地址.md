@@ -4,6 +4,7 @@ date: 2018/10/30
 categories: PHP
 tags: 
 - PHP
+- 实用代码片段
 ---
 
 ```php

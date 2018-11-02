@@ -96,5 +96,10 @@ search: false
 avatar: http://wx4.sinaimg.cn/crop.0.0.1000.562.1000/6325c139gy1ff6uu8pq5xj20rs0fm0vl.jpg
 aside-description: "日积月藏，不做咸鱼"
 links:
+  PHP手册: http://php.net/manual/zh/
   PHP/Laravel社区: https://laravel-china.org/docs
   Linux命令大全: http://man.linuxde.net/
+  W3Cschool: https://www.w3cschool.cn/
+  微信小程序教程: https://developers.weixin.qq.com/miniprogram/dev/
+  廖雪峰的官网网站: https://www.liaoxuefeng.com/
+  正则表达式: http://tool.oschina.net/uploads/apidocs/jquery/regexp.html

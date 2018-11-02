@@ -4,6 +4,7 @@ date: 2018/10/30
 categories: PHP
 tags: 
 - PHP
+- 实用代码片段
 ---
 
 就是拼接字符串,类似于csv格式.不过需要注意header头

@@ -3,7 +3,9 @@ layout: 开发中遇到mysql的一些零碎的基础知识
 title: mysql中的正则定界符
 date: 2018-09-06 19:45:55
 categories: mysql
-tags: mysql
+tags: 
+- mysql
+- 实用代码片段
 ---
 
 ### mysql一行信息中匹配特定的数据
