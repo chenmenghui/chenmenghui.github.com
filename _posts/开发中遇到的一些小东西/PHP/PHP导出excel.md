@@ -8,12 +8,11 @@ tags:
 
 就是拼接字符串,类似于csv格式.不过需要注意header头
 
-拼接成如
+拼接成如下格式的字符串
 ```
 (id)\t(title)\t(content)\t(status)\t\n
 (1)\t(title)\t\(content)\t(1)\t\n
 ```
-的字符串
 ```php
 <?php
 header("Content-Type:application/vnd.ms-excel");
