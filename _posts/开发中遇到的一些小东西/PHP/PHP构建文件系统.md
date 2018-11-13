@@ -17,7 +17,7 @@ if(!file_exists($targetPath)) {
     for ($i = 0; $i < $count; ++$i) {
         $path .= '/' . $dirs[$i];
         if(!is_dir($path)){//不是目录
-            if(!mkdir($path,0755)){
+            if(!mkdir($path,0755)){ // 其实mkdir可以递归建立文件夹,如下
                 //todo
             }
         }
