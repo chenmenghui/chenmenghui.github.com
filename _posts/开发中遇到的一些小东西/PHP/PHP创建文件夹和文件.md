@@ -1,11 +1,13 @@
 ---
-title: PHP构建文件系统
+title: PHP创建文件夹和文件
 date: 2018/11/07
 categories: PHP
 tags: 
 - PHP
 - 实用代码片段
 ---
+
+其实也就是用到了mkdir这个功能.至于创建文件,用的最多的其实是file_put_contents
 
 ```php
 <?php
