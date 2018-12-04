@@ -113,7 +113,11 @@ WHERE record.member_child_id = member.id;
 ```sql
 UPDATE vip_dynamic_reward_record
 SET market = (SELECT market FROM vip_member WHERE vip_dynamic_reward_record.member_child_id = vip_member.id);
+
+UPDATE user
+SET average_score = (SELECT avg(score) FROM score WHERE user_id = user.id);
 ```
+令我奇怪的是,这里的set之后居然没有where限定条件也能正常运行
 
 ### 创建一个临时表并把另一个表的数据插入进去
 
