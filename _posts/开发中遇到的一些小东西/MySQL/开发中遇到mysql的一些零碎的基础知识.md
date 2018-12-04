@@ -114,3 +114,12 @@ WHERE record.member_child_id = member.id;
 UPDATE vip_dynamic_reward_record
 SET market = (SELECT market FROM vip_member WHERE vip_dynamic_reward_record.member_child_id = vip_member.id);
 ```
+
+### 创建一个临时表并把另一个表的数据插入进去
+
+```sql
+CREATE TEMPORARY TABLE IF NOT EXISTS record1
+SELECT * FROM vip_dynamic_reward_record;
+```
+
+原来如此,创建表的时候不一定需要先定义字段再插入数据,可以直接把一个子表的内容插进去的.
