@@ -86,4 +86,31 @@ INSERT INTO favorite_num (rid, favorite_num)
 
 SET SESSION sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION ';
 
+### 比较两个表中的数据是否一致
 
+```sql
+SELECT id,title
+FROM (
+       SELECT id,title
+       FROM text1
+       UNION ALL
+       SELECT id,title
+       FROM text2
+     ) tb1
+GROUP BY id,title
+HAVING count(*) = 1
+ORDER BY id, title
+```
+
+### 通过另一个表的数据更新当前表
+
+```sql
+UPDATE vip_dynamic_reward_record record, vip_member member
+SET record.market = member.market
+WHERE record.member_child_id = member.id;
+```
+或者子句的模式
+```sql
+UPDATE vip_dynamic_reward_record
+SET market = (SELECT market FROM vip_member WHERE vip_dynamic_reward_record.member_child_id = vip_member.id);
+```
