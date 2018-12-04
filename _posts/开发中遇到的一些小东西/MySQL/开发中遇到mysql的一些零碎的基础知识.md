@@ -1,6 +1,5 @@
 ---
-layout: 开发中遇到mysql的一些零碎的基础知识
-title: mysql中的正则定界符
+title: 开发中遇到mysql的一些零碎的基础知识
 date: 2018-09-06 19:45:55
 categories: mysql
 tags: 
