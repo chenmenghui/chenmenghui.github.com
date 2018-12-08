@@ -126,3 +126,12 @@ SELECT * FROM vip_dynamic_reward_record;
 ```
 
 原来如此,创建表的时候不一定需要先定义字段再插入数据,可以直接把一个子表的内容插进去的.
+
+### mysql中获取一列数据中几栏里的最小值
+
+```sql
+SELECT `member_id`,least(sum(`left_dynamic_reward`), sum(`right_dynamic_reward`))*2*0.03*0.95 `dynamic_reward`
+FROM `vip_dynamic_reward`
+WHERE `times` < 25
+GROUP BY `member_id`
+```
