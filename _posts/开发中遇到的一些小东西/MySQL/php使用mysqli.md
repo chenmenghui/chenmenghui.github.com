@@ -1,13 +1,14 @@
 ---
-title: mysqli使用
+title: php使用mysqli
 date: 2018-12-6
-categories: PHP
+categories: mysql
 tags: 
 - PHP
+- mysql
 - 实用代码片段
 ---
 
-mysqli::prepare()可以避免sql注入,还是挺有用的.
+mysqli::prepare()可以避免sql注入,还是挺有用的.但是无法同时执行多个sql语句
 
 ```php
 <?php
