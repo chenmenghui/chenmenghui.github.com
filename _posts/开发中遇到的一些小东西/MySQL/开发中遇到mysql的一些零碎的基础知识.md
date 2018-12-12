@@ -115,6 +115,11 @@ SET market = (SELECT market FROM vip_member WHERE vip_dynamic_reward_record.memb
 
 UPDATE user
 SET average_score = (SELECT avg(score) FROM score WHERE user_id = user.id);
+
+UPDATE vip_member
+SET dynamic_reward = (SELECT ifnull(sum(times * least(left_dynamic_reward, right_dynamic_reward) * 2 * 0.03 * 0.95), 0)
+                      FROM vip_dynamic_reward
+                      WHERE vip_member.id = vip_dynamic_reward.member_id);
 ```
 令我奇怪的是,这里的set之后居然没有where限定条件也能正常运行
 

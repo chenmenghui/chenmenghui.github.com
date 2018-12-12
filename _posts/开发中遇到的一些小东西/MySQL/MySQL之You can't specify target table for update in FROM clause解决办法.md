@@ -7,7 +7,7 @@ tags:
 - 实用代码片段
 ---
 
-mysql并不支持对同一个表"同时"做查询和删除操作
+mysql并不支持对同一个表"同时"做查询和删除操作.
 
 如
 ```sql
@@ -27,3 +27,13 @@ FROM vip_reward_record
 WHERE type = 1
   AND id NOT IN (SELECT id FROM (SELECT max(id) AS id FROM vip_reward_record WHERE type = 1 GROUP BY member_id) a);
 ```
+
+但是,像是这样,却是可以运行的
+```sql
+UPDATE vip_member
+SET dynamic_reward = (SELECT ifnull(sum(times * least(left_dynamic_reward, right_dynamic_reward) * 2 * 0.03 * 0.95), 0)
+                      FROM vip_dynamic_reward
+                      WHERE vip_member.id = vip_dynamic_reward.member_id);
+```
+
+两者的差距看起来就是update/delete之后没有紧跟着where.事实上上一句在phpstorm运行时会提醒` Unsafe query: 'Update' statement without 'where' updates all table rows at once`
