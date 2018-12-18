@@ -140,3 +140,23 @@ FROM `vip_dynamic_reward`
 WHERE `times` < 25
 GROUP BY `member_id`
 ```
+
+### MySQL中的if
+
+```sql
+-- IF(expr1,expr2,expr3)
+SELECT if (true, 1, 0);
+```
+
+```sql
+-- IFNULL(expr1,expr2)
+SELECT ifnull(null, 1);
+```
+
+```sql
+SELECT CASE sex
+WHEN 1 THEN '男' 
+　　ELSE '女' 
+END
+FROM test;
+```
