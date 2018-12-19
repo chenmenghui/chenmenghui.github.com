@@ -160,3 +160,12 @@ WHEN 1 THEN '男'
 END
 FROM test;
 ```
+
+### mysql中的时间
+
+- DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。
+- MySQL 格式化函数 FROM_UNIXTIME()
+
+具体内容参考链接
+[mysql格式化日期](https://www.cnblogs.com/dest/p/4205371.html)
+
