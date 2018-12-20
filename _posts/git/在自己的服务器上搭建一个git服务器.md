@@ -20,9 +20,9 @@ adduser git
 ## 客户端配置git
 ### 安装git命令行 
 - ubuntu
-    = apt install git
+    - apt install git
 - win
-    - (安装)[https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git]
+    - [安装](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)
 ### 配置git用户数据
 ```
 // 用户信息
@@ -39,7 +39,7 @@ ssh-keygen // 注意会提示保存在哪里,一会要到对应的地方找,默�
 ## 客户端
 1. git clone git@47.104.189.68:/srv/yii.git (如果没有加入公匙,也可使用git用户对应的密码)
 2. 填写数据
-3. git add -all (add)[https://www.cnblogs.com/skura23/p/5859243.html] 把新创建的文件提交到暂缓区
+3. git add -all [add](https://www.cnblogs.com/skura23/p/5859243.html) 把新创建的文件提交到暂缓区
 4. git commit -am '注释' 把修改内容保存到缓存区并提交至**本地仓库**
 5. git push origin master 把本地仓库提交至服务器
 6. git pull origin master 把服务器内容拉取下来
