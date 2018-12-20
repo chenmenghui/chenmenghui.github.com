@@ -14,6 +14,9 @@ adduser git
 ### 初始化一个仓库
 1. 指定一个目录作为git仓库
 2. git init /srv/yii.git
+
+后来在centos安装的时候总是报错`To squelch this message and still keep the default behaviour, set remote: error: 'receive.denyCurrentBranch' configuration variable to 'refuse'.`
+百度到初始化需要 `git --bare init --shared /srv/advanced`
 ### 创建证书登录
 1. 创建/home/git/.ssh/authorized_keys(注意:.ssh目录及authorized_key文件是自建的)
 2. 收集需要登陆用户的公匙,导入到上个创建的文件中.一个公匙占一行
