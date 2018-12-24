@@ -13,10 +13,8 @@ apt install git
 adduser git
 ### 初始化一个仓库
 1. 指定一个目录作为git仓库
-2. git init /srv/yii.git
-
-后来在centos安装的时候总是报错`To squelch this message and still keep the default behaviour, set remote: error: 'receive.denyCurrentBranch' configuration variable to 'refuse'.`
-百度到初始化需要 `git --bare init --shared /srv/advanced`
+2. git init --bare /srv/yii.git
+3. chown git:git -R /srv/yii.git
 ### 创建证书登录
 1. 创建/home/git/.ssh/authorized_keys(注意:.ssh目录及authorized_key文件是自建的)
 2. 收集需要登陆用户的公匙,导入到上个创建的文件中.一个公匙占一行
@@ -58,3 +56,8 @@ git reset --hard
 可能原因
 1. 服务器没有安装openssh_server(我被这个折腾了快一个小时)
 2. 防火墙拦截(一般不会,默认是22端口)
+
+## To squelch this message and still keep the default behaviour, set remote: error: 'receive.denyCurrentBranch' configuration variable to 'refuse'.
+出现这个错误是因为在服务器端错误的使用了git init /srv/advanced
+注意,远程仓库初始化需要 `ogit init --bare  /srv/advanced`
+--bare 创建裸仓库.用于记录版本库历史记录的.git目录下面的文件;而不会包含实际项目源文件的拷贝;所以该版本库不能称为工作目录(working tree);
