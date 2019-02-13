@@ -226,6 +226,125 @@ print_r(User::create());
 print_r(SpreadSheet::create());
 ```
 
+[注意static的问题](http://php.net/manual/zh/language.oop5.late-static-bindings.php):
+
+在非静态环境下，所调用的类即为该对象实例所属的类。由于 $this-> 会在同一作用范围内尝试调用私有方法，而 static:: 则可能给出不同结果。另一个区别是 static:: 只能用于静态属性。
+```php
+<?php
+class A {
+    private function foo() {
+        echo "success!\n";
+    }
+    public function test() {
+        $this->foo();
+        static::foo();
+    }
+}
+
+class B extends A {
+   /* foo() will be copied to B, hence its scope will still be A and
+    * the call be successful */
+}
+
+class C extends A {
+    private function foo() {
+        /* original method is replaced; the scope of the new one is C */
+    }
+}
+
+$b = new B();
+$b->test();
+$c = new C();
+$c->test();   // fail 此处A中static::foo()会调用C中的私有方法foo(),故会报错
+?>
+```
+
+后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止。另一方面，如果静态调用使用 parent:: 或者 self:: 将转发调用信息。
+
+```php
+<?php
+class A {
+    public static function foo() {
+        static::who(); // 留意此处,static究竟指向谁
+                       // 如果是self::who(),就都是A了.这就是特别需要注意的地方
+    }
+
+    public static function who() {
+        echo __CLASS__."\n";
+    }
+}
+
+class B extends A {
+    public static function test() {
+        A::foo(); // 非转发调用
+        static::foo();
+        parent::foo(); //
+        self::foo();
+    }
+
+    public static function who() {
+        echo __CLASS__."\n";
+    }
+}
+class C extends B {
+    public static function who() {
+        echo __CLASS__."\n";
+    }
+}
+
+C::test();
+
+```
+输出 
+    A
+    C
+    C
+    C
+
+```php
+<?php
+class A {
+    public static function foo() {
+        static::who(); // 留意此处,static究竟指向谁
+        // 如果是self::who(),就都是A了.这就是特别需要注意的地方
+    }
+
+    public static function who() {
+        echo static::class;
+        echo __CLASS__."\n";
+    }
+}
+
+class B extends A {
+    public static function test() {
+        A::foo(); // 非转发调用
+        static::foo();
+        parent::foo(); //
+        self::foo();
+    }
+
+    public static function who() {
+        echo static::class;
+        echo __CLASS__."\n";
+    }
+}
+class C extends B {
+//    public static function who() {
+//        echo static::class;
+//        echo __CLASS__."\n";
+//    }
+}
+
+C::test();
+
+?>
+```
+输出
+    AA
+    CB
+    CB
+    CB
+
 ## 错误处理
 
 通常我们喜欢封装好多类是完整和独立的,不需要从外部干预内部代码的执行.所以依赖程序员另外写代码来测试一个类中的方法是否出错,是非常不合理的.
