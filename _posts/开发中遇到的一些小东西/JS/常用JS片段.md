@@ -1,5 +1,5 @@
 ---
-title: 注意箭头函数
+title: js中时间和时间戳相互转化
 date: 2018-11-29
 categories: js
 tags: 
@@ -7,10 +7,22 @@ tags:
 - 实用代码片段
 ---
 
-### 单选菜单之类的
-
 ```js
-var selectCategory = function () {
-    $(this).addClass('selected').siblings('.selected').removeClass('selected');
+
+var time2stamp = function(time) {
+    time = time.substring(0,19);
+    time = time.replace(/-/g,'/');
+    return Math.round(new Date(time).getTime()/1000);
+};
+
+var stamp2time = function(stamp) {
+    var d = new Date(stamp * 1000);    //根据时间戳生成的时间对象
+    var date = (d.getFullYear()) + "-" +
+        (d.getMonth() + 1) + "-" +
+        (d.getDate()) + " " +
+        (d.getHours()) + ":" +
+        (d.getMinutes()) + ":" +
+        (d.getSeconds());
+    return date;
 };
 ```
