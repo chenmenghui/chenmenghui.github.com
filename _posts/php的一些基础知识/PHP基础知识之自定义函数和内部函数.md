@@ -45,6 +45,7 @@ $GLOBALS及其他超全局数组
 从函数返回一个引用,必须在函数声明和指派返回值给一个变量是都使用引用运算符&
 
 ```php
+<?php
 function &myFunc(){
     static $b = 10;
     return $b;
@@ -52,7 +53,7 @@ function &myFunc(){
 $a = myFunc(); // 10
 $a = &myFunc();
 $a = 100;
-echo myFunc(); // 100
+echo myFunc(); // 100 函数的值被改了
 ```
 
 > 外部文件的导入

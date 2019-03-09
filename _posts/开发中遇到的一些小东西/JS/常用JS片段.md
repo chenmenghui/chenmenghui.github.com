@@ -1,5 +1,5 @@
 ---
-title: 注意箭头函数
+title: 常用js片段
 date: 2018-11-29
 categories: js
 tags: 
