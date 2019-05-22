@@ -169,3 +169,10 @@ FROM test;
 具体内容参考链接
 [mysql格式化日期](https://www.cnblogs.com/dest/p/4205371.html)
 
+
+### 删除表记录后重新设置自增索引值
+
+```sql
+ALTER TABLE `system_menu`
+    AUTO_INCREMENT = 60;
+```
