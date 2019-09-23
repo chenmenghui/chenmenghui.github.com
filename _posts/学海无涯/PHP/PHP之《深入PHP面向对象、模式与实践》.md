@@ -145,11 +145,11 @@ parent关键字可以在任何覆写父类方法中使用.覆写一个父类的�
 
 虽然常量属性是公共的,可静态访问的,但客户端代码不能改变它们.
 
-常量属性只包含基本数据类型的值。不能将一个对象指派给常量。像静态属性一样，只能通过类而不能通过类的实例访问常量属性。
+常量属性只包含基本数据类型的值.不能将一个对象指派给常量.像静态属性一样，只能通过类而不能通过类的实例访问常量属性.
 
 ## 抽象类
 
-抽象类不能直接实例化。抽象类中只定义或部分实现子类需要的方法.子类可以继承它并且通过实现其中的抽象方法,使抽象类具体化.
+抽象类不能直接实例化.抽象类中只定义或部分实现子类需要的方法.子类可以继承它并且通过实现其中的抽象方法,使抽象类具体化.
 
 抽象类的每个子类都必须实现抽象类中的所有抽象方法,或者把他们自身也声明为抽象方法.扩展类不仅仅负责简单实现抽象类中的方法,还必须重新声明方法.新的实现方法的访问控制不能比抽象方法的访问控制更加严格.新实现方法的参数个数应该和抽象方法的参数个数一样,重新生成对应的类型提示.
 
@@ -228,7 +228,7 @@ print_r(SpreadSheet::create());
 
 [注意static的问题](http://php.net/manual/zh/language.oop5.late-static-bindings.php):
 
-在非静态环境下，所调用的类即为该对象实例所属的类。由于 $this-> 会在同一作用范围内尝试调用私有方法，而 static:: 则可能给出不同结果。另一个区别是 static:: 只能用于静态属性。
+在非静态环境下，所调用的类即为该对象实例所属的类.由于 $this-> 会在同一作用范围内尝试调用私有方法，而 static:: 则可能给出不同结果.另一个区别是 static:: 只能用于静态属性.
 ```php
 <?php
 class A {
@@ -259,7 +259,7 @@ $c->test();   // fail 此处A中static::foo()会调用C中的私有方法foo(),�
 ?>
 ```
 
-后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止。另一方面，如果静态调用使用 parent:: 或者 self:: 将转发调用信息。
+后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止.另一方面，如果静态调用使用 parent:: 或者 self:: 将转发调用信息.
 
 ```php
 <?php
@@ -449,6 +449,42 @@ class Runner
 }
 ```
 
+## 内部错误类
+
+try和catch子句主要针对的是php代码，而不是核心引擎.内部生成的错误会维护它们自己的逻辑.如果两者混为一谈，将会导致一片混乱.php7引用了error类来解决这个问题.error类和exception类实现了同一个内置接口Throwable.因此，可以使用相同的方法处理它们.
+
+```php
+<?php
+try{
+    eval("echo 'hello'");
+} catch(Error $e) {
+    print get_class($e);
+    echo "\n";
+    print $e->getMessage();
+} catch (Exception $e) {
+    // todo
+}
+
+```
+
+输出:
+
+```
+ParseError
+syntax error, unexpected end of file, expecting ',' or ';'
+```
+
+如上所示，可以在catch子句中通过制定Error这个父类和其子类来捕捉相匹配的内部错误.内部错误有下:
+
+| 错误 | 说明 |
+| --- | --- |
+| ArithmeticError | 当发生与数学计算（特别是位运算）相关的错误时被抛出 |
+| AssertionError | 当assert()语言结构（调试中）断言失败时被抛出 |
+| DivisionByZeroError| 进行除零计算时被抛出 |
+| ParseError| 在运行时解析php出错时抛出 |
+| TypeError | 当错误类型的参数被传递给方法，方法返回一个错误类型的参数，或是传递给方法的参数是的数量不正确时被抛出 |
+
+
 ## Final类和方法
 
 final关键字可以终止类的继承.final类不能有子类,final方法不能被覆写.
@@ -633,7 +669,7 @@ print_r(get_declared_classess())可以列出用户定义的类和php内置的类
 
 [get_class](http://php.net/manual/zh/function.get-class.php)
 
-返回对象实例 object 所属类的名字。
+返回对象实例 object 所属类的名字.
 
 [instanceof](http://php.net/manual/zh/language.operators.type.php) 
 
