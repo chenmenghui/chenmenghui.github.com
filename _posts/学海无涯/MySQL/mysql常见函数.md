@@ -127,7 +127,7 @@ sum avg max min count
 
 SELECT count(salary) FROM employees;
 
-SELECT count(*) FROM employees; // 和上着的区别在于,这个展示的是行数,上个取得是除null之后的数
+SELECT count(*) FROM employees; # 和上着的区别在于,这个展示的是行数,上个取得是除null之后的数
 
-select count(1) from employees; // 相当于数据多了一行1,然后统计个数(实际就是行数)
+select count(1) from employees; # 相当于数据多了一行1,然后统计个数(实际就是行数)
 ```

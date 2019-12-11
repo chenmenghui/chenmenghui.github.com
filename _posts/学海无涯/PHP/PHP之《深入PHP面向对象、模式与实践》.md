@@ -65,6 +65,7 @@ var_dump($product1); // 可以看到包含对象ID的字符串
 ### 基本类型
 
 数据的类型决定了PHP代码中处理数据的方式.比如,使用字符串类型显示字符数据并用字符串函数处理这些数据等等.这些类型被称为**基本类型**.
+
 从更高层次上来说,每一个类都定义了一种数据类型.因此ShopProduct对象属于基本类型,但同时也属于ShopProduct类这一类型.
 
 #### 基本数据类型
@@ -72,6 +73,7 @@ var_dump($product1); // 可以看到包含对象ID的字符串
 - 检测类型
 - 转换类型
 - 依赖良好清晰的文档(无论哪种模式,都需要这个)
+
 无论如何解决这类问题,都要认真考虑一件事情:类型处理.PHP是一种弱类型的语言.我们不能依赖编译器来防止类型相关的bug,必须考虑当非法数据类型的参数传递给方法是,会产生什么样的后果.我们不能完全信任客户端程序员,应始终在方法中处理他们引入的无用信息.
 
 #### 获得提示:对象类型
@@ -156,6 +158,108 @@ parent关键字可以在任何覆写父类方法中使用.覆写一个父类的�
 ## 接口
 
 抽象类提供了具体实现的标准,而接口(interface)则是纯粹的模板.接口只能定义功能而不包含实现内容.接口可用关键字interface声明.接口可以包含属性和方法声明,但是方法体为空. 
+
+## trait
+
+和java一样，php不支持多重继承。但接口可以帮助我们解决这个问题。换言之，php中的类只能有一个父类，却可以实现多个接口，这个类对于实现的每个接口都有相应的类型。
+
+接口可以提供没有任何实现的类型。但如果我们希望在继承层次中共享实现，可以是使用trait。
+
+trait是类似类的结构，它本身不能被实例化，但可以混合到类中。trait中定义的任何方法都可以被使用它的任何类所使用的。trait可以改变类的结构，但无法更改其类型。我们可以把trait视为包含到类中的部分。
+
+```php
+<?php
+
+trait PriceUtilities
+{
+//    private $tax_rate = 17;
+
+    /**
+* @param float $price
+ * @return float
+*/public function calculateTax(float $price): float
+    {
+        return $this->getTaxRate() * $price / 100;
+    }
+
+    abstract function getTaxRate(): float; // trait中定义抽象方法
+}
+
+trait StaticPriceUtilities
+{
+    private static $tax_rate = 17; // 改变trait中方法的访问权限
+
+    public static function calculateTax(float $price): float // trait 可以使用静态方法
+    {
+        return self::$tax_rate * $price / 100;
+    }
+}
+
+trait TaxTools
+{
+    function calculateTax(float $price): float
+    {
+        return 222;
+    }
+}
+
+class ShopProduct implements IdentityObject
+{
+    use PriceUtilities, IdentityTrait;
+
+    public function getTaxRate()
+    {
+        return 17;
+    }
+}
+
+class StaticShopProduct
+{
+    use StaticPriceUtilities;
+}
+
+abstract class Service
+{
+
+}
+
+class UtilityService extends Service
+{
+    use PriceUtilities, TaxTools {
+        TaxTools::calculateTax insteadof PriceUtilities; // 使用instanceof管理方法名冲突
+        PriceUtilities::calculateTax as basicTax;           // 使用别名重写trait的方法 
+    }
+
+    public function getTaxRate()
+    {
+        return 123;
+    }
+}
+
+trait IdentityTrait
+{
+    public function generateId(): string
+    {
+        return uniqid();
+    }
+}
+
+interface IdentityObject
+{
+    public function generateId(): string;
+}
+
+$p = new ShopProduct();
+print $p->calculateTax(100) . "\n";
+print $p->generateId() . "\n";
+
+$u = new UtilityService();
+print $u->calculateTax(100) . "\n";
+print $u->basicTax(100) . "\n";
+
+$sp = new StaticShopProduct();
+print $sp::calculateTax(100) . "\n";
+```
 
 ## 延迟静态绑定:static关键字
 
@@ -489,7 +593,6 @@ syntax error, unexpected end of file, expecting ',' or ';'
 
 final关键字可以终止类的继承.final类不能有子类,final方法不能被覆写.
 
-
 ## 使用拦截器
 
 **拦截器方法**
@@ -500,7 +603,8 @@ final关键字可以终止类的继承.final类不能有子类,final方法不能
 | __set($property, $value) | 给未定义的属性赋值时被调用 |
 | __isset($property) | 对未定义的属性调用isset()时被调用 |
 | __unset($property) | 对未定义的属性调用unset()时被调用 |
-| __call($property, $arg_array) | 调用未定义的方法时被调用 |
+| __call($property, $arg_array) | 调用未定义非静态的方法时被调用 |
+| __callStatic($property, $arg_array) | 调用未定义的静态方法时被调用 |
 
 ## 析构方法
 
@@ -521,6 +625,7 @@ function __clone() {
 
 ## 定义对象的字符串值
 
+__toString()方法
 ## 回调 匿名函数和闭包
 
 虽然匿名函数不是严格意义上的面向对象的特性,但是它非常有用.
@@ -610,13 +715,17 @@ $process->sale(new Product('pen', 12));
 
 注意在上述代码中的#1处的用法
 
-这里传递了一个数组,其第一个元素是对象,第二个元素是对象中的方法名(字符串形式).is_callbale可以智能检测这类数组.另外,这种写法在array_walk等中也常见
+这里传递了一个数组,其第一个元素是对象,第二个元素是对象中的方法名(字符串形式).is_callable可以智能检测这类数组.另外,这种写法在array_walk等中也常见
+
+## 匿名类
+
+当需要从很小的类中创建和继承实例，特别是这个类很简单且特定于局部上下文时，匿名类很有用。 
 
 # 对象工具
 
 本章主要内容:
 - 包:将代码按逻辑分类打包
-- 命名空间
+- 命名空间:将代码封装在独立的单元中
 - 包含路径:为类库代码设置访问路径
 - 类函数和对象函数:测试对象,类,属性和方法的函数
 - 反射API:一组强大的内置类,可以在代码运行时访问类信息
@@ -677,17 +786,15 @@ print_r(get_declared_classess())可以列出用户定义的类和php内置的类
 
 ### 了解类中的方法
 
-get_class_method ()
+get_class_method () 获取一个类中所有的public方法
 
-is_callable()
+is_callable() 验证变量是否可以作为函数被调用
 
-method_exists()
-
-PHP5中,方法存在不一定能被调用(private等)
+method_exists() 判断类中是否存在指定方法
 
 ### 了解类的属性
 
-get_class_vars()
+get_class_vars() 返回类中public属性
 
 ### 了解继承
 
@@ -700,6 +807,43 @@ instanceof
 
 class_implements()
 返回由接口构成的数组.
+
+#### 展示代码
+
+```php
+<?php
+class A {
+    public function foo() {
+    }
+
+    public function who() {
+    }
+
+    private function test_private(){
+    }
+}
+
+class B extends A {
+    public function test() {
+    }
+
+    public function who() {
+    }
+}
+class C extends B {
+}
+
+print_r(get_class_methods(new C()));
+
+var_dump(is_callable([new C(), 'foo'])); // true
+var_dump(is_callable([new C(), 'test_private'])); // false
+var_dump(method_exists('C', 'foo')); // true
+var_dump(method_exists('C', 'test_private')); // true
+
+var_dump(get_parent_class(new C())); // B
+var_dump(is_subclass_of(new C(),"A")); // true
+
+```
 
 ### 方法调用
 
@@ -743,6 +887,7 @@ PHP中的反射API就像java中的java.lang.reflect包一样.它由一系列可�
 | ReflectionFunction | 函数信息和工具 |
 | ReflectionExtension | PHP扩展信息 |
 | ReflectionException | 错误类 |
+| ReflectionZendExtension | PHP Zend扩展信息 |
 
 利用反射API中的这些类,可以在运行时访问对象/函数和脚本中的扩展的信息
 
@@ -795,4 +940,36 @@ PHP中的反射API就像java中的java.lang.reflect包一样.它由一系列可�
 - 接口的作用:模式和多态
 - 模式分类:模式类别
 
-# 
+## 组合与继承
+
+继承是一种强大的设计方式，它可以有效应对环境及上下文的改变。但是它也会限制灵活性，特别是类承担太多的职责的时候。
+
+组合优于继承。
+
+
+# 生成对象
+
+本章内容
+- 单例（Singleton）模式：只生成一个对象实例的特殊类
+- 工厂方法（Factory Method)模式：构建创造者类的继承层次
+- 抽象工厂（Abstract Factory)模式：对功能相关的产品进行分组
+- 原形（Prototype）模式：通过克隆生成对象
+- 服务定位器（Service Locator）模式：向系统索要对象
+- 依赖注入（Dependency Injection）模式：让系统给我们对象
+
+## 生成对象的问题及解决方案
+
+
+
+## 单例模式
+
+虽然全局变量是面向对象程序员都讨厌的东西，但是为了所有的类能够方便地访问变量，我们不惜代价忍受全局访问的缺陷。
+命名空间可以在一定程度上避免命名的冲突，我们至少可以将变量作用域限制在包内，这意味着第三方库与我们自己库中的变量命名发生冲突的可能性大大降低了。即便如此，在命名空间内部依然有命名冲突的风险。
+
+单例模式和全局变量相比如何？两者都容易被误用。因为系统中的任何地方都可以访问单例，所以也容易引发难以调试的依赖关系。在面向对象的设计中，单例优于全局变量，因为单例可以防止其他代码向单例写入错误的数据类型。
+
+## 工厂方法模式
+
+面向对象的设计强调抽象类高于实现类，也就是说，我们应该尽量一般化，而不是特殊化。工厂方法模式能够解决代码关注抽象类型是如何创建对象实例的问题。答案就是用实现类负责实例化对象。
+
+

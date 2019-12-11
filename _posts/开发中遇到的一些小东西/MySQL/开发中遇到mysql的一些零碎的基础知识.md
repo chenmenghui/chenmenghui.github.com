@@ -183,3 +183,15 @@ ALTER TABLE `system_menu`
 
 insert ignore into 指的是插入时忽略错误信息。
 比如，如果没有「ignore」，一条包含多个数据的插入语句会在报错（如重复索引）后直接退出执行；而有「ignore」，则会忽略报错继续执行其他可执行的部分。
+
+### on duplicate key update
+
+这个就牛逼了，实现了有则更新，无则添加的功能
+
+```sql
+INSERT INTO daily_hit_count(day, slot, cnt)
+VALUES (current_date,
+        floor(rand() * 10),
+        1)
+ON DUPLICATE KEY UPDATE cnt =cnt + 1;
+```
