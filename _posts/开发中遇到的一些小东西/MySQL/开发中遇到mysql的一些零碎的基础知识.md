@@ -156,7 +156,7 @@ SELECT ifnull(null, 1);
 ```sql
 SELECT CASE sex
 WHEN 1 THEN '男' 
-　　ELSE '女' 
+    ELSE '女' 
 END
 FROM test;
 ```
@@ -176,3 +176,10 @@ FROM test;
 ALTER TABLE `system_menu`
     AUTO_INCREMENT = 60;
 ```
+
+### Insert ignore into
+
+[MySQL INSERT IGNORE Statement](http://www.mysqltutorial.org/mysql-insert-ignore/)
+
+insert ignore into 指的是插入时忽略错误信息。
+比如，如果没有「ignore」，一条包含多个数据的插入语句会在报错（如重复索引）后直接退出执行；而有「ignore」，则会忽略报错继续执行其他可执行的部分。
