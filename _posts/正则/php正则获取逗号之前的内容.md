@@ -1,9 +1,9 @@
 ---
 title: php正则获取逗号之前的内容
 date: 2019-6-11
-categories: PHP
+categories: 正则
 tags: 
-- PHP
+- 正则
 - 实用代码片段
 ---
 
