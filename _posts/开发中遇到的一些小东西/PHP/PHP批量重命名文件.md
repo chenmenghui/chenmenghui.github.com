@@ -19,17 +19,15 @@ function deep($dir)
         foreach ($current_files as $item) {
             if ($item != '.' && $item != '..' && $item != './idea') {
                 $current_file = $dir . '/' . $item;
-                if (is_dir($current_file)) {
-                    deep($current_file);
-                } else {
-                    if ($new_name = preg_replace('/txt$/', 'sql', $current_file)) {
-                        rename($current_file, $new_name);
-                    }
-                }
+                deep($current_file);
             }
+        }
+    } else {
+        if ($new_name = preg_replace('/txt$/', 'sql', $dir)) {
+            rename($dir, $new_name);
         }
     }
 }
 
-deep('./');
+deep('./');;
 ```
