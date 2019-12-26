@@ -7,7 +7,9 @@ tags:
 - 实用代码片段
 ---
 
-公司服务器php是老版的,不支持array_column.但这个函数功能还是挺实用的,自己在处理些订单数组时经常用到.
+其实也就是简单的封装，再一个就是继承当前浏览器的header，主要是Cookie和Referer。这两个经常会被服务端做过滤之类的处理。
+
+刚刚犯的错误，QueryCurl::_setData()，其中「CURLOPT_POSTFIELDS」只是post传值。
 
 ```php
 <?php
