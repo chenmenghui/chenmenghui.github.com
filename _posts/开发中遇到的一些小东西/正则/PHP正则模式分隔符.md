@@ -28,4 +28,4 @@ foreach ($aPatternMode2 as $key => $pattern) {
 像这样，分隔符就别的可有可无了。我也是无意间发现的。
 
 明明是一件不重要的事情，可就是让我如鲠在喉。
-其实我是模式修饰符用的不多，这个分隔符加在模式和修饰符之间的，是有实际意义的。
+其实我是模式修饰符用的不多，这个分隔符加在模式和[修饰符](https://www.php.net/manual/zh/reference.pcre.pattern.modifiers.php)之间的，是相当有用的。
