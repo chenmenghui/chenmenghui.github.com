@@ -1,0 +1,133 @@
+---
+title: CURL操作
+date: 2019-12-26
+categories: PHP
+tags: 
+- PHP
+- 实用代码片段
+---
+
+公司服务器php是老版的,不支持array_column.但这个函数功能还是挺实用的,自己在处理些订单数组时经常用到.
+
+```php
+<?php
+
+
+class QueryCurl
+{
+    private $sTargetHost = '';
+    private $sParams = '';
+    private $rCurlOption;
+    private $mCurlResult;
+    private $sCurlContent;
+    private $mCurlRequestHeads;
+    private $mCurlResponseHeads;
+
+    public $bPost = true;
+
+    const DEBUG = false;
+
+    /**
+     * Get data through get
+     * @param string $sUrl
+     * @param array $aParams
+     * @return mixed
+     */
+    public function getQuery($sUrl, $aParams = [])
+    {
+        $this->sTargetHost = $sUrl;
+        $this->sParams = http_build_query($aParams);
+        $this->bPost = false;
+        $this->run();
+        return $this->sCurlContent;
+    }
+
+    /**
+     * Get data through post
+     * @param string $sUrl
+     * @param array $aParams
+     * @return mixed
+     */
+    public function postQuery($sUrl, $aParams = [])
+    {
+        $this->sTargetHost = $sUrl;
+        $this->sParams = http_build_query($aParams);
+        $this->bPost = true;
+        $this->run();
+        return $this->sCurlContent;
+    }
+
+    private function _inheritHeader()
+    {
+        $aHeader = [];
+        foreach ($_SERVER as $key => $value) {
+            if (stripos($key, 'HTTP') !== false) {
+                $key = substr($key, 5);
+                $aHeader[$key] = $key . ':' . $value;
+            }
+        };
+        if (self::DEBUG) {
+            file_put_contents('test_head.txt', var_export($aHeader, 1) . "\n", FILE_APPEND);
+        }
+        curl_setopt($this->rCurlOption, CURLOPT_HTTPHEADER, $aHeader);
+    }
+
+
+    private function _setData()
+    {
+        if ($this->bPost) {
+            curl_setopt($this->rCurlOption, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($this->rCurlOption, CURLOPT_POST, true);
+            curl_setopt($this->rCurlOption, CURLOPT_POSTFIELDS, $this->sParams);
+        } else {
+            if ($this->sParams) {
+                if (false === strpos($this->sTargetHost, '?')) {
+                    $this->sTargetHost .= '?' . $this->sParams;
+                } else {
+                    $this->sTargetHost .= '&' . $this->sParams;
+                }
+            }
+        }
+    }
+
+
+    private function run()
+    {
+        try {
+            $this->rCurlOption = curl_init();
+            $this->_setData();
+            $this->_inheritHeader();
+            curl_setopt($this->rCurlOption, CURLOPT_URL, $this->sTargetHost);
+            curl_setopt($this->rCurlOption, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($this->rCurlOption, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($this->rCurlOption, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            curl_setopt($this->rCurlOption, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($this->rCurlOption, CURLOPT_AUTOREFERER, 1);
+            curl_setopt($this->rCurlOption, CURLOPT_TIMEOUT, 0);
+            curl_setopt($this->rCurlOption, CURLOPT_HEADER, 1);
+            curl_setopt($this->rCurlOption, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($this->rCurlOption, CURLINFO_HEADER_OUT, true);
+            $this->mCurlResult = curl_exec($this->rCurlOption);
+            $errno = curl_errno($this->rCurlOption);
+            if ($errno) {
+                throw new Exception($errno);
+            }
+            $this->mCurlRequestHeads = curl_getinfo($this->rCurlOption, CURLINFO_HEADER_OUT);
+            $response_heads_size = curl_getinfo($this->rCurlOption, CURLINFO_HEADER_SIZE);
+            $this->mCurlResponseHeads = $this->mCurlResponseHeads = substr($this->mCurlResult, 0, $response_heads_size);
+            $this->sCurlContent = substr($this->mCurlResult, $response_heads_size);
+            if (self::DEBUG) {
+                file_put_contents('head.txt', $this->mCurlRequestHeads . "\n", FILE_APPEND);
+                $rand = time();
+                file_put_contents("result_{$rand}.txt", $this->mCurlResult);
+            }
+            curl_close($this->rCurlOption);
+        } catch (Exception $exception) {
+            // logs
+            if (self::DEBUG) {
+                file_put_contents('./curl_error_log.txt', var_export($exception->getMessage(), 1), FILE_APPEND);
+            }
+        }
+    }
+}
+```
