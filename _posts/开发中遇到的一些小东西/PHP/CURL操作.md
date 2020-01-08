@@ -11,6 +11,8 @@ tags:
 
 刚刚犯的错误，QueryCurl::_setData()，其中「CURLOPT_POSTFIELDS」只是post传值。
 
+工作中遇到一个问题，就是执行这个脚本的时候，进行了诸如退出这样修改Session的操作，导致一些因session不一致产生了业务上的错误。这里最好的解决方式是操作session、cookie这样的操作时，不要使用同一个浏览器。
+
 ```php
 <?php
 
@@ -40,7 +42,7 @@ class QueryCurl
         $this->sTargetHost = $sUrl;
         $this->sParams = http_build_query($aParams);
         $this->bPost = false;
-        $this->run();
+        $this->_run();
         return $this->sCurlContent;
     }
 
@@ -55,7 +57,7 @@ class QueryCurl
         $this->sTargetHost = $sUrl;
         $this->sParams = http_build_query($aParams);
         $this->bPost = true;
-        $this->run();
+        $this->_run();
         return $this->sCurlContent;
     }
 
@@ -93,7 +95,7 @@ class QueryCurl
     }
 
 
-    private function run()
+    private function _run()
     {
         try {
             $this->rCurlOption = curl_init();
