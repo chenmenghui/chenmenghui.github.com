@@ -20,7 +20,6 @@ tags:
 
 撇开依赖注入,实现的方式可以是这样
 ```php
-<?php
 class EmailSender
 {
     public function send()
@@ -40,14 +39,6 @@ class User
 ```
 如下修改之后
 ```php
-<?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2019/2/11
- * Time: 16:18
- */
-
 interface EmailSender{
     public function send();
 }

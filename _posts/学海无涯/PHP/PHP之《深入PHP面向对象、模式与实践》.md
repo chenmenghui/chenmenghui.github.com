@@ -35,7 +35,7 @@ class ShopProduce {
 
 ```php
 <?php
-$product1 = new ShopProducee;
+$product1 = new ShopProducee();
 var_dump($product1); // 可以看到包含对象ID的字符串
 ```
 
