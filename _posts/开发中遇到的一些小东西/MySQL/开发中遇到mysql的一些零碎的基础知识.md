@@ -195,3 +195,12 @@ VALUES (current_date,
         1)
 ON DUPLICATE KEY UPDATE cnt =cnt + 1;
 ```
+
+### 自定义排序
+
+之前遇到排序结果是需要自定义的，现在有一个思路
+```sql
+SELECT `key`,CASE `key` WHEN 'B' THEN 1 WHEN 'A' THEN 2 WHEN 'C' THEN 4 WHEN 'D' THEN 3 ELSE NULL END AS new_sort
+FROM Greatests
+ORDER BY new_sort;
+```

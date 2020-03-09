@@ -131,3 +131,32 @@ SELECT count(*) FROM employees; # 和上着的区别在于,这个展示的是行
 
 select count(1) from employees; # 相当于数据多了一行1,然后统计个数(实际就是行数)
 ```
+
+# any some all in exists
+
+exists用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False。
+any对于子查询返回的列中的任一数值，如果比较结果为true，则返回true。
+some是any的别名。
+all对于子查询返回的列中的所有值，如果比较结果为true，则返回true。
+
+使用方法如下，注意any/all/是和比较操作符一起使用的
+```sql
+select * from TableIn where exists(select BID from TableEx where BNAME=TableIn.ANAME);
+select * from TableIn where ANAME=ANY(select BNAME from TableEx);
+select * from TableIn where ANAME IN (select BNAME FROM TableEx);
+
+select * from TableIn where ANAME=ALL(select BNAME from TableEx);
+```
+这里提一下，估计之后看到的时候也会忘记为什么了。in和exists意义并不完全相同，在字段有null值存在的情况，使用两种方法获得的结果可能会不一样。
+```sql
+SELECT *
+FROM test
+WHERE id IN (NULL);
+
+SELECT *
+FROM test
+WHERE exists(SELECT NULL);
+```
+如上，第一个查不到数据，第二个查出了test表的所有数据。
+产生这样的结果，是因为EXISTS 谓词永远不会返回 unknown (select null 的结果是「unknown」，表示未知) 。EXISTS 只会返回 true 或者false 。因此就有了 IN 和 EXISTS 可以互相替换使用，而 NOT IN和 NOT EXISTS 却不可以互相替换的混乱现象。
+
