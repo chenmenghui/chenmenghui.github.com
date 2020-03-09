@@ -1,6 +1,6 @@
 ---
 title: plantUML生成的图片过大时无法显示全部
-date: 2019-9-27
+date: 2020-3-9
 categories: 
 - 工具
 tags: plantUML
