@@ -204,3 +204,8 @@ SELECT `key`,CASE `key` WHEN 'B' THEN 1 WHEN 'A' THEN 2 WHEN 'C' THEN 4 WHEN 'D'
 FROM Greatests
 ORDER BY new_sort;
 ```
+
+### 「=」和「:=」的区别
+
+「=」只有在update和set才是赋值，其他地方是判断。而判断的结果是1或2
+「:=」只有赋值
