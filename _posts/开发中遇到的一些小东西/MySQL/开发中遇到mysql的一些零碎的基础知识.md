@@ -8,6 +8,7 @@ tags:
 ---
 
 ### mysql一行信息中匹配特定的数据
+
 ```sql
 SELECT * FROM user WHERE nick_name REGEXP '[[:<:]]不觉风止[[:>:]]';
 ```
@@ -18,6 +19,7 @@ SELECT * FROM user WHERE find_in_set(nick_name, '不觉风止');
 用like就太繁琐了,需要考虑多种情况
 
 ### mysql中join之后的on
+
 看一个sql语句
 ```sql
 SELECT
@@ -63,6 +65,7 @@ SELECT group_concat(key) FROM config WHERE group = 'points';
 ```
 
 ### UPDATE把一个表中的字段与另一个表的字段对应上
+
 ```sql
 update store_reply s, base_user c
 set s.head_img_url = c.head_img_url
@@ -70,6 +73,7 @@ where s.user_id = c.id;
 ```
 
 ### INSERT另外一个表的数据
+
 ```sql
 INSERT INTO favorite_num (rid, favorite_num)
   SELECT
@@ -207,5 +211,6 @@ ORDER BY new_sort;
 
 ### 「=」和「:=」的区别
 
-「=」只有在update和set才是赋值，其他地方是判断。而判断的结果是1或2
-「:=」只有赋值
+- 「=」只有在update或set中才是赋值，其他地方是判断。而判断的结果是1或2
+- 「:=」只有赋值
+
