@@ -214,3 +214,39 @@ ORDER BY new_sort;
 - 「=」只有在update或set中才是赋值，其他地方是判断。而判断的结果是1或2
 - 「:=」只有赋值
 
+### UPDATE操作是有顺序的
+
+第一次见到没有看懂，记下来吧。
+
+```sql
+DROP TABLE IF EXISTS test;
+CREATE TABLE IF NOT EXISTS test
+(
+    id    int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    start int NOT NULL DEFAULT 0,
+    end   INT NOT NULL DEFAULT 0
+) CHARSET utf8
+  ENGINE innodb;
+
+INSERT INTO test (start)
+VALUES (1),
+       (2),
+       (3),
+       (4),
+       (5),
+       (6);
+
+SELECT *
+FROM test;
+
+SET @new_num = 10;
+
+UPDATE test
+SET end   = @new_num,
+    start = (@new_num := start) #1
+ORDER BY id DESC;
+```
+
+注意#1的地方。
+
+一直以来有个误区，总感觉update操作时同时进行的。从这个可以看出结果，还是有顺序的，甚而还会受到order by的影响。
