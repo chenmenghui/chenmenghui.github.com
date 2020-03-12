@@ -257,4 +257,11 @@ ORDER BY id DESC;
 
 在经常使用的分页查询中，经常是「select count（*） from 子句」和「子句」这般查两次。使用该函数，就无须这样的操作了。在处理复杂的「子句」时，大大提高了效率。
 
+### 通过SQL查看表所包含的字段
 
+```sql
+SELECT COLUMN_NAME
+FROM information_schema.COLUMNS
+WHERE TABLE_SCHEMA = '库名'
+  AND TABLE_NAME = '表名';
+```
