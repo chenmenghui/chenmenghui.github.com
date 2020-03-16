@@ -326,6 +326,8 @@ COUNT 函数的使用方法有 COUNT(*) 和 COUNT( 列名 ) 两种，它们的�
 
 ### 用关系除法运算进行购物篮分析
 
+带余除法
+
 ```sql
 SELECT SI.shop
 FROM ShopItems SI,
@@ -335,9 +337,31 @@ GROUP BY SI.shop
 HAVING COUNT(SI.item) = (SELECT COUNT(item) FROM Items);
 ```
 
+精确关系除法
+
+```sql
+SELECT si.shop, count(si.item), count(i.item)
+FROM ShopItems si
+LEFT JOIN Items i ON si.item = i.item
+GROUP BY si.shop
+HAVING count(si.item) = 3 and count(i.item) = 3;
+```
+
+从SQL中看，区别就在于「join」和「left join」及「count（si.item」和「count（si.item) and count(count(i.item))」。
+
+在去除group by和having条件之后，就可以看出两者为什么会有这种差别。
+
+left join和join的区别就是前者会把主表所有的结果都取出来，哪怕对应副表没有相应的数据（这个时候对应附表展示为null）；而后者只取同时满足条件的结果。
+
+having条件筛选出来的，其实是满足on条件的两个表各自的个数。
+「join」对应的那条因为「join」的关系，在筛选结果中count(si.item)和count(i.item)的值是一样的。
+同理，「left join」筛选结果中，count(si.item)是对应group中**表shopItem的所有条目数（不受on约束）**，而count(i.item)会排除结果中相应的null，即**item表所有*满足on条件*的条目数**。
+而这两者，是不等价的。
+
+
 ### 本章总结
 
-1. 表不是文件，记录也没有顺序，所以 SQL 不进行排序。
+1. 表不是文件，记录也没有顺序，所以 SQL 不进行排序。（这一点也没有什么用，可通过group by轻松排序。使用此法，中位数可以更容易理解地取出来）。
 2. SQL 不是面向过程语言，没有循环、条件分支、赋值操作。
 3. SQL 通过不断生成子集来求得目标集合。SQL 不像面向过程语言那样通过画流程图来思考问题，而是通过画集合的关系图来思考。
 4. GROUP BY 子句可以用来生成子集。
