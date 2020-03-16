@@ -1,11 +1,15 @@
 ---
-title: mysql事务之修改不定的表结构
+title: mysql事务之修改不确定的表结构
 date: 2019-12-19
 categories: 
 - MySQL
 tags: 
 - MySQL
 ---
+
+工作中的失误，导致一堆数据库中，同名的表没有全部改掉。
+
+尝试着写一段SQL，自行判断需不需要更改表结构。
 
 ```sql
 DELIMITER ;;

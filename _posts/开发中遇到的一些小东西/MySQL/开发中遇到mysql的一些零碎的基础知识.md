@@ -8,6 +8,7 @@ tags:
 ---
 
 ### mysql一行信息中匹配特定的数据
+
 ```sql
 SELECT * FROM user WHERE nick_name REGEXP '[[:<:]]不觉风止[[:>:]]';
 ```
@@ -18,6 +19,7 @@ SELECT * FROM user WHERE find_in_set(nick_name, '不觉风止');
 用like就太繁琐了,需要考虑多种情况
 
 ### mysql中join之后的on
+
 看一个sql语句
 ```sql
 SELECT
@@ -63,6 +65,7 @@ SELECT group_concat(key) FROM config WHERE group = 'points';
 ```
 
 ### UPDATE把一个表中的字段与另一个表的字段对应上
+
 ```sql
 update store_reply s, base_user c
 set s.head_img_url = c.head_img_url
@@ -70,6 +73,7 @@ where s.user_id = c.id;
 ```
 
 ### INSERT另外一个表的数据
+
 ```sql
 INSERT INTO favorite_num (rid, favorite_num)
   SELECT
@@ -203,4 +207,61 @@ ON DUPLICATE KEY UPDATE cnt =cnt + 1;
 SELECT `key`,CASE `key` WHEN 'B' THEN 1 WHEN 'A' THEN 2 WHEN 'C' THEN 4 WHEN 'D' THEN 3 ELSE NULL END AS new_sort
 FROM Greatests
 ORDER BY new_sort;
+```
+
+### 「=」和「:=」的区别
+
+- 「=」只有在update或set中才是赋值，其他地方是判断。而判断的结果是1或2
+- 「:=」只有赋值
+
+### UPDATE操作是有顺序的
+
+第一次见到没有看懂，记下来吧。
+
+```sql
+DROP TABLE IF EXISTS test;
+CREATE TABLE IF NOT EXISTS test
+(
+    id    int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    start int NOT NULL DEFAULT 0,
+    end   INT NOT NULL DEFAULT 0
+) CHARSET utf8
+  ENGINE innodb;
+
+INSERT INTO test (start)
+VALUES (1),
+       (2),
+       (3),
+       (4),
+       (5),
+       (6);
+
+SELECT *
+FROM test;
+
+SET @new_num = 10;
+
+UPDATE test
+SET end   = @new_num,
+    start = (@new_num := start) #1
+ORDER BY id DESC;
+```
+
+注意#1的地方。
+
+这几天看那本SQL进阶，因为其中反复强调SQL是无序集合，所以产生了个误区，总感觉update操作时同时进行的。从这个可以看出结果，还是有顺序的，甚而还会受到order by的影响。
+
+其实想想也是，数据表本身就是按一定顺序排列的「文本」结构，怎么可能会没有顺序呢。不仅仅是update，其他操作也是有顺序的。就比如之前常见的排列序号，如果没有顺序，是不可能实现的。
+
+### SQL_CALC_FOUND_ROWS
+
+在经常使用的分页查询中，经常是「select count（*） from 子句」和「子句」这般查两次。使用该函数，就无须这样的操作了。在处理复杂的「子句」时，大大提高了效率。
+
+### 通过SQL查看表所包含的字段
+
+```sql
+SELECT COLUMN_NAME
+FROM information_schema.COLUMNS
+WHERE TABLE_SCHEMA = '库名'
+  AND TABLE_NAME = '表名';
 ```
