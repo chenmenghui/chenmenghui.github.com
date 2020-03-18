@@ -265,3 +265,18 @@ FROM information_schema.COLUMNS
 WHERE TABLE_SCHEMA = '库名'
   AND TABLE_NAME = '表名';
 ```
+
+### 查询结果按 非零非null、非null、null 进行排序
+
+```sql
+SELECT *
+FROM test
+ORDER BY ISNULL(end), NOT (end), end;
+```
+
+isnull 值为null，结果为1；值为非null，结果为0。排序结果就会把所有的非null放在前面
+
+not 值为null，结果为null；值为0，结果为1；值为非null非0，结果为0
+
+
+所以，排序结果就是按 非零非null、非null、null 排序
