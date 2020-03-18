@@ -2,9 +2,9 @@
 title: MySQL刚接触的东西
 date: 2019-12-19
 categories: 
-- MySQL
+- mysql
 tags: 
-- MySQL
+- mysql
 ---
 
 ### USING

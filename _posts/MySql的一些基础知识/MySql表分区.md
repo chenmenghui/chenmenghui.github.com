@@ -2,7 +2,7 @@
 title: MySql表分区
 date: 2018-12-20
 categories: 
-- MySQL
+- mysql
 tags: MySQL
 ---
 

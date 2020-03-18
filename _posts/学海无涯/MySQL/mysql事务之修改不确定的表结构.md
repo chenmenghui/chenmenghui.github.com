@@ -2,9 +2,9 @@
 title: mysql事务之修改不确定的表结构
 date: 2019-12-19
 categories: 
-- MySQL
+- mysql
 tags: 
-- MySQL
+- mysql
 ---
 
 工作中的失误，导致一堆数据库中，同名的表没有全部改掉。

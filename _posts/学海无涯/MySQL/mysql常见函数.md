@@ -2,9 +2,9 @@
 title: MySQL常见函数
 date: 2019年1月26日
 categories: 
-- MySQL
+- mysql
 tags: 
-- MySQL
+- mysql
 ---
 
 ## 字符函数

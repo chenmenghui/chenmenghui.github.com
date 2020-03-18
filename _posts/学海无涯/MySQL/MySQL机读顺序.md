@@ -2,9 +2,9 @@
 title: MySQL机读顺序
 date: 2019年1月26日
 categories: 
-- MySQL
+- mysql
 tags: 
-- MySQL
+- mysql
 ---
 
 1. FROM <left_table>
