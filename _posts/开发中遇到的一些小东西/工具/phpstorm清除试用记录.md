@@ -6,7 +6,7 @@ categories:
 tags: phpstorm
 ---
 
-删除注册器中phpstorm安装记录和phpstorm配置文件中的一些记录文件就好了
+删除注册器和和配置文件中的一些记录数据就可以啦
 
 可使用批处理
 
@@ -16,6 +16,6 @@ del /s/f/q "C:%HOMEPATH%\.PhpStorm2019.3\config\options\other.xml"
 rd /s/q  "C:%HOMEPATH%\.PhpStorm2019.3\config\eval"
 ```
 
-对批处理还不太了解，所以「.PhpStorm2019.3」是写死的。
+暂时对批处理还不太了解，所以「.PhpStorm2019.3」是写死的。
 
-这点应该不能，不日解决。
+这点应该不难，不日解决。
