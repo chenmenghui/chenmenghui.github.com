@@ -6,6 +6,8 @@ categories:
 tags: plantUML
 ---
 
+[官网已经很详细了，还自带中文，很容易看懂](https://plantuml.com/)
+
 ### 时序图
 
 ```puml

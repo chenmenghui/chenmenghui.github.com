@@ -3,6 +3,7 @@ title: 命令行使用tree打印文件树
 date: 2020-1-18
 categories: 
 - 工具
+- bat
 ---
 
 环境win7

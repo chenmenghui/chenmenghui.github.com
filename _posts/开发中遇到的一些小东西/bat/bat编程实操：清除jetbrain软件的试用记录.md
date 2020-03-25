@@ -1,8 +1,9 @@
 ---
-title: phpstorm清除试用记录
+title: bat编程实操：清除jetbrain软件的试用记录
 date: 2020-3-19
 categories: 
 - 工具
+- bat
 ---
 
 删除注册器和和配置文件中的一些记录数据就可以啦
