@@ -13,4 +13,14 @@ tags:
 echo preg_filter("/(,.*$)|$/", '', $item['image']);
 ```
 
-以后会找到更好的方法吧.
+好吧，就是把匹配到的字符替换成空了。总觉的有些怪怪的。
+
+已经找到另一种方法，就是把preg_match那个稍稍封装一下就行了。
+
+```php
+    function pregGetter($pattern, $subject, $part = 'value')
+    {
+        preg_match($pattern, $subject, $match);
+        return $match[$part];
+    }
+```
