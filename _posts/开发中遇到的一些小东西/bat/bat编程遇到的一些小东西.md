@@ -54,6 +54,23 @@ for /l %%i in (1 1 10) do (
 )
 ```
 
+
+> for %%i in (command1) do command2
+
+参数「f」，读文件
+
+```bat
+:: 读文件，以行为间隔
+for /f %%i in (test.txt) do echo %%i
+
+:: 读文件，以 delims 中的参数「,」为间隔
+for /f "delims=," %%i in (test.txt) do echo %%i
+```
+
+参数 d
+
+参数
+
 ### 字符串截取
 
 
