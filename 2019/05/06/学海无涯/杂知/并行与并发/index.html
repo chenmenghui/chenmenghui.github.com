@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>并行与并发的区别 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>并行与并发的区别</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/05/06</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/杂知/">杂知</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#杂知" class='tag'>杂知</a>
+
+
+            
+          </div>
+          <ul>
+<li>并发<ul>
+<li>操作系统中,是指一个时间段中有几个程序都处于已启动运行到运行完毕之间,且这几个程序都是在同一个处理机上运行</li>
+<li>多个事情,在同一<strong>时间段</strong>同时发生了</li>
+<li>并发的多个任务之间是互相抢占资源的</li>
+</ul>
+</li>
+<li>并行<ul>
+<li>当系统有一个以上的cpu时,当一个CPU执行一个进程时,另一个cpu可以执行另一个进程,两个进程互不抢占CPU资源,可以同时进行</li>
+<li>多个事情,在同一<strong>时间点</strong>同时发生了</li>
+<li>并发的多个任务之间是不互相抢占资源的</li>
+</ul>
+</li>
+</ul>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

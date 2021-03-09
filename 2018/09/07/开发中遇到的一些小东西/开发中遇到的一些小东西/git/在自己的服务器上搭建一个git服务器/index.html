@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>在自己的服务器上搭建一个git服务器 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>在自己的服务器上搭建一个git服务器</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/07</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/git/">git</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#git" class='tag'>git</a>
+
+
+            
+          </div>
+          <h1 id="配置篇"><a href="#配置篇" class="headerlink" title="配置篇"></a>配置篇</h1><h2 id="在服务器上配置git仓库"><a href="#在服务器上配置git仓库" class="headerlink" title="在服务器上配置git仓库"></a>在服务器上配置git仓库</h2><h3 id="安装git-ubuntu-root"><a href="#安装git-ubuntu-root" class="headerlink" title="安装git(ubuntu root)"></a>安装git(ubuntu root)</h3><p>apt install git</p>
+<h3 id="创建一个git用户"><a href="#创建一个git用户" class="headerlink" title="创建一个git用户"></a>创建一个git用户</h3><p>adduser git</p>
+<h3 id="初始化一个仓库"><a href="#初始化一个仓库" class="headerlink" title="初始化一个仓库"></a>初始化一个仓库</h3><ol>
+<li>指定一个目录作为git仓库</li>
+<li>git init –bare /srv/yii.git</li>
+<li>chown git:git -R /srv/yii.git<h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3></li>
+<li>创建/home/git/.ssh/authorized_keys(注意:.ssh目录及authorized_key文件是自建的)</li>
+<li>收集需要登陆用户的公匙,导入到上个创建的文件中.一个公匙占一行<h2 id="客户端配置git"><a href="#客户端配置git" class="headerlink" title="客户端配置git"></a>客户端配置git</h2><h3 id="安装git命令行"><a href="#安装git命令行" class="headerlink" title="安装git命令行"></a>安装git命令行</h3></li>
+</ol>
+<ul>
+<li>ubuntu<ul>
+<li>apt install git</li>
+</ul>
+</li>
+<li>win<ul>
+<li><a href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">安装</a><h3 id="配置git用户数据"><a href="#配置git用户数据" class="headerlink" title="配置git用户数据"></a>配置git用户数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 用户信息</span><br><span class="line">git config --global user.name &apos;***&apos;</span><br><span class="line">git config --global user.email &apos;***&apos;</span><br><span class="line">// 生成密匙</span><br><span class="line">ssh-keygen // 注意会提示保存在哪里,一会要到对应的地方找,默认是在对应用户目录下的.ssh/里</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="把用户信息导至服务器"><a href="#把用户信息导至服务器" class="headerlink" title="把用户信息导至服务器"></a>把用户信息导至服务器</h3><p>把公匙信息复制到服务器的/home/git/.ssh/authorized_keys中<br>值得注意的是，公匙是可以在多个git服务器中使用的。自己的github仓库、自建服务器git仓库及公司代码gitlab仓库就是使用的是同一个公匙。</p>
+<h1 id="使用篇"><a href="#使用篇" class="headerlink" title="使用篇"></a>使用篇</h1><h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><p>服务器不能直接查看用户所提交的数据,需要使用git clone [对应仓库目录]把数据提取到当前目录(pwd所在地)</p>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><ol>
+<li>git clone <a href="mailto:git@47.104.189.68" target="_blank" rel="noopener">git@47.104.189.68</a>:/srv/yii.git (如果没有加入公匙,也可使用git用户对应的密码)</li>
+<li>填写数据</li>
+<li>git add -all <a href="https://www.cnblogs.com/skura23/p/5859243.html" target="_blank" rel="noopener">add</a> 把新创建的文件提交到暂缓区</li>
+<li>git commit -am ‘注释’ 把修改内容保存到缓存区并提交至<strong>本地仓库</strong></li>
+<li>git push origin master 把本地仓库提交至服务器</li>
+<li>git pull origin master 把服务器内容拉取下来</li>
+</ol>
+<h1 id="注意篇"><a href="#注意篇" class="headerlink" title="注意篇"></a>注意篇</h1><h2 id="如果发生冲突"><a href="#如果发生冲突" class="headerlink" title="如果发生冲突"></a>如果发生冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 和线上代码保持一致,也就是放弃上一次push之前的所有修改</span><br><span class="line">git fetch -all</span><br><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+<h2 id="git-clone-提示端口不对"><a href="#git-clone-提示端口不对" class="headerlink" title="git clone 提示端口不对"></a>git clone 提示端口不对</h2><p>可能原因</p>
+<ol>
+<li>服务器没有安装openssh_server(我被这个折腾了快一个小时)</li>
+<li>防火墙拦截(一般不会,默认是22端口)</li>
+</ol>
+<h2 id="To-squelch-this-message-and-still-keep-the-default-behaviour-set-remote-error-‘receive-denyCurrentBranch’-configuration-variable-to-‘refuse’"><a href="#To-squelch-this-message-and-still-keep-the-default-behaviour-set-remote-error-‘receive-denyCurrentBranch’-configuration-variable-to-‘refuse’" class="headerlink" title="To squelch this message and still keep the default behaviour, set remote: error: ‘receive.denyCurrentBranch’ configuration variable to ‘refuse’."></a>To squelch this message and still keep the default behaviour, set remote: error: ‘receive.denyCurrentBranch’ configuration variable to ‘refuse’.</h2><p>出现这个错误是因为在服务器端错误的使用了git init /srv/advanced<br>注意,远程仓库初始化需要 <code>ogit init --bare  /srv/advanced</code><br>–bare 创建裸仓库.用于记录版本库历史记录的.git目录下面的文件;而不会包含实际项目源文件的拷贝;所以该版本库不能称为工作目录(working tree);</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置篇"><span class="toc-number">1.</span> <span class="toc-text">配置篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在服务器上配置git仓库"><span class="toc-number">1.1.</span> <span class="toc-text">在服务器上配置git仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git-ubuntu-root"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装git(ubuntu root)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个git用户"><span class="toc-number">1.1.2.</span> <span class="toc-text">创建一个git用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化一个仓库"><span class="toc-number">1.1.3.</span> <span class="toc-text">初始化一个仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建证书登录"><span class="toc-number">1.1.4.</span> <span class="toc-text">创建证书登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端配置git"><span class="toc-number">1.2.</span> <span class="toc-text">客户端配置git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装git命令行"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装git命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置git用户数据"><span class="toc-number">1.2.2.</span> <span class="toc-text">配置git用户数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把用户信息导至服务器"><span class="toc-number">1.2.3.</span> <span class="toc-text">把用户信息导至服务器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用篇"><span class="toc-number">2.</span> <span class="toc-text">使用篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器"><span class="toc-number">2.1.</span> <span class="toc-text">服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#客户端"><span class="toc-number">2.2.</span> <span class="toc-text">客户端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意篇"><span class="toc-number">3.</span> <span class="toc-text">注意篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如果发生冲突"><span class="toc-number">3.1.</span> <span class="toc-text">如果发生冲突</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone-提示端口不对"><span class="toc-number">3.2.</span> <span class="toc-text">git clone 提示端口不对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#To-squelch-this-message-and-still-keep-the-default-behaviour-set-remote-error-‘receive-denyCurrentBranch’-configuration-variable-to-‘refuse’"><span class="toc-number">3.3.</span> <span class="toc-text">To squelch this message and still keep the default behaviour, set remote: error: ‘receive.denyCurrentBranch’ configuration variable to ‘refuse’.</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

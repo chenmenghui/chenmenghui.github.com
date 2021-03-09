@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>php函数积累 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>php函数积累</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/06</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/PHP/">PHP</a>/ <a class="article-category-link" href="../../../../../../categories/PHP/PHP基础知识/">PHP基础知识</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#PHP基础知识" class='tag'>PHP基础知识</a>
+
+
+            
+          </div>
+          <h3 id="register-shutdown-function"><a href="#register-shutdown-function" class="headerlink" title="register_shutdown_function"></a>register_shutdown_function</h3><h3 id="array-multisort"><a href="#array-multisort" class="headerlink" title="array_multisort"></a>array_multisort</h3><blockquote>
+<p>bool array_multisort ( array &amp;$array1 [, mixed $array1_sort_order = SORT_ASC [, mixed $array1_sort_flags = SORT_REGULAR [, mixed $… ]]] )</p>
+</blockquote>
+<p><a href="http://php.net/manual/zh/function.array-multisort.php" target="_blank" rel="noopener">array_multisort()</a> 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。</p>
+<p>这种类似于从sql语句中的sort by排序还是挺有用的.<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$data = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'math'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'english'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'computer'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'math'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">60</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'computer'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'math'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'computer'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">40</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'english'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'math'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">20</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">'class'</span> =&gt; <span class="string">'english'</span>,</span><br><span class="line">        <span class="string">'score'</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> ($data <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">    $column[<span class="string">'class'</span>][$key] = $value[<span class="string">'class'</span>];</span><br><span class="line">    $column[<span class="string">'score'</span>][$key] = $value[<span class="string">'score'</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类似于sql中的 select * from student order by `class` asc, score desc;</span></span><br><span class="line">array_multisort($column[<span class="string">'class'</span>], SORT_ASC, SORT_STRING , $column[<span class="string">'score'</span>], SORT_DESC, $data);</span><br><span class="line">var_dump($data);</span><br></pre></td></tr></table></figure></p>
+<p>有趣的是他的参数，我现在还没有完全弄懂</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">$b = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">$c = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line">array_multisort($a, SORT_DESC, $b, $c);</span><br><span class="line">print_r($a);</span><br><span class="line">print_r($b);</span><br><span class="line">print_r($c);</span><br></pre></td></tr></table></figure>
+<p>可以从结果中看到 $a/$b/$c 都排好序了。</p>
+<h3 id="get-object-vars"><a href="#get-object-vars" class="headerlink" title="get_object_vars"></a>get_object_vars</h3><p>返回由对象属性组成的关联数组</p>
+<h3 id="接口Countable"><a href="#接口Countable" class="headerlink" title="接口Countable"></a>接口Countable</h3><p><a href="https://www.php.net/manual/zh/class.countable.php" target="_blank" rel="noopener">类实现 Countable 可被用于 count() 函数. </a></p>
+<p>如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountMe</span> <span class="keyword">implements</span> \<span class="title">Countable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> $_myCount = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;_myCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$countable = <span class="keyword">new</span> CountMe();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> count($countable); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>在这里，count 可以直接作用于对象。</p>
+<h3 id="debug-backtrace"><a href="#debug-backtrace" class="headerlink" title="debug_backtrace"></a>debug_backtrace</h3><p><a href="https://www.php.net/manual/zh/function.debug-backtrace.php" target="_blank" rel="noopener">产生一条回溯跟踪(backtrace)</a></p>
+<p>比如可以这样用：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dump</span><span class="params">($value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $debugInfo = debug_backtrace();</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'&lt;hr&gt;'</span>;</span><br><span class="line">    <span class="keyword">print</span> $debugInfo[<span class="number">0</span>][<span class="string">'file'</span>] . <span class="string">":"</span> . $debugInfo[<span class="number">0</span>][<span class="string">'line'</span>]; <span class="comment">// 获取调用这个代码的文件名和行数</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'&lt;pre&gt;'</span> . $value . <span class="string">'&lt;/pre&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/a.php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a_test</span><span class="params">($str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"\nHi: $str"</span>;</span><br><span class="line">    var_dump(debug_backtrace());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a_test(<span class="string">'friend'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/b.php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">'/tmp/a.php'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// execute result</span></span><br><span class="line"></span><br><span class="line">Hi: friendarray(<span class="number">2</span>) &#123;</span><br><span class="line">  [<span class="number">0</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">"file"</span>]=&gt;</span><br><span class="line">    string(<span class="number">17</span>) <span class="string">"F:\test\tmp\a.php"</span></span><br><span class="line">    [<span class="string">"line"</span>]=&gt;</span><br><span class="line">    int(<span class="number">10</span>)</span><br><span class="line">    [<span class="string">"function"</span>]=&gt;</span><br><span class="line">    string(<span class="number">6</span>) <span class="string">"a_test"</span></span><br><span class="line">    [<span class="string">"args"</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      string(<span class="number">6</span>) <span class="string">"friend"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">"file"</span>]=&gt;</span><br><span class="line">    string(<span class="number">17</span>) <span class="string">"F:\test\tmp\b.php"</span></span><br><span class="line">    [<span class="string">"line"</span>]=&gt;</span><br><span class="line">    int(<span class="number">3</span>)</span><br><span class="line">    [<span class="string">"args"</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      string(<span class="number">17</span>) <span class="string">"F:\test\tmp\a.php"</span></span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="string">"function"</span>]=&gt;</span><br><span class="line">    string(<span class="number">12</span>) <span class="string">"include_once"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>断言，配合assert_options使用效果很妙</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 激活断言，并设置它为 quiet</span></span><br><span class="line">assert_options(ASSERT_ACTIVE, <span class="number">1</span>);</span><br><span class="line">assert_options(ASSERT_WARNING, <span class="number">0</span>);</span><br><span class="line">assert_options(ASSERT_QUIET_EVAL, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_assert_handler</span><span class="params">($file, $line, $code, $desc = null)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Assertion failed at $file:$line: $code"</span>;</span><br><span class="line">    <span class="keyword">if</span> ($desc)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">": $desc"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"\n"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置回调函数</span></span><br><span class="line">assert_options(ASSERT_CALLBACK, <span class="string">'my_assert_handler'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Make an assertion that should fail</span></span><br><span class="line">$a = <span class="number">2</span> &lt; <span class="number">1</span>;</span><br><span class="line">assert($a, <span class="string">'Two is less than one'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="strftime"><a href="#strftime" class="headerlink" title="strftime"></a>strftime</h3><p>根据区域设置来格式化本地日期和时间</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#register-shutdown-function"><span class="toc-number">1.</span> <span class="toc-text">register_shutdown_function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#array-multisort"><span class="toc-number">2.</span> <span class="toc-text">array_multisort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get-object-vars"><span class="toc-number">3.</span> <span class="toc-text">get_object_vars</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口Countable"><span class="toc-number">4.</span> <span class="toc-text">接口Countable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#debug-backtrace"><span class="toc-number">5.</span> <span class="toc-text">debug_backtrace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assert"><span class="toc-number">6.</span> <span class="toc-text">assert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strftime"><span class="toc-number">7.</span> <span class="toc-text">strftime</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

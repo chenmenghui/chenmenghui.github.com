@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>实际开发中遇到的一些实用却不常见的函数/功能等 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>实际开发中遇到的一些实用却不常见的函数/功能等</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/12/26</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#PHP" class='tag'>PHP</a>
+
+  <a href="../../../../../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+
+            
+          </div>
+          <h3 id="接口Countable"><a href="#接口Countable" class="headerlink" title="接口Countable"></a>接口Countable</h3><p><a href="https://www.php.net/manual/zh/class.countable.php" target="_blank" rel="noopener">类实现 Countable 可被用于 count() 函数. </a></p>
+<p>如<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountMe</span> <span class="keyword">implements</span> \<span class="title">Countable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> $_myCount = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">count</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;_myCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$countable = <span class="keyword">new</span> CountMe();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> count($countable); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="方法debug-backtrace"><a href="#方法debug-backtrace" class="headerlink" title="方法debug_backtrace"></a>方法debug_backtrace</h3><p><a href="https://www.php.net/manual/zh/function.debug-backtrace.php" target="_blank" rel="noopener">产生一条回溯跟踪(backtrace)</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/a.php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a_test</span><span class="params">($str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"\nHi: $str"</span>;</span><br><span class="line">    var_dump(debug_backtrace());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a_test(<span class="string">'friend'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/b.php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">'/tmp/a.php'</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// execute result</span></span><br><span class="line"></span><br><span class="line">Hi: friendarray(<span class="number">2</span>) &#123;</span><br><span class="line">  [<span class="number">0</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">"file"</span>]=&gt;</span><br><span class="line">    string(<span class="number">17</span>) <span class="string">"F:\test\tmp\a.php"</span></span><br><span class="line">    [<span class="string">"line"</span>]=&gt;</span><br><span class="line">    int(<span class="number">10</span>)</span><br><span class="line">    [<span class="string">"function"</span>]=&gt;</span><br><span class="line">    string(<span class="number">6</span>) <span class="string">"a_test"</span></span><br><span class="line">    [<span class="string">"args"</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      string(<span class="number">6</span>) <span class="string">"friend"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">"file"</span>]=&gt;</span><br><span class="line">    string(<span class="number">17</span>) <span class="string">"F:\test\tmp\b.php"</span></span><br><span class="line">    [<span class="string">"line"</span>]=&gt;</span><br><span class="line">    int(<span class="number">3</span>)</span><br><span class="line">    [<span class="string">"args"</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      string(<span class="number">17</span>) <span class="string">"F:\test\tmp\a.php"</span></span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="string">"function"</span>]=&gt;</span><br><span class="line">    string(<span class="number">12</span>) <span class="string">"include_once"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#接口Countable"><span class="toc-number">1.</span> <span class="toc-text">接口Countable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法debug-backtrace"><span class="toc-number">2.</span> <span class="toc-text">方法debug_backtrace</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

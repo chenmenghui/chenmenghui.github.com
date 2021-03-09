@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>Yii代码解读 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Yii代码解读</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/03/14</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/图书/">图书</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <h1 id="yii-base-BaseObject"><a href="#yii-base-BaseObject" class="headerlink" title="\yii\base\BaseObject"></a>\yii\base\BaseObject</h1><p>yii2里的面向对象基础，几乎所有类的最顶层父类都是它，配置各种类时都会遵循这个概念。</p>
+<p>其中封装了些常用的方法，比如</p>
+<ul>
+<li>「set/get」 （tp 称之为修改器与获取器）</li>
+<li>「init()」（不推荐使用__construct()，因为会覆盖 \yii\base\BaseObject。可以使用这个来初始化类）</li>
+</ul>
+<h1 id="依赖注入容器"><a href="#依赖注入容器" class="headerlink" title="依赖注入容器"></a>依赖注入容器</h1><h1 id="php之依赖注入、控制反转和依赖倒置原则"><a href="#php之依赖注入、控制反转和依赖倒置原则" class="headerlink" title="php之依赖注入、控制反转和依赖倒置原则"></a>php之依赖注入、控制反转和依赖倒置原则</h1><p>高内聚、低耦合，可作为软件好坏的评判标准。话句话说，就是尽量写出易于维护，低复杂度和低耦合度的代码。</p>
+<p>控制反转就是一个不错的思路。所谓控制反转就是</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#yii-base-BaseObject"><span class="toc-number">1.</span> <span class="toc-text">\yii\base\BaseObject</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#依赖注入容器"><span class="toc-number">2.</span> <span class="toc-text">依赖注入容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php之依赖注入、控制反转和依赖倒置原则"><span class="toc-number">3.</span> <span class="toc-text">php之依赖注入、控制反转和依赖倒置原则</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

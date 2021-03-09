@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>PHP 常用函数 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>PHP 常用函数</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/05/20</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/PHP/">PHP</a>/ <a class="article-category-link" href="../../../../../../categories/PHP/PHP基础知识/">PHP基础知识</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#PHP基础知识" class='tag'>PHP基础知识</a>
+
+
+            
+          </div>
+          <p><em>摘自知乎</em></p>
+<p>数组函数：</p>
+<p>1.排序类：【1.无返回值，传值引用，就直接对原数组进行了修改】</p>
+<p>按V：sort,rsort,asort,arsort,</p>
+<p>按K：ksort,krsort</p>
+<p>sort()    按升序对给定数组的值排序，不保留键名</p>
+<p>rsort()    对数组逆向排序，不保留键名</p>
+<p>asort() 对数组排序，保持索引关系</p>
+<p>arsort() 对数组逆向排序，保持索引关系</p>
+<p>ksort() 按键名对数组排序</p>
+<p>krsort() 将数组按照键逆向排序</p>
+<p>natsort() 用自然顺序算法对数组中的元素排序</p>
+<p>natcasesort() 自然排序，不区分大小写</p>
+<p>2.键值操作类：【都有返回值，没有在原来参数上修改】</p>
+<p>array_values($arr); //获取$arr中的值重排,去掉下标,返回值-&gt;新索引数组</p>
+<p>array_keys($arr[,”str”,true])    //获取$arr中所有字符是”str”的下标，形成</p>
+<p>索引数组,true表示区分大小写【返回新索引数组】</p>
+<p>array_search(“is”,$arr[,true]) //返回值”is”在$arr中的key，找不到返回</p>
+<p>fales,true表示严格按照类型(8,”8”)【返回第一个匹配值】</p>
+<p>in_array(“str”,$arr);    //判断”str”在$arr中是否存在，【返回BOOL】</p>
+<p>is_array($arr);    //判断是否是数组【返回BOOL】</p>
+<p>array_key_exists($key,$arr); //查询$arr中是否有$key，【返回BOOL】,</p>
+<p>此方法比in_array效率更高</p>
+<p>array_flip($arr); // 交换键值，如有重复，后来居上，【返回新数组】</p>
+<p>array_reverse($arr,[true|false]); //数组顺序反转，param2是否保留原</p>
+<p>来键值【返回新关联/索引数组】</p>
+<p>array_column(array(),’name’[,name_two]) — 返回数组中指定的name列</p>
+<p>[可选参数，如果有返回name=&gt;name_two的形式]【返回一维数组】</p>
+<p>3.元素个数和唯一性</p>
+<p>array_unique($arr);    //去掉$arr中的重复值，重复的保留第一个值，【返回</p>
+<p>数组，键值保留】</p>
+<p>array_count_values($arr)    //统计数组值出现的次数，【返回数组，</p>
+<p>KEY为原来数组的值，VALUE为统计的次数】</p>
+<p>count($arr[,1])/sizeof();    //统计$arr的元素个数，参数”1”表示统计多维数</p>
+<p>组开启，默认0为关闭【返回统计个数】</p>
+<p>4.回调函数</p>
+<p>array_filter($arr,”function”);    //把$arr放到函数function中处理，【返回判</p>
+<p>断为TRUE的数据组成新数组，键值保留】</p>
+<p>array_walk($arr,”function”[,”data”]);    //把$arr放function(&amp;$v,$k,$data)</p>
+<p>中处理【返回值为bool】</p>
+<p>array_map(“function”,$arr,$arr2,$arr3,….);    //把所有数组返回到回调函</p>
+<p>数统一处理，【返回数组】</p>
+<p>array_reduce($arr,myfunction[,initial]); //把一维数组$arr中的</p>
+<p>值依次传到自定义函数myfunction($v1,$v2)的v2上，v1为累加值类似于( .=</p>
+<p>),[如果有initial，先把其当v1传进去]【返回字符串】</p>
+<p>5.拆分，合并，分解，接合数组</p>
+<p>array_slice($arr,1[,2]);    //在$arr中，从第二个开始取[，返回俩个值]【返</p>
+<p>回新数组(对原数组无影响)，键值保留】</p>
+<p>array_splice($arr,1[,2,”aaa”,”bb”])    ; //删除或替换，从$arr第二个开始</p>
+<p>取，删除或替换2个值【返回值为新数组，拆掉原数组】</p>
+<p>array_combine($arr1,$arr2);    //数组$arr1为KEY,$arr2为VALUES结合形</p>
+<p>成新索引数组【返回索引数组】</p>
+<p>array_merge($arr1,$arr2,$arr3…);    //数组进行合并，保留键值，有重复，</p>
+<p>后来者居上 【返回新数组】 array_merge 发现有 key 值相同的， 取后</p>
+<p>者; $arr1+$arr2 发现有key值相同的，取前者，第二个重复的值丢弃</p>
+<p>array_intersect($arr1,$arr2);    //返回两个数组的交集，键值不变</p>
+<p>array_diff($arr1,$arr2);    //返回两数组的差集，返回的值为第一个数组的</p>
+<p>值，键值不变</p>
+<p>array_chunk($arr,2);    //分割数组,把$arr按照【2个为一组】均等分割</p>
+<p>【返回一个二维数组】</p>
+<p>6.数组的数据结构【无返回值，传值引用，就直接对原数组进</p>
+<p>行了修改】</p>
+<p>array_shift($arr) //从开头，删除数组第一个元素</p>
+<p>array_unshift($arr,”one”,”two”) //从开头，添加元素</p>
+<p>array_pop($arr) //从结尾，删除数组最后一个元素</p>
+<p>array_push($arr,”aaa”);    //从结尾，添加元素</p>
+<p>current($arr) //返回数组中的当前单元 比如是关联数组是不知道下标，</p>
+<p>可以输出当前数组的办法解决(返回的是数组中第一个健值)</p>
+<p>key($arr)    //返回当前指针指向元素的键值</p>
+<p>next($arr)    //当前指针下移</p>
+<p>pre($arr)    //当前指针上移</p>
+<p>end($arr)    //指针指到最后</p>
+<p>reset($arr)    //指针回归到开头</p>
+<p>unset($arr)//销毁此数组</p>
+<p>7.其他</p>
+<p>array_rand($arr,2);    //随机返回两个$arr数组当中的key【返回值为值或者</p>
+<p>数组】</p>
+<p>shuffle($arr)    //随机的重组$arr，顺序变乱【返回新数组，保留键值】</p>
+<p>array_sum($arr);    //返回$arr的value的和【返回一个值】</p>
+<p>range(0,10,2,)    //快速创建0，10的数组，间隔为2，所以有5个值【返回新</p>
+<p>索引数组】</p>
+<p>http_build_query($arr)    //把关联数组转换成一个经过urlencode加密的</p>
+<p>URL eg:array[“a”=&gt;2];=&gt;URL:a=2&amp;</p>
+<p>字符串函数</p>
+<p>1.返回bool</p>
+<p>isset($a)    //当$a=NULL 或不存在，返回false，反之为true</p>
+<p>empty($a)    //当$a=NULL/‘’/array()/0/‘0’/不存在 时 返回true,反之为false</p>
+<ol start="2">
+<li>返回值为自字符</li>
+</ol>
+<p>substr(字符串,开始地方,[返回字符串的长度]);    //截取字符串的一部分,第一</p>
+<p>个字符位置为0</p>
+<p>substr_replace($str,”aaa”,start[,length]);    //在$str上操作，从第start个</p>
+<p>开始,把【后边】的字符[全/或length个]替换</p>
+<p>sub_count($str,”is”[,5,10]); //[ 从第五个字符开始，搜索长度为10，]搜</p>
+<p>索is在$str中出现的次数，【返回次数】</p>
+<p>strstr($email,”@”[,true]) //从头开始搜索,无true返回@后边字符，有true</p>
+<p>返回@前边的字符[strrchr对比]</p>
+<p>strrchr($email,”@”) //从结尾开始搜索，返回@后的所有字符</p>
+<p>str_replace //(被替换词,替换词，被搜索字符串，[统计替换次数</p>
+<p>$num]) 前两个参数也可为数组，两个数组元素个数相同</p>
+<p>str_repeat($str,num);    //重复$str字符串 num次，</p>
+<p>3.返回值为数字类的</p>
+<p>strpos($str,”@”); //返回@【第一次出现的位置】</p>
+<p>strrpos($str,”@”);    //返回@【最后一次出现的位置】</p>
+<p>str_word_count($str[,0/1/2]);    //返回$str中单词的数量[0指返回次数,默认</p>
+<p>值/1指以数组形式返回单词值/2指返回关联数组，k为单词首字母下标,v单词</p>
+<p>值]</p>
+<p>strcmp($str1,$str2); //按ASCII码比较 str1&gt;str2 则返回1 相等返回0 &lt;</p>
+<p>返回-1 strcasecmp不区分大小写的比较</p>
+<p>strnatcmp($str1,$str2); //按自然数的排序比较，上边的比较10&lt;2；本函</p>
+<p>数比较10&gt;2,按自然数大小来的 strcasecmp($str1,$str2);strnatcasecmp//</p>
+<p>以上4个函数，$str1，$str2比较，【返回值：相等0，小于-1，大于1】</p>
+<p>number_format(10000[,2]); //==》10,000.00 把第一个参数格式</p>
+<p>化,保留2位小数</p>
+<p>strlen($string);成功则返回字符串 $string 的长度</p>
+<p>mb_strlen($string,’utf8’);//获取字符串$string长度，多字节的字符被计为</p>
+<p>1。</p>
+<p>4.文本处理类</p>
+<p>strtoupper($str) //字母全转为大写【返回全大写字符串】</p>
+<p>strtolower() //字母全转为小写【返回全小写字符串】</p>
+<p>strtotime(‘2015-10-10 10:10:10’); //指定时间转换为时间戳【返回时间</p>
+<p>戳】</p>
+<p>str_pad($str,length,[—，STR_PAD_BOTH]); //在$str的两边填补“—“，</p>
+<p>注意，length若小于$str长度，不填补</p>
+<p>trim($str[,”a”,STR_PAD_BOTH]) //去除两边/左/右的空白或”a”,默认是空</p>
+<p>白，或自定义字符</p>
+<p>floatval(“123.45aa”) //=》获取变量的浮点值【123.45】</p>
+<p>ucfirst() //整个$str首字母大写</p>
+<p>ucword() //$str每个单词首字母大写</p>
+<ol start="5">
+<li>HTML类处理</li>
+</ol>
+<p>htmlspecialchars($str) //函数把【预定义字符】转换为【 HTML 实</p>
+<p>体】，&amp;转换成&amp;amp</p>
+<p>htmlspecialchars_decode($str); //把【HTML实体】转换成【预定义字</p>
+<p>符】，&amp;amp转换成&amp;</p>
+<p>htmlentities($str); //函数把【预定义字符】转换为【 HTML 实体】，&amp;</p>
+<p>转换成&amp;amp，有乱码问题，注意第二第三个参数，若编码不正确，会在实</p>
+<p>体化时把信息丢失</p>
+<p>html_entity_decode($str) //把【HTML实体】转换成【预定义字符】，</p>
+<p>&amp;amp转换成&amp;, &amp;gt 转成 &lt;</p>
+<p>addslashes($html)； //添加转义字符“/”</p>
+<p>stripslashes($html); //删除转义字符“/”</p>
+<p>strip_tags($html); //去除HTML标签</p>
+<p>nl2br($str) //在$str中的换行/n前插入<br>，因为\n在源码可以换行，但是</p>
+<p>在浏览器窗口不行，有这个就可以</p>
+<p>iconv( from_charset ; to_charset,$str); //转化字符格式</p>
+<p>$file_name = iconv(“gb2312”,”utf-8”,$file_name);</p>
+<p>正则函数</p>
+<p>[原则，能用字符串函数解决不用正则，速度问题]</p>
+<p>1.字符串的匹配查找</p>
+<p>preg_match($pattern,$subject,$arr); //按正则$pattern处理$subject,第</p>
+<p>一次匹配结果返回到数组中【函数的返回值为匹配次数】</p>
+<p>preg_match_all($pattern,$subject,$arr) //按正则$pattern处理$subject,</p>
+<p>全部匹配结果返回到数组中【函数的返回值为匹配次数】</p>
+<p>strstr($str,”@”[,true]);</p>
+<p>strpos,strrpos,substr($str,position) //联合使用</p>
+<p>2.字符串的替换</p>
+<p>preg_replace($pattenr,$replace,$str); //【强大的字符串处理函数】</p>
+<p>在$str中,把$parrern匹配的值替换成$replcae【返回值为处理后的字符串】</p>
+<p>str_replace($str,”aaa”,”bbb”); //把$str中的aaa换成bbb</p>
+<p>3.字符串的分割和链接</p>
+<p>preg_split($pattern,$str); 通过一个正则表达式分隔字符串【返回值为</p>
+<p>数组】</p>
+<p>举例:</p>
+<p>1.$keywords = preg_split(“/[\s,]+/“, “hypertext language, programming”)</p>
+<p>结果Array([0] =&gt; hypertext,[1] =&gt; language[2] =&gt; programming)</p>
+<p>2.explode(“,”,$str[,$limit_num]);//把$str按照”，”分割成一个数组[可选参</p>
+<p>数为返回数组的元素个数]【返回一个分割后的数组】</p>
+<p>3.impolde(“+”,$arr);//把$arr里的元素按照“+”链接成一个字符串</p>
+<p>文件处理函数</p>
+<p>1.基础函数</p>
+<p>file_exists($file) //文件是否存在，【true/false】</p>
+<p>filesize($file) //返回文件的大小【大小字节/出错false】</p>
+<p>is_readale($file) //是否可读【返回bool】</p>
+<p>is_writeable($file) //是否可写【返回bool】</p>
+<p>is_executable($file) //是否可执行【返回bool】</p>
+<p>filectime($file) //文件创建时间【时间戳】</p>
+<p>filemtime($file) //文件修改时间【时间戳】</p>
+<p>fileatime($file) //文件访问时间【时间戳】</p>
+<p>stat($file) //返回文件的大部分信息【文件信息数组】</p>
+<ol start="2">
+<li>目录的基本操作</li>
+</ol>
+<p>basename($file) //返回文件名，index.php</p>
+<p>dirname($file) //返回文件的路径，c://php/</p>
+<p>pathinfo($file) //返回该文件路径的所有信息 [“dirname”目录</p>
+<p>名] [“basename”文件名] [“extension”文件后缀]</p>
+<p>目录复制，删除，统计大小使用的总结：</p>
+<p>本质：依靠递归思想，对目录的的循环遍历,通过每一个文件的操作，得</p>
+<p>出结果</p>
+<p>函数：复制：copy($org,$to);mkdir()</p>
+<p>删除：unlink($file);mrdir();</p>
+<p>统计大小:filesize($file)</p>
+<p>3.遍历目录</p>
+<p>opendir($file) //打开一个目录，参数为目录名或目录路径【返回资源型</p>
+<p>的目录句柄$dir_handle,无权限返false】</p>
+<p>readdir($dir_handle); //读取目录，参数为目录句柄，while,返回当前指</p>
+<p>向对象的名字，目录指针后移【返回filename,没有是返false】</p>
+<p>closedir($dir_handle) //关闭打开的目录</p>
+<p>rewinddir($dir_handle) //倒回目录句柄，将目录指针重置到目录开始</p>
+<ol start="4">
+<li>建立和删除目录</li>
+</ol>
+<p>mkdir(“dir_name”); //建立一个空的目录</p>
+<p>rmdir(“dir_name”); //删除一个空的目录</p>
+<p>unlink(“file_name”) //删除一个文件，当删除目录是，必须删除该目录下的文件</p>
+<p>5.文件的基本操作</p>
+<p>fopen($fileName,”模式字符r,w,x”) //打开一个文件，【返回值为资源型</p>
+<p>$handle】</p>
+<p>fclose($handle) //关闭打开的文件【返回BOOL】</p>
+<p>fwrite($handle,”$data”) //把$data写入$handle文件,先清空后写入，</p>
+<p>【成功返回$handle，失败返回false】</p>
+<p>file_put_contents($filename,$data); //它是上边三个合起来的效果</p>
+<p>file_get_contents($filename) //读取文件里的信息【返回字符串】</p>
+<p>flock($handle,$operation) //用$operation锁定文件$handle</p>
+<p>copy($file1,$file2); //赋值$file1，形成$file2【返回BOOL】</p>
+<p>unlink($file); //删除$file文件【返回BOOL】</p>
+<p>rename($file1,$file_new_name); //重命名【返回BOOL】</p>
+<p>6.文件的上传</p>
+<p>is_upload_file($_FILES[‘file’][‘tmp_name’]) //检查是否合法</p>
+<p>move_upload_file($_FILES[‘file’][‘tmp_name’],$url); //上传合法文件</p>
+<p>到$url</p>
+<p>注意：html:form: method=”post” ;enctype=”multipart/form-data”</p>
+<p>文件下载</p>
+<p>header(‘contentdisposition:attachment;filename=’.basename</p>
+<p>($filename));//表示附件方式下载</p>
+<p>header(‘content-length:’.filesize($filename));</p>
+<p>readfile($filename);</p>
+<p>SQL函数</p>
+<p>mysql_connect(‘localhost’,”root”,”root”); //连接数据库</p>
+<p>mysql_select_db(‘data’,$conn); //选择数据库名</p>
+<p>mysql_query(‘set names utf8’); //设置编码</p>
+<p>mysql_affect_array(); //试返回值为关联/索引数组</p>
+<p>mysql_affect_row(); //返回索引数组</p>
+<p>mysql_affect_assoc(); //返回关联数组</p>
+<p>mysql_num_rows(); //返回上一次select的查询语句条数</p>
+<p>mysql_affected_rows(); //返回上一次insert,update,delete的数据条数</p>
+<p>mysql_close();//关闭数据库</p>
+<p>数学函数</p>
+<p>ceil() //向上取整</p>
+<p>floor() //向下取整</p>
+<p>round(); //四舍五入</p>
+<p>abs(); //取绝对值</p>
+<p>rand(10，100) //随机取值</p>
+<p>mt_rand(10,100) //随机取值，算法不同，速度更快</p>
+<p>fmod() //返回除法浮点形余数</p>
+<p>max(int/$arr) //取最大值</p>
+<p>min(int/$arr) //取最小值</p>
+<p>pow(1024,2) //返回1021的2次幂</p>
+<p>时间函数</p>
+<p>date_default_timezone_set()(‘PRC’); //设置时区为中国</p>
+<p>date.timezone =”PRC”; //PHP.INI</p>
+<p>time(); //默认获取当前时间，【返回时间戳格式】</p>
+<p>micritime(); //获取当前时间【返回毫秒的时间戳】</p>
+<p>mktime(H,i,s,m,d,Y) //指定时间转为时间戳，参数为空的时候作用与</p>
+<p>time()相同【返回时间戳格式】</p>
+<p>strtotime(‘2015-10-10 10:10:10’); //指定时间转换为时间戳【返回时间</p>
+<p>戳】</p>
+<p>date(“Y-m-d H:i:s”,time()) ; //转换时间戳为日期格式【返回目标格式的</p>
+<p>字符串】</p>
+<p>getdate() //获取当前时间，【返回一个数组，参数年，月，日等都有】</p>
+<p>URL处理函数</p>
+<p>urlencode($url) //对该URL进行编码；原因：防止乱码，解决空格的呢个字符不能传递问题，form也是此编码格式传递</p>
+<p>urldecode($url) //对该URL进行解码</p>
+<p>parse_url($url) //返回该URL的所有信息，[scheme协议][host域名] [path路径][query参数] 【返回含信息的数组】</p>
+<p>pathinfo($url) //[“dirname”目录名] [“basename”文件名] [“extension”文件后缀]【返回含信息的数组，下标不同】</p>
+<p>get_meta_tags($url) //获取该页面的所有META标签【返回关联数组】</p>
+<p>JSON</p>
+<p>json_encode($data); //对变量进行JSON编码</p>
+<p>json_decode($data) //对JSON格式的字符串进行解码</p>
+<p>json_last_error(); //返回最后一次反生的错误</p>
+<p>其他函数</p>
+<p>sleep(10) //脚本执行到这里后，延迟10秒继续执行</p>
+<p>serialize() //返回字符串，此字符串包含了表示 value 的字节流，可以存</p>
+<p>储于任何地方。</p>
+<p>unserialize() //对单一的已序列化的变量进行操作，将其转换回 PHP 的</p>
+<p>值。</p>
+<p>当序列化对象时，PHP 将试图在序列动作之前调用该对象的成员函</p>
+<p>数 __sleep()。这样就允许对象在被序列化之前做任何清除操作。类似的,</p>
+<p>当使用 unserialize() 恢复对象时， 将调用 __wakeup() 成员函数。</p>
+<p>类型转换</p>
+<p>setType($a);    //获取变量的类型</p>
+<p>$b=(int)$a;    //把$a转换为整形</p>
+<p>is_int($b); //判断$b是否为整形，返回bool值</p>
+<p>类型转换：</p>
+<p>(int),(bool),(float),(string),(array),(object); intval(),floatval();strval()</p>
+<p>判断类型：</p>
+<p>is_bool/int/float/string/array/object/resource/null</p>
+<p>is_numberic();’//判断是否为任何类型的数字或者数组字符串</p>
+<p>is_callable();//判断是否为有效函数名称</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

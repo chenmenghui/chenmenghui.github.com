@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>PHP面试 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>PHP面试</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/06</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/PHP/">PHP</a>/ <a class="article-category-link" href="../../../../../categories/PHP/PHP基础知识/">PHP基础知识</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../tags/#PHP基础知识" class='tag'>PHP基础知识</a>
+
+
+            
+          </div>
+          <h3 id="php技术层次"><a href="#php技术层次" class="headerlink" title="php技术层次"></a>php技术层次</h3><blockquote>
+<p>君子不器，先要为器，器中成道</p>
+</blockquote>
+<ol>
+<li>php爱好者</li>
+<li>php初学者</li>
+<li>php初级程序猿</li>
+<li>php中级程序猿</li>
+<li>php高级程序猿</li>
+<li>服务端技术专家</li>
+<li>架构师</li>
+</ol>
+<h3 id="基础内容"><a href="#基础内容" class="headerlink" title="基础内容"></a>基础内容</h3><h5 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h5><ul>
+<li>以基础为前提的面试考察</li>
+<li>坚实基础的重要性</li>
+<li>保持谦卑之心</li>
+</ul>
+<h5 id="常见经典面试题"><a href="#常见经典面试题" class="headerlink" title="常见经典面试题"></a>常见经典面试题</h5><ul>
+<li>什么是引用变量</li>
+<li>写出三种以上MySQL数据库存储引擎的名称</li>
+<li>编写一个在线留言本，实现用户的在线留言功能</li>
+<li>请写出常见的排序算法</li>
+<li>写出尽可能多的linux命令</li>
+<li>写出jquery可以处理ajax的几种方法</li>
+<li>谈谈你对MVC的认识，说出几个MVC框架</li>
+<li>php如何解决网站大流量与高并发的问题</li>
+</ul>
+<h5 id="透过现象看本质"><a href="#透过现象看本质" class="headerlink" title="透过现象看本质"></a>透过现象看本质</h5><ol>
+<li>解题思路和技巧<ol>
+<li>回忆只是点</li>
+<li>揣测面试官的考察思路</li>
+<li>量的前提是精</li>
+</ol>
+</li>
+</ol>
+<h5 id="引用变量考点"><a href="#引用变量考点" class="headerlink" title="引用变量考点"></a>引用变量考点</h5><ul>
+<li><p>什么是引用变量？在php中用什么符号标识引用变量</p>
+</li>
+<li><p>概念：在php中引用意味着用不同的名字访问同一个变量内容</p>
+</li>
+<li>定义方式：‘&amp;’</li>
+<li>引用变量的工作原理</li>
+</ul>
+<p>题：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$data = ranger(<span class="string">'a'</span>, <span class="string">'d'</span>);</span><br><span class="line"><span class="keyword">foreach</span> ($data <span class="keyword">as</span> $key =&gt; $value) &#123; <span class="comment">// 1</span></span><br><span class="line">    $value = &amp;$data[$key]; <span class="comment">// 2</span></span><br><span class="line">&#125;</span><br><span class="line">var_dump($data);</span><br><span class="line"><span class="comment">// 结果：b,c,d,d</span></span><br></pre></td></tr></table></figure></p>
+<p>不知道怎么解释，借用C语言中的指针便可以很容易理解<br>代码一：<br>$a = 1;<br>$b = $a;<br>$b = 2;<br>echo $a; // 1<br>代码二：<br>$a = 1;$c = 3;<br>$b = &amp;$a; // $a和$b共用一个指针<br>$b = 2;<br>echo $a; // 2<br>$b = &amp;$c; // 修改指针时，只是把$b的指针变了，而$a仍然没有变<br>echo $a; // 2</p>
+<p>这个时候就可以很容易的理解：<br>$a = &amp;$b时，$a和$b的“指针”对应的变量其实是一样的（按址传值）。<br>循环步骤一</p>
+<ol>
+<li>$key和$value同时被赋值 -&gt; 1</li>
+<li>-&gt;2把$data[0]和$value指向了同一内存地址（指针）的变量<br>循环步骤二</li>
+<li>$key和$value同时被赋值，但这个时候$value和$data[0]是共用同一个指针的，所以$data[0]现在成了b</li>
+<li>-&gt;2 把$value的指针换成了$data[1]的指针<br>循环步骤三<br>重复以上步骤</li>
+</ol>
+<h5 id="常量和数据类型考察点"><a href="#常量和数据类型考察点" class="headerlink" title="常量和数据类型考察点"></a>常量和数据类型考察点</h5><ul>
+<li><p>php的字符串的定义方式及各自区别</p>
+<ul>
+<li>单引号</li>
+<li>双引号</li>
+<li>heredoc和nowdoc（类似于双引号和单引号）</li>
+</ul>
+</li>
+<li><p>区别 </p>
+<ul>
+<li>单引号不能解析变量</li>
+<li>单引号不能解析转义字符，之后解析单引号和反斜杠本身</li>
+<li>变量和变量、变量和字符串、字符串和字符串之间可以用.链接</li>
+</ul>
+</li>
+<li><p>数据类型</p>
+<ul>
+<li><p>三大数据类型：标量、复合、特殊</p>
+<ul>
+<li><p>标量</p>
+<ul>
+<li>浮点：浮点不能用于相等判断<ul>
+<li>0.7 + 0.1 != 0.2 二进制转化有损耗</li>
+</ul>
+</li>
+<li>布尔<ul>
+<li>false == 0， 0.0， ‘ ‘, ‘0’, false, [], NULL</li>
+</ul>
+</li>
+<li>超全局数组<ul>
+<li>$GLOBALS, $_GET, $_POST, $_REQUEST, $_SESSION, $_COOKIE, $_SERVER, $FILES, $_ENV<ul>
+<li>$REQUEST = $_GET+$POST+$_COOKIE</li>
+<li>$_SERVER[‘SERVER_ADDR’], $_SERVER[‘SERVER_NAME’], $_SERVER[‘REQUEST_TIME’], $_SERVER[‘QUERY_STRING’], $_SERVER[‘HTTP_RFERER’], $_SERVER[‘HTTP_USER_AGENT’], $_SREVER[‘REMOTE_ADDR’], $_SERVER[‘REQUEST_URI], $_SERVER[‘PATH_INFO’]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NULL<ul>
+<li>直接赋值null</li>
+<li>未定义</li>
+<li>unset</li>
+</ul>
+</li>
+<li><p>常量</p>
+<ul>
+<li>const（语言结构，更快）、define（函数）</li>
+<li>const可以定义类常量而define不能</li>
+<li><p>常量一径定义，不能修改也不能删除</p>
+</li>
+<li><p>预定义常量</p>
+<ul>
+<li><strong>FILE</strong>, <strong>LINE</strong>, <strong>DIR</strong>, <strong>FUNCTION</strong>, <strong>CLASS</strong>, <strong>TRAIT</strong>, <strong>METHOD</strong>, <strong>NAMESPACE</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>解题方法</p>
+<ul>
+<li>把总结的点进行梳理和复习，牢记</li>
+</ul>
+</li>
+</ul>
+<h1 id="运算符考点"><a href="#运算符考点" class="headerlink" title="运算符考点"></a>运算符考点</h1><h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><p>递增递减&gt;！&gt;算术运算符&gt;大小比较&gt;（不）相等比较&gt;引用&gt;位运算符（^）&gt;位运算符（|）&gt;逻辑与&gt;逻辑或&gt;三目&gt;赋值&gt;and&gt;xor&gt;or</p>
+<h3 id="延伸考点"><a href="#延伸考点" class="headerlink" title="延伸考点"></a>延伸考点</h3><ul>
+<li><p>==和===</p>
+</li>
+<li><p>递增递减不会影响布尔值， false– == false</p>
+</li>
+<li>递减Null没有效果，Null – === Null</li>
+<li>Null++ == 1</li>
+<li><p>++1和1++</p>
+</li>
+<li><p>短路作用</p>
+</li>
+<li>|| &amp;&amp; and or<ul>
+<li>$a = false|| true; // true    ||的优先级大于=</li>
+<li>$a = false or true; // false or的优先级低于=</li>
+</ul>
+</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>重点记忆<strong>递增/递减</strong>运算符的运算规则，逻辑运算符的短路效果，在看到逻辑运算符要多考虑优先级问题</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="number">0</span>;$b = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> ($a = <span class="number">3</span> &gt; <span class="number">0</span> || $b = <span class="number">3</span> &gt; <span class="number">0</span>) &#123; <span class="comment">// $a = ((3&gt;0) || ($b = 3 &gt; 0))</span></span><br><span class="line">    $a++;</span><br><span class="line">    $b++;</span><br><span class="line">    var_dump($a);</span><br><span class="line">    var_dump($b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// $a ==== true;$b === 1;</span></span><br></pre></td></tr></table></figure>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="真题"><a href="#真题" class="headerlink" title="真题"></a>真题</h2><h3 id="请列出php遍历php数组的三种方式及各种区别"><a href="#请列出php遍历php数组的三种方式及各种区别" class="headerlink" title="请列出php遍历php数组的三种方式及各种区别"></a>请列出php遍历php数组的三种方式及各种区别</h3><p>延伸：分支控制</p>
+<ol>
+<li>for</li>
+<li>foreach</li>
+<li>while list() each() 组合</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>区别</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>for</td>
+<td>只能遍历索引数组</td>
+</tr>
+<tr>
+<td>foreach</td>
+<td>可以遍历索引和关联数组,会reset()<br>先重置指针,后遍历</td>
+</tr>
+<tr>
+<td>while组合</td>
+<td>可以遍历索引和关联数组,不会reset()</td>
+</tr>
+</tbody>
+</table>
+<h3 id="分支控制"><a href="#分支控制" class="headerlink" title="分支控制"></a>分支控制</h3><p>if…elseif</p>
+<p>使用elseif有一个基本原则,把优先范围小的条件放在前面处理</p>
+<p>switch…case</p>
+<ol>
+<li>和if不同的是,switch后面的控制表达式的数据类型只能是整形,浮点型或字符串</li>
+<li>continue语句作用到switch的作用类似于break,跳出switch外的循环,可以使用coutinue 2</li>
+<li>会生成跳转表,直接跳转到对应的case<br>效率:如果条件比一个简单的比较要复杂的多或者在一个很多次的循环中,那么用switch语句可能会快些</li>
+</ol>
+<h2 id="真题-1"><a href="#真题-1" class="headerlink" title="真题"></a>真题</h2><h3 id="php中如何优化多个if…else语句的情况"><a href="#php中如何优化多个if…else语句的情况" class="headerlink" title="php中如何优化多个if…else语句的情况?"></a>php中如何优化多个if…else语句的情况?</h3><ol>
+<li>把出现几率较大的条件往前挪</li>
+<li>如果判断的条件比较复杂且其值是整形,浮点型或字符串,可以使用switch</li>
+</ol>
+<h1 id="自定义函数及内部函数的考点"><a href="#自定义函数及内部函数的考点" class="headerlink" title="自定义函数及内部函数的考点"></a>自定义函数及内部函数的考点</h1><h2 id="真题-2"><a href="#真题-2" class="headerlink" title="真题"></a>真题</h2><h1 id="常见框架的特性考点"><a href="#常见框架的特性考点" class="headerlink" title="常见框架的特性考点"></a>常见框架的特性考点</h1><h2 id="真题-3"><a href="#真题-3" class="headerlink" title="真题"></a>真题</h2><h3 id="php框架有哪些"><a href="#php框架有哪些" class="headerlink" title="php框架有哪些,"></a>php框架有哪些,</h3><p>php框架的差异和优缺点</p>
+<ol>
+<li>Yaf框架<br>Yaf使用php扩展的形式写的一个框架,也就是以C语言为底层编写的,性能要比php代码写的框架要快一个数量级<br>优点:执行效率高,轻量级框架,可扩展性强<br>缺点:高版本兼容性差,底层代码可读性差,需要安装扩展,功能单一,开发需要编写大量的插件</li>
+<li>Yii2框架<br>Yii2是一款非常优秀的通用web后端框架结构简单优雅,实用功能丰富,扩展性强,性能高是她最突出的优点<br>缺点:学习成本较高,相比Yaf很重</li>
+</ol>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#php技术层次"><span class="toc-number">1.</span> <span class="toc-text">php技术层次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基础内容"><span class="toc-number">2.</span> <span class="toc-text">基础内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#重要性"><span class="toc-number">2.0.1.</span> <span class="toc-text">重要性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常见经典面试题"><span class="toc-number">2.0.2.</span> <span class="toc-text">常见经典面试题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#透过现象看本质"><span class="toc-number">2.0.3.</span> <span class="toc-text">透过现象看本质</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用变量考点"><span class="toc-number">2.0.4.</span> <span class="toc-text">引用变量考点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常量和数据类型考察点"><span class="toc-number">2.0.5.</span> <span class="toc-text">常量和数据类型考察点</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#运算符考点"><span class="toc-number"></span> <span class="toc-text">运算符考点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运算符的优先级"><span class="toc-number"></span> <span class="toc-text">运算符的优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#延伸考点"><span class="toc-number">1.</span> <span class="toc-text">延伸考点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-number"></span> <span class="toc-text">注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流程控制"><span class="toc-number"></span> <span class="toc-text">流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#真题"><span class="toc-number"></span> <span class="toc-text">真题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请列出php遍历php数组的三种方式及各种区别"><span class="toc-number">1.</span> <span class="toc-text">请列出php遍历php数组的三种方式及各种区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支控制"><span class="toc-number">2.</span> <span class="toc-text">分支控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#真题-1"><span class="toc-number"></span> <span class="toc-text">真题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php中如何优化多个if…else语句的情况"><span class="toc-number">1.</span> <span class="toc-text">php中如何优化多个if…else语句的情况?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#自定义函数及内部函数的考点"><span class="toc-number"></span> <span class="toc-text">自定义函数及内部函数的考点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#真题-2"><span class="toc-number"></span> <span class="toc-text">真题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见框架的特性考点"><span class="toc-number"></span> <span class="toc-text">常见框架的特性考点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#真题-3"><span class="toc-number"></span> <span class="toc-text">真题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#php框架有哪些"><span class="toc-number">1.</span> <span class="toc-text">php框架有哪些,</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

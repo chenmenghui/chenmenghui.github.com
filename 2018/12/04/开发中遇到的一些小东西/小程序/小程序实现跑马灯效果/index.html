@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>小程序实现跑马灯效果 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>小程序实现跑马灯效果</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/12/04</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/小程序/">小程序</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+  <a href="../../../../../../tags/#小程序" class='tag'>小程序</a>
+
+
+            
+          </div>
+          <p>之前也是做过跑马灯的效果.不过因为小程序无法直接操作demo,所以给我的开发带来了一定的困扰.还好百度到了<a href="https://www.jianshu.com/p/6a354bf8b01f" target="_blank" rel="noopener">这个</a></p>
+<p>其实那个文章已经说得很清楚了.</p>
+<p>看看我的代码吧</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"notice-area flex-row-around-center"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"iconfont icon-gonggao"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span>公告<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'scroll_view_border'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"srcoll_view"</span> <span class="attr">style</span>=<span class="string">"--marginLeft--:&#123;&#123;ad_length&#125;&#125;"</span>&gt;</span>我这里是公告内容,主要是看js如何动态修改wxss中的参数的<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*notict-area*/</span></span><br><span class="line"><span class="selector-class">.notice-area</span>&#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">20</span>rpx;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">30</span>rpx;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#f2f2f2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.notice-area</span> <span class="selector-class">.icon-gonggao</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#FC9E46</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.scroll_view_border</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100</span>rpx;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.srcoll_view</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>rpx;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100</span>rpx;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30</span>rpx;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100</span>rpx;</span><br><span class="line">    <span class="attribute">animation</span>:myfirst <span class="number">10s</span> linear infinite;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> myfirst</span><br><span class="line">&#123;</span><br><span class="line">    0% &#123;<span class="attribute">margin-left</span>:<span class="number">552</span>rpx;&#125;</span><br><span class="line">    100% &#123;<span class="attribute">margin-left</span>:<span class="built_in">var</span>(--marginLeft--);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> memberInfo = res.data;</span><br><span class="line"><span class="keyword">var</span> ad_length = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (memberInfo.shop_ad != <span class="literal">null</span> &amp;&amp; memberInfo.shop_ad != <span class="string">''</span>) &#123;</span><br><span class="line">    ad_length = <span class="string">'-'</span> + memberInfo.shop_ad.length * <span class="number">30</span> + <span class="string">'rpx'</span>;</span><br><span class="line">&#125;</span><br><span class="line">that.setData(&#123;</span><br><span class="line">    ad_length: ad_length,</span><br><span class="line">    memberInfo: res.data,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>其中需要注意的也只有这个了:</p>
+<p>小程序是可以修改wxss中的值的.如上述wxss代码中的 var(–marginLeft–).不过这里的值是通过wxml获取的.而wxml又是通过js获取.</p>
+<p>另外注意,在wxss中的<code>var(--marginLeft--)</code>不能写成<code>-var(--marginLeft--)</code><br>wxml中的<code>style=&quot;--marginLeft--:&quot;</code>不能写成<code>style=&quot;--marginLeft--:&#39;&#39;&quot;</code></p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

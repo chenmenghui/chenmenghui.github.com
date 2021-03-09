@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>C++基本语法 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>C++基本语法</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/03/31</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/C/">C++</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#C++" class='tag'>C++</a>
+
+
+            
+          </div>
+          <h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>C++程序可以定义为对象的集合,这些对象通过调用彼此的方法进行交互.</p>
+<ul>
+<li>对象 对象具有状态和行为</li>
+<li>类 类可以定义为描述对象/行为的状态/蓝图</li>
+<li>方法 一个方法表示一个行为.一个类可以有多个方法.可以在方法中写入逻辑\操作数据以及执行所有的动作</li>
+<li>即使变量 每个对象都有其独特的即使变量.对象的状态是有这些即使变量的值创建的</li>
+</ul>
+<h1 id="程序结构"><a href="#程序结构" class="headerlink" title="程序结构"></a>程序结构</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;   // C++定义的一些头文件,这些头文件包含了程序中必须的或有用的信息</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; <span class="comment">// 命名空间</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> <span class="comment">// 主函数 程序开始的地方</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello world"</span>; <span class="comment">// print</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 终止main()函数,并向调用进程返回值0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="编译-amp-执行程序"><a href="#编译-amp-执行程序" class="headerlink" title="编译&amp;执行程序"></a>编译&amp;执行程序</h1><ul>
+<li>打开一个文本编辑器,添加上述代码</li>
+<li>保存文件</li>
+<li>打开命令行,进入文件所在目录</li>
+<li>键入’g++ hello.cp’,输入回车,编译代码.若代码没有错误,命令提示符会跳到下一行,并生成a.out可执行文件</li>
+<li>键入’a.out’运行</li>
+<li>可看到输出结果</li>
+</ul>
+<h1 id="分号-amp-语句块"><a href="#分号-amp-语句块" class="headerlink" title="分号&amp;语句块"></a>分号&amp;语句块</h1><p>‘;’是语句结束符<br>语句块是一组大括号括起来的按逻辑链接的语句</p>
+<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><p>标识符用来标识变量 函数 类 模块或其他用户自定义项目的名称,和php一样</p>
+<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><table>
+<thead>
+<tr>
+<th>保留字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>asm</td>
+<td>指令字符串:允许程序中嵌入汇编代码</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>自动:存储类型标识符,表示变量”自动”具有本地范围,块范围的变量声明默认为auto存储类型</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>布尔类型</td>
+</tr>
+<tr>
+<td>break</td>
+<td>跳出,用于switch或循环语句中</td>
+</tr>
+<tr>
+<td>case</td>
+<td>用于switch语句中,判断条件类</td>
+</tr>
+<tr>
+<td>catch</td>
+<td>和try一起用于异常处理</td>
+</tr>
+<tr>
+<td>char</td>
+<td>字节类型</td>
+</tr>
+<tr>
+<td>class</td>
+<td>类</td>
+</tr>
+<tr>
+<td>const</td>
+<td>常量</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>循环语句,跳出当前循环</td>
+</tr>
+<tr>
+<td>default</td>
+<td>用于switch中</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>释放程序动态申请的内存</td>
+</tr>
+<tr>
+<td>do</td>
+<td>循环</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度</td>
+</tr>
+<tr>
+<td>else</td>
+<td>if</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>枚举</td>
+</tr>
+<tr>
+<td>explicit</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本语法"><span class="toc-number">1.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#程序结构"><span class="toc-number">2.</span> <span class="toc-text">程序结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编译-amp-执行程序"><span class="toc-number">3.</span> <span class="toc-text">编译&amp;执行程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分号-amp-语句块"><span class="toc-number">4.</span> <span class="toc-text">分号&amp;语句块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#标识符"><span class="toc-number">5.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关键字"><span class="toc-number">6.</span> <span class="toc-text">关键字</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

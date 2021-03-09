@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>正则匹配修饰符 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>正则匹配修饰符</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/12/19</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/正则/">正则</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+  <a href="../../../../../../../tags/#正则" class='tag'>正则</a>
+
+
+            
+          </div>
+          <h3 id="被WIN下的CRLF换行符坑了一把"><a href="#被WIN下的CRLF换行符坑了一把" class="headerlink" title="被WIN下的CRLF换行符坑了一把"></a>被WIN下的CRLF换行符坑了一把</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// crlf模式</span></span><br><span class="line">$str = <span class="string">&lt;&lt;&lt;str</span></span><br><span class="line"><span class="string">aaaa |</span></span><br><span class="line"><span class="string">|</span></span><br><span class="line"><span class="string">kkk |</span></span><br><span class="line"><span class="string">str;</span></span><br><span class="line"></span><br><span class="line">$pattern = <span class="string">"/\|\r$/m"</span>;</span><br><span class="line">$replace = <span class="string">"i"</span>;</span><br><span class="line">$res = preg_replace($pattern,$replace, $str);</span><br><span class="line"><span class="keyword">echo</span> ($res);</span><br></pre></td></tr></table></figure>
+<p>result<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aaaa i</span><br><span class="line">i</span><br><span class="line">kkk |</span><br></pre></td></tr></table></figure></p>
+<p>回过头一看，居然忘了「\r」是什么了。</p>
+<p>时隔数月又一次遇到这种问题，win（CRLF）下的回车换行是两个不可见字符~~~</p>
+<h3 id="终于写出一个把命令行查出结果转化成excel的小脚本了"><a href="#终于写出一个把命令行查出结果转化成excel的小脚本了" class="headerlink" title="终于写出一个把命令行查出结果转化成excel的小脚本了"></a>终于写出一个把命令行查出结果转化成excel的小脚本了</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class TurnToExcel</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TurnToExcel</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $file_name;</span><br><span class="line">    <span class="keyword">private</span> $target_name;</span><br><span class="line">    <span class="keyword">private</span> $result;</span><br><span class="line">    <span class="keyword">private</span> $content;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $file_name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setFileName</span><span class="params">(string $file_name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;file_name = $file_name;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> mixed $target_name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setTargetName</span><span class="params">($target_name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;target_name = $target_name;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $content</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setContent</span><span class="params">($content)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;content = $content;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="keyword">$this</span>-&gt;content)) &#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;content = file_get_contents(<span class="keyword">$this</span>-&gt;file_name);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;getContent();</span><br><span class="line">        $pattern = [</span><br><span class="line">            <span class="string">"/(\r|\n|\r\n)&#123;2,&#125;/"</span>,               <span class="comment">// 删除多余空行</span></span><br><span class="line">            <span class="string">"/\+(-+\+)*(\r|\n|\r\n)?/"</span>,         <span class="comment">// 删除「+-----+----+」</span></span><br><span class="line">            <span class="string">"/^\| */m"</span>,                         <span class="comment">// 删除行首「|」</span></span><br><span class="line">            <span class="string">"/ *\|(\r|\n|\r\n)/"</span>,               <span class="comment">// 删除行尾「|」              // 为什么只有在「lf」换行符模式下才能用「/ *\|$/」</span></span><br><span class="line">            <span class="string">"/ *\| */"</span>,                         <span class="comment">// 把行内「|」替换成「tab」</span></span><br><span class="line">            <span class="string">"/(\r\n|\r|\n)?$/"</span>,                 <span class="comment">// 删除最后一个换行</span></span><br><span class="line">        ];</span><br><span class="line">        $replace = [</span><br><span class="line">            <span class="string">"$1"</span>,</span><br><span class="line">            <span class="string">""</span>,</span><br><span class="line">            <span class="string">""</span>,</span><br><span class="line">            <span class="string">"$1"</span>,</span><br><span class="line">            <span class="string">"\t"</span>,</span><br><span class="line">            <span class="string">""</span>,</span><br><span class="line">        ];</span><br><span class="line">        <span class="keyword">$this</span>-&gt;result = preg_replace($pattern, $replace, <span class="keyword">$this</span>-&gt;content);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">save</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;target_name) &#123;</span><br><span class="line">            file_put_contents(<span class="keyword">$this</span>-&gt;target_name, <span class="keyword">$this</span>-&gt;result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">dump</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;result;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">download</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        header(<span class="string">"Content-Type:application/vnd.ms-excel"</span>);</span><br><span class="line">        header(<span class="string">"Content-Disposition:attachment;filename=&#123;$this-&gt;target_name&#125;"</span>);</span><br><span class="line">        <span class="keyword">echo</span> iconv(<span class="string">'utf-8'</span>, <span class="string">'gbk//TRANSLIT'</span>, <span class="keyword">$this</span>-&gt;result);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> TurnToExcel())</span><br><span class="line">    -&gt;setFileName(<span class="string">'data.txt'</span>)</span><br><span class="line">    -&gt;setTargetName(<span class="string">'data1.txt'</span>)</span><br><span class="line">    -&gt;run()</span><br><span class="line">    -&gt;save();</span><br></pre></td></tr></table></figure>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#被WIN下的CRLF换行符坑了一把"><span class="toc-number">1.</span> <span class="toc-text">被WIN下的CRLF换行符坑了一把</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#终于写出一个把命令行查出结果转化成excel的小脚本了"><span class="toc-number">2.</span> <span class="toc-text">终于写出一个把命令行查出结果转化成excel的小脚本了</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

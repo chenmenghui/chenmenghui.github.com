@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>CURL操作 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>CURL操作</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/12/26</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#PHP" class='tag'>PHP</a>
+
+  <a href="../../../../../../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+
+            
+          </div>
+          <p>其实也就是简单的封装，再一个就是继承当前浏览器的header，主要是Cookie和Referer。这两个经常会被服务端做过滤之类的处理。</p>
+<p>刚刚犯的错误，QueryCurl::_setData()，其中「CURLOPT_POSTFIELDS」只是post传值。</p>
+<p>工作中遇到一个问题，就是执行这个脚本的时候，进行了诸如退出这样修改Session的操作，导致一些因session不一致产生了业务上的错误。这里最好的解决方式是操作session、cookie这样的操作时，不要使用同一个浏览器。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QueryCurl</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $sTargetHost = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">private</span> $sParams = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">private</span> $rCurlOption;</span><br><span class="line">    <span class="keyword">private</span> $mCurlResult;</span><br><span class="line">    <span class="keyword">private</span> $sCurlContent;</span><br><span class="line">    <span class="keyword">private</span> $mCurlRequestHeads;</span><br><span class="line">    <span class="keyword">private</span> $mCurlResponseHeads;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $bPost = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> DEBUG = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get data through get</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $sUrl</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $aParams</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getQuery</span><span class="params">($sUrl, $aParams = [])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sTargetHost = $sUrl;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sParams = http_build_query($aParams);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;bPost = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_run();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;sCurlContent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get data through post</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $sUrl</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $aParams</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">postQuery</span><span class="params">($sUrl, $aParams = [])</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sTargetHost = $sUrl;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;sParams = http_build_query($aParams);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;bPost = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_run();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;sCurlContent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_inheritHeader</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $aHeader = [];</span><br><span class="line">        <span class="keyword">foreach</span> ($_SERVER <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">            <span class="keyword">if</span> (stripos($key, <span class="string">'HTTP'</span>) !== <span class="keyword">false</span>) &#123;</span><br><span class="line">                $key = substr($key, <span class="number">5</span>);</span><br><span class="line">                $aHeader[$key] = $key . <span class="string">':'</span> . $value;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>::DEBUG) &#123;</span><br><span class="line">            file_put_contents(<span class="string">'test_head.txt'</span>, var_export($aHeader, <span class="number">1</span>) . <span class="string">"\n"</span>, FILE_APPEND);</span><br><span class="line">        &#125;</span><br><span class="line">        curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_HTTPHEADER, $aHeader);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_setData</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;bPost) &#123;</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_CUSTOMREQUEST, <span class="string">'POST'</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_POST, <span class="keyword">true</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_POSTFIELDS, <span class="keyword">$this</span>-&gt;sParams);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;sParams) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">false</span> === strpos(<span class="keyword">$this</span>-&gt;sTargetHost, <span class="string">'?'</span>)) &#123;</span><br><span class="line">                    <span class="keyword">$this</span>-&gt;sTargetHost .= <span class="string">'?'</span> . <span class="keyword">$this</span>-&gt;sParams;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">$this</span>-&gt;sTargetHost .= <span class="string">'&amp;'</span> . <span class="keyword">$this</span>-&gt;sParams;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;rCurlOption = curl_init();</span><br><span class="line">            <span class="keyword">$this</span>-&gt;_setData();</span><br><span class="line">            <span class="keyword">$this</span>-&gt;_inheritHeader();</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_URL, <span class="keyword">$this</span>-&gt;sTargetHost);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_SSL_VERIFYPEER, <span class="number">0</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_SSL_VERIFYHOST, <span class="number">0</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_USERAGENT, $_SERVER[<span class="string">'HTTP_USER_AGENT'</span>]);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_AUTOREFERER, <span class="number">1</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_TIMEOUT, <span class="number">0</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_HEADER, <span class="number">1</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">            curl_setopt(<span class="keyword">$this</span>-&gt;rCurlOption, CURLINFO_HEADER_OUT, <span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;mCurlResult = curl_exec(<span class="keyword">$this</span>-&gt;rCurlOption);</span><br><span class="line">            $errno = curl_errno(<span class="keyword">$this</span>-&gt;rCurlOption);</span><br><span class="line">            <span class="keyword">if</span> ($errno) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>($errno);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;mCurlRequestHeads = curl_getinfo(<span class="keyword">$this</span>-&gt;rCurlOption, CURLINFO_HEADER_OUT);</span><br><span class="line">            $response_heads_size = curl_getinfo(<span class="keyword">$this</span>-&gt;rCurlOption, CURLINFO_HEADER_SIZE);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;mCurlResponseHeads = <span class="keyword">$this</span>-&gt;mCurlResponseHeads = substr(<span class="keyword">$this</span>-&gt;mCurlResult, <span class="number">0</span>, $response_heads_size);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;sCurlContent = substr(<span class="keyword">$this</span>-&gt;mCurlResult, $response_heads_size);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">self</span>::DEBUG) &#123;</span><br><span class="line">                file_put_contents(<span class="string">'head.txt'</span>, <span class="keyword">$this</span>-&gt;mCurlRequestHeads . <span class="string">"\n"</span>, FILE_APPEND);</span><br><span class="line">                $rand = time();</span><br><span class="line">                file_put_contents(<span class="string">"result_&#123;$rand&#125;.txt"</span>, <span class="keyword">$this</span>-&gt;mCurlResult);</span><br><span class="line">            &#125;</span><br><span class="line">            curl_close(<span class="keyword">$this</span>-&gt;rCurlOption);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $exception) &#123;</span><br><span class="line">            <span class="comment">// logs</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">self</span>::DEBUG) &#123;</span><br><span class="line">                file_put_contents(<span class="string">'./curl_error_log.txt'</span>, var_export($exception-&gt;getMessage(), <span class="number">1</span>), FILE_APPEND);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

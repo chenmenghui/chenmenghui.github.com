@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>bat编程遇到的一些小东西 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>bat编程遇到的一些小东西</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/01/18</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/实用代码片段/">实用代码片段</a>/ <a class="article-category-link" href="../../../../../../categories/实用代码片段/bat/">bat</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <blockquote>
+<p>这些实际运用的很少，需要的话肯定还是要百度的~~~写点遇到的吧，不知道的到时候再查呗</p>
+</blockquote>
+<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>赋值号「=」两边的参数是不能有空格的！！！其他语言用习惯了，这一点很容易中枪</p>
+<p>另外，从文件中读取值是这样的</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">exist</span> opt_data.txt (</span><br><span class="line">    <span class="built_in">set</span> /p lastDays=&lt;opt_data.txt</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">set</span> lastDay=<span class="number">0</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="x0"><a href="#x0" class="headerlink" title="%~x0"></a>%~x0</h3><p>bat 文件中像「%0」「%1」的含义就是命令行输入的命令的第几个参数。</p>
+<p>比如在命令行输入</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.bat a b c</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ul>
+<li>%0 指的是「1.bat」</li>
+<li>%1 指的是「a」</li>
+<li>%2 指的是「b」</li>
+<li>%3 指的是「c」</li>
+</ul>
+<p>而「~x」指的是取后缀</p>
+<p>所以「%~x0」就是取「1.bat」的后缀，即「bat」</p>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p><a href="https://blog.csdn.net/Ctrain/article/details/47917573" target="_blank" rel="noopener">cmd for命令</a></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> /l <span class="variable">%%i</span> <span class="keyword">in</span> (<span class="number">1</span> <span class="number">1</span> <span class="number">10</span>) <span class="keyword">do</span> (</span><br><span class="line">    <span class="built_in">set</span> var=<span class="variable">%%i</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">!var!</span> 启用延缓环境变量</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">%var%</span> 未启用延缓环境变量</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>for %%i in (command1) do command2</p>
+</blockquote>
+<p>参数「f」，读文件</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:: 读文件，以行为间隔</span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%i</span> <span class="keyword">in</span> (test.txt) <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">%%i</span></span><br><span class="line"></span><br><span class="line">:: 读文件，以 delims 中的参数「,」为间隔</span><br><span class="line"><span class="keyword">for</span> /f "delims=," <span class="variable">%%i</span> <span class="keyword">in</span> (test.txt) <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">%%i</span></span><br></pre></td></tr></table></figure>
+<p>参数 d</p>
+<p>参数</p>
+<h3 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h3>
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值"><span class="toc-number">1.</span> <span class="toc-text">赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x0"><span class="toc-number">2.</span> <span class="toc-text">%~x0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-number">3.</span> <span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串截取"><span class="toc-number">4.</span> <span class="toc-text">字符串截取</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

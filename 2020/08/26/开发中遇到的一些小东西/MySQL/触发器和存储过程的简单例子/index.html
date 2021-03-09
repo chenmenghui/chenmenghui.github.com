@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>触发器和存储过程的简单例子 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>触发器和存储过程的简单例子</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/08/26</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#mysql" class='tag'>mysql</a>
+
+
+            
+          </div>
+          <p>尽管存储过程很少用，但还是碰到了~~~</p>
+<p>简单例子，帮助理解。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS student</span><br><span class="line">(</span><br><span class="line">    id          int            NOT NULL PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    name        varchar(255)   NOT NULL DEFAULT &apos;&apos;,</span><br><span class="line">    total_score decimal(10, 2) NOT NULL DEFAULT 0</span><br><span class="line">) CHARSET utf8</span><br><span class="line">  ENGINE innodb;</span><br><span class="line"></span><br><span class="line">CREATE TABLE IF NOT EXISTS score</span><br><span class="line">(</span><br><span class="line">    id         int           NOT NULL PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    student_id int           NOT NULL,</span><br><span class="line">    score      decimal(5, 2) NOT NULL DEFAULT 0</span><br><span class="line">) CHARSET utf8</span><br><span class="line">  ENGINE innodb;</span><br><span class="line"></span><br><span class="line">DROP PROCEDURE IF EXISTS update_user_total_score;</span><br><span class="line">CREATE</span><br><span class="line">    PROCEDURE update_user_total_score(IN studentId int, IN scoreNum decimal(5, 2))</span><br><span class="line">BEGIN</span><br><span class="line">    UPDATE student SET total_score = total_score + scoreNum WHERE id = studentId;</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DROP TRIGGER IF EXISTS score_insert;</span><br><span class="line">CREATE TRIGGER score_insert</span><br><span class="line">    AFTER INSERT</span><br><span class="line">    ON score</span><br><span class="line">    FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    CALL update_user_total_score(NEW.student_id, NEW.score);</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DROP TRIGGER IF EXISTS score_update;</span><br><span class="line">CREATE TRIGGER score_update</span><br><span class="line">    AFTER UPDATE</span><br><span class="line">    ON score</span><br><span class="line">    FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    CALL update_user_total_score(NEW.student_id, NEW.score - OLD.score);</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DROP TRIGGER IF EXISTS score_delete;</span><br><span class="line">CREATE TRIGGER score_delete</span><br><span class="line">    AFTER DELETE</span><br><span class="line">    ON score</span><br><span class="line">    FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    CALL update_user_total_score(OLD.student_id, 0 - OLD.score);</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DELETE</span><br><span class="line">FROM score</span><br><span class="line">WHERE id = 15;</span><br><span class="line"></span><br><span class="line">TRUNCATE score;</span><br><span class="line">TRUNCATE student;</span><br><span class="line"></span><br><span class="line">INSERT INTO student(id, name)</span><br><span class="line">VALUES (1, &apos;Grey&apos;),</span><br><span class="line">       (2, &apos;Yellow&apos;),</span><br><span class="line">       (3, &apos;Pink&apos;),</span><br><span class="line">       (4, &apos;Red&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO score (student_id, score)</span><br><span class="line">VALUES (1, 80)</span><br><span class="line">     , (1, 90)</span><br><span class="line">     , (2, 70)</span><br><span class="line">     , (3, 60)</span><br><span class="line">     , (4, 10)</span><br><span class="line">     , (4, 30)</span><br><span class="line">     , (4, 20)</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line">DELETE</span><br><span class="line">FROM score</span><br><span class="line">WHERE id = 1;</span><br><span class="line"></span><br><span class="line">UPDATE</span><br><span class="line">    score</span><br><span class="line">SET score = 100</span><br><span class="line">WHERE id = 2;</span><br><span class="line"></span><br><span class="line">DELETE FROM score WHERE 1;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM student;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM score;</span><br><span class="line"></span><br><span class="line">CALL update_user_total_score(1, 10);</span><br><span class="line">SHOW CREATE PROCEDURE update_user_total_score;</span><br><span class="line"></span><br><span class="line">SELECT 10</span><br><span class="line">INTO @totalScore;</span><br><span class="line">UPDATE student</span><br><span class="line">SET total_score = total_score + @totalScore</span><br><span class="line">WHERE id = 1;</span><br></pre></td></tr></table></figure>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

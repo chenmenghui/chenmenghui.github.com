@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>phpstorm wamp3 配置xdebug | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>phpstorm wamp3 配置xdebug</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/10/06</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/开发环境/">开发环境</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#phpstorm" class='tag'>phpstorm</a>
+
+  <a href="../../../../../../../tags/#wamp的使用" class='tag'>wamp的使用</a>
+
+
+            
+          </div>
+          <h1 id="phpstorm-配置xdebug"><a href="#phpstorm-配置xdebug" class="headerlink" title="phpstorm 配置xdebug"></a>phpstorm 配置xdebug</h1><p>首先,需要知道的是php运行有两种模式,分别是命令行模式(cli)和浏览器访问模式(cgi).在wamp中,这两种方式使用的配置文件不同</p>
+<h2 id="cli模式下的xdebug配置"><a href="#cli模式下的xdebug配置" class="headerlink" title="cli模式下的xdebug配置"></a>cli模式下的xdebug配置</h2><p>如下图所示,首先看看这里面有没有在cli配置文件下配置好xdebug,这里展示的是已经配置好的.</p>
+<p><img src="https://wx1.sinaimg.cn/mw690/00784LeJgy1fvyvfwhmflj31h70sstbb.jpg" alt="phpstorm自动识别xdebug配置"></p>
+<p>如果没有配置好,则需要自己配置.首先需要在wamp开启xdebug,如图</p>
+<p><img src="https://wx1.sinaimg.cn/mw690/00784LeJgy1fvyvfxk3s0j31h70smb29.jpg" alt="wamp开启xdebug"></p>
+<p>开启之后,就可以在对应的地方找到xdebug的路径了.打开C:\wamp64\bin\apache\apache2.4.33\bin\php.ini(注意这里的安装位置),搜索xdebug就可以找到了(这就省的自己下载安装xdebug了)</p>
+<p>注意,这里的开启的地方是apache使用的php.ini配置文件,和phpstorm使用的配置文件不是同一个.phpstorm使用的是php-cli模式中使用的php.ini配置文件.</p>
+<p>这里有两者修改方式,一种是修改配置文件,另一种是修改phpstrom的配置</p>
+<p>第一种方式:</p>
+<p>可以在这里直接看到,点击编辑即可</p>
+<p><img src="https://wx1.sinaimg.cn/mw690/00784LeJgy1fvyvfwmyavj31h70ss41a.jpg" alt="php-cli模式使用的php.ini配置文件位置"></p>
+<p>点击编辑之后,就可以直接修改啦</p>
+<p><img src="https://wx3.sinaimg.cn/mw690/00784LeJgy1fvyvfwqio0j31h70sstd1.jpg" alt="配置xdebug"></p>
+<p>第二种方式:</p>
+<p>直接把上述获得的xdebug的路径复制到上述第一张图中的debugger extension即可</p>
+<h3 id="cgi下的配置"><a href="#cgi下的配置" class="headerlink" title="cgi下的配置"></a>cgi下的配置</h3><ol>
+<li>wamp打开xdebug配置</li>
+<li>phpstorm开启监听debug功能(上面的第四张图右上角一个类似电话的图片)</li>
+<li>浏览器访问时添加debug session参数.或浏览器下载对应插件开启debug功能(如chrome浏览器使用xdebug helper)</li>
+<li>根据提示,配置映射路径</li>
+</ol>
+<h3 id="开启自动监听"><a href="#开启自动监听" class="headerlink" title="开启自动监听"></a>开启自动监听</h3><ol>
+<li>修改 [setting|language..|PHP|Debug|Debug port] (比如设置成2333)<br>2.「php.ini」文件添加「xdebug.remote_autostart=1」</li>
+</ol>
+<h3 id="设置xdebug展示数组的深度"><a href="#设置xdebug展示数组的深度" class="headerlink" title="设置xdebug展示数组的深度"></a>设置xdebug展示数组的深度</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xdebug.var_display_max_depth=10</span><br></pre></td></tr></table></figure>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#phpstorm-配置xdebug"><span class="toc-number">1.</span> <span class="toc-text">phpstorm 配置xdebug</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cli模式下的xdebug配置"><span class="toc-number">1.1.</span> <span class="toc-text">cli模式下的xdebug配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cgi下的配置"><span class="toc-number">1.1.1.</span> <span class="toc-text">cgi下的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开启自动监听"><span class="toc-number">1.1.2.</span> <span class="toc-text">开启自动监听</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置xdebug展示数组的深度"><span class="toc-number">1.1.3.</span> <span class="toc-text">设置xdebug展示数组的深度</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

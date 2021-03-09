@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>PHP中的时间 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>PHP中的时间</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/29</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#PHP" class='tag'>PHP</a>
+
+
+            
+          </div>
+          <h1 id="strtotime"><a href="#strtotime" class="headerlink" title="strtotime()"></a>strtotime()</h1><p><a href="https://blog.csdn.net/ihelloworld/article/details/7699730?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare" target="_blank" rel="noopener">php 获取时间(今天,昨天,三天内,本周,上周,本月,三年内,半年内,一年内,三年内)</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">'DATE_FORMAT'</span>, <span class="string">'Y-m-d'</span>);</span><br><span class="line">$year = <span class="number">2020</span>;</span><br><span class="line">$baseStamp = strtotime($year . <span class="string">"-01-01"</span>);</span><br><span class="line">$weekNo = <span class="number">31</span>;</span><br><span class="line">$days = ($weekNo - <span class="number">1</span>) * <span class="number">7</span>;</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day Monday"</span>, $baseStamp));</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day tuesday"</span>, $baseStamp));</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day wednesday"</span>, $baseStamp));</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day thursday"</span>, $baseStamp));</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day friday"</span>, $baseStamp));</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day saturday"</span>, $baseStamp));</span><br><span class="line">$resWeek[] = date(DATE_FORMAT, strtotime(<span class="string">"+ &#123;$days&#125; day sunday"</span>, $baseStamp));</span><br></pre></td></tr></table></figure>
+<p>注意：strtotim 的「本周」指的是从今天开始算的后七天内，比如上述代码的周二结果是2020-08-04而不是2020-07-28。搭配「last」、「next」使用效果不错。</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#strtotime"><span class="toc-number">1.</span> <span class="toc-text">strtotime()</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

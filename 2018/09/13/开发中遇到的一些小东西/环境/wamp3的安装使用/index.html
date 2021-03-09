@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>wamp3的安装使用 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>wamp3的安装使用</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/13</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/开发环境/">开发环境</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#wamp的使用" class='tag'>wamp的使用</a>
+
+
+            
+          </div>
+          <h1 id="wamp3的安装使用"><a href="#wamp3的安装使用" class="headerlink" title="wamp3的安装使用"></a>wamp3的安装使用</h1><p>刚刚安装使用了wamp3,中间遇到了一些问题</p>
+<h3 id="缺少msvcr120-dll文件"><a href="#缺少msvcr120-dll文件" class="headerlink" title="缺少msvcr120.dll文件"></a>缺少msvcr120.dll文件</h3><p>这个百度解决的.就是在360人工服务查找这个问题,然后提示安装了什么工具集就好了.</p>
+<h3 id="无法配置默认文件路径"><a href="#无法配置默认文件路径" class="headerlink" title="无法配置默认文件路径"></a>无法配置默认文件路径</h3><p>原来wamp3默认开启了v-host的服务,需在httpd-vhosts.conf文件中修改路径</p>
+<h3 id="修改路径后无法访问的问题"><a href="#修改路径后无法访问的问题" class="headerlink" title="修改路径后无法访问的问题"></a>修改路径后无法访问的问题</h3><p>需修改httpd.conf文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+<p>改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    #AllowOverride none</span><br><span class="line">    #Require all denied</span><br><span class="line">    Options FollowSymLinks</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Order deny,allow</span><br><span class="line">    Deny from all</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="总是提示”c-wamp64-or-PHP-in-PATH”"><a href="#总是提示”c-wamp64-or-PHP-in-PATH”" class="headerlink" title="总是提示”c:/wamp64 or PHP in PATH”"></a>总是提示”c:/wamp64 or PHP in PATH”</h3><p>现在的wamp3不提倡使用环境变量.使用环境变量对切换php版本有影响</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#wamp3的安装使用"><span class="toc-number">1.</span> <span class="toc-text">wamp3的安装使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缺少msvcr120-dll文件"><span class="toc-number">1.0.1.</span> <span class="toc-text">缺少msvcr120.dll文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无法配置默认文件路径"><span class="toc-number">1.0.2.</span> <span class="toc-text">无法配置默认文件路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改路径后无法访问的问题"><span class="toc-number">1.0.3.</span> <span class="toc-text">修改路径后无法访问的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总是提示”c-wamp64-or-PHP-in-PATH”"><span class="toc-number">1.0.4.</span> <span class="toc-text">总是提示”c:/wamp64 or PHP in PATH”</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

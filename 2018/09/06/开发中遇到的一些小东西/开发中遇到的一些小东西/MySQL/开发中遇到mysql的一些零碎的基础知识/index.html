@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>开发中遇到mysql的一些零碎的基础知识 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>开发中遇到mysql的一些零碎的基础知识</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/06</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#mysql" class='tag'>mysql</a>
+
+  <a href="../../../../../../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+
+            
+          </div>
+          <h3 id="mysql一行信息中匹配特定的数据"><a href="#mysql一行信息中匹配特定的数据" class="headerlink" title="mysql一行信息中匹配特定的数据"></a>mysql一行信息中匹配特定的数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> nick_name REGEXP <span class="string">'[[:&lt;:]]不觉风止[[:&gt;:]]'</span>;</span><br></pre></td></tr></table></figure>
+<p>如果是类似”1,2,3,4”这种,不用正则也可以<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> find_in_set(<span class="string">'不觉风止'</span>, nick_name);</span><br></pre></td></tr></table></figure></p>
+<p>用like就太繁琐了,需要考虑多种情况</p>
+<h3 id="mysql中join之后的on"><a href="#mysql中join之后的on" class="headerlink" title="mysql中join之后的on"></a>mysql中join之后的on</h3><p>看一个sql语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  n.cat_id,</span><br><span class="line">  c.cat_id</span><br><span class="line"><span class="keyword">FROM</span> site_news n <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> site_news_category c</span><br><span class="line">    <span class="keyword">ON</span> n.cat_id = <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>他的结果集居然是site_news的所有的记录。</p>
+<p>把sql语句改成这个样子<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  n.cat_id,</span><br><span class="line">  c.cat_id</span><br><span class="line"><span class="keyword">FROM</span> site_news n <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> site_news_category c</span><br><span class="line">    <span class="keyword">ON</span> n.cat_id = c.cat_id</span><br><span class="line"><span class="keyword">WHERE</span> c.cat_id = <span class="number">21</span>;</span><br></pre></td></tr></table></figure></p>
+<p>其结果就符合预期了.</p>
+<p><a href="https://blog.csdn.net/qq_33864656/article/details/77838258" target="_blank" rel="noopener">百度之后,看到这样的结论</a></p>
+<blockquote>
+<p>假如是左连接的话，如果左边表的某条记录不符合连接条件，那么它不进行连接，但是仍然留在结果集中（此时右边部分的连接结果为NULL）</p>
+</blockquote>
+<p>才知道困惑我的原因竟在于此</p>
+<p>原来,on只是作为两个表的链接条件而使用的.具体的筛选,还需要使用where处理</p>
+<h3 id="mysql中的on、where、having之间的区别"><a href="#mysql中的on、where、having之间的区别" class="headerlink" title="mysql中的on、where、having之间的区别"></a>mysql中的on、where、having之间的区别</h3><p>在select语句中，这三者筛选是有时序的。on最先，where次之，having最后。</p>
+<p>在通过两张及两张以上的表链接来返回记录时，首先会产生一个中间的临时表。on是产生临时表所需要的条件。同时，记住上述所说的话。</p>
+<p>之后where是在这张临时表的基础之上起作用的。另外where的条件是数据表中原有的字段。</p>
+<p>然后就是having在where之后的基础起作用。having对聚合函数及as产生的别名有效</p>
+<h3 id="mysql把搜索到的内容展示成一行"><a href="#mysql把搜索到的内容展示成一行" class="headerlink" title="mysql把搜索到的内容展示成一行"></a>mysql把搜索到的内容展示成一行</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">group_concat</span>(<span class="keyword">key</span>) <span class="keyword">FROM</span> config <span class="keyword">WHERE</span> <span class="keyword">group</span> = <span class="string">'points'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="UPDATE把一个表中的字段与另一个表的字段对应上"><a href="#UPDATE把一个表中的字段与另一个表的字段对应上" class="headerlink" title="UPDATE把一个表中的字段与另一个表的字段对应上"></a>UPDATE把一个表中的字段与另一个表的字段对应上</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> store_reply s, base_user c</span><br><span class="line"><span class="keyword">set</span> s.head_img_url = c.head_img_url</span><br><span class="line"><span class="keyword">where</span> s.user_id = c.id;</span><br></pre></td></tr></table></figure>
+<h3 id="INSERT另外一个表的数据"><a href="#INSERT另外一个表的数据" class="headerlink" title="INSERT另外一个表的数据"></a>INSERT另外一个表的数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> favorite_num (rid, favorite_num)</span><br><span class="line">  <span class="keyword">SELECT</span></span><br><span class="line">    rid,</span><br><span class="line">    <span class="keyword">count</span>(<span class="keyword">id</span>)</span><br><span class="line">  <span class="keyword">FROM</span> store_favorite</span><br><span class="line">  <span class="keyword">GROUP</span> <span class="keyword">BY</span> rid;</span><br></pre></td></tr></table></figure>
+<p>两个表的字段顺序对应上就可以了</p>
+<h3 id="mysql5-7-mysql5-7默认开启了ONLY-FULL-GROUP-BY-有时需要将其关闭"><a href="#mysql5-7-mysql5-7默认开启了ONLY-FULL-GROUP-BY-有时需要将其关闭" class="headerlink" title="mysql5.7 mysql5.7默认开启了ONLY_FULL_GROUP_BY,有时需要将其关闭"></a>mysql5.7 mysql5.7默认开启了ONLY_FULL_GROUP_BY,有时需要将其关闭</h3><p>SET SESSION sql_mode = ‘STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION ‘;</p>
+<h3 id="比较两个表中的数据是否一致"><a href="#比较两个表中的数据是否一致" class="headerlink" title="比较两个表中的数据是否一致"></a>比较两个表中的数据是否一致</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,title</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">       <span class="keyword">SELECT</span> <span class="keyword">id</span>,title</span><br><span class="line">       <span class="keyword">FROM</span> text1</span><br><span class="line">       <span class="keyword">UNION</span> ALL</span><br><span class="line">       <span class="keyword">SELECT</span> <span class="keyword">id</span>,title</span><br><span class="line">       <span class="keyword">FROM</span> text2</span><br><span class="line">     ) tb1</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">id</span>,title</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">count</span>(*) = <span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span>, title</span><br></pre></td></tr></table></figure>
+<h3 id="通过另一个表的数据更新当前表"><a href="#通过另一个表的数据更新当前表" class="headerlink" title="通过另一个表的数据更新当前表"></a>通过另一个表的数据更新当前表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> vip_dynamic_reward_record <span class="built_in">record</span>, vip_member <span class="keyword">member</span></span><br><span class="line"><span class="keyword">SET</span> record.market = member.market</span><br><span class="line"><span class="keyword">WHERE</span> record.member_child_id = member.id;</span><br></pre></td></tr></table></figure>
+<p>或者子句的模式<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> vip_dynamic_reward_record</span><br><span class="line"><span class="keyword">SET</span> market = (<span class="keyword">SELECT</span> market <span class="keyword">FROM</span> vip_member <span class="keyword">WHERE</span> vip_dynamic_reward_record.member_child_id = vip_member.id);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">SET</span> average_score = (<span class="keyword">SELECT</span> <span class="keyword">avg</span>(score) <span class="keyword">FROM</span> score <span class="keyword">WHERE</span> user_id = user.id);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> vip_member</span><br><span class="line"><span class="keyword">SET</span> dynamic_reward = (<span class="keyword">SELECT</span> <span class="keyword">ifnull</span>(<span class="keyword">sum</span>(times * <span class="keyword">least</span>(left_dynamic_reward, right_dynamic_reward) * <span class="number">2</span> * <span class="number">0.03</span> * <span class="number">0.95</span>), <span class="number">0</span>)</span><br><span class="line">                      <span class="keyword">FROM</span> vip_dynamic_reward</span><br><span class="line">                      <span class="keyword">WHERE</span> vip_member.id = vip_dynamic_reward.member_id);</span><br></pre></td></tr></table></figure></p>
+<p>令我奇怪的是,这里的set之后居然没有where限定条件也能正常运行</p>
+<h3 id="创建一个临时表并把另一个表的数据插入进去"><a href="#创建一个临时表并把另一个表的数据插入进去" class="headerlink" title="创建一个临时表并把另一个表的数据插入进去"></a>创建一个临时表并把另一个表的数据插入进去</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> record1</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> vip_dynamic_reward_record;</span><br></pre></td></tr></table></figure>
+<p>原来如此,创建表的时候不一定需要先定义字段再插入数据,可以直接把一个子表的内容插进去的.</p>
+<h3 id="mysql中获取一列数据中几栏里的最小值"><a href="#mysql中获取一列数据中几栏里的最小值" class="headerlink" title="mysql中获取一列数据中几栏里的最小值"></a>mysql中获取一列数据中几栏里的最小值</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">`member_id`</span>,<span class="keyword">least</span>(<span class="keyword">sum</span>(<span class="string">`left_dynamic_reward`</span>), <span class="keyword">sum</span>(<span class="string">`right_dynamic_reward`</span>))*<span class="number">2</span>*<span class="number">0.03</span>*<span class="number">0.95</span> <span class="string">`dynamic_reward`</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="string">`vip_dynamic_reward`</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">`times`</span> &lt; <span class="number">25</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="string">`member_id`</span></span><br></pre></td></tr></table></figure>
+<h3 id="MySQL中的if"><a href="#MySQL中的if" class="headerlink" title="MySQL中的if"></a>MySQL中的if</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- IF(expr1,expr2,expr3)</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">if</span> (<span class="literal">true</span>, <span class="number">1</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- IFNULL(expr1,expr2)</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ifnull</span>(<span class="literal">null</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CASE</span> sex</span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">'男'</span> </span><br><span class="line">    <span class="keyword">ELSE</span> <span class="string">'女'</span> </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="mysql中的时间"><a href="#mysql中的时间" class="headerlink" title="mysql中的时间"></a>mysql中的时间</h3><ul>
+<li>DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。</li>
+<li>MySQL 格式化函数 FROM_UNIXTIME()</li>
+</ul>
+<p>具体内容参考链接<br><a href="https://www.cnblogs.com/dest/p/4205371.html" target="_blank" rel="noopener">mysql格式化日期</a></p>
+<h3 id="删除表记录后重新设置自增索引值"><a href="#删除表记录后重新设置自增索引值" class="headerlink" title="删除表记录后重新设置自增索引值"></a>删除表记录后重新设置自增索引值</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="string">`system_menu`</span></span><br><span class="line">    AUTO_INCREMENT = <span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="Insert-ignore-into"><a href="#Insert-ignore-into" class="headerlink" title="Insert ignore into"></a>Insert ignore into</h3><p><a href="http://www.mysqltutorial.org/mysql-insert-ignore/" target="_blank" rel="noopener">MySQL INSERT IGNORE Statement</a></p>
+<p>insert ignore into 指的是插入时忽略错误信息。<br>比如，如果没有「ignore」，一条包含多个数据的插入语句会在报错（如重复索引）后直接退出执行；而有「ignore」，则会忽略报错继续执行其他可执行的部分。</p>
+<h3 id="on-duplicate-key-update"><a href="#on-duplicate-key-update" class="headerlink" title="on duplicate key update"></a>on duplicate key update</h3><p>这个就牛逼了，实现了有则更新，无则添加的功能</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> daily_hit_count(<span class="keyword">day</span>, slot, cnt)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="keyword">current_date</span>,</span><br><span class="line">        <span class="keyword">floor</span>(<span class="keyword">rand</span>() * <span class="number">10</span>),</span><br><span class="line">        <span class="number">1</span>)</span><br><span class="line"><span class="keyword">ON</span> <span class="keyword">DUPLICATE</span> <span class="keyword">KEY</span> <span class="keyword">UPDATE</span> cnt =cnt + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h3><p>之前遇到排序结果是需要自定义的，现在有一个思路<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="string">`key`</span>,<span class="keyword">CASE</span> <span class="string">`key`</span> <span class="keyword">WHEN</span> <span class="string">'B'</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">WHEN</span> <span class="string">'A'</span> <span class="keyword">THEN</span> <span class="number">2</span> <span class="keyword">WHEN</span> <span class="string">'C'</span> <span class="keyword">THEN</span> <span class="number">4</span> <span class="keyword">WHEN</span> <span class="string">'D'</span> <span class="keyword">THEN</span> <span class="number">3</span> <span class="keyword">ELSE</span> <span class="literal">NULL</span> <span class="keyword">END</span> <span class="keyword">AS</span> new_sort</span><br><span class="line"><span class="keyword">FROM</span> Greatests</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> new_sort;</span><br></pre></td></tr></table></figure></p>
+<h3 id="「-」和「-」的区别"><a href="#「-」和「-」的区别" class="headerlink" title="「=」和「:=」的区别"></a>「=」和「:=」的区别</h3><ul>
+<li>「=」只有在update或set中才是赋值，其他地方是判断。而判断的结果是1或2</li>
+<li>「:=」只有赋值</li>
+</ul>
+<h3 id="UPDATE操作是有顺序的"><a href="#UPDATE操作是有顺序的" class="headerlink" title="UPDATE操作是有顺序的"></a>UPDATE操作是有顺序的</h3><p>第一次见到没有看懂，记下来吧。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="keyword">test</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> <span class="keyword">test</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">id</span>    <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">    <span class="keyword">start</span> <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">end</span>   <span class="built_in">INT</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span></span><br><span class="line">) <span class="keyword">CHARSET</span> utf8</span><br><span class="line">  <span class="keyword">ENGINE</span> <span class="keyword">innodb</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">test</span> (<span class="keyword">start</span>)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="number">1</span>),</span><br><span class="line">       (<span class="number">2</span>),</span><br><span class="line">       (<span class="number">3</span>),</span><br><span class="line">       (<span class="number">4</span>),</span><br><span class="line">       (<span class="number">5</span>),</span><br><span class="line">       (<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> @new_num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">end</span>   = @new_num,</span><br><span class="line">    <span class="keyword">start</span> = (@new_num := <span class="keyword">start</span>) #<span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span> <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<p>注意#1的地方。</p>
+<p>这几天看那本SQL进阶，因为其中反复强调SQL是无序集合，所以产生了个误区，总感觉update操作时同时进行的。从这个可以看出结果，还是有顺序的，很明显受到了 order by 的影响。</p>
+<p>其实想想也是，数据表本身就是按一定顺序排列的「文本」结构，怎么可能会没有顺序呢。不仅仅是update，其他操作也是有顺序的。就比如之前常见的排列序号，如果没有顺序，是不可能实现的。</p>
+<h3 id="SQL-CALC-FOUND-ROWS"><a href="#SQL-CALC-FOUND-ROWS" class="headerlink" title="SQL_CALC_FOUND_ROWS"></a>SQL_CALC_FOUND_ROWS</h3><p>在经常使用的分页查询中，经常是「select count（*） from 子句」和「子句」这般查两次。使用该函数，就无须这样的操作了。在处理复杂的「子句」时，大大提高了效率。</p>
+<h3 id="通过SQL查看表所包含的字段"><a href="#通过SQL查看表所包含的字段" class="headerlink" title="通过SQL查看表所包含的字段"></a>通过SQL查看表所包含的字段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> COLUMN_NAME</span><br><span class="line"><span class="keyword">FROM</span> information_schema.COLUMNS</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA = <span class="string">'库名'</span></span><br><span class="line">  <span class="keyword">AND</span> TABLE_NAME = <span class="string">'表名'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="查询结果按-非零非null、非null、null-进行排序"><a href="#查询结果按-非零非null、非null、null-进行排序" class="headerlink" title="查询结果按 非零非null、非null、null 进行排序"></a>查询结果按 非零非null、非null、null 进行排序</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">test</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">ISNULL</span>(<span class="keyword">end</span>), <span class="keyword">NOT</span> (<span class="keyword">end</span>), <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+<p>isnull 值为null，结果为1；值为非null，结果为0。排序结果就会把所有的非null放在前面</p>
+<p>not 值为null，结果为null；值为0，结果为1；值为非null非0，结果为0</p>
+<p>所以，排序结果就是按 非零非null、非null、null 排序</p>
+<h3 id="创建字段时默认值（5-7）"><a href="#创建字段时默认值（5-7）" class="headerlink" title="创建字段时默认值（5.7）"></a>创建字段时默认值（5.7）</h3><p>和之前的版本有些区别。比如</p>
+<p><a href="https://blog.csdn.net/weixin_34112030/article/details/92068637" target="_blank" rel="noopener">datetime 不能使用「0000-00-00 00:00:00」</a></p>
+<p>text 等格式不能有默认值</p>
+<p>这些也都是可以通过配置项处理。但也没有必要。</p>
+<h3 id="MySQL提示1418错误"><a href="#MySQL提示1418错误" class="headerlink" title="MySQL提示1418错误"></a>MySQL提示1418错误</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1418 (HY000): This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)</span><br></pre></td></tr></table></figure>
+<p>这样就行啦<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> log_bin_trust_function_creators=<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="时间计算"><a href="#时间计算" class="headerlink" title="时间计算"></a>时间计算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@thismonth := CURDATE() - INTERVAL DAYOFMONTH(CURDATE()) - 1 DAY; # 当月初</span><br><span class="line">@lastmonth := @thismonth - INTERVAL 1 MONTH; # 上个月</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.yiibai.com/mysql/interval.html" target="_blank" rel="noopener">INTERVAL</a></p>
+<h3 id="报错「Row-20-was-cut-by-GROUP-CONCAT-」"><a href="#报错「Row-20-was-cut-by-GROUP-CONCAT-」" class="headerlink" title="报错「Row 20 was cut by GROUP_CONCAT()」"></a>报错「Row 20 was cut by GROUP_CONCAT()」</h3><p>GROUP_CONCAT有个最大长度的限制，超过最大长度就会被截断掉。</p>
+<p>可这般查看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT @@global.group_concat_max_len;</span><br></pre></td></tr></table></figure>
+<p>临时修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET GLOBAL group_concat_max_len=102400;</span><br></pre></td></tr></table></figure>
+<p>永久修改</p>
+<p>修改mysql配置文件my.ini，默认情况下是没有group_concat_max_len项的，在配置文件中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">group_concat_max_len = -1</span><br></pre></td></tr></table></figure></p>
+<h3 id="GROUP-CONCAT"><a href="#GROUP-CONCAT" class="headerlink" title="GROUP_CONCAT"></a>GROUP_CONCAT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GROUP_CONCAT(DISTINCT expression</span><br><span class="line">    ORDER BY expression</span><br><span class="line">    SEPARATOR sep);</span><br></pre></td></tr></table></figure>
+<p>例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 查询每门功成绩最好的前两名</span><br><span class="line">SELECT s1.cid,</span><br><span class="line">       s1.sid,</span><br><span class="line">       s1.score,</span><br><span class="line">       group_concat(concat(s2.sid, &apos;-&apos;, s2.score) ORDER BY s2.sid SEPARATOR &quot;\n&quot;),</span><br><span class="line">       count(s1.sid) AS Bigger</span><br><span class="line">FROM sc s1</span><br><span class="line">LEFT JOIN sc s2 ON s1.cid = s2.cid AND s1.score &lt; s2.score</span><br><span class="line">GROUP BY s1.cid, s1.sid, s1.score</span><br><span class="line">HAVING Bigger &lt; 2 # 0 第一名; 1 第二名</span><br><span class="line">ORDER BY Bigger DESC;</span><br></pre></td></tr></table></figure>
+<h3 id="查看一个表里有多少字段"><a href="#查看一个表里有多少字段" class="headerlink" title="查看一个表里有多少字段"></a>查看一个表里有多少字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT count(*)</span><br><span class="line">FROM information_schema.COLUMNS</span><br><span class="line">WHERE TABLE_SCHEMA = &apos;数据库名&apos;</span><br><span class="line">  AND table_name = &apos;表名&apos;</span><br></pre></td></tr></table></figure>
+<p>利用这个表，可以查询好多和表相关的东西</p>
+<p>### </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DELETE m,ms</span><br><span class="line">FROM maintenanceschedule m</span><br><span class="line">LEFT JOIN maintenanceschedule_set ms ON m.id = ms.MaintenanceScheduleID</span><br><span class="line">WHERE m.Name_val = &apos;Test by valen 3&apos;;</span><br></pre></td></tr></table></figure>
+<p>问题一：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cannot delete or update a parent row: a foreign key constraint fails (`tkhk`.`maintenanceschedule_set`, CONSTRAINT `maintenanceschedule_set_ibfk_1` FOREIGN KEY (`MaintenanceScheduleID`) REFERENCES `maintenanceschedule` (`id`))</span><br></pre></td></tr></table></figure>
+<p>这个是由于外键的缘故。「SET FOREIGN_KEY_CHECKS = 0」可以解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Can&apos;t update table &apos;maintenanceschedule&apos; in stored function/trigger because it is already used by statement which invoked this stored function/trigger.</span><br></pre></td></tr></table></figure>
+<p>这个是因为两者存在触发器，会互相调用，所以得把SQL拆成两个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM maintenanceschedule_set ...</span><br><span class="line">DELETE FROM maintenanceschedule ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UPDATE test_unit u, unitscheduling_week w   -- 其中 unitscheduling_week 数据有 1,2,3,4,any</span><br><span class="line">SET u.UnitScheduleWeek = CASE</span><br><span class="line">                             WHEN w.Value = 1 THEN 1</span><br><span class="line">                             WHEN w.Value = 2 THEN 2</span><br><span class="line">                             WHEN w.Value = 3 THEN 3</span><br><span class="line">                             WHEN w.Value = 4 THEN 4</span><br><span class="line">                             ELSE NULL</span><br><span class="line">    END</span><br><span class="line">WHERE u.UnitScheduleWeek IS NOT NULL</span><br><span class="line">  AND u.UnitScheduleWeek = w.id;</span><br></pre></td></tr></table></figure>
+<p>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[22001][1292] Data truncation: Truncated incorrect DOUBLE value: &apos;ANY&apos;</span><br></pre></td></tr></table></figure>
+<p>改成这样就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">UPDATE test_unit u, unitscheduling_week w</span><br><span class="line">SET u.UnitScheduleWeek = CASE</span><br><span class="line">                             WHEN w.Value = &apos;1&apos; THEN 1</span><br><span class="line">                             WHEN w.Value = &apos;2&apos; THEN 2</span><br><span class="line">                             WHEN w.Value = &apos;3&apos; THEN 3</span><br><span class="line">                             WHEN w.Value = &apos;4&apos; THEN 4</span><br><span class="line">                             ELSE NULL</span><br><span class="line">    END</span><br><span class="line">WHERE u.UnitScheduleWeek IS NOT NULL</span><br><span class="line">  AND u.UnitScheduleWeek = w.id;</span><br></pre></td></tr></table></figure>
+<h3 id="取一组数据的最大值"><a href="#取一组数据的最大值" class="headerlink" title="取一组数据的最大值"></a>取一组数据的最大值</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> order_test;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> order_test</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">id</span>     <span class="built_in">int</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">    <span class="keyword">year</span>   <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">    run_id <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">    <span class="keyword">value</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span></span><br><span class="line">) <span class="keyword">ENGINE</span> <span class="keyword">innodb</span></span><br><span class="line">  <span class="keyword">CHARSET</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用in</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">year</span>,run_id, <span class="keyword">value</span></span><br><span class="line"><span class="keyword">FROM</span> order_test</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">max</span>(<span class="keyword">id</span>)</span><br><span class="line">             <span class="keyword">FROM</span> order_test</span><br><span class="line">             <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">year</span>, run_id</span><br><span class="line">) <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">year</span>,run_id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用join</span></span><br><span class="line"><span class="keyword">SELECT</span> t2.year, t2.run_id, t2.value</span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="keyword">max</span>(<span class="keyword">id</span>) <span class="keyword">AS</span> MaxId <span class="keyword">FROM</span> order_test <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="keyword">year</span>, run_id) t1</span><br><span class="line"><span class="keyword">JOIN</span> order_test t2 <span class="keyword">ON</span> t1.MaxId = t2.id <span class="keyword">ORDER</span> <span class="keyword">BY</span> t2.year, t2.run_id;</span><br></pre></td></tr></table></figure>
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql一行信息中匹配特定的数据"><span class="toc-number">1.</span> <span class="toc-text">mysql一行信息中匹配特定的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql中join之后的on"><span class="toc-number">2.</span> <span class="toc-text">mysql中join之后的on</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql中的on、where、having之间的区别"><span class="toc-number">3.</span> <span class="toc-text">mysql中的on、where、having之间的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql把搜索到的内容展示成一行"><span class="toc-number">4.</span> <span class="toc-text">mysql把搜索到的内容展示成一行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UPDATE把一个表中的字段与另一个表的字段对应上"><span class="toc-number">5.</span> <span class="toc-text">UPDATE把一个表中的字段与另一个表的字段对应上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#INSERT另外一个表的数据"><span class="toc-number">6.</span> <span class="toc-text">INSERT另外一个表的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql5-7-mysql5-7默认开启了ONLY-FULL-GROUP-BY-有时需要将其关闭"><span class="toc-number">7.</span> <span class="toc-text">mysql5.7 mysql5.7默认开启了ONLY_FULL_GROUP_BY,有时需要将其关闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较两个表中的数据是否一致"><span class="toc-number">8.</span> <span class="toc-text">比较两个表中的数据是否一致</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过另一个表的数据更新当前表"><span class="toc-number">9.</span> <span class="toc-text">通过另一个表的数据更新当前表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个临时表并把另一个表的数据插入进去"><span class="toc-number">10.</span> <span class="toc-text">创建一个临时表并把另一个表的数据插入进去</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql中获取一列数据中几栏里的最小值"><span class="toc-number">11.</span> <span class="toc-text">mysql中获取一列数据中几栏里的最小值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL中的if"><span class="toc-number">12.</span> <span class="toc-text">MySQL中的if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mysql中的时间"><span class="toc-number">13.</span> <span class="toc-text">mysql中的时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除表记录后重新设置自增索引值"><span class="toc-number">14.</span> <span class="toc-text">删除表记录后重新设置自增索引值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Insert-ignore-into"><span class="toc-number">15.</span> <span class="toc-text">Insert ignore into</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#on-duplicate-key-update"><span class="toc-number">16.</span> <span class="toc-text">on duplicate key update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义排序"><span class="toc-number">17.</span> <span class="toc-text">自定义排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#「-」和「-」的区别"><span class="toc-number">18.</span> <span class="toc-text">「=」和「:=」的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UPDATE操作是有顺序的"><span class="toc-number">19.</span> <span class="toc-text">UPDATE操作是有顺序的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-CALC-FOUND-ROWS"><span class="toc-number">20.</span> <span class="toc-text">SQL_CALC_FOUND_ROWS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过SQL查看表所包含的字段"><span class="toc-number">21.</span> <span class="toc-text">通过SQL查看表所包含的字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询结果按-非零非null、非null、null-进行排序"><span class="toc-number">22.</span> <span class="toc-text">查询结果按 非零非null、非null、null 进行排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建字段时默认值（5-7）"><span class="toc-number">23.</span> <span class="toc-text">创建字段时默认值（5.7）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL提示1418错误"><span class="toc-number">24.</span> <span class="toc-text">MySQL提示1418错误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时间计算"><span class="toc-number">25.</span> <span class="toc-text">时间计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#报错「Row-20-was-cut-by-GROUP-CONCAT-」"><span class="toc-number">26.</span> <span class="toc-text">报错「Row 20 was cut by GROUP_CONCAT()」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GROUP-CONCAT"><span class="toc-number">27.</span> <span class="toc-text">GROUP_CONCAT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看一个表里有多少字段"><span class="toc-number">28.</span> <span class="toc-text">查看一个表里有多少字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#取一组数据的最大值"><span class="toc-number">29.</span> <span class="toc-text">取一组数据的最大值</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

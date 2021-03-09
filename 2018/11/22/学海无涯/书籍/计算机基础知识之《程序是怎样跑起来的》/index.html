@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>计算机基础知识之《程序是怎样跑起来的》 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>计算机基础知识之《程序是怎样跑起来的》</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/11/22</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/图书/">图书</a>/ <a class="article-category-link" href="../../../../../../categories/图书/计算机基础/">计算机基础</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#计算机基础" class='tag'>计算机基础</a>
+
+
+            
+          </div>
+          <h1 id="第一章-对程序员来说CPU是什么"><a href="#第一章-对程序员来说CPU是什么" class="headerlink" title="第一章 对程序员来说CPU是什么"></a>第一章 对程序员来说CPU是什么</h1><blockquote>
+<p>热身问题</p>
+</blockquote>
+<ol>
+<li>程序是什么</li>
+<li>程序是有什么组成的</li>
+<li>什么是机器语言</li>
+<li>正在运行的程序存储再什么位置</li>
+<li>什么是内存地址</li>
+<li>计算机的构成元件中,负责程序的解释和运行的是哪个</li>
+</ol>
+<blockquote>
+<p>答案</p>
+</blockquote>
+<ol>
+<li>指示计算机每一步动作的一组指令</li>
+<li>程序是指令和数据的组合体.如echo ‘hello’.echo是指令,hello是数据</li>
+<li>机器语言是CPU可以直接识别并使用的语言.实际上,cpu能够直接识别和执行的只有机器语言.c等编写的程序都实在转化成机器语言后才运行的.</li>
+<li>内存</li>
+<li>内存是保存指令和数据的场所,通过地址来标记和指定.地址用整数值来表示</li>
+<li>CPU.</li>
+</ol>
+<h2 id="CPU的内部解析"><a href="#CPU的内部解析" class="headerlink" title="CPU的内部解析"></a>CPU的内部解析</h2><p>cpu(central processing unit)的组成部分</p>
+<ul>
+<li>寄存器 可以用来暂存指令,数据等处理对象,可将其看成内存的一部分</li>
+<li>控制器 负责把内存上的指令,数据等读入寄存器,并根据指令的执行结果来控制整个计算器</li>
+<li>运算器 负责运算从内存读入寄存器的数据</li>
+<li>时钟 负责发出cpu开始计时的时钟信号.时钟信号的频率愈高,cpu的运行速度俞快</li>
+</ul>
+<p>程序运行流程</p>
+<ol>
+<li>使用c等高级语言编写程序</li>
+<li>将程序编译后转化成机器语言的EXE文件</li>
+<li>程序运行时,在内存中生成EXE文件的副本</li>
+<li>CPU解释并执行程序内容</li>
+</ol>
+<p>内存,通常指的时主存储器(main memory).主存通过控制芯片等于cpu相连,主要负责存储指令和数据.主存由可读写的元素组成,每个字节(1字节=8位)都带有一个地址编号.cpu课程通过该地址读写主存中的指令和数据.</p>
+<p>控制指的是除了数据运算以外的处理,如键鼠输入,显示器输出</p>
+<h2 id="cpu是寄存器的集合体"><a href="#cpu是寄存器的集合体" class="headerlink" title="cpu是寄存器的集合体"></a>cpu是寄存器的集合体</h2><p>程序是把寄存器作为对象来来描述的</p>
+<p>汇编语言采用助记符来编写程序.每一个原本是电气信号的机器语言指令都对应一个助记符.</p>
+<p>不同种类的cpu,内部寄存器的数量种类及其数据存储范围都是不一致的.大致可分为八类</p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>累加寄存器</td>
+</tr>
+</tbody>
+</table>
+<p>// 这个我之前写完了，后来莫名其妙丢失了。</p>
+<p>C语言关键字（字母排序）</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>声明自动变量</td>
+</tr>
+<tr>
+<td>break</td>
+<td>跳出当前循环</td>
+</tr>
+<tr>
+<td>case</td>
+<td>开关语句分支</td>
+</tr>
+<tr>
+<td>char</td>
+<td>声明字符型变量或函数</td>
+</tr>
+<tr>
+<td>const</td>
+<td>声明只读变量</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>结束当前循环并开始下一轮循环</td>
+</tr>
+<tr>
+<td>default</td>
+<td>开关语句的「其他」分支</td>
+</tr>
+<tr>
+<td>do</td>
+<td>循环语句的循环体</td>
+</tr>
+<tr>
+<td>double</td>
+<td>声明双精度变量或函数</td>
+</tr>
+<tr>
+<td>else</td>
+<td>条件语句否定分支（if）</td>
+</tr>
+<tr>
+<td>enum</td>
+<td>声明枚举类</td>
+</tr>
+<tr>
+<td>extern</td>
+<td>声明变量是在其它文件中声明</td>
+</tr>
+<tr>
+<td>float</td>
+<td>声明浮点型变量或函数</td>
+</tr>
+<tr>
+<td>for</td>
+<td>一种循环语句</td>
+</tr>
+<tr>
+<td>goto</td>
+<td>无条件跳转语句</td>
+</tr>
+<tr>
+<td>if</td>
+<td>条件语句</td>
+</tr>
+<tr>
+<td>int</td>
+<td>声明整型变量或函数</td>
+</tr>
+<tr>
+<td>long</td>
+<td>声明长整型变量或函数</td>
+</tr>
+<tr>
+<td>register</td>
+<td>声明寄存器变量</td>
+</tr>
+<tr>
+<td>return</td>
+<td>子程序返回语句</td>
+</tr>
+<tr>
+<td>short</td>
+<td>声明短整形变量或函数</td>
+</tr>
+<tr>
+<td>signed</td>
+<td>声明有符号类型变量或函数</td>
+</tr>
+<tr>
+<td>sizeof</td>
+<td>计算数据类型长度</td>
+</tr>
+<tr>
+<td>static</td>
+<td>声明静态变量</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>声明静态变量</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>用于开关语句</td>
+</tr>
+<tr>
+<td>typedef</td>
+<td>用于给数据类型起别名</td>
+</tr>
+<tr>
+<td>union</td>
+<td>声明共用数据类型</td>
+</tr>
+<tr>
+<td>unsigned</td>
+<td>声明无符号类型变量或函数</td>
+</tr>
+<tr>
+<td>void</td>
+<td>声明函数无返回值或无参数，声明无类型指针</td>
+</tr>
+<tr>
+<td>volatile</td>
+<td>说明变量在程序执行中可被隐含地改变</td>
+</tr>
+<tr>
+<td>while</td>
+<td>循环语句的循环条件</td>
+</tr>
+</tbody>
+</table>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一章-对程序员来说CPU是什么"><span class="toc-number">1.</span> <span class="toc-text">第一章 对程序员来说CPU是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU的内部解析"><span class="toc-number">1.1.</span> <span class="toc-text">CPU的内部解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cpu是寄存器的集合体"><span class="toc-number">1.2.</span> <span class="toc-text">cpu是寄存器的集合体</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

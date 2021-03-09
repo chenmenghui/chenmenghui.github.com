@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>bat编程实操：清除jetbrain软件的试用记录 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>bat编程实操：清除jetbrain软件的试用记录</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/03/19</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/工具/">工具</a>/ <a class="article-category-link" href="../../../../../../../categories/工具/bat/">bat</a>
+  </div>
+
+
+
+            
+            
+          </div>
+          <p>删除注册器和和配置文件中的一些记录数据就可以啦，不过最新版（2020）已经用不了此法了。</p>
+<p>可使用批处理</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">rem For free evaluation jetbrain again</span></span><br><span class="line"><span class="comment">rem 2020-3-24 by chenmenghui</span></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">:: 主要就是查看当前时间，简单的字符串截取，和系统时间格式设置有关。这里 %<span class="built_in">date</span> 是 「<span class="number">2020</span>/<span class="number">04</span>/<span class="number">02</span> 周四」</span><br><span class="line"><span class="built_in">set</span> year=<span class="variable">%date:~0,4%</span></span><br><span class="line"><span class="built_in">set</span> month=<span class="variable">%date:~5,2%</span></span><br><span class="line"><span class="built_in">set</span> day=<span class="variable">%date:~8,2%</span></span><br><span class="line"><span class="built_in">set</span> /a currentDays=<span class="variable">%year%</span>*<span class="number">365</span>+<span class="variable">%month%</span>*<span class="number">30</span>+<span class="variable">%day%</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">exist</span> last_date.txt (</span><br><span class="line">    <span class="built_in">set</span> /p lastDays=&lt;last_date.txt</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">set</span> lastDays=<span class="number">0</span></span><br><span class="line">)</span><br><span class="line"><span class="built_in">set</span> /a diff=<span class="variable">%currentDays%</span>-<span class="variable">%lastDays%</span></span><br><span class="line">:: 假如距上一次操作大于等于<span class="number">20</span>天</span><br><span class="line"><span class="keyword">if</span> <span class="variable">%diff%</span> <span class="keyword">GEQ</span> <span class="number">20</span> (</span><br><span class="line">    :: 删除相应的配置信息</span><br><span class="line">    <span class="built_in">set</span> folder=C:<span class="variable">%HOMEPATH%</span>\</span><br><span class="line">    <span class="keyword">for</span> /f "delims=" <span class="variable">%%a</span> <span class="keyword">in</span> ('<span class="built_in">dir</span> /ad /b <span class="variable">!folder!</span>') <span class="keyword">do</span> (</span><br><span class="line">        <span class="built_in">set</span> str=<span class="variable">%%a</span></span><br><span class="line">        <span class="built_in">set</span> needDel=<span class="number">0</span></span><br><span class="line">        :: 可以添加更多</span><br><span class="line">        <span class="keyword">if</span> /i "<span class="variable">!str:~0,9!</span>"==".PhpStorm" <span class="built_in">set</span> needDel=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> /i "<span class="variable">!str:~0,8!</span>"==".PyCharm" <span class="built_in">set</span> needDel=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable">!needDel!</span> <span class="keyword">EQU</span> <span class="number">1</span> (</span><br><span class="line">            <span class="built_in">rd</span>  "C:<span class="variable">%HOMEPATH%</span>\<span class="variable">!str!</span>\config\eval" /s /q</span><br><span class="line">            <span class="built_in">del</span> "C:<span class="variable">%HOMEPATH%</span>\<span class="variable">!str!</span>\config\options\other.xml" /f /s /q /a</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">    :: 删除注册器中的设置</span><br><span class="line">    reg delete "HKEY_CURRENT_USER\Software\JavaSoft\Prefs\jetbrains" /f</span><br><span class="line">    :: 记录本次操作时间</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">%currentDays%</span> &gt; last_date.txt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>其他的就交给开机自启啦。</p>
+<p>说实在的，没有代码提示，踩了一堆坑。</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

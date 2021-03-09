@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>git实操 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>git实操</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/03/29</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../categories/git/">git</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../tags/#git" class='tag'>git</a>
+
+
+            
+          </div>
+          <h3 id="简单命令行入门教程"><a href="#简单命令行入门教程" class="headerlink" title="简单命令行入门教程"></a>简单命令行入门教程</h3><p>Git 全局设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;陈孟辉&quot;</span><br><span class="line">git config --global user.email &quot;chenmenghui_008@163.com&quot;</span><br></pre></td></tr></table></figure>
+<p>创建 git 仓库:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir chenmenghui</span><br><span class="line">cd chenmenghui</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin git@gitee.com:chenmenghui/chenmenghui.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>已有仓库?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd existing_git_repo</span><br><span class="line">git remote add origin git@gitee.com:chenmenghui/chenmenghui.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h3 id="迁移仓库"><a href="#迁移仓库" class="headerlink" title="迁移仓库"></a>迁移仓库</h3><p>前几日把在自己的服务器上建了一个git裸仓库。然后想着自己的服务器可能用不了多久，就想着把项目迁到码云上来。</p>
+<p>首先使用</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --bare 「自己的服务器上的仓库」</span><br><span class="line">git push --remote 「码云上刚刚创建的仓库」</span><br></pre></td></tr></table></figure>
+<h3 id="clone代码之后-把项目中的-env配置文件修改之后-即使将其加入了-gitignore文件-也被提交了"><a href="#clone代码之后-把项目中的-env配置文件修改之后-即使将其加入了-gitignore文件-也被提交了" class="headerlink" title="clone代码之后,把项目中的.env配置文件修改之后,即使将其加入了.gitignore文件,也被提交了"></a>clone代码之后,把项目中的.env配置文件修改之后,即使将其加入了.gitignore文件,也被提交了</h3><p>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-index --assume-unchanged .env</span><br></pre></td></tr></table></figure>
+<p>才没提交</p>
+<p><a href="https://www.cnblogs.com/kevingrace/p/5690241.html" target="_blank" rel="noopener">原来如此</a>,.gitignore只是忽视未被加入到远程仓库中的文件</p>
+<h3 id="git合并本地的几个commit操作"><a href="#git合并本地的几个commit操作" class="headerlink" title="git合并本地的几个commit操作"></a>git合并本地的几个commit操作</h3><h3 id="如果远程仓库里没有东西"><a href="#如果远程仓库里没有东西" class="headerlink" title="如果远程仓库里没有东西"></a>如果远程仓库里没有东西</h3><ol>
+<li>进入本地指定目录</li>
+<li>git init 创建本地仓库</li>
+<li>把本地仓库中的文件们加入本地仓库 git add .</li>
+<li>关联远程仓库 git remote add origin <a href="mailto:git@git.oschina.net" target="_blank" rel="noopener">git@git.oschina.net</a>:yourname/demo.git</li>
+<li>更新 git pull</li>
+</ol>
+<h3 id="导出日志"><a href="#导出日志" class="headerlink" title="导出日志"></a>导出日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --date=iso --pretty=format:&apos;&quot;%h&quot;,&quot;%an&quot;,&quot;%ad&quot;,&quot;%s&quot;&apos; &gt;log.csv</span><br></pre></td></tr></table></figure>
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单命令行入门教程"><span class="toc-number">1.</span> <span class="toc-text">简单命令行入门教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迁移仓库"><span class="toc-number">2.</span> <span class="toc-text">迁移仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clone代码之后-把项目中的-env配置文件修改之后-即使将其加入了-gitignore文件-也被提交了"><span class="toc-number">3.</span> <span class="toc-text">clone代码之后,把项目中的.env配置文件修改之后,即使将其加入了.gitignore文件,也被提交了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git合并本地的几个commit操作"><span class="toc-number">4.</span> <span class="toc-text">git合并本地的几个commit操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如果远程仓库里没有东西"><span class="toc-number">5.</span> <span class="toc-text">如果远程仓库里没有东西</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出日志"><span class="toc-number">6.</span> <span class="toc-text">导出日志</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>使用存储过程删除外键索引字段 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>使用存储过程删除外键索引字段</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/09/16</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#mysql" class='tag'>mysql</a>
+
+
+            
+          </div>
+          <p>每次上线都要在一堆库中执行SQL，一个库报错就会导致不知道那些库还没有执行操作~~~为了避免遇到这种报错，就只得另觅他法了。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE if EXISTS unitscheduling_week;</span><br><span class="line">CREATE TABLE `unitscheduling_week`</span><br><span class="line">(</span><br><span class="line">    `id`    int(10) UNSIGNED NOT NULL AUTO_INCREMENT,</span><br><span class="line">    `Value` varchar(10)      NOT NULL DEFAULT &apos;&apos;,</span><br><span class="line">    PRIMARY KEY (`id`, `Value`)</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DROP TABLE IF EXISTS unit_history;</span><br><span class="line">CREATE TABLE `unit_history`</span><br><span class="line">(</span><br><span class="line">    `id`               int(10) UNSIGNED NOT NULL AUTO_INCREMENT,</span><br><span class="line">    `UnitScheduleWeek` int(10) UNSIGNED DEFAULT NULL,</span><br><span class="line">    `FromDate`         datetime         NOT NULL,</span><br><span class="line">    PRIMARY KEY (`id`, `FromDate`),</span><br><span class="line">    KEY `UnitScheduleWeek` (`UnitScheduleWeek`),</span><br><span class="line">    CONSTRAINT `unit_history_ibfk_3` FOREIGN KEY (`UnitScheduleWeek`) REFERENCES `unitscheduling_week` (`id`) ON DELETE CASCADE</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8 COMMENT =&apos;Unit within a building&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="删外键"><a href="#删外键" class="headerlink" title="删外键"></a>删外键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS dropForeignKeyByValen;</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE dropForeignKeyByValen(IN foreignKeyName varchar(255))</span><br><span class="line">BEGIN</span><br><span class="line">    DECLARE tableName varchar(255);</span><br><span class="line">    SELECT TABLE_NAME</span><br><span class="line">    INTO tableName</span><br><span class="line">    FROM information_schema.KEY_COLUMN_USAGE</span><br><span class="line">    WHERE TABLE_SCHEMA = database()</span><br><span class="line">      AND CONSTRAINT_NAME = foreignKeyName;</span><br><span class="line">    IF tableName IS NOT NULL THEN</span><br><span class="line">        SET FOREIGN_KEY_CHECKS = 0;</span><br><span class="line">        SET @ddl = CONCAT(&apos;ALTER TABLE &apos;, tableName, &apos; DROP FOREIGN KEY &apos;, foreignKeyName);</span><br><span class="line">        PREPARE stmt FROM @ddl;</span><br><span class="line">        EXECUTE stmt;</span><br><span class="line">        SET FOREIGN_KEY_CHECKS = 1;</span><br><span class="line">    END IF;</span><br><span class="line">END //</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL dropForeignKeyByValen(&apos;unit_history_ibfk_3&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="删索引"><a href="#删索引" class="headerlink" title="删索引"></a>删索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS dropIndexByValen;</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE dropIndexByValen(IN tableName varchar(255), IN indexName varchar(255))</span><br><span class="line">BEGIN</span><br><span class="line">    IF exists(SELECT TABLE_NAME</span><br><span class="line">              FROM information_schema.statistics</span><br><span class="line">              WHERE TABLE_SCHEMA = database()</span><br><span class="line">                AND TABLE_NAME = tableName</span><br><span class="line">                AND INDEX_NAME = indexName) THEN</span><br><span class="line">        SET @ddl = CONCAT(&apos;ALTER TABLE &apos;, tableName, &apos; DROP KEY &apos;, indexName);</span><br><span class="line">        PREPARE stmt FROM @ddl;</span><br><span class="line">        EXECUTE stmt;</span><br><span class="line">    END IF;</span><br><span class="line">END //</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL dropIndexByValen(&apos;unit_history&apos;, &apos;UnitScheduleWeek&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="删字段"><a href="#删字段" class="headerlink" title="删字段"></a>删字段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS dropColumnByValen;</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE dropColumnByValen(IN tableName varchar(255), IN columnName varchar(255))</span><br><span class="line">BEGIN</span><br><span class="line">    IF exists(SELECT TABLE_NAME</span><br><span class="line">              FROM information_schema.columns</span><br><span class="line">              WHERE TABLE_SCHEMA = database()</span><br><span class="line">                AND TABLE_NAME = tableName</span><br><span class="line">                AND COLUMN_NAME = columnName) THEN</span><br><span class="line">        SET @ddl = CONCAT(&apos;ALTER TABLE &apos;, tableName, &apos; DROP COLUMN &apos;, columnName);</span><br><span class="line">        PREPARE stmt FROM @ddl;</span><br><span class="line">        EXECUTE stmt;</span><br><span class="line">    END IF;</span><br><span class="line">END //</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL dropColumnByValen(&apos;unit_history&apos;, &apos;UnitScheduleWeek&apos;);</span><br></pre></td></tr></table></figure>
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">1.</span> <span class="toc-text">例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删外键"><span class="toc-number">1.1.</span> <span class="toc-text">删外键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删索引"><span class="toc-number">1.2.</span> <span class="toc-text">删索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删字段"><span class="toc-number">1.3.</span> <span class="toc-text">删字段</span></a></li></ol></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

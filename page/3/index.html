@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='index'>
+  <div class="posts-list">
+    
+      <section>
+        <a href="../../2020/07/29/开发中遇到的一些小东西/开发中遇到的一些小东西/PHP/PHP中的时间/">
+          <h3 class='post-head'>
+            PHP中的时间
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h1 id="strtotime"><a href="#strtotime" class="headerlink" title="strtotime()"></a>strtotime()</h1><p><a href="https://blog.csdn.net/ihelloworld/article/details/7699730?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare" target="_blank" rel="noopener">php 获取时间(今天,昨天,三天内,本周,上周,本月,三年内,半年内,一年内,三年内)</a></p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/29</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#PHP" class='tag'>PHP</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/07/28/开发中遇到的一些小东西/学海无涯/MySQL/mysql生成随机时间/">
+          <h3 class='post-head'>
+            mysql生成随机时间
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT concat(YEAR(now()), &apos;-&apos;, LPAD(ceil(rand() * 4 + 8), 2, 0), &apos;-&apos;, lpad(ceil(rand() * 28), 2, 0), &apos; &apos;,</span><br><span class="line">              lpad(ceil(rand() * 12), 2, 0),</span><br><span class="line">              &apos;:&apos;,</span><br><span class="line">              lpad(ceil(rand() * 59), 2, 0),</span><br><span class="line">              &apos;:&apos;,</span><br><span class="line">              lpad(ceil(rand() * 59), 2, 0))</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/28</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#mysql" class='tag'>mysql</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/07/28/学海无涯/MySQL/mysql生成随机时间/">
+          <h3 class='post-head'>
+            mysql生成随机时间
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT concat(YEAR(now()), &apos;-&apos;, LPAD(ceil(rand() * 4 + 8), 2, 0), &apos;-&apos;, lpad(ceil(rand() * 28), 2, 0), &apos; &apos;,</span><br><span class="line">              lpad(ceil(rand() * 12), 2, 0),</span><br><span class="line">              &apos;:&apos;,</span><br><span class="line">              lpad(ceil(rand() * 59), 2, 0),</span><br><span class="line">              &apos;:&apos;,</span><br><span class="line">              lpad(ceil(rand() * 59), 2, 0))</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/28</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#mysql" class='tag'>mysql</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/07/22/开发中遇到的一些小东西/开发中遇到的一些小东西/JS/大小比较/">
+          <h3 class='post-head'>
+            大小比较
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <ol>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/22</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/js/">js</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+  <a href="../../tags/#js运用" class='tag'>js运用</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/07/22/开发中遇到的一些小东西/JS/大小比较/">
+          <h3 class='post-head'>
+            大小比较
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <ol>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/22</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/js/">js</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tags" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+  <a href="../../tags/#js运用" class='tag'>js运用</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/07/15/开发中遇到的一些小东西/PHP/正态分布/">
+          <h3 class='post-head'>
+            正态分布
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'stats_rand_gen_normal'</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">stats_rand_gen_normal</span><span class="params">($av, $sd)</span>: <span class="title">float</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $x = mt_rand() / mt_getrandmax();</span><br><span class="line">        $y = mt_rand() / mt_getrandmax();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">-2</span> * log($x)) * cos(<span class="number">2</span> * pi() * $y) * $sd + $av;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    $res = floor(stats_rand_gen_normal(<span class="number">80</span>, <span class="number">20</span>));</span><br><span class="line">    <span class="keyword">if</span> ($res &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> generateScore();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> generateScore();</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/15</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#PHP" class='tag'>PHP</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/07/15/开发中遇到的一些小东西/开发中遇到的一些小东西/PHP/正态分布/">
+          <h3 class='post-head'>
+            正态分布
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'stats_rand_gen_normal'</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">stats_rand_gen_normal</span><span class="params">($av, $sd)</span>: <span class="title">float</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $x = mt_rand() / mt_getrandmax();</span><br><span class="line">        $y = mt_rand() / mt_getrandmax();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">-2</span> * log($x)) * cos(<span class="number">2</span> * pi() * $y) * $sd + $av;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    $res = floor(stats_rand_gen_normal(<span class="number">80</span>, <span class="number">20</span>));</span><br><span class="line">    <span class="keyword">if</span> ($res &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> generateScore();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> generateScore();</span><br></pre></td></tr></table></figure>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/07/15</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#PHP" class='tag'>PHP</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/06/16/学海无涯/MySQL/MySql between/">
+          <h3 class='post-head'>
+            MySql Between
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>一直下意识的认为 between 只针对一个范围，但其实 between 是可以有好几个范围的。</p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/06/16</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#mysql" class='tag'>mysql</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/06/16/开发中遇到的一些小东西/学海无涯/MySQL/MySql between/">
+          <h3 class='post-head'>
+            MySql Between
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <p>一直下意识的认为 between 只针对一个范围，但其实 between 是可以有好几个范围的。</p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/06/16</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/mysql/">mysql</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#mysql" class='tag'>mysql</a>
+
+
+          
+        </div>
+      </section>
+    
+      <section>
+        <a href="../../2020/06/09/开发中遇到的一些小东西/学海无涯/PHP/学习Yii/">
+          <h3 class='post-head'>
+            学习Yii
+          </h3>
+        </a>
+        
+        <div class="post-content">
+          
+            
+              
+                <h1 id="依赖注入-控制反转-依赖倒置"><a href="#依赖注入-控制反转-依赖倒置" class="headerlink" title="依赖注入 控制反转 依赖倒置"></a>依赖注入 控制反转 依赖倒置</h1><p><a href="https://blog.csdn.net/moreorless/article/details/4510859" target="_blank" rel="noopener">依赖倒置、控制反转和依赖注入辨析</a></p>
+              
+          
+        </div>
+        <div class='post-meta'>
+          <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/06/09</time>
+          
+            | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/PHP/">PHP</a>
+  </div>
+
+
+
+          
+          
+            <span class="seperator">|</span>
+             
+                <i class="fa fa-tag" aria-hidden="true"></i>
+              
+             
+  <a href="../../tags/#PHP" class='tag'>PHP</a>
+
+
+          
+        </div>
+      </section>
+    
+  </div>
+  <aside>
+    
+    
+      <div class="avatar">
+        <img src="http://wx4.sinaimg.cn/crop.0.0.1000.562.1000/6325c139gy1ff6uu8pq5xj20rs0fm0vl.jpg" alt="avatar">
+          
+            <div class="content">
+                <span>日积月藏，不做咸鱼</span>
+            </div>
+          
+      </div>
+    
+    
+      <div class="categories">
+        <h1>
+          Categories
+        </h1>
+        <div class="content">
+          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/C/">C++</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Excel/">Excel</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/JMeter/">JMeter</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/PHP/PHP基础知识/">PHP基础知识</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/css/">css</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/js/">js</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/vscode/">vscode</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/图书/">图书</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/图书/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/图书/计算机基础/">计算机基础</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/实用代码片段/">实用代码片段</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/实用代码片段/bat/">bat</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/小程序/">小程序</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/工具/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/工具/bat/">bat</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/开发环境/">开发环境</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/杂知/">杂知</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/正则/">正则</a></li></ul>
+        </div>
+      </div>
+    
+    
+      <div class="links">
+        <h1>
+          Blogroll
+        </h1>
+        <div class="content">
+          
+            <a href="http://php.net/manual/zh/" target="_blank">PHP手册</a>
+          
+            <a href="https://laravel-china.org/docs" target="_blank">PHP/Laravel社区</a>
+          
+            <a href="http://man.linuxde.net/" target="_blank">Linux命令大全</a>
+          
+            <a href="https://www.w3cschool.cn/" target="_blank">W3Cschool</a>
+          
+            <a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank">微信小程序教程</a>
+          
+            <a href="https://www.liaoxuefeng.com/" target="_blank">廖雪峰的官网网站</a>
+          
+            <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank">正则表达式</a>
+          
+            <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank">算法图示</a>
+          
+        </div>
+      </div>
+    
+  </aside>
+</main>
+
+  <div class="paging">
+  <div class="paging-container">
+    
+    <div class='page-prev'>
+      <a href="../2/">Prev</a>
+    </div>
+    
+    
+    <div class='page-next'>
+      <a href="../4/">Next</a>
+    </div>
+    
+  </div>
+</div>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>

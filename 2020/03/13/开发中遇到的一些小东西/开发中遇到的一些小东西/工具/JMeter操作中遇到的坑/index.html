@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>JMeter 操作中遇到的坑 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>JMeter 操作中遇到的坑</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2020/03/13</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/JMeter/">JMeter</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#测试" class='tag'>测试</a>
+
+
+            
+          </div>
+          <h3 id="Http-请求，从剪切板添加参数"><a href="#Http-请求，从剪切板添加参数" class="headerlink" title="Http 请求，从剪切板添加参数"></a>Http 请求，从剪切板添加参数</h3><p>「从剪切板复制」这个功能是不能识别从浏览器直接复制过来的json字符串的。</p>
+<p>不过多了些转化，比一个个复制快得多了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rptfilters[countryregion.id]</span><br><span class="line">rptfilters[region.id]</span><br><span class="line">rptfilters[branch.id]</span><br><span class="line">rptfilters[office.id]</span><br><span class="line">rptfilters[month]	 2</span><br><span class="line">rptfilters[runyear]	 2020</span><br><span class="line">rptfilters[monthStart]	 0</span><br><span class="line">rptfilters[runyearStart]	 0</span><br><span class="line">rptfilters[monthEnd]	 0</span><br><span class="line">rptfilters[runyearEnd]	 0</span><br><span class="line">rptfilters[dateStart]</span><br><span class="line">rptfilters[dateEnd]</span><br><span class="line">rptfilters[currentsupercheck]	 1</span><br><span class="line">rptfilters[plannedsupercheck]	 1</span><br><span class="line">supervisor_select	 all</span><br><span class="line">run_select	 all</span><br><span class="line">rptfilters[building.id]_label</span><br><span class="line">rptfilters[building.id]</span><br><span class="line">hasactualbutnoplan</span><br><span class="line">otheroption[PlanVisitHours]	 on</span><br><span class="line">rptfilters[sortby]</span><br><span class="line">page	 1</span><br></pre></td></tr></table></figure>
+<p>这样就行了。总结起来就是：</p>
+<ol>
+<li>删除所有的双引号</li>
+<li>把「:」转化成「(\t)」</li>
+<li>ba「,」转化成「(\n)」</li>
+</ol>
+<h3 id="Header请求头数据"><a href="#Header请求头数据" class="headerlink" title="Header请求头数据"></a>Header请求头数据</h3><p>同样也有「从剪切板复制」的功能。</p>
+<p>复制请求头（firefox下需切换到原始头模式）就可以了。</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Http-请求，从剪切板添加参数"><span class="toc-number">1.</span> <span class="toc-text">Http 请求，从剪切板添加参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Header请求头数据"><span class="toc-number">2.</span> <span class="toc-text">Header请求头数据</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

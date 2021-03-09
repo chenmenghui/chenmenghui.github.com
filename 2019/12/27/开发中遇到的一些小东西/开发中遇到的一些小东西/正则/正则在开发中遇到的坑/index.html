@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>正则在开发中遇到的坑 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>正则在开发中遇到的坑</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/12/27</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../../../categories/正则/">正则</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../../../tags/#实用代码片段" class='tag'>实用代码片段</a>
+
+  <a href="../../../../../../../tags/#正则" class='tag'>正则</a>
+
+
+            
+          </div>
+          <h3 id="非m模式下匹配范围内「如引号」包括-n在内所有的字符"><a href="#非m模式下匹配范围内「如引号」包括-n在内所有的字符" class="headerlink" title="非m模式下匹配范围内「如引号」包括\n在内所有的字符"></a>非m模式下匹配范围内「如引号」包括\n在内所有的字符</h3><p>一开始使用/[.\n]/发现匹配失败，改用了/(.|\n)/才成功。</p>
+<p>后来在编辑器内测试，发现/[.]/匹配的只有字符英文句号「.」,而不是匹配的是除了换行符「\n」以外的所有字符。</p>
+<p>然后才知道，原来/[\s\S]/之类的都可以满足匹配所有字符包括换行的需求。如果使用/(.|\n)/反而会收到文件换行符的干扰，需写成/(.|\r\n|\r|\n)/。</p>
+<h3 id="PHP中模式分隔符不是必须的"><a href="#PHP中模式分隔符不是必须的" class="headerlink" title="PHP中模式分隔符不是必须的"></a>PHP中模式分隔符不是必须的</h3><p>诚然，直接写在注入preg_replace()第一个参数位置时是需要使用模式分隔符的。但使用变量引用的话可以忽略。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$sContent = <span class="string">''</span>; <span class="comment">// 匹配对象</span></span><br><span class="line">$pattern = <span class="string">"&lt;input.*?type=\"hidden\".*?name=\"unitid\".*?value=\"(?&lt;unitid&gt;.*?)\"&gt;"</span>;</span><br><span class="line"><span class="keyword">if</span> (preg_match_all($pattern, $sContent, $match)) &#123;</span><br><span class="line">    <span class="keyword">return</span> $match[<span class="string">'unitid'</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>像上面这样。不过这也应该不是什么好习惯~~~</p>
+<p>### </p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#非m模式下匹配范围内「如引号」包括-n在内所有的字符"><span class="toc-number">1.</span> <span class="toc-text">非m模式下匹配范围内「如引号」包括\n在内所有的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP中模式分隔符不是必须的"><span class="toc-number">2.</span> <span class="toc-text">PHP中模式分隔符不是必须的</span></a></li></ol>
+        </div>
+    </div>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang=zh>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，日常工作是开发公众号和小程序。">
+  <meta name="keywords" content="开发菜鸟 网站开发 编程技术 博客 陈孟辉">
+  
+    <link rel="icon" href="/favicon.ico">
+  
+    
+  <title>PHP基础知识之自定义函数和内部函数 | 陈孟辉的学习笔记</title>
+  <link rel="stylesheet" href="../../../../../style.css">
+  <link rel="stylesheet" href="../../../../../lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+  <div class="header-container">
+    <a class='logo' href="../../../../../index.html">
+      <span>陈孟辉的学习笔记</span>
+    </a>
+    <ul class="right-header">
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../index.html" class="item-link">首页</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../tags" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="../../../../../about" class="item-link">关于</a>
+          
+        </li>
+      
+    </ul>
+  </div>
+</header>
+
+  <main id='post'>
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>PHP基础知识之自定义函数和内部函数</h1>
+          <div class='post-meta'>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/09/06</time>
+            
+              | <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../../categories/PHP/">PHP</a>/ <a class="article-category-link" href="../../../../../categories/PHP/PHP基础知识/">PHP基础知识</a>
+  </div>
+
+
+
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="../../../../../tags/#PHP基础知识" class='tag'>PHP基础知识</a>
+
+
+            
+          </div>
+          <ul>
+<li>考点<br>变量的作用域和静态变量<br>延伸:函数的参数及参数引用传递<br>延伸:函数的返回值及引用返回<br>延伸:外部文件的导入<br>延伸:系统内置函数</li>
+</ul>
+<blockquote>
+<p>变量的作用域也称变量的范围,变量的范围即它定义的上下文背景(也是它的生效范围).大部分PHP变量只有一个单独的范围.这个单独的范围跨度同样包含了include和require引入的文件.</p>
+</blockquote>
+<ul>
+<li>内部使用外部变量<br>global关键字.<br>$GLOBALS及其他超全局数组</li>
+</ul>
+<blockquote>
+<p>静态变量仅在局部函数域中存在,但当程序执行离开作用域时,其值不会消失.</p>
+</blockquote>
+<ul>
+<li>static关键字</li>
+</ul>
+<ol>
+<li>仅初始化一次</li>
+<li>初始化时需要赋值</li>
+<li>每次执行函数该值会保留</li>
+<li>static修饰的变量是局部的,仅在函数内部有效</li>
+<li>可以记录函数的调用次数,从而可以在某些条件下中止递归</li>
+</ol>
+<blockquote>
+<p>函数的参数</p>
+</blockquote>
+<p>默认情况下,函数的参数通过值传递<br>如果希望允许函数修改他的值,必须通过引用传递参数</p>
+<blockquote>
+<p>函数的返回值</p>
+</blockquote>
+<p>值通过使用可选的返回的返回语句(return)返回<br>可以返回包括数组和对象的任意类型<br>返回语句会中止函数的执行,将控制权交回函数调用处<br>省略return,返回值为null,不可有多个返回值</p>
+<blockquote>
+<p>函数的引用返回</p>
+</blockquote>
+<p>从函数返回一个引用,必须在函数声明和指派返回值给一个变量是都使用引用运算符&amp;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> &amp;<span class="title">myFunc</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> $b = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> $b;</span><br><span class="line">&#125;</span><br><span class="line">$a = myFunc(); <span class="comment">// 10</span></span><br><span class="line">$a = &amp;myFunc();</span><br><span class="line">$a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">echo</span> myFunc(); <span class="comment">// 100 函数的值被改了</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>外部文件的导入</p>
+</blockquote>
+<p>include/require语句包含并运行指定文件<br>如果给出路径名称按路径来找,否则从include_path中查找;如果include_path中也没有,则从调用脚本文件所在的目录和当前工作目录下寻找;加载过程中未找到文件,include发出warning,require发出fatel error<br>到一个文件被包含时,其中所包含的代码继承了include所在行的变量范围</p>
+<blockquote>
+<p>系统内置函数</p>
+</blockquote>
+<p>时间日期函数<br>data(),strtotime(),mktime(),</p>
+
+        </section>
+    </article>
+    
+        
+  </div>
+  <aside>
+    
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2021 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
+    </div>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../../lib/in-view.min.js"></script>
+<script src="../../../../../lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
+  
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
+
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="../../../../../lib/jquery.fancybox.min.js"></script>
+
+
+</body>
+</html>
