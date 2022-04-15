@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>陈孟辉的学习笔记</title>
+    <link>https://chenmenghui.gitee.io/</link>
+    
+    <image>
+      <url>https://chenmenghui.gitee.io/icon.png</url>
+      <title>陈孟辉的学习笔记</title>
+      <link>https://chenmenghui.gitee.io/</link>
+    </image>
+    
+    <atom:link href="https://chenmenghui.gitee.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</description>
+    <pubDate>Fri, 15 Apr 2022 06:50:46 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>本站 Hexo 更换主题 Next</title>
+      <link>https://chenmenghui.gitee.io/posts/49797.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/49797.html</guid>
+      <pubDate>Thu, 14 Apr 2022 09:46:52 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;p&gt;根据文档，直接使用 npm 安装了最新版。值得注意的是，这样安装会把主题安装在了 node_modules 目录而非 themes</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/49797.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PHP 多线程</title>
+      <link>https://chenmenghui.gitee.io/posts/34179.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/34179.html</guid>
+      <pubDate>Tue, 12 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;使用 pcntl 处理&lt;/p&gt;
+&lt;p&gt;下面就是我相关实际使用的代码（删除相关业务了）&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/PHP/">PHP</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/PHP/">PHP</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/34179.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PHP socket</title>
+      <link>https://chenmenghui.gitee.io/posts/23018.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/23018.html</guid>
+      <pubDate>Tue, 12 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;&lt;a href=&quot;https://www.php.net/manual/zh/book.sockets.php&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/PHP/">PHP</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/PHP/">PHP</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/socket/">socket</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/23018.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PHP 配置相关</title>
+      <link>https://chenmenghui.gitee.io/posts/28389.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/28389.html</guid>
+      <pubDate>Tue, 12 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;Warning-Unknown-Input-variables-exceeded-1000-To-increase-the-limit-chang&quot;&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/PHP/">PHP</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/PHP/%E9%85%8D%E7%BD%AE/">配置</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/PHP/">PHP</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E9%85%8D%E7%BD%AE/">配置</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/28389.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hexo 遇到的问题</title>
+      <link>https://chenmenghui.gitee.io/posts/56639.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/56639.html</guid>
+      <pubDate>Mon, 11 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;记录一下问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hexo-renderer-sass失效，原因是nodejs版本过高。这个其实是有链接提示的。&lt;/li&gt;
+&lt;li&gt;hexo-filter-kroki 安装失败，不清楚具体原因，后来删除</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/56639.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>本站 Hexo 配置</title>
+      <link>https://chenmenghui.gitee.io/posts/7658.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/7658.html</guid>
+      <pubDate>Mon, 11 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;都是插件&lt;a</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/7658.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>165 比较版本号</title>
+      <link>https://chenmenghui.gitee.io/posts/10638.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/10638.html</guid>
+      <pubDate>Sun, 10 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;按逗号分割，分段比较。&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%B8%AD%E7%AD%89/">中等</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/10638.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>167 两数之和 有序数列</title>
+      <link>https://chenmenghui.gitee.io/posts/17323.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/17323.html</guid>
+      <pubDate>Sun, 10 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;双指针之对撞指针&lt;/p&gt;
+&lt;h3 id=&quot;双指针&quot;&gt;&lt;a href=&quot;#双指针&quot; class=&quot;headerlink&quot; title=&quot;双指针&quot;&gt;&lt;/a&gt;双指针&lt;/h3&gt;&lt;p&gt;如果数组本身是有顺序的。如下遍历，对于有递增数组，如果 ai + aj &amp;gt; sum, 则</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/">对撞指针</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%B8%AD%E7%AD%89/">中等</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/">对撞指针</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/17323.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>189 轮转数组</title>
+      <link>https://chenmenghui.gitee.io/posts/27444.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/27444.html</guid>
+      <pubDate>Sun, 10 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;使用额外数组&quot;&gt;&lt;a href=&quot;#使用额外数组&quot; class=&quot;headerlink&quot; title=&quot;使用额外数组&quot;&gt;&lt;/a&gt;使用额外数组&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%B8%AD%E7%AD%89/">中等</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/27444.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>206 翻转链表</title>
+      <link>https://chenmenghui.gitee.io/posts/5069.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/5069.html</guid>
+      <pubDate>Sun, 10 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;使用额外数组&quot;&gt;&lt;a href=&quot;#使用额外数组&quot; class=&quot;headerlink&quot; title=&quot;使用额外数组&quot;&gt;&lt;/a&gt;使用额外数组&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%80%E5%8D%95/">简单</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/todo/">todo</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/5069.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>215 第K个最大值</title>
+      <link>https://chenmenghui.gitee.io/posts/31953.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/31953.html</guid>
+      <pubDate>Sun, 10 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;排序&quot;&gt;&lt;a href=&quot;#排序&quot; class=&quot;headerlink&quot; title=&quot;排序&quot;&gt;&lt;/a&gt;排序&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%B8%AD%E7%AD%89/">中等</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/todo/">todo</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/31953.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>278 第一个错误版本</title>
+      <link>https://chenmenghui.gitee.io/posts/22894.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/22894.html</guid>
+      <pubDate>Sun, 10 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h3 id=&quot;排序&quot;&gt;&lt;a href=&quot;#排序&quot; class=&quot;headerlink&quot; title=&quot;排序&quot;&gt;&lt;/a&gt;排序&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/%E5%AF%B9%E6%92%9E%E9%92%88/">对撞针</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%B8%AD%E7%AD%89/">中等</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AF%B9%E6%92%9E%E9%92%88/">对撞针</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/22894.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>121 买卖股票的最佳时期</title>
+      <link>https://chenmenghui.gitee.io/posts/55193.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/55193.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;一次遍历，找到最小值，同时查看当天-最小值的差值&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/55193.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>102 二叉树的层序遍历</title>
+      <link>https://chenmenghui.gitee.io/posts/55538.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/55538.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/55538.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>136 只出现一次的数字</title>
+      <link>https://chenmenghui.gitee.io/posts/38281.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/38281.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;利用异或，因为相同的值结果为零，把所有的数异或处理，就能得到只出现一次的值（题目已设定相同的值只会出现两次，要是出现三次这个方法就错了）&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/38281.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>141 环形队列</title>
+      <link>https://chenmenghui.gitee.io/posts/29922.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/29922.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;因为环形队列没有「结尾」，所以可以使用双指针之快慢针处理——可以设想一下，a+n&amp;#x2F;m1 &amp;#x3D; a+n&amp;#x2F;m2&lt;/p&gt;
+&lt;p&gt;联想现实，就是在环形跑道上同向运动的两个小伙伴不管起点在哪，只要跑的足够久，肯定会碰到的。&lt;/p&gt;
+&lt;figure</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/%E5%BF%AB%E6%85%A2%E9%92%88/">快慢针</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E9%98%9F%E5%88%97/">队列</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%BF%AB%E6%85%A2%E9%92%88/">快慢针</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/29922.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>144 二叉树的前序遍历</title>
+      <link>https://chenmenghui.gitee.io/posts/33791.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/33791.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;没什么好说的，根左右。&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/33791.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>146 LRU缓存</title>
+      <link>https://chenmenghui.gitee.io/posts/47856.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/47856.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;直接取值用字典就够了。为实现有限存储位，就引入双向链表。最近存取的值放在开头，超过的就从结尾去除。&lt;/p&gt;
+&lt;p&gt;双向链表用于记录键值的顺序。&lt;/p&gt;
+&lt;p&gt;字典负责快速取值。字典的结构时 key-&amp;gt;node。这样可以通过字典快速的操作链表&lt;/p&gt;
+&lt;figure</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%B8%AD%E7%AD%89/">中等</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">双向链表</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/47856.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>94 二叉树的中序遍历</title>
+      <link>https://chenmenghui.gitee.io/posts/51317.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/51317.html</guid>
+      <pubDate>Sat, 09 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;没什么可说的，中序遍历就是 左根右&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/51317.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2 两数相加</title>
+      <link>https://chenmenghui.gitee.io/posts/61118.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/61118.html</guid>
+      <pubDate>Fri, 08 Apr 2022 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;这题没什么好说的，遍历链表依次相加。注意下进位就好了。&lt;/p&gt;
+</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E9%93%BE%E8%A1%A8/">链表</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/61118.html#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

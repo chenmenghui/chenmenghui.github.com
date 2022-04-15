@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
@@ -75,10 +75,11 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -103,6 +104,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -137,11 +139,43 @@
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -161,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/09/10/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/17514.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -175,112 +209,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/09/10/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/" class="post-title-link" itemprop="url">浏览器缓存和数据压缩</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-10T00:00:00+08:00">2019-09-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-12 20:39:53" itemprop="dateModified" datetime="2022-04-12T20:39:53+08:00">2022-04-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/09/10/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/10/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/06/14/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/PHP%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E7%94%B1%E5%AD%90%E9%9B%86%E6%9F%A5%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E7%BA%A7%E7%9A%84%E9%80%92%E5%BD%92%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/06/14/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/PHP%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E7%94%B1%E5%AD%90%E9%9B%86%E6%9F%A5%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E7%BA%A7%E7%9A%84%E9%80%92%E5%BD%92%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">PHP无限极分类由子集查出所有父级的递归处理方法</a>
+            <a href="/posts/17514.html" class="post-title-link" itemprop="url">PHP无限极分类由子集查出所有父级的递归处理方法</a>
         </h2>
 
         <div class="post-meta">
@@ -297,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 10:41:00" itemprop="dateModified" datetime="2022-04-13T10:41:00+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -322,8 +251,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/06/14/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/PHP%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E7%94%B1%E5%AD%90%E9%9B%86%E6%9F%A5%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E7%BA%A7%E7%9A%84%E9%80%92%E5%BD%92%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/14/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/PHP%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E7%94%B1%E5%AD%90%E9%9B%86%E6%9F%A5%E5%87%BA%E6%89%80%E6%9C%89%E7%88%B6%E7%BA%A7%E7%9A%84%E9%80%92%E5%BD%92%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/17514.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/17514.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -376,7 +305,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/06/13/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/php%E6%95%B0%E7%BB%84array_merge%E5%92%8C+%E7%9A%84%E5%8C%BA%E5%88%AB/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/21700.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -390,7 +319,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/06/13/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/php%E6%95%B0%E7%BB%84array_merge%E5%92%8C+%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">php数组array_merge和+的区别</a>
+            <a href="/posts/21700.html" class="post-title-link" itemprop="url">php数组array_merge和+的区别</a>
         </h2>
 
         <div class="post-meta">
@@ -407,7 +336,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 10:40:59" itemprop="dateModified" datetime="2022-04-13T10:40:59+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -428,8 +357,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/06/13/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/php%E6%95%B0%E7%BB%84array_merge%E5%92%8C+%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/13/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/php%E6%95%B0%E7%BB%84array_merge%E5%92%8C+%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/21700.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/21700.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -499,7 +428,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/06/11/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/%E6%AD%A3%E5%88%99/php%E6%AD%A3%E5%88%99%E8%8E%B7%E5%8F%96%E9%80%97%E5%8F%B7%E4%B9%8B%E5%89%8D%E7%9A%84%E5%86%85%E5%AE%B9/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/42226.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -513,7 +442,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/06/11/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/%E6%AD%A3%E5%88%99/php%E6%AD%A3%E5%88%99%E8%8E%B7%E5%8F%96%E9%80%97%E5%8F%B7%E4%B9%8B%E5%89%8D%E7%9A%84%E5%86%85%E5%AE%B9/" class="post-title-link" itemprop="url">php正则获取逗号之前的内容</a>
+            <a href="/posts/42226.html" class="post-title-link" itemprop="url">php正则获取逗号之前的内容</a>
         </h2>
 
         <div class="post-meta">
@@ -530,7 +459,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 10:41:00" itemprop="dateModified" datetime="2022-04-13T10:41:00+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -551,8 +480,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/06/11/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/%E6%AD%A3%E5%88%99/php%E6%AD%A3%E5%88%99%E8%8E%B7%E5%8F%96%E9%80%97%E5%8F%B7%E4%B9%8B%E5%89%8D%E7%9A%84%E5%86%85%E5%AE%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/11/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/%E6%AD%A3%E5%88%99/php%E6%AD%A3%E5%88%99%E8%8E%B7%E5%8F%96%E9%80%97%E5%8F%B7%E4%B9%8B%E5%89%8D%E7%9A%84%E5%86%85%E5%AE%B9/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/42226.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/42226.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -605,7 +534,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/05/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E5%BC%95%E7%94%A8%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/51780.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -619,7 +548,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/05/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E5%BC%95%E7%94%A8%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">无限极分类引用处理</a>
+            <a href="/posts/51780.html" class="post-title-link" itemprop="url">无限极分类引用处理</a>
         </h2>
 
         <div class="post-meta">
@@ -636,7 +565,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 10:41:00" itemprop="dateModified" datetime="2022-04-13T10:41:00+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -657,8 +586,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/05/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E5%BC%95%E7%94%A8%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/05/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/PHP/%E6%97%A0%E9%99%90%E6%9E%81%E5%88%86%E7%B1%BB%E5%BC%95%E7%94%A8%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/51780.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/51780.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -708,7 +637,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/05/18/PHP/%E9%81%87%E5%88%B0%E7%9A%84%E9%87%8D%E5%86%99%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/399.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -722,7 +651,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/05/18/PHP/%E9%81%87%E5%88%B0%E7%9A%84%E9%87%8D%E5%86%99%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">遇到的重写问题</a>
+            <a href="/posts/399.html" class="post-title-link" itemprop="url">遇到的重写问题</a>
         </h2>
 
         <div class="post-meta">
@@ -739,7 +668,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 10:45:50" itemprop="dateModified" datetime="2022-04-13T10:45:50+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -764,8 +693,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/05/18/PHP/%E9%81%87%E5%88%B0%E7%9A%84%E9%87%8D%E5%86%99%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/05/18/PHP/%E9%81%87%E5%88%B0%E7%9A%84%E9%87%8D%E5%86%99%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/399.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/399.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -818,7 +747,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/05/06/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF/%E6%9D%82%E7%9F%A5/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/58742.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -832,7 +761,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/05/06/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF/%E6%9D%82%E7%9F%A5/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/" class="post-title-link" itemprop="url">并行与并发的区别</a>
+            <a href="/posts/58742.html" class="post-title-link" itemprop="url">并行与并发的区别</a>
         </h2>
 
         <div class="post-meta">
@@ -849,7 +778,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:36" itemprop="dateModified" datetime="2021-02-23T14:34:36+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,8 +799,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/05/06/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF/%E6%9D%82%E7%9F%A5/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/05/06/%E5%AD%A6%E6%B5%B7%E6%97%A0%E6%B6%AF/%E6%9D%82%E7%9F%A5/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/58742.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/58742.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -933,7 +862,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/04/30/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%A4%A7%E6%B5%81%E9%87%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%80%83%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/12374.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -947,7 +876,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/04/30/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%A4%A7%E6%B5%81%E9%87%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%80%83%E7%82%B9/" class="post-title-link" itemprop="url">高并发和大流量解决方案考点</a>
+            <a href="/posts/12374.html" class="post-title-link" itemprop="url">高并发和大流量解决方案考点</a>
         </h2>
 
         <div class="post-meta">
@@ -964,7 +893,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -989,8 +918,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/04/30/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%A4%A7%E6%B5%81%E9%87%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%80%83%E7%82%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/30/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%A4%A7%E6%B5%81%E9%87%8F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%80%83%E7%82%B9/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/12374.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/12374.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1158,7 +1087,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/03/09/C++/C++%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/16665.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1172,7 +1101,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/03/09/C++/C++%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">C++基本语法</a>
+            <a href="/posts/16665.html" class="post-title-link" itemprop="url">C++基本语法</a>
         </h2>
 
         <div class="post-meta">
@@ -1189,7 +1118,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-12 20:36:25" itemprop="dateModified" datetime="2022-04-12T20:36:25+08:00">2022-04-12</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1210,8 +1139,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/03/09/C++/C++%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/03/09/C++/C++%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/16665.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/16665.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1354,7 +1283,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2019/02/25/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/JS/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%A4%9A%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/42291.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1368,7 +1297,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/02/25/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/JS/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%A4%9A%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/" class="post-title-link" itemprop="url">小程序中多个倒计时</a>
+            <a href="/posts/42291.html" class="post-title-link" itemprop="url">小程序中多个倒计时</a>
         </h2>
 
         <div class="post-meta">
@@ -1385,7 +1314,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 10:40:59" itemprop="dateModified" datetime="2022-04-13T10:40:59+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1406,8 +1335,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/02/25/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/JS/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%A4%9A%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/25/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/JS/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%A4%9A%E4%B8%AA%E5%80%92%E8%AE%A1%E6%97%B6/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/42291.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/42291.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1437,6 +1366,122 @@
 
       
           <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/test/test.js</span></span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 页面的初始数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">        <span class="attr">times</span>: [</span><br><span class="line">            <span class="string">&quot;2019-02-26 16:14:58&quot;</span>,</span><br><span class="line">            <span class="string">&quot;2019-03-24 16:34:58&quot;</span>,</span><br><span class="line">            <span class="string">&quot;2019-02-27 16:14:58&quot;</span>,</span><br><span class="line">            <span class="string">&quot;2019-02-24 12:14:58&quot;</span>,</span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">count_downs</span>: [],</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生命周期函数--监听页面显示</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">onShow</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">countDown</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timepiece = &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 时间戳转化成时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> <span class="variable">stamp</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@returns</span> &#123;<span class="type">string</span>&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">stamp2time</span>: <span class="keyword">function</span> (<span class="params">stamp</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="title class_">Date</span>(stamp * <span class="number">1000</span>);    <span class="comment">//根据时间戳生成的时间对象</span></span><br><span class="line">        <span class="keyword">var</span> date = (d.<span class="title function_">getFullYear</span>()) + <span class="string">&quot;-&quot;</span> +</span><br><span class="line">            (d.<span class="title function_">getMonth</span>() + <span class="number">1</span>) + <span class="string">&quot;-&quot;</span> +</span><br><span class="line">            (d.<span class="title function_">getDate</span>()) + <span class="string">&quot; &quot;</span> +</span><br><span class="line">            (d.<span class="title function_">getHours</span>()) + <span class="string">&quot;:&quot;</span> +</span><br><span class="line">            (d.<span class="title function_">getMinutes</span>()) + <span class="string">&quot;:&quot;</span> +</span><br><span class="line">            (d.<span class="title function_">getSeconds</span>());</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 时间转化成时间戳</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> <span class="variable">stamp</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@returns</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">time2stamp</span>: <span class="keyword">function</span> (<span class="params">time</span>) &#123;</span><br><span class="line">        time = time.<span class="title function_">substring</span>(<span class="number">0</span>, <span class="number">19</span>);</span><br><span class="line">        time = time.<span class="title function_">replace</span>(<span class="regexp">/-/g</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="keyword">new</span> <span class="title class_">Date</span>(time).<span class="title function_">getTime</span>() / <span class="number">1000</span>);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 秒转化成时分秒的形式</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> <span class="variable">second</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">second2hour</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> secondTime = <span class="built_in">parseInt</span>(value);</span><br><span class="line">        <span class="keyword">var</span> minuteTime = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> hourTime = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (secondTime &gt; <span class="number">60</span>) &#123;</span><br><span class="line">            minuteTime = <span class="built_in">parseInt</span>(secondTime / <span class="number">60</span>);</span><br><span class="line">            secondTime = <span class="built_in">parseInt</span>(secondTime % <span class="number">60</span>);</span><br><span class="line">            <span class="keyword">if</span> (minuteTime &gt; <span class="number">60</span>) &#123;</span><br><span class="line">                hourTime = <span class="built_in">parseInt</span>(minuteTime / <span class="number">60</span>);</span><br><span class="line">                minuteTime = <span class="built_in">parseInt</span>(minuteTime % <span class="number">60</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (hourTime &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            hourTime = <span class="string">`0<span class="subst">$&#123;hourTime&#125;</span>`</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (minuteTime &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            minuteTime = <span class="string">`0<span class="subst">$&#123;minuteTime&#125;</span>`</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (secondTime &lt; <span class="number">10</span>) &#123;</span><br><span class="line">            secondTime = <span class="string">`0<span class="subst">$&#123;secondTime&#125;</span>`</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> result = <span class="string">`<span class="subst">$&#123;hourTime&#125;</span>:<span class="subst">$&#123;minuteTime&#125;</span>:<span class="subst">$&#123;secondTime&#125;</span>`</span>;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 时间和当前时间的差值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> <span class="variable">time</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="attr">remain</span>: <span class="keyword">function</span> (<span class="params">time</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> now = <span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() / <span class="number">1000</span>);</span><br><span class="line">        time = <span class="variable language_">this</span>.<span class="title function_">time2stamp</span>(time);</span><br><span class="line">        time = time - now;</span><br><span class="line">        <span class="keyword">if</span> (time &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            time = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">second2hour</span>(time);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 倒计时</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">that</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> <span class="variable">times</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> countDown = <span class="keyword">function</span> (<span class="params">that</span>) &#123;</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> counts = [];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> that.<span class="property">data</span>.<span class="property">times</span>) &#123;</span><br><span class="line">            counts[i] = timepiece.<span class="title function_">remain</span>(that.<span class="property">data</span>.<span class="property">times</span>[i])</span><br><span class="line">        &#125;</span><br><span class="line">        that.<span class="title function_">setData</span>(&#123;</span><br><span class="line">            <span class="attr">count_downs</span>: counts</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/18839.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/18839.html" class="post-title-link" itemprop="url">延迟静态绑定</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-13 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-13T00:00:00+08:00">2019-02-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/18839.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/18839.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>后期静态绑定，用于在继承范围内引用静态调用的类。</p>
+<p>后期静态绑定工作原理是存储了在上一个“非转发调用”（non-forwarding call）的类名。当进行静态方法调用时，该类名即为明确指定的那个（通常在 :: 运算符左侧部分）；当进行非静态方法调用时，即为该对象所属的类。所谓的“转发调用”（forwarding call）指的是通过以下几种方式进行的静态调用：self::，parent::，static:: 以及 forward_static_call()。可用 get_called_class() 函数来得到被调用的方法所在的类名，static:: 则指出了其范围。</p>
+<p>转发调用:<br>self:: 所在类<br>parent:: 父类<br>static:: 调用类</p>
+<p>后期静态绑定的解析会一直到取得一个完全解析了的静态调用为止。另一方面，如果静态调用使用 parent:: 或者 self:: 将转发调用信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">static</span>::<span class="title function_ invoke__">who</span>(); <span class="comment">// 留意此处,static究竟指向谁</span></span><br><span class="line">        <span class="comment">// 如果是self::who(),就都是A了.这就是特别需要注意的地方</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="built_in">static</span>::<span class="variable language_">class</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span> . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        A::<span class="title function_ invoke__">foo</span>(); <span class="comment">// 非转发调用</span></span><br><span class="line">        <span class="built_in">static</span>::<span class="title function_ invoke__">foo</span>();</span><br><span class="line">        <span class="built_in">parent</span>::<span class="title function_ invoke__">foo</span>(); <span class="comment">//</span></span><br><span class="line">        <span class="built_in">self</span>::<span class="title function_ invoke__">foo</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">who</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="built_in">static</span>::<span class="variable language_">class</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">__CLASS__</span> . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">C::<span class="title function_ invoke__">test</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AA</span><br><span class="line">CB</span><br><span class="line">CB</span><br><span class="line">CB</span><br></pre></td></tr></table></figure>
+
+<p>对于方法who()中<br>static::class是调用类的类名<br>__CLASS__是对象实例所属类的类名</p>
+<p>个人对运行结果的看法</p>
+<p>第一个AA<br>    1. C::test() &#x3D;&gt; C-&gt;B::test(){A::foo()}<br>    2. A::foo(){static::who()} &#x3D;&gt; A::who()</p>
+<p>第二个CB<br>    1. C::test() &#x3D;&gt; C-&gt;B::test(){<em>static::foo()</em>}<br>    2. C-&gt;B::test(){static::foo()} &#x3D;&gt; C-&gt;B-&gt;A::foo(){static::who()} &#x3D; C::who() &#x3D; C-&gt;B::who() # 类C没有foo,所以向最近的被继承类中找</p>
+<p>第三个CB<br>    1. C::test() &#x3D;&gt; C-&gt;B::test(){<em>parent::foo()</em>}<br>    2. C-&gt;B-&gt;A::foo(){static::who()} &#x3D;&gt; C-&gt;B::who() # 直接找类A中的foo</p>
+<p>第三个CB<br>    1. C::test() &#x3D;&gt; C-&gt;B::test(){<em>self::foo()</em>}<br>    2. C-&gt;B-&gt;A::foo(){static::who()} &#x3D;&gt; C-&gt;B::who() # 类B没有foo,所以向最近的被继承类中找</p>
 
       
     </div>
@@ -1521,7 +1566,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1579,7 +1624,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:53</span>
+    <span title="站点阅读时长">2:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -1599,12 +1644,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -1618,6 +1659,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

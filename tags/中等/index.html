@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
@@ -75,10 +75,11 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -103,6 +104,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -137,11 +139,43 @@
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -186,27 +220,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2022/04/11/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/167%20%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%20%E6%9C%89%E5%BA%8F%E6%95%B0%E5%88%97/" itemprop="url">
-            <span itemprop="name">167 两数之和 有序数列</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-04-11T00:00:00+08:00"
-              content="2022-04-11">
-          04-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/11/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/165%20%E6%AF%94%E8%BE%83%E7%89%88%E6%9C%AC%E5%8F%B7/" itemprop="url">
+          <a class="post-title-link" href="/posts/10638.html" itemprop="url">
             <span itemprop="name">165 比较版本号</span>
           </a>
       </div>
@@ -226,7 +240,27 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2022/04/11/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/189%20%E8%BD%AE%E8%BD%AC%E6%95%B0%E7%BB%84/" itemprop="url">
+          <a class="post-title-link" href="/posts/17323.html" itemprop="url">
+            <span itemprop="name">167 两数之和 有序数列</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2022-04-11T00:00:00+08:00"
+              content="2022-04-11">
+          04-11
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/27444.html" itemprop="url">
             <span itemprop="name">189 轮转数组</span>
           </a>
       </div>
@@ -246,7 +280,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2022/04/11/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/215%20%E7%AC%ACk%E4%B8%AA%E6%9C%80%E5%A4%A7%E5%80%BC/" itemprop="url">
+          <a class="post-title-link" href="/posts/31953.html" itemprop="url">
             <span itemprop="name">215 第K个最大值</span>
           </a>
       </div>
@@ -266,7 +300,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2022/04/11/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/278%20%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%89%88%E6%9C%AC/" itemprop="url">
+          <a class="post-title-link" href="/posts/22894.html" itemprop="url">
             <span itemprop="name">278 第一个错误版本</span>
           </a>
       </div>
@@ -286,7 +320,7 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2022/04/10/LeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/146%20LRU%E7%BC%93%E5%AD%98/" itemprop="url">
+          <a class="post-title-link" href="/posts/47856.html" itemprop="url">
             <span itemprop="name">146 LRU缓存</span>
           </a>
       </div>
@@ -365,7 +399,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -423,7 +457,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:53</span>
+    <span title="站点阅读时长">2:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -443,12 +477,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -462,6 +492,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

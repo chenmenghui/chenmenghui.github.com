@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
@@ -75,10 +75,11 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -103,6 +104,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -137,11 +139,43 @@
     <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -161,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E5%B8%B8%E8%A7%81linux%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/38642.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -175,7 +209,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E5%B8%B8%E8%A7%81linux%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">PHP基础知识之常见linux命令</a>
+            <a href="/posts/38642.html" class="post-title-link" itemprop="url">PHP基础知识之常见linux命令</a>
         </h2>
 
         <div class="post-meta">
@@ -192,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:36" itemprop="dateModified" datetime="2021-02-23T14:34:36+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,8 +251,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E5%B8%B8%E8%A7%81linux%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E5%B8%B8%E8%A7%81linux%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/38642.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/38642.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -343,7 +377,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/64186.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -357,7 +391,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">PHP基础知识之文件及目录处理</a>
+            <a href="/posts/64186.html" class="post-title-link" itemprop="url">PHP基础知识之网络协议</a>
         </h2>
 
         <div class="post-meta">
@@ -374,7 +408,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -399,114 +433,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>27</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h2><p>用来打开一个文件,打开时需要指定打开模式</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">PHP基础知识之网络协议</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/64186.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/64186.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -976,7 +904,7 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>发送该消息的日期和时间（以&lt;ahref&#x3D;”<a href="http://tools.ietf.org/html/rfc7231#section-7.1.1.1&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;RFC7231">http://tools.ietf.org/html/rfc7231#section-7.1.1.1&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;RFC7231</a></a>中定义的”HTTP日期”格式来发送）</td>
+<td>发送该消息的日期和时间（以&lt;ahref&#x3D;”<a href="http://tools.ietf.org/html/rfc7231#section-7.1.1.1&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;RFC7231">http://tools.ietf.org/html/rfc7231#section-7.1.1.1&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;RFC7231</a>中定义的”HTTP日期”格式来发送）</td>
 <td>Date:Dec,26Dec201517:30:00GMT</td>
 <td>固定</td>
 </tr>
@@ -989,7 +917,7 @@
 <tr>
 <td>From</td>
 <td>发起此请求的用户的邮件地址</td>
-<td><code>From:<a href="mailto:&#117;&#x73;&#x65;&#114;&#64;&#x69;&#116;&#x62;&#105;&#108;&#x75;&#x2e;&#x63;&#111;&#109;">&#117;&#x73;&#x65;&#114;&#64;&#x69;&#116;&#x62;&#105;&#108;&#x75;&#x2e;&#x63;&#111;&#109;</a></code></td>
+<td><code>From:<a href="mailto:&#117;&#115;&#101;&#x72;&#64;&#x69;&#x74;&#98;&#x69;&#x6c;&#x75;&#x2e;&#x63;&#111;&#x6d;">&#117;&#115;&#101;&#x72;&#64;&#x69;&#x74;&#98;&#x69;&#x6c;&#x75;&#x2e;&#x63;&#111;&#x6d;</a></code></td>
 <td>固定</td>
 </tr>
 <tr>
@@ -1036,7 +964,7 @@
 </tr>
 <tr>
 <td>Origin</td>
-<td>发起一个针对&lt;ahref&#x3D;”<a href="http://itbilu.com/javascript/js/VkiXuUcC.html&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB">http://itbilu.com/javascript/js/VkiXuUcC.html&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;跨域资源共享</a></a>的请求（该请求要求服务器在响应中加入一个<code>Access-Control-Allow-Origin</code>的消息头，表示访问控制所允许的来源）。</td>
+<td>发起一个针对&lt;ahref&#x3D;”<a href="http://itbilu.com/javascript/js/VkiXuUcC.html&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB">http://itbilu.com/javascript/js/VkiXuUcC.html&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;跨域资源共享</a>的请求（该请求要求服务器在响应中加入一个<code>Access-Control-Allow-Origin</code>的消息头，表示访问控制所允许的来源）。</td>
 <td><code>Origin:<a target="_blank" rel="noopener" href="http://www.itbilu.com/">http://www.itbilu.com</a></code></td>
 <td>固定:标准</td>
 </tr>
@@ -1133,7 +1061,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%92%8C%E5%86%85%E9%83%A8%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/63586.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1147,7 +1075,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%92%8C%E5%86%85%E9%83%A8%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">PHP基础知识之自定义函数和内部函数</a>
+            <a href="/posts/63586.html" class="post-title-link" itemprop="url">PHP基础知识及配置考点</a>
         </h2>
 
         <div class="post-meta">
@@ -1164,7 +1092,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1189,8 +1117,145 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%92%8C%E5%86%85%E9%83%A8%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E5%92%8C%E5%86%85%E9%83%A8%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/63586.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/63586.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>362</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>版本控制软件</p>
+<ul>
+<li><p>集中式<br>  需要一个中央服务器,所有的代码都通过中央服务器进行管理</p>
+</li>
+<li><p>分布式<br>  每个客户端都有代码</p>
+</li>
+<li><p>cvs和svn</p>
+</li>
+<li><p>git</p>
+</li>
+</ul>
+<p>延伸:php的运行原理</p>
+<p>nginx+php-fpm</p>
+<p>CGI</p>
+<p>FastCGI</p>
+<p>PHP-FPM 是FastCGI的管理器</p>
+<p>延伸: PHP常见配置项</p>
+<ul>
+<li>register-globals<br>  注入变量</li>
+<li>allow_url_fopen<br>  是否允许打开远程文件</li>
+<li>all_url_include<br>  运程包含文件</li>
+<li>data.timezone<br>  时区</li>
+<li>display_errors<br>  是否展示错误</li>
+<li>error_reporting<br>  展示错误级别</li>
+<li>safe_mode<br>  是否开启安全模式</li>
+<li>upload_max_filesize<br>  上传的最大文件大小</li>
+<li>max_file_uploads<br>  上传最大文件数量</li>
+<li>post_max_size<br>  post的最大文件大小</li>
+</ul>
+<blockquote>
+<p>请简述CGI,FastCGI和PHP-FPM的区别</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/30908.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/30908.html" class="post-title-link" itemprop="url">PHP基础知识之自定义函数和内部函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/30908.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/30908.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1282,7 +1347,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%80%BC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/9091.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1296,7 +1361,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%80%BC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">PHP基础知识值面向对象</a>
+            <a href="/posts/9091.html" class="post-title-link" itemprop="url">PHP基础知识值面向对象</a>
         </h2>
 
         <div class="post-meta">
@@ -1313,7 +1378,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1338,8 +1403,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%80%BC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%80%BC%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/9091.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/9091.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1400,7 +1465,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E8%80%83%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/47123.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1414,7 +1479,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E8%80%83%E7%82%B9/" class="post-title-link" itemprop="url">PHP基础知识及配置考点</a>
+            <a href="/posts/47123.html" class="post-title-link" itemprop="url">php函数积累</a>
         </h2>
 
         <div class="post-meta">
@@ -1431,7 +1496,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1456,8 +1521,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E8%80%83%E7%82%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E9%85%8D%E7%BD%AE%E8%80%83%E7%82%B9/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/47123.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/47123.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1467,14 +1532,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>362</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -1486,38 +1551,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>版本控制软件</p>
-<ul>
-<li><p>集中式<br>  需要一个中央服务器,所有的代码都通过中央服务器进行管理</p>
-</li>
-<li><p>分布式<br>  每个客户端都有代码</p>
-</li>
-<li><p>cvs和svn</p>
-</li>
-<li><p>git</p>
-</li>
-</ul>
-<p>延伸:php的运行原理</p>
-<p>nginx+php-fpm</p>
-<p>CGI</p>
-<p>FastCGI</p>
-<p>PHP-FPM 是FastCGI的管理器</p>
-<p>延伸: PHP常见配置项</p>
-<ul>
-<li>register-globals<br>  注入变量</li>
-<li>allow_url_fopen<br>  是否允许打开远程文件</li>
-<li>all_url_include<br>  运程包含文件</li>
-<li>data.timezone<br>  时区</li>
-<li>display_errors<br>  是否展示错误</li>
-<li>error_reporting<br>  展示错误级别</li>
-<li>safe_mode<br>  是否开启安全模式</li>
-<li>upload_max_filesize<br>  上传的最大文件大小</li>
-<li>max_file_uploads<br>  上传最大文件数量</li>
-<li>post_max_size<br>  post的最大文件大小</li>
-</ul>
-<blockquote>
-<p>请简述CGI,FastCGI和PHP-FPM的区别</p>
+          <h3 id="register-shutdown-function"><a href="#register-shutdown-function" class="headerlink" title="register_shutdown_function"></a>register_shutdown_function</h3><h3 id="array-multisort"><a href="#array-multisort" class="headerlink" title="array_multisort"></a>array_multisort</h3><blockquote>
+<p>bool array_multisort ( array &amp;$array1 [, mixed $array1_sort_order &#x3D; SORT_ASC [, mixed $array1_sort_flags &#x3D; SORT_REGULAR [, mixed $… ]]] )</p>
 </blockquote>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/zh/function.array-multisort.php">array_multisort()</a> 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。</p>
+<p>这种类似于从sql语句中的sort by排序还是挺有用的.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$data</span> = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">60</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">40</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">20</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="variable">$column</span>[<span class="string">&#x27;class&#x27;</span>][<span class="variable">$key</span>] = <span class="variable">$value</span>[<span class="string">&#x27;class&#x27;</span>];</span><br><span class="line">    <span class="variable">$column</span>[<span class="string">&#x27;score&#x27;</span>][<span class="variable">$key</span>] = <span class="variable">$value</span>[<span class="string">&#x27;score&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类似于sql中的 select * from student order by `class` asc, score desc;</span></span><br><span class="line"><span class="title function_ invoke__">array_multisort</span>(<span class="variable">$column</span>[<span class="string">&#x27;class&#x27;</span>], SORT_ASC, SORT_STRING , <span class="variable">$column</span>[<span class="string">&#x27;score&#x27;</span>], SORT_DESC, <span class="variable">$data</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$data</span>);</span><br></pre></td></tr></table></figure>
+
+<p>有趣的是他的参数，我现在还没有完全弄懂</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="variable">$b</span> = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line"><span class="variable">$c</span> = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">array_multisort</span>(<span class="variable">$a</span>, SORT_DESC, <span class="variable">$b</span>, <span class="variable">$c</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$c</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以从结果中看到 $a&#x2F;$b&#x2F;$c 都排好序了。</p>
+<h3 id="get-object-vars"><a href="#get-object-vars" class="headerlink" title="get_object_vars"></a>get_object_vars</h3><p>返回由对象属性组成的关联数组</p>
+<h3 id="接口Countable"><a href="#接口Countable" class="headerlink" title="接口Countable"></a>接口Countable</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/class.countable.php">类实现 Countable 可被用于 count() 函数. </a></p>
+<p>如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountMe</span> <span class="keyword">implements</span> \<span class="title">Countable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$_myCount</span> = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;_myCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$countable</span> = <span class="keyword">new</span> <span class="title class_">CountMe</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">count</span>(<span class="variable">$countable</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里，count 可以直接作用于对象。</p>
+<h3 id="debug-backtrace"><a href="#debug-backtrace" class="headerlink" title="debug_backtrace"></a>debug_backtrace</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.debug-backtrace.php">产生一条回溯跟踪(backtrace)</a></p>
+<p>比如可以这样用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dump</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$debugInfo</span> = <span class="title function_ invoke__">debug_backtrace</span>();</span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;&lt;hr&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="variable">$debugInfo</span>[<span class="number">0</span>][<span class="string">&#x27;file&#x27;</span>] . <span class="string">&quot;:&quot;</span> . <span class="variable">$debugInfo</span>[<span class="number">0</span>][<span class="string">&#x27;line&#x27;</span>]; <span class="comment">// 获取调用这个代码的文件名和行数</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span> . <span class="variable">$value</span> . <span class="string">&#x27;&lt;/pre&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/a.php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a_test</span>(<span class="params"><span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\nHi: <span class="subst">$str</span>&quot;</span>;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">debug_backtrace</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">a_test</span>(<span class="string">&#x27;friend&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/b.php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&#x27;/tmp/a.php&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// execute result</span></span><br><span class="line"></span><br><span class="line">Hi: <span class="title function_ invoke__">friendarray</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  [<span class="number">0</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">10</span>)</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;a_test&quot;</span></span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;friend&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\b.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">3</span>)</span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">12</span>) <span class="string">&quot;include_once&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>断言，配合assert_options使用效果很妙</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 激活断言，并设置它为 quiet</span></span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_ACTIVE, <span class="number">1</span>);</span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_WARNING, <span class="number">0</span>);</span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_QUIET_EVAL, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_assert_handler</span>(<span class="params"><span class="variable">$file</span>, <span class="variable">$line</span>, <span class="variable">$code</span>, <span class="variable">$desc</span> = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Assertion failed at <span class="subst">$file</span>:<span class="subst">$line</span>: <span class="subst">$code</span>&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$desc</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;: <span class="subst">$desc</span>&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置回调函数</span></span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_CALLBACK, <span class="string">&#x27;my_assert_handler&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Make an assertion that should fail</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">2</span> &lt; <span class="number">1</span>;</span><br><span class="line"><span class="title function_ invoke__">assert</span>(<span class="variable">$a</span>, <span class="string">&#x27;Two is less than one&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="strftime"><a href="#strftime" class="headerlink" title="strftime"></a>strftime</h3><p>根据区域设置来格式化本地日期和时间</p>
 
       
     </div>
@@ -1537,7 +1597,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E9%9D%A2%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/42572.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1551,7 +1611,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E9%9D%A2%E8%AF%95/" class="post-title-link" itemprop="url">PHP面试</a>
+            <a href="/posts/42572.html" class="post-title-link" itemprop="url">PHP面试</a>
         </h2>
 
         <div class="post-meta">
@@ -1568,7 +1628,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 09:49:55" itemprop="dateModified" datetime="2022-04-13T09:49:55+08:00">2022-04-13</time>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1593,8 +1653,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E9%9D%A2%E8%AF%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E9%9D%A2%E8%AF%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/42572.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/42572.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1837,138 +1897,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E5%87%BD%E6%95%B0%E7%A7%AF%E7%B4%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E5%87%BD%E6%95%B0%E7%A7%AF%E7%B4%AF/" class="post-title-link" itemprop="url">php函数积累</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-23 14:34:35" itemprop="dateModified" datetime="2021-02-23T14:34:35+08:00">2021-02-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E5%87%BD%E6%95%B0%E7%A7%AF%E7%B4%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/09/06/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E4%B8%9C%E8%A5%BF/php%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/php%E5%87%BD%E6%95%B0%E7%A7%AF%E7%B4%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="register-shutdown-function"><a href="#register-shutdown-function" class="headerlink" title="register_shutdown_function"></a>register_shutdown_function</h3><h3 id="array-multisort"><a href="#array-multisort" class="headerlink" title="array_multisort"></a>array_multisort</h3><blockquote>
-<p>bool array_multisort ( array &amp;$array1 [, mixed $array1_sort_order &#x3D; SORT_ASC [, mixed $array1_sort_flags &#x3D; SORT_REGULAR [, mixed $… ]]] )</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="http://php.net/manual/zh/function.array-multisort.php">array_multisort()</a> 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。</p>
-<p>这种类似于从sql语句中的sort by排序还是挺有用的.</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$data</span> = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">60</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">40</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">20</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="variable">$column</span>[<span class="string">&#x27;class&#x27;</span>][<span class="variable">$key</span>] = <span class="variable">$value</span>[<span class="string">&#x27;class&#x27;</span>];</span><br><span class="line">    <span class="variable">$column</span>[<span class="string">&#x27;score&#x27;</span>][<span class="variable">$key</span>] = <span class="variable">$value</span>[<span class="string">&#x27;score&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类似于sql中的 select * from student order by `class` asc, score desc;</span></span><br><span class="line"><span class="title function_ invoke__">array_multisort</span>(<span class="variable">$column</span>[<span class="string">&#x27;class&#x27;</span>], SORT_ASC, SORT_STRING , <span class="variable">$column</span>[<span class="string">&#x27;score&#x27;</span>], SORT_DESC, <span class="variable">$data</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$data</span>);</span><br></pre></td></tr></table></figure>
-
-<p>有趣的是他的参数，我现在还没有完全弄懂</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="variable">$b</span> = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line"><span class="variable">$c</span> = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">array_multisort</span>(<span class="variable">$a</span>, SORT_DESC, <span class="variable">$b</span>, <span class="variable">$c</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$c</span>);</span><br></pre></td></tr></table></figure>
-
-<p>可以从结果中看到 $a&#x2F;$b&#x2F;$c 都排好序了。</p>
-<h3 id="get-object-vars"><a href="#get-object-vars" class="headerlink" title="get_object_vars"></a>get_object_vars</h3><p>返回由对象属性组成的关联数组</p>
-<h3 id="接口Countable"><a href="#接口Countable" class="headerlink" title="接口Countable"></a>接口Countable</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/class.countable.php">类实现 Countable 可被用于 count() 函数. </a></p>
-<p>如</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountMe</span> <span class="keyword">implements</span> \<span class="title">Countable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$_myCount</span> = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;_myCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$countable</span> = <span class="keyword">new</span> <span class="title class_">CountMe</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">count</span>(<span class="variable">$countable</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-
-<p>在这里，count 可以直接作用于对象。</p>
-<h3 id="debug-backtrace"><a href="#debug-backtrace" class="headerlink" title="debug_backtrace"></a>debug_backtrace</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.debug-backtrace.php">产生一条回溯跟踪(backtrace)</a></p>
-<p>比如可以这样用：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dump</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$debugInfo</span> = <span class="title function_ invoke__">debug_backtrace</span>();</span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;&lt;hr&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="variable">$debugInfo</span>[<span class="number">0</span>][<span class="string">&#x27;file&#x27;</span>] . <span class="string">&quot;:&quot;</span> . <span class="variable">$debugInfo</span>[<span class="number">0</span>][<span class="string">&#x27;line&#x27;</span>]; <span class="comment">// 获取调用这个代码的文件名和行数</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span> . <span class="variable">$value</span> . <span class="string">&#x27;&lt;/pre&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/a.php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a_test</span>(<span class="params"><span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\nHi: <span class="subst">$str</span>&quot;</span>;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">debug_backtrace</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">a_test</span>(<span class="string">&#x27;friend&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/b.php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&#x27;/tmp/a.php&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// execute result</span></span><br><span class="line"></span><br><span class="line">Hi: <span class="title function_ invoke__">friendarray</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  [<span class="number">0</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">10</span>)</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;a_test&quot;</span></span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;friend&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\b.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">3</span>)</span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">12</span>) <span class="string">&quot;include_once&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>断言，配合assert_options使用效果很妙</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 激活断言，并设置它为 quiet</span></span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_ACTIVE, <span class="number">1</span>);</span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_WARNING, <span class="number">0</span>);</span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_QUIET_EVAL, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_assert_handler</span>(<span class="params"><span class="variable">$file</span>, <span class="variable">$line</span>, <span class="variable">$code</span>, <span class="variable">$desc</span> = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Assertion failed at <span class="subst">$file</span>:<span class="subst">$line</span>: <span class="subst">$code</span>&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$desc</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;: <span class="subst">$desc</span>&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置回调函数</span></span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_CALLBACK, <span class="string">&#x27;my_assert_handler&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Make an assertion that should fail</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">2</span> &lt; <span class="number">1</span>;</span><br><span class="line"><span class="title function_ invoke__">assert</span>(<span class="variable">$a</span>, <span class="string">&#x27;Two is less than one&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="strftime"><a href="#strftime" class="headerlink" title="strftime"></a>strftime</h3><p>根据区域设置来格式化本地日期和时间</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -2038,7 +1966,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2096,7 +2024,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:53</span>
+    <span title="站点阅读时长">2:54</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -2116,12 +2044,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -2135,6 +2059,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
