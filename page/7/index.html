@@ -181,7 +181,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -191,6 +190,391 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/4321.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/4321.html" class="post-title-link" itemprop="url">git实操</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-29T00:00:00+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/4321.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/4321.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="简单命令行入门教程"><a href="#简单命令行入门教程" class="headerlink" title="简单命令行入门教程"></a>简单命令行入门教程</h3><p>Git 全局设置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;陈孟辉&quot;</span><br><span class="line">git config --global user.email &quot;chenmenghui_008@163.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>创建 git 仓库:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir chenmenghui</span><br><span class="line">cd chenmenghui</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin git@gitee.com:chenmenghui/chenmenghui.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>已有仓库?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd existing_git_repo</span><br><span class="line">git remote add origin git@gitee.com:chenmenghui/chenmenghui.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h3 id="迁移仓库"><a href="#迁移仓库" class="headerlink" title="迁移仓库"></a>迁移仓库</h3><p>前几日把在自己的服务器上建了一个git裸仓库。然后想着自己的服务器可能用不了多久，就想着把项目迁到码云上来。</p>
+<p>首先使用</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone --bare 「自己的服务器上的仓库」</span><br><span class="line">git push --remote 「码云上刚刚创建的仓库」</span><br></pre></td></tr></table></figure>
+
+<h3 id="clone代码之后-把项目中的-env配置文件修改之后-即使将其加入了-gitignore文件-也被提交了"><a href="#clone代码之后-把项目中的-env配置文件修改之后-即使将其加入了-gitignore文件-也被提交了" class="headerlink" title="clone代码之后,把项目中的.env配置文件修改之后,即使将其加入了.gitignore文件,也被提交了"></a>clone代码之后,把项目中的.env配置文件修改之后,即使将其加入了.gitignore文件,也被提交了</h3><p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-index --assume-unchanged .env</span><br></pre></td></tr></table></figure>
+
+<p>才没提交</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kevingrace/p/5690241.html">原来如此</a>,.gitignore只是忽视未被加入到远程仓库中的文件</p>
+<h3 id="git合并本地的几个commit操作"><a href="#git合并本地的几个commit操作" class="headerlink" title="git合并本地的几个commit操作"></a>git合并本地的几个commit操作</h3><h3 id="如果远程仓库里没有东西"><a href="#如果远程仓库里没有东西" class="headerlink" title="如果远程仓库里没有东西"></a>如果远程仓库里没有东西</h3><ol>
+<li>进入本地指定目录</li>
+<li>git init 创建本地仓库</li>
+<li>把本地仓库中的文件们加入本地仓库 git add .</li>
+<li>关联远程仓库 git remote add origin <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x2e;&#x6f;&#x73;&#x63;&#x68;&#105;&#110;&#97;&#x2e;&#x6e;&#x65;&#116;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x2e;&#x6f;&#x73;&#x63;&#x68;&#105;&#110;&#97;&#x2e;&#x6e;&#x65;&#116;</a>:yourname&#x2F;demo.git</li>
+<li>更新 git pull</li>
+</ol>
+<h3 id="导出日志"><a href="#导出日志" class="headerlink" title="导出日志"></a>导出日志</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --date=iso --pretty=format:&#x27;&quot;%h&quot;,&quot;%an&quot;,&quot;%ad&quot;,&quot;%s&quot;&#x27; &gt;log.csv</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/17238.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/17238.html" class="post-title-link" itemprop="url">Excel简单应用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Excel/" itemprop="url" rel="index"><span itemprop="name">Excel</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/17238.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/17238.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>169</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>vlockup</li>
+<li>sumif</li>
+<li>sort</li>
+</ul>
+<h4 id="两对单元格比较"><a href="#两对单元格比较" class="headerlink" title="两对单元格比较"></a>两对单元格比较</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CONCAT(IF((A50=Log!F:F) * (B50=Log!B:B),Log!G:G,&quot;&quot;))</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>其中「*」是逻辑与，「+」是逻辑或。</p>
+<p>逻辑非就只有 not() 了。</p>
+<p>使用 concat 是因为两列数据都满足的情况可能不止一个，所以用此方法做了连接。</p>
+<h3 id="透视表"><a href="#透视表" class="headerlink" title="透视表"></a>透视表</h3><ul>
+<li>切片</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/56968.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/56968.html" class="post-title-link" itemprop="url">PhpStorm 插件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/idea/" itemprop="url" rel="index"><span itemprop="name">idea</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/56968.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/56968.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>211</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <table>
+<thead>
+<tr>
+<th>常用插件名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>KJump</td>
+<td>键盘操作的光标定位</td>
+</tr>
+<tr>
+<td>Rainbow Brackets</td>
+<td>加强空格、tab、括号的展示效果</td>
+</tr>
+<tr>
+<td>WakaTime</td>
+<td>记录编写代码的时间</td>
+</tr>
+<tr>
+<td>LeetCode Editor</td>
+<td>可方便地使用idea刷题</td>
+</tr>
+<tr>
+<td>Key Promoter X</td>
+<td>快捷键说明</td>
+</tr>
+<tr>
+<td>Idea Mind Map</td>
+<td>简单的 Mind Map 绘制工具</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td>markdown</td>
+</tr>
+<tr>
+<td>IdeaVim</td>
+<td>Vim 编辑模式</td>
+</tr>
+<tr>
+<td>PlantUml integration</td>
+<td>绘图，配合markdown、hexo食用效果不俗</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -328,7 +712,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+                <time title="修改时间：2022-04-17 07:39:08" itemprop="dateModified" datetime="2022-04-17T07:39:08+08:00">2022-04-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -364,7 +748,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>940</span>
+              <span>961</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -383,13 +767,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>删除注册器和和配置文件中的一些记录数据就可以啦</p>
+          <blockquote>
+<p>该方法现已失效，就拿来看看BAT的语法吧。</p>
+</blockquote>
+<p>删除注册器和和配置文件中的一些记录数据就可以啦</p>
 <p>可使用批处理</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">rem For free evaluation jetbrain again</span></span><br><span class="line"><span class="comment">rem 2020-3-24 by chenmenghui</span></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> year=<span class="variable">%date:~0,4%</span></span><br><span class="line"><span class="built_in">set</span> month=<span class="variable">%date:~5,2%</span></span><br><span class="line"><span class="built_in">set</span> day=<span class="variable">%date:~8,2%</span></span><br><span class="line"><span class="built_in">set</span> /a currentDays=<span class="variable">%year%</span>*<span class="number">365</span>+<span class="variable">%month%</span>*<span class="number">30</span>+<span class="variable">%day%</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">exist</span> last_date.txt (</span><br><span class="line">    <span class="built_in">set</span> /p lastDays=&lt;last_date.txt</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">set</span> lastDays=<span class="number">0</span></span><br><span class="line">)</span><br><span class="line"><span class="built_in">set</span> /a diff=<span class="variable">%currentDays%</span>-<span class="variable">%lastDays%</span></span><br><span class="line">:: 假如距上一次操作大于等于<span class="number">20</span>天</span><br><span class="line"><span class="keyword">if</span> <span class="variable">%diff%</span> <span class="keyword">GEQ</span> <span class="number">20</span> (</span><br><span class="line">    :: 删除相应的配置信息</span><br><span class="line">    <span class="built_in">set</span> folder=C:<span class="variable">%HOMEPATH%</span>\</span><br><span class="line">    <span class="keyword">for</span> /f &quot;delims=&quot; <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /ad /b <span class="variable">!folder!</span>&#x27;) <span class="keyword">do</span> (</span><br><span class="line">        <span class="built_in">set</span> str=<span class="variable">%%a</span></span><br><span class="line">        <span class="built_in">set</span> needDel=<span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> /i &quot;<span class="variable">!str:~0,9!</span>&quot;==&quot;.PhpStorm&quot; <span class="built_in">set</span> needDel=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> /i &quot;<span class="variable">!str:~0,8!</span>&quot;==&quot;.PyCharm&quot; <span class="built_in">set</span> needDel=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable">!needDel!</span> <span class="keyword">EQU</span> <span class="number">1</span> (</span><br><span class="line">            <span class="built_in">rd</span>  &quot;C:<span class="variable">%HOMEPATH%</span>\<span class="variable">!str!</span>\config\eval&quot; /s /q</span><br><span class="line">            <span class="built_in">del</span> &quot;C:<span class="variable">%HOMEPATH%</span>\<span class="variable">!str!</span>\config\options\other.xml&quot; /f /s /q /a</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">    reg delete &quot;HKEY_CURRENT_USER\Software\JavaSoft\Prefs\jetbrains&quot; /f</span><br><span class="line">    :: 记录本次操作时间</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">%currentDays%</span> &gt; last_date.txt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>其他的就交给开机自启啦。</p>
-<p>说实在的，没有代码提示，踩了一堆坑。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/50806.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -439,7 +829,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+                <time title="修改时间：2022-04-18 09:06:00" itemprop="dateModified" datetime="2022-04-18T09:06:00+08:00">2022-04-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -471,7 +861,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>269</span>
+              <span>452</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -497,7 +887,8 @@
 <li>「init()」（不推荐使用__construct()，因为会覆盖 \yii\base\BaseObject。可以使用这个来初始化类）</li>
 </ul>
 <h1 id="依赖注入容器"><a href="#依赖注入容器" class="headerlink" title="依赖注入容器"></a>依赖注入容器</h1><h1 id="php之依赖注入、控制反转和依赖倒置原则"><a href="#php之依赖注入、控制反转和依赖倒置原则" class="headerlink" title="php之依赖注入、控制反转和依赖倒置原则"></a>php之依赖注入、控制反转和依赖倒置原则</h1><p>高内聚、低耦合，可作为软件好坏的评判标准。话句话说，就是尽量写出易于维护，低复杂度和低耦合度的代码。</p>
-<p>控制反转就是一个不错的思路。所谓控制反转就是</p>
+<p>所谓控制反转，英文 Inversion of Control，简称 IOC，字面上可以理解为对xx的控制进行了一个反转，换句话说就是对xx的控制的另一种实现，是一种思路，一种逻辑思想。其具体实现之一就是依赖注入。  </p>
+<p>依赖注入：把对象A所依赖的其他对象，以属性或者构造函数的方式传递到对象A的内部，而不是直接在对象A内实例化。其目的就是为了让对象A和其依赖的其他对象解耦，减少二者的依赖。即通过“注入”的方式去解决依赖问题。</p>
 
       
     </div>
@@ -1280,356 +1671,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/44518.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/44518.html" class="post-title-link" itemprop="url">bat编程遇到的一些小东西</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-18T00:00:00+08:00">2020-01-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">实用代码</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/bat/" itemprop="url" rel="index"><span itemprop="name">bat</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/44518.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/44518.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>553</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>这些实际运用的很少，需要的话肯定还是要百度的~~~写点遇到的吧，不知道的到时候再查呗</p>
-</blockquote>
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h3><p>赋值号「&#x3D;」两边的参数是不能有空格的！！！其他语言用习惯了，这一点很容易中枪</p>
-<p>另外，从文件中读取值是这样的</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">exist</span> opt_data.txt (</span><br><span class="line">    <span class="built_in">set</span> /p lastDays=&lt;opt_data.txt</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">set</span> lastDay=<span class="number">0</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="x0"><a href="#x0" class="headerlink" title="%~x0"></a>%~x0</h3><p>bat 文件中像「%0」「%1」的含义就是命令行输入的命令的第几个参数。</p>
-<p>比如在命令行输入</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.bat a b c</span><br></pre></td></tr></table></figure>
-
-<p>其中</p>
-<ul>
-<li>%0 指的是「1.bat」</li>
-<li>%1 指的是「a」</li>
-<li>%2 指的是「b」</li>
-<li>%3 指的是「c」</li>
-</ul>
-<p>而「~x」指的是取后缀</p>
-<p>所以「%~x0」就是取「1.bat」的后缀，即「bat」</p>
-<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ctrain/article/details/47917573">cmd for命令</a></p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> /l <span class="variable">%%i</span> <span class="keyword">in</span> (<span class="number">1</span> <span class="number">1</span> <span class="number">10</span>) <span class="keyword">do</span> (</span><br><span class="line">    <span class="built_in">set</span> var=<span class="variable">%%i</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">!var!</span> 启用延缓环境变量</span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">%var%</span> 未启用延缓环境变量</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>for %%i in (command1) do command2</p>
-</blockquote>
-<p>参数「f」，读文件</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:: 读文件，以行为间隔</span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%i</span> <span class="keyword">in</span> (test.txt) <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">%%i</span></span><br><span class="line"></span><br><span class="line">:: 读文件，以 delims 中的参数「,」为间隔</span><br><span class="line"><span class="keyword">for</span> /f &quot;delims=,&quot; <span class="variable">%%i</span> <span class="keyword">in</span> (test.txt) <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">%%i</span></span><br></pre></td></tr></table></figure>
-
-<p>参数 d</p>
-<p>参数</p>
-<h3 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/36331.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/36331.html" class="post-title-link" itemprop="url">命令行使用tree打印文件树</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-18T00:00:00+08:00">2020-01-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/bat/" itemprop="url" rel="index"><span itemprop="name">bat</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/36331.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/36331.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>91</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>环境win7<br>直接在命令行进入到对应文件夹中，使用tree命令就可以看到该文件夹下所有的文件夹了。<br>如果同时想看到文件，则使用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tree \f</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
-<p>第一次使用「\」，有些奇怪，就记录下来吧。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/1081.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/1081.html" class="post-title-link" itemprop="url">MySQL提示1418错误</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-01-08 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-08T00:00:00+08:00">2020-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/1081.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/1081.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>247</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>MySQL提示1418错误</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1418 (HY000): This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)</span><br></pre></td></tr></table></figure>
-<p>这样就行啦</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> log_bin_trust_function_creators<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1699,7 +1740,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1712,13 +1753,26 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
         <div class="back-to-top motion-element">
@@ -1752,12 +1806,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">193k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">2:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

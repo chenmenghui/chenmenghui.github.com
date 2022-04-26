@@ -184,7 +184,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -286,7 +285,7 @@
 <h3 id="PHP中模式分隔符不是必须的"><a href="#PHP中模式分隔符不是必须的" class="headerlink" title="PHP中模式分隔符不是必须的"></a>PHP中模式分隔符不是必须的</h3><p>诚然，直接写在注入preg_replace()第一个参数位置时是需要使用模式分隔符的。但使用变量引用的话可以忽略。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sContent</span> = <span class="string">&#x27;&#x27;</span>; <span class="comment">// 匹配对象</span></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">&quot;&lt;input.*?type=\&quot;hidden\&quot;.*?name=\&quot;unitid\&quot;.*?value=\&quot;(?&lt;unitid&gt;.*?)\&quot;&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match_all</span>(<span class="variable">$pattern</span>, <span class="variable">$sContent</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$match</span>[<span class="string">&#x27;unitid&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>像上面这样。不过这也应该不是什么好习惯~~~</p>
-<h3 id><a href="#" class="headerlink" title></a></h3>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
     </div>
 
     
@@ -385,7 +384,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -398,13 +397,26 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
         <div class="back-to-top motion-element">
@@ -438,12 +450,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">193k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">2:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

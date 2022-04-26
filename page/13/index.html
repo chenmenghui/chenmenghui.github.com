@@ -181,7 +181,6 @@
     </header>
 
     
-  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -191,6 +190,318 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/54755.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/54755.html" class="post-title-link" itemprop="url">PHP5.3不支持array_column</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-20T00:00:00+08:00">2018-11-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/54755.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/54755.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>538</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>公司服务器php是老版的,不支持array_column.但这个函数功能还是挺实用的,自己在处理些订单数组时经常用到.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="title function_ invoke__">function_exists</span>(<span class="string">&#x27;array_column&#x27;</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">array_column</span>(<span class="params"><span class="variable">$ori_array</span>, <span class="variable">$column</span>, <span class="variable">$index_key</span> = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$new_array</span> = [];</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$index_key</span>) &#123;</span><br><span class="line">            <span class="title function_ invoke__">array_walk</span>(<span class="variable">$ori_array</span>, function (<span class="variable">$value</span>) <span class="keyword">use</span> (&amp;$<span class="title">new_array</span>, $<span class="title">column</span>, $<span class="title">index_key</span>) &#123;</span><br><span class="line">                $<span class="title">new_array</span>[$<span class="title">value</span>[$<span class="title">index_key</span>]] = $<span class="title">value</span>[$<span class="title">column</span>];</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="title function_ invoke__">array_walk</span>(<span class="variable">$ori_array</span>, function (<span class="variable">$value</span>) <span class="keyword">use</span> (&amp;$<span class="title">new_array</span>, $<span class="title">column</span>) &#123;</span><br><span class="line">                $<span class="title">new_array</span>[] = $<span class="title">value</span>[$<span class="title">column</span>];</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$new_array</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/31071.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/31071.html" class="post-title-link" itemprop="url">伪类after设置图片</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-19 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-19T00:00:00+08:00">2018-11-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/31071.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/31071.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>783</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>:after中的图片直接使用content引用时,我不知道如何控制图片大小.<br>所以就使用了背景图的方式实现需求.</p>
+<p><img src="https://wx2.sinaimg.cn/mw1024/00784LeJly1fxdh5msa5dj30u01qg0xl.jpg" alt="示例图"></p>
+<p>如图,右方的小勾使用after实现的,部分代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;village-list&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;village-item selected&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;village-name&quot;</span>&gt;</span>$&#123;name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;village-address&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span>&gt;</span>地址:<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span>&gt;</span>$&#123;address&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.village-list</span> <span class="selector-class">.village-item</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#F2F2F2</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.village-list</span> <span class="selector-class">.village-item</span><span class="selector-class">.selected</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">../../image/selected.png</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: contain;</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">100</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="built_in">calc</span>(<span class="number">50%</span> - <span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/21656.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/21656.html" class="post-title-link" itemprop="url">PHP创建文件夹和文件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-07T00:00:00+08:00">2018-11-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/21656.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/21656.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>723</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>其实也就是用到了mkdir这个功能.至于创建文件,用的最多的其实是file_put_contents</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$targetPath</span> = <span class="string">&#x27;./data/&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span>(!<span class="title function_ invoke__">file_exists</span>(<span class="variable">$targetPath</span>)) &#123;</span><br><span class="line">    <span class="variable">$dirs</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;/&#x27;</span> , <span class="variable">$targetPath</span>);</span><br><span class="line">    <span class="variable">$count</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$dirs</span>);</span><br><span class="line">    <span class="variable">$path</span> = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$count</span>; ++<span class="variable">$i</span>) &#123;</span><br><span class="line">        <span class="variable">$path</span> .= <span class="string">&#x27;/&#x27;</span> . <span class="variable">$dirs</span>[<span class="variable">$i</span>];</span><br><span class="line">        <span class="keyword">if</span>(!<span class="title function_ invoke__">is_dir</span>(<span class="variable">$path</span>))&#123;<span class="comment">//不是目录</span></span><br><span class="line">            <span class="keyword">if</span>(!<span class="title function_ invoke__">mkdir</span>(<span class="variable">$path</span>,<span class="number">0755</span>))&#123; <span class="comment">// 其实mkdir可以递归建立文件夹,如下</span></span><br><span class="line">                <span class="comment">//todo</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="title function_ invoke__">is_file</span>(<span class="keyword">__DIR__</span>.<span class="string">&#x27;/test/hello/world/test.txt&#x27;</span>)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">is_dir</span>(<span class="keyword">__DIR__</span>.<span class="string">&#x27;/test/hello/world&#x27;</span>)) &#123;</span><br><span class="line">        <span class="variable">$d</span> = <span class="title function_ invoke__">mkdir</span>(<span class="keyword">__DIR__</span>.<span class="string">&#x27;/test/hello/world&#x27;</span>, <span class="number">0755</span>, <span class="literal">true</span>); <span class="comment">// 第三个参数即是否递归地创建目录</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$handle</span> = <span class="title function_ invoke__">fopen</span>(<span class="keyword">__DIR__</span>.<span class="string">&#x27;/test/hello/world/test.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>); <span class="comment">// 创建文件</span></span><br><span class="line">    <span class="title function_ invoke__">fclose</span>(<span class="variable">$handle</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1286,569 +1597,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/41243.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/41243.html" class="post-title-link" itemprop="url">小程序错误码</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-26T00:00:00+08:00">2018-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="url" rel="index"><span itemprop="name">小程序</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/41243.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/41243.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>886</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <table>
-<thead>
-<tr>
-<th>状态码（场景值）</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-1</td>
-<td>系统繁忙</td>
-</tr>
-<tr>
-<td>0</td>
-<td>请求成功</td>
-</tr>
-<tr>
-<td>40001</td>
-<td>验证失败</td>
-</tr>
-<tr>
-<td>40002</td>
-<td>不合法的凭证类型</td>
-</tr>
-<tr>
-<td>40003</td>
-<td>不合法的OpenID</td>
-</tr>
-<tr>
-<td>40004</td>
-<td>不合法的媒体文件类型</td>
-</tr>
-<tr>
-<td>40005</td>
-<td>不合法的文件类型</td>
-</tr>
-<tr>
-<td>40006</td>
-<td>不合法的文件大小</td>
-</tr>
-<tr>
-<td>40007</td>
-<td>不合法的媒体文件id</td>
-</tr>
-<tr>
-<td>40008</td>
-<td>不合法的消息类型</td>
-</tr>
-<tr>
-<td>40009</td>
-<td>不合法的图片文件大小</td>
-</tr>
-<tr>
-<td>40010</td>
-<td>不合法的语音文件大小</td>
-</tr>
-<tr>
-<td>40011</td>
-<td>不合法的视频文件大小</td>
-</tr>
-<tr>
-<td>40012</td>
-<td>不合法的缩略图文件大小</td>
-</tr>
-<tr>
-<td>40013</td>
-<td>不合法的APPID</td>
-</tr>
-<tr>
-<td>40014</td>
-<td>不合法的access_token</td>
-</tr>
-<tr>
-<td>40014</td>
-<td>不合法的access_token</td>
-</tr>
-<tr>
-<td>40015</td>
-<td>不合法的菜单类型</td>
-</tr>
-<tr>
-<td>40016</td>
-<td>不合法的按钮个数</td>
-</tr>
-<tr>
-<td>40017</td>
-<td>不合法的按钮个数</td>
-</tr>
-<tr>
-<td>40018</td>
-<td>不合法的按钮名字长度</td>
-</tr>
-<tr>
-<td>40019</td>
-<td>不合法的按钮KEY长度</td>
-</tr>
-<tr>
-<td>40020</td>
-<td>不合法的按钮URL长度</td>
-</tr>
-<tr>
-<td>40021</td>
-<td>不合法的菜单版本号</td>
-</tr>
-<tr>
-<td>40022</td>
-<td>不合法的子菜单级数</td>
-</tr>
-<tr>
-<td>40023</td>
-<td>不合法的子菜单按钮个数</td>
-</tr>
-<tr>
-<td>40024</td>
-<td>不合法的子菜单按钮类型</td>
-</tr>
-<tr>
-<td>40025</td>
-<td>不合法的子菜单按钮名字长度</td>
-</tr>
-<tr>
-<td>40026</td>
-<td>不合法的子菜单按钮KEY长度</td>
-</tr>
-<tr>
-<td>40027</td>
-<td>不合法的子菜单按钮URL长度</td>
-</tr>
-<tr>
-<td>40028</td>
-<td>不合法的自定义菜单使用用户</td>
-</tr>
-<tr>
-<td>41001</td>
-<td>缺少access_token参数</td>
-</tr>
-<tr>
-<td>41002</td>
-<td>缺少appid参数</td>
-</tr>
-<tr>
-<td>41003</td>
-<td>缺少refresh_token参数</td>
-</tr>
-<tr>
-<td>41004</td>
-<td>缺少secret参数</td>
-</tr>
-<tr>
-<td>41005</td>
-<td>缺少多媒体文件数据</td>
-</tr>
-<tr>
-<td>41006</td>
-<td>缺少media_id参数</td>
-</tr>
-<tr>
-<td>41007</td>
-<td>缺少子菜单数据</td>
-</tr>
-<tr>
-<td>42001</td>
-<td>超时</td>
-</tr>
-<tr>
-<td>43001</td>
-<td>需要GET请求</td>
-</tr>
-<tr>
-<td>43002</td>
-<td>需要POST请求</td>
-</tr>
-<tr>
-<td>43003</td>
-<td>需要HTTPS请求</td>
-</tr>
-<tr>
-<td>44001</td>
-<td>多媒体文件为空</td>
-</tr>
-<tr>
-<td>44002</td>
-<td>的数据包为空</td>
-</tr>
-<tr>
-<td>44003</td>
-<td>图文消息内容为空</td>
-</tr>
-<tr>
-<td>45001</td>
-<td>多媒体文件大小超过限制</td>
-</tr>
-<tr>
-<td>45002</td>
-<td>消息内容超过限制</td>
-</tr>
-<tr>
-<td>45003</td>
-<td>标题字段超过限制</td>
-</tr>
-<tr>
-<td>45004</td>
-<td>描述字段超过限制</td>
-</tr>
-<tr>
-<td>45005</td>
-<td>链接字段超过限制</td>
-</tr>
-<tr>
-<td>45006</td>
-<td>图片链接字段超过限制</td>
-</tr>
-<tr>
-<td>45007</td>
-<td>语音播放时间超过限制</td>
-</tr>
-<tr>
-<td>45008</td>
-<td>图文消息超过限制</td>
-</tr>
-<tr>
-<td>45009</td>
-<td>接口调用超过限制</td>
-</tr>
-<tr>
-<td>45010</td>
-<td>创建菜单个数超过限制</td>
-</tr>
-<tr>
-<td>46001</td>
-<td>不存在媒体数据</td>
-</tr>
-<tr>
-<td>46002</td>
-<td>不存在的菜单版本</td>
-</tr>
-<tr>
-<td>46003</td>
-<td>不存在的菜单数据</td>
-</tr>
-<tr>
-<td>40029</td>
-<td>登录多次导致code重复&#x2F;appid和secret对应不上，不是同一个小程序</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/22465.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/22465.html" class="post-title-link" itemprop="url">使用margin实现居中</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-18T00:00:00+08:00">2018-09-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/22465.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/22465.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>425</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>PC端主要是考虑到可能不兼容flex布局,否则也不会使用这种方式</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#FF0000</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>解释下原理:</p>
-<p>1.在普通内容流中，margin:auto的效果等同于margin-top:0;margin-bottom:0。</p>
-<p>2.position:absolute使绝对定位块跳出了内容流，内容流中的其余部分渲染时绝对定位部分不进行渲染。</p>
-<p>3.为块区域设置top: 0; left: 0; bottom: 0; right: 0;将给浏览器重新分配一个边界框，此时该块块将填充其父元素的所有可用空间，所以margin 垂直方向上有了可分配的空间。</p>
-<p>4.再设置margin 垂直方向上下为auto，即可实现垂直居中。（注意高度得设置）。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/linshizhan/article/details/71521140">参考资料</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/32434.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/32434.html" class="post-title-link" itemprop="url">wamp3的安装使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-13 10:51:22" itemprop="dateCreated datePublished" datetime="2018-09-13T10:51:22+08:00">2018-09-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-15 13:54:45" itemprop="dateModified" datetime="2022-04-15T13:54:45+08:00">2022-04-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">开发环境</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/32434.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/32434.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>458</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="wamp3的安装使用"><a href="#wamp3的安装使用" class="headerlink" title="wamp3的安装使用"></a>wamp3的安装使用</h1><p>刚刚安装使用了wamp3,中间遇到了一些问题</p>
-<h3 id="缺少msvcr120-dll文件"><a href="#缺少msvcr120-dll文件" class="headerlink" title="缺少msvcr120.dll文件"></a>缺少msvcr120.dll文件</h3><p>这个百度解决的.就是在360人工服务查找这个问题,然后提示安装了什么工具集就好了.</p>
-<h3 id="无法配置默认文件路径"><a href="#无法配置默认文件路径" class="headerlink" title="无法配置默认文件路径"></a>无法配置默认文件路径</h3><p>原来wamp3默认开启了v-host的服务,需在httpd-vhosts.conf文件中修改路径</p>
-<h3 id="修改路径后无法访问的问题"><a href="#修改路径后无法访问的问题" class="headerlink" title="修改路径后无法访问的问题"></a>修改路径后无法访问的问题</h3><p>需修改httpd.conf文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    AllowOverride none</span><br><span class="line">    Require all denied</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
-<p>改成</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /&gt;</span><br><span class="line">    #AllowOverride none</span><br><span class="line">    #Require all denied</span><br><span class="line">    Options FollowSymLinks</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Order deny,allow</span><br><span class="line">    Deny from all</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="总是提示”c-x2F-wamp64-or-PHP-in-PATH”"><a href="#总是提示”c-x2F-wamp64-or-PHP-in-PATH”" class="headerlink" title="总是提示”c:&#x2F;wamp64 or PHP in PATH”"></a>总是提示”c:&#x2F;wamp64 or PHP in PATH”</h3><p>现在的wamp3不提倡使用环境变量.使用环境变量对切换php版本有影响</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1918,7 +1666,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1931,13 +1679,26 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
         <div class="back-to-top motion-element">
@@ -1971,12 +1732,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">191k</span>
+    <span title="站点总字数">193k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:54</span>
+    <span title="站点阅读时长">2:56</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
