@@ -15,7 +15,7 @@
     <atom:link href="https://chenmenghui.gitee.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</description>
-    <pubDate>Tue, 26 Apr 2022 02:11:17 GMT</pubDate>
+    <pubDate>Wed, 27 Apr 2022 00:32:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -24,10 +24,10 @@
       <guid>https://chenmenghui.gitee.io/posts/115a5de5.html</guid>
       <pubDate>Mon, 25 Apr 2022 19:26:12 GMT</pubDate>
       
-      <description>&lt;p&gt;最近在用 Dact ，看到这个我崩溃了&lt;/p&gt;
+      <description>&lt;p&gt;最近在用 Dact ，看到这不知道匿名函数中的 this 指向的是谁。&lt;/p&gt;
 &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$grid&lt;/span&gt;-&amp;gt;&lt;span class=&quot;title function_ invoke__&quot;&gt;column&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&amp;#x27;类型&amp;#x27;&lt;/span&gt;)-&amp;gt;&lt;span class=&quot;title function_ invoke__&quot;&gt;display&lt;/span&gt;(function () &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&amp;lt;&amp;lt;&amp;lt;HTML&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&amp;lt;label style=&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;    background-color: &lt;span class=&quot;subst&quot;&gt;&amp;#123;$this-&amp;gt;type-&amp;gt;background_color&amp;#125;&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;    color:&lt;span class=&quot;subst&quot;&gt;&amp;#123;$this-&amp;gt;type-&amp;gt;color&amp;#125;&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;    padding: 2px 6px;&amp;#x27;&amp;gt; &lt;span class=&quot;subst&quot;&gt;&amp;#123;$this-&amp;gt;type-&amp;gt;title&amp;#125;&lt;/span&gt; &amp;lt;/label&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;HTML&lt;/span&gt;;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;p&gt;实在是想不到匿名函数中的 $this 是怎么来的，完全超出了我的认知范围，印象中匿名函数用到外部的变量都需要 use 或 global 的。后来翻到了这个 &lt;a href=&quot;https://www.php.net/manual/zh/class.closure.php&quot;&gt;官方文档&lt;/a&gt; 才明白。&lt;/p&gt;</description>
+&lt;p&gt;印象中匿名函数用到外部的变量都需要 use 或 global 的。后来翻到了这个 &lt;a href=&quot;https://www.php.net/manual/zh/class.closure.php&quot;&gt;官方文档&lt;/a&gt; 才明白。&lt;/p&gt;</description>
       
       
       

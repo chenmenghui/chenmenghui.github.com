@@ -464,9 +464,9 @@
 <td>将把 $a 和 $b 中都为 1 的位设为 1。</td>
 </tr>
 <tr>
-<td>$a</td>
-<td>$b</td>
+<td>$a &amp;#124; $b</td>
 <td>Or（按位或）</td>
+<td>将把 $a 和 $b 中任何一个为 1 的位设为 1。</td>
 </tr>
 <tr>
 <td>$a ^ $b</td>
@@ -897,16 +897,16 @@
   <entry>
     <title>PHP 匿名函数</title>
     <url>/posts/115a5de5.html</url>
-    <content><![CDATA[<p>最近在用 Dact ，看到这个我崩溃了</p>
+    <content><![CDATA[<p>最近在用 Dact ，看到这不知道匿名函数中的 this 指向的是谁。</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$grid</span>-&gt;<span class="title function_ invoke__">column</span>(<span class="string">&#x27;类型&#x27;</span>)-&gt;<span class="title function_ invoke__">display</span>(function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&lt;&lt;&lt;HTML</span></span><br><span class="line"><span class="string">&lt;label style=&#x27;</span></span><br><span class="line"><span class="string">    background-color: <span class="subst">&#123;$this-&gt;type-&gt;background_color&#125;</span>;</span></span><br><span class="line"><span class="string">    color:<span class="subst">&#123;$this-&gt;type-&gt;color&#125;</span>;</span></span><br><span class="line"><span class="string">    padding: 2px 6px;&#x27;&gt; <span class="subst">&#123;$this-&gt;type-&gt;title&#125;</span> &lt;/label&gt;</span></span><br><span class="line"><span class="string">HTML</span>;&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>实在是想不到匿名函数中的 $this 是怎么来的，完全超出了我的认知范围，印象中匿名函数用到外部的变量都需要 use 或 global 的。后来翻到了这个 <a href="https://www.php.net/manual/zh/class.closure.php">官方文档</a> 才明白。</p>
+<p>印象中匿名函数用到外部的变量都需要 use 或 global 的。后来翻到了这个 <a href="https://www.php.net/manual/zh/class.closure.php">官方文档</a> 才明白。</p>
 <span id="more"></span>
 
 <p>首先澄清一点，类中匿名函数的 $this 是指向当前对象的。</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="title function_ invoke__">var_dump</span>(<span class="variable">$this</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 没想到 A::test 本身就是一个匿名函数，还是需要「()」执行它</span></span><br><span class="line">(<span class="keyword">new</span> <span class="title function_ invoke__">A</span>())-&gt;<span class="title function_ invoke__">test</span>()(); <span class="comment">// object(A)#1 (0) &#123;&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>其次，PHP 可以使用 bin&#x2F;bindTo&#x2F;call 来更改 $this 的指向</p>
+<p>其次，PHP 可以使用 bin&#x2F;bindTo&#x2F;call 来更改匿名函数中 $this 的指向</p>
 <p>bind 用法：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$func1</span> = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># bindTo</span></span><br><span class="line"><span class="variable">$r</span> = <span class="variable">$func1</span>-&gt;<span class="title function_ invoke__">bindTo</span>(<span class="keyword">new</span> A, A::<span class="variable language_">class</span>);</span><br><span class="line"><span class="comment">// $r 仍然是个匿名函数，需要圆括号调用。</span></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$r</span>()); <span class="comment">// object(A)#2 (0) &#123;&#125; </span></span><br><span class="line"><span class="comment">// 注意结果是 #2，说明在 bindTo(new A... 中已经实例化一次了，在这配合单例模式估计更好。下面几个也是类似的。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bind</span></span><br><span class="line"><span class="variable">$r1</span> = <span class="title class_">Closure</span>::<span class="title function_ invoke__">bind</span>(<span class="variable">$func1</span>, <span class="keyword">new</span> <span class="title function_ invoke__">A</span>(), A::<span class="variable language_">class</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$r1</span>()); <span class="comment">// object(A)#4 (0) &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># call</span></span><br><span class="line"><span class="comment">## 值得注意的是，call 这种用法已经直接调用了，就不需要使用圆括号去执行了</span></span><br><span class="line"><span class="variable">$r2</span> = <span class="variable">$func1</span>-&gt;<span class="title function_ invoke__">call</span>(<span class="keyword">new</span> <span class="title function_ invoke__">A</span>());</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$r2</span>); <span class="comment">// // object(A)#6 (0) &#123;&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -1268,8 +1268,9 @@
 <p>直接 npm 安装就好了</p>
 <h2 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h2><p><a href="https://blog.csdn.net/blue_zy/article/details/79071414">看这个博客就够了:为你的Hexo加上评论系统-Valine</a></p>
 <h2 id="hexo-generator-feed"><a href="#hexo-generator-feed" class="headerlink" title="hexo-generator-feed"></a>hexo-generator-feed</h2><p>Rss 订阅。其中 type 有两个，atom 和 rss2。我使用第一个中文乱码，就使用第二个了。</p>
-<h2 id="hexo-abbrlink"><a href="#hexo-abbrlink" class="headerlink" title="hexo-abbrlink"></a>hexo-abbrlink</h2><p>路由</p>
-<h2 id="hexo-asset-image"><a href="#hexo-asset-image" class="headerlink" title="hexo-asset-image"></a>hexo-asset-image</h2><h2 id="hexo-generator-archive"><a href="#hexo-generator-archive" class="headerlink" title="hexo-generator-archive"></a>hexo-generator-archive</h2><p>设置归档的，可设置分页。另外开启动画效果会导致翻页过快时内容无法加载，就给关了。</p>
+<h2 id="hexo-abbrlink"><a href="#hexo-abbrlink" class="headerlink" title="hexo-abbrlink"></a>hexo-abbrlink</h2><p>给文件名设置唯一路由</p>
+<h2 id="hexo-asset-image"><a href="#hexo-asset-image" class="headerlink" title="hexo-asset-image"></a>hexo-asset-image</h2><p>需要开启 post_asset_folder ，后来发现和插件「hexo-filter-kroki」冲突就给卸了。</p>
+<h2 id="hexo-generator-archive"><a href="#hexo-generator-archive" class="headerlink" title="hexo-generator-archive"></a>hexo-generator-archive</h2><p>设置归档的，可设置分页。另外开启动画效果会导致翻页过快时内容无法加载，就给关了。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">archive_generator:</span><br><span class="line">  enabled: true</span><br><span class="line">  per_page: 10</span><br><span class="line">  yearly: true</span><br><span class="line">  monthly: true</span><br><span class="line">  daily: false</span><br><span class="line">  order_by: -date</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>工具</category>
