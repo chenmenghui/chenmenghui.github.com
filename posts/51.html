@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第一章 计算机的三大原则问题 什么是编码？ 通常将为了便于计算机处理而经过数字化处理的信息称作编码 计算机内部会把所有的信息都当成数字来处理，尽管有些信息本来不是数字。比如，用于表示字符的数字是“字符编码”，用于表示颜色的数字是“颜色编码”小章节   计算机的三大根本性基础 计算机是执行输入、运算、输出的机器 程序是指令和数据的集合 计算机的处理方式有时与人的思维方式不同   输入、运算、输出是硬">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机基础知识之《计算机是怎样跑起来的》">
+<meta property="og:url" content="https://chenmenghui.gitee.io/posts/51.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="第一章 计算机的三大原则问题 什么是编码？ 通常将为了便于计算机处理而经过数字化处理的信息称作编码 计算机内部会把所有的信息都当成数字来处理，尽管有些信息本来不是数字。比如，用于表示字符的数字是“字符编码”，用于表示颜色的数字是“颜色编码”小章节   计算机的三大根本性基础 计算机是执行输入、运算、输出的机器 程序是指令和数据的集合 计算机的处理方式有时与人的思维方式不同   输入、运算、输出是硬">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-09-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-15T05:54:44.871Z">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="计算机基础">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/posts/51.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>计算机基础知识之《计算机是怎样跑起来的》 | 陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/51.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机基础知识之《计算机是怎样跑起来的》
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/51.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/51.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第一章-计算机的三大原则"><a href="#第一章-计算机的三大原则" class="headerlink" title="第一章 计算机的三大原则"></a>第一章 计算机的三大原则</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>什么是编码？<br> 通常将为了便于计算机处理而经过数字化处理的信息称作编码<br> 计算机内部会把所有的信息都当成数字来处理，尽管有些信息本来不是数字。比如，用于表示字符的数字是“字符编码”，用于表示颜色的数字是“颜色编码”<h2 id="小章节"><a href="#小章节" class="headerlink" title="小章节"></a>小章节</h2></li>
+</ul>
+<ol>
+<li>计算机的三大根本性基础<ol>
+<li><strong>计算机是执行输入、运算、输出的机器</strong></li>
+<li><strong>程序是指令和数据的集合</strong></li>
+<li><strong>计算机的处理方式有时与人的思维方式不同</strong></li>
+</ol>
+</li>
+<li>输入、运算、输出是硬件的基础<br> 输入、运算、输出是三者必须成套出现，缺一不可。<ul>
+<li>现在的计算机没有自主意识，因而不可能独立思考创造信息</li>
+<li>没有运算的机器那是电线</li>
+<li>没有输出，那就不是计算机而是垃圾箱</li>
+</ul>
+</li>
+<li>软件是指令和数据的集合</li>
+<li>对计算机来说，什么都是数字<h2 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h2>计算机是什么？当看到第二小节是那句“计算机是处理信息的机器”一下子就冒出来了，如果没记错的话那还是初中或高中计算机课提到的……当浏览第二章时，这种计算机硬件是“信息”输入、运算、输出的机器的观点给我当头一棒。</li>
+</ol>
+<h1 id="第二章-试着自己制造一台计算机吧"><a href="#第二章-试着自己制造一台计算机吧" class="headerlink" title="第二章 试着自己制造一台计算机吧"></a>第二章 试着自己制造一台计算机吧</h1><h2 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>CPU是什么的缩写<br>  Central Processing Unit（中央处理器）<h2 id="小章节-1"><a href="#小章节-1" class="headerlink" title="小章节"></a>小章节</h2></li>
+</ul>
+<ol>
+<li>制作微型计算机所必须的原件<ol>
+<li>CPU</li>
+<li>内存</li>
+<li>I&#x2F;O</li>
+<li>时钟发生器</li>
+<li>指拨开关</li>
+</ol>
+</li>
+<li>链接电源、数据和地址总线</li>
+</ol>
+<blockquote>
+<p>涉及到的一些相关词汇</p>
+</blockquote>
+<ul>
+<li>IC集成电路（integrated circuit）是一种微型电子器件或部件。采用一定的工艺，把一个电路中所需的晶体管、电阻、电容和电感等元件及布线互连一起，制作在一小块或几小块半导体晶片或介质基片上，然后封装在一个管壳内，成为具有所需电路功能的微型结构；其中所有元件在结构上已组成一个整体，使电子元件向着微小型化、低功耗、智能化和高可靠性方面迈进了一大步。它在电路中用字母IC表示。集成电路发明者为杰克▪基尔比（基于锗（Ge）的集成电路）和罗伯特▪诺伊思（基于硅（Si）的集成电路）。当今半导体工业大多数应用的是基于硅的集成电路。</li>
+<li>时钟信号是计算机科学以及相关领域用语，时钟信号通常被用于同步电路当中，扮演计时器的角色，保证相关的电子组件得以同步运作。</li>
+<li>寄存器，是集成电路中非常重要的一种存储单元，通常由触发器组成。在集成电路设计中，寄存器可分为电路内部使用的寄存器和充当内外部接口的寄存器这两类。内部寄存器不能被外部电路或软件访问，只是为内部电路的实现存储功能或满足电路的时序要求。而接口寄存器可以同时被内部电路和外部电路或软件访问，CPU中的寄存器就是其中一种，作为软硬件的接口，为广泛的通用编程用户所熟知。</li>
+</ul>
+<blockquote>
+<p>各个IC的接脚</p>
+</blockquote>
+<ul>
+<li>Vcc和GND（共有），IC和普通电器一样，需要接通电源才可以使用。Vcc是电源电压（相当于正极），GND是接地线（相当于负极）</li>
+<li>A0-A15（address）（共有），其后的数字表示一个16位的二进制数中各个数字的位置。这16个引脚，可以表示0000 0000 0000 0000-1111 1111 1111 1111（二进制）个数据存取单元</li>
+<li>D0-D7（data）（共有），其后数字和上述一样，Z80的CPU可以一次性的输入或输出8比特（八个引脚）的数据，如若输入输出超过8比特的数据，只得先把数据拆分</li>
+<li>B&#x2F;A和C&#x2F;D（I&#x2F;O），控制出I&#x2F;O的上寄存器的引脚（和CPU的A0、A1相连）。Z80 PIO共有4个寄存器。两个用于设定PIO本身功能，两个用于存储与外部设备进行输入输出的数据</li>
+<li>MREQ（Memory Request 内存请求）和IORQ（I&#x2F;O Request I&#x2F;O请求）（cpu）</li>
+<li>CE（CHip Enable 选通信片）（内存和I&#x2F;O），跟CPU上的MREQ和IORQ搭配以控制当下CPU和谁连接</li>
+<li>RD（read 输入）和WR（write 输出）（CPU），表示当前和内存或I&#x2F;O连接是输出还是输出</li>
+<li>M1（Machine Cycle 1 机器周期1）（CPU、I&#x2F;O）用于同步的引脚</li>
+<li>INT（Interrupt 中断）（CPU、I&#x2F;O）I&#x2F;O可以中断CPU正在执行程序的引脚</li>
+<li>RESET（重置），重置CPU，可以启动CPU</li>
+<li>BUS（总线，这里不是指特定的引脚，只是个说明），连接到CPU中数据引脚、地址引脚、控制引脚的电路的统称。使用快动开关可以使Z80 CPU的BUSRQ（Bus Request 总线请求）上的值在0和1之前切换。若BUSRQ为0，则CPU从电路中隔离。当处于这种隔离状态时，就可以不通过CPU，手动地向内存写入程序了。向这样不经过CPU而直接从外部设备读写内存的行为叫做DMA（Direct Memory Access 直接储存器访问）。在真实的计算机中，硬盘等设备要读写内存使用的就是DMA。</li>
+<li>BUSAK（BUS Acknowledge 响应总线请求）只有BUSRQ和BUSAK同时为0时才可以进行DMA<h2 id="个人理解-1"><a href="#个人理解-1" class="headerlink" title="个人理解"></a>个人理解</h2>这一章是我目前读过（粗读）次数最多的章节，然而直到我打算把这些内容做个笔记是也有些概念没有理解，就是那个“寄存器”，好吧，现在我的迷茫只比之前清了少些。说起来真是如此，对照着Z80微型计算机的线路图那么走上一遍，对于计算机的理解还真的深了一些。好吧，这些都谈不上个人理解，只能算个人感想……<br>对于时钟信号和寄存器，我还是不甚理解。算了，有时候囫囵吞枣是必要的<br>时钟信号一开始我以为是想之前自己网络编程中的那种网页刷新效果一般，是触发CPU运行的东西。现在看来不是，这玩意是同步CPU、内存和I&#x2F;O之间通讯的东西，一个周期意味着同时进行一步（如输入或输出一个8字节的数据，这里的8字节因为Z80CPU是8位的，现在电脑都是64位的了）</li>
+</ul>
+<h1 id="第三章-体验一次手工汇编"><a href="#第三章-体验一次手工汇编" class="headerlink" title="第三章 体验一次手工汇编"></a>第三章 体验一次手工汇编</h1><h2 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>什么是机器语言？<br>由二进制数字构成的程序，CPU可以直接对其解释、执行。不管汇编语言还是高级语言，都必须先转化为机器语言才能被执行。机器语言也被称作原生代码（Native Code）。</li>
+<li>通常吧标志内存或I&#x2F;O中存储单元的数字称作什么？<br>地址。内存中由多个数据存储单元。计算机从0开始发的编号标识每一个存储单元，这些编号就是地址（Address）。I&#x2F;O中的寄存器也可以用地址标识。</li>
+<li>CPU中的标志寄存器（Flags Register）有什么用？<br>用于在运算指令执行后，存储运算结果的某些状态。flag本意是“旗子”，这里引申为“标志”。一旦执行了算数运算、逻辑运算、比较运算等指令后，标识寄存器并不会存放运算结果的值，而是会把运算后的某些状态存储起来。例如运算结果是否为0，是否产生了负数，是否有溢出（overflow）等。<h2 id="小章节-2"><a href="#小章节-2" class="headerlink" title="小章节"></a>小章节</h2><h3 id="从从程序员的角度看硬件"><a href="#从从程序员的角度看硬件" class="headerlink" title="从从程序员的角度看硬件"></a>从从程序员的角度看硬件</h3>真正需要了解的硬件信息只有七种，没有必要在编程的时候还看着电路图。</li>
+</ol>
+<ul>
+<li>CPU信息<ul>
+<li>CPU种类<ul>
+<li>可以使用那种机器语言取决于CPU的种类。不同的CPU可能使用不同的机器语言。</li>
+</ul>
+</li>
+<li>时钟信号频率<ul>
+<li>所谓时钟信号频率，就是由时钟发生器送给CPU的电信号的频率。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内存信息<ul>
+<li>地址空间<ul>
+<li>每个地址都标识着一个内存中的数据存储单元，这些地址的范围即为地址空间</li>
+</ul>
+</li>
+<li>每个地址可以存储多少比特的信息<ul>
+<li>Z80计算机每一个地址可以存储8比特（1字节）的指令或数据</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>I&#x2F;O信息<ul>
+<li>I&#x2F;O的种类<ul>
+<li>连接这计算机和周边设备的I&#x2F;</li>
+</ul>
+</li>
+<li>地址空间</li>
+<li>连接着何种周边设备</li>
+</ul>
+</li>
+</ul>
+<h3 id="机器语言和汇编语言"><a href="#机器语言和汇编语言" class="headerlink" title="机器语言和汇编语言"></a>机器语言和汇编语言</h3><ul>
+<li>简单的说，机器语言是CPU可以直接运行的代码，就是那个010101；汇编语言是使用“助记符”（代替机器语言特定动作的简短符号）表示的机器语言。</li>
+<li>汇编语言的语法十分简单，以至于语法只有一个，即把“标签”、“操作码（指令）”和“操作数（指令的对象）”并写在一行。<ul>
+<li>标签的作用是为该行代码对应的内存地址起一个名字。</li>
+<li>操作码就是表示“做什么”的指令</li>
+<li>操作数表示的是指令执行的对象。CPU的寄存器、内存地址、I&#x2F;O地址或直接给出的数字都可以作为操作数。多个操作数之间使用逗号隔开<h3 id="Z80-CPU寄存器的结构"><a href="#Z80-CPU寄存器的结构" class="headerlink" title="Z80 CPU寄存器的结构"></a>Z80 CPU寄存器的结构</h3></li>
+</ul>
+</li>
+<li>计算机的硬件有三个基本要素，CPU、内存和I&#x2F;O<ul>
+<li>CPU负责解释、执行程序，从内存或I&#x2F;O输入数据，在内部进行运算，再把运算结果输出到内存和I&#x2F;O。</li>
+<li>内存存放着程序，程序是指令和数据的集合。</li>
+<li>I&#x2F;O中临时存放着用于和周边设备进行输入输出的数据。</li>
+</ul>
+</li>
+<li>Z80CPU中的寄存器<br>与I&#x2F;O中的寄存器不同，CPU中的寄存器不仅能存储数据，还具备着对数据进行运算的能力。<br>CPU带什么样的寄存器取决于CPU的种类。Z80 CPU带有A、B……L、I、R、IX、IY、SP、PC。后四个寄存器的大小是16比特，其余是8比特。寄存器的用途取决与它的类型。有的指令只能将特定的寄存器指定为操作数。<br>举例来说<ul>
+<li>A寄存器也叫做“累加器”，是运算的核心。</li>
+<li>F寄存器也叫做“标志寄存器”，用于存储运算结果的状态，比如是否发生了进位，数字大小的比较结果等。</li>
+<li>PC寄存器也叫作“程序指针”，存储着执行CPU接下来要执行的指令地址。PC寄存器的值会随着时钟信号自动更新，可以说程序就是依靠不断变化的PC寄存器的值运行起来的。</li>
+<li>SP寄存器也叫做“栈顶指针”，用于在内存中创建一块成为“栈”的临时数据存储区域。<h3 id="追踪程序的运行过程"><a href="#追踪程序的运行过程" class="headerlink" title="追踪程序的运行过程"></a>追踪程序的运行过程</h3>通过反复的进行“读取指令”“解释、执行指令”“更新PC寄存器的值”这三个操作，程序就能运行起来了……<h3 id="尝试手工汇编"><a href="#尝试手工汇编" class="headerlink" title="尝试手工汇编"></a>尝试手工汇编</h3>在CPU的资料中，明确写有可以使用的助记符，以及助记符转化为机器语言的数值。通过这些资料，就可以手工地把汇编语言编写的程序转化为机器语言的程序……<h3 id="尝试估算程序的执行时间"><a href="#尝试估算程序的执行时间" class="headerlink" title="尝试估算程序的执行时间"></a>尝试估算程序的执行时间</h3>把每条指令的时钟累加起来……</li>
+</ul>
+</li>
+</ul>
+<h1 id="第四章-程序像河流一样流动着"><a href="#第四章-程序像河流一样流动着" class="headerlink" title="第四章 程序像河流一样流动着"></a>第四章 程序像河流一样流动着</h1><h2 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>flow chart的中文意思是什么？<br>流程图。</li>
+<li>请说出自然界中河流的三种流动方式。<br>向一个方向流淌；流着流着产生支流；卷成旋涡。<br>好吧，分别对应顺序执行、条件分支和循环，这作者也是够了。</li>
+<li>事件驱动是什么？<br>用户的操作等产生事件后，由事件决定程序的流程。<br>好吧，js各种事件么……<h2 id="小章节-3"><a href="#小章节-3" class="headerlink" title="小章节"></a>小章节</h2><h3 id="程序的流程分为三种"><a href="#程序的流程分为三种" class="headerlink" title="程序的流程分为三种"></a>程序的流程分为三种</h3>CPU中的有一个被称作PC（program couter 程序计数器）的寄存器，负责存储内存地址，该地址指向下一条即将执行的指令。每解释执行一条指令，PC寄存器的值就会自动被更新为下一条指令的地址。<h3 id="结构化程序设计"><a href="#结构化程序设计" class="headerlink" title="结构化程序设计"></a>结构化程序设计</h3>为了把程序编写得具备结构性，仅使用顺序执行、条件分支和循环表示程序的流程即可，而不再使用跳转指令。<br>作为计算机硬件上的行为，无论是条件分支还是循环都必须使用跳转指令实现。但高级语言中跳转就变得可有可无了，反而在高级语言中使用跳转会使得程序陷入到流程错综复杂的状态。<h3 id="画流程图来思考算法"><a href="#画流程图来思考算法" class="headerlink" title="画流程图来思考算法"></a>画流程图来思考算法</h3>算法，就是解决既定问题的步骤。想让计算机解决问题，就需要把问题的解法转化成程序的流程。<br>思考算法是的要点是分两步走，先从整体上考虑程序的粗略流程，再考虑程序各个部分细节的流程。几乎所有的程序从整体来看都具有一个一成不变的流程——<strong>初始化处理-&gt;循环处理-&gt;收尾处理</strong><h3 id="特殊的程序流程——中断处理"><a href="#特殊的程序流程——中断处理" class="headerlink" title="特殊的程序流程——中断处理"></a>特殊的程序流程——中断处理</h3>中断处理是指程序的流程突然跳转到程序中特定的地方，这样的地方被成为中断处理例程（Routine）或中断处理程序（Handle），而这种跳转是通过CPU所具备的硬件功能实现的。<br>中断处理以硬件发出的请求为条件，使程序的流程产生分支，因此可以说它是一种特殊的条件分支。但编写程序是并不需要编写有关中断处理的代码。因为处理中断请求的程序，或内置于被烧录在计算机ROM中的BIOS系统（Basic Input Output System 基本输入输出系统，或内置于相应的操作系统中。<h3 id="特殊的程序流程——事件驱动"><a href="#特殊的程序流程——事件驱动" class="headerlink" title="特殊的程序流程——事件驱动"></a>特殊的程序流程——事件驱动</h3>可以把事件驱动想象成两个程序在对话，如下<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 主程序</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> APIENTER <span class="title function_">WinMain</span><span class="params">()</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 窗口过程</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">LRESULT CALLBACK <span class="title function_">WndProc</span><span class="params">()</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+通常把用户在应用程序中点击鼠标或者敲击键盘这样的操作称作“事件”（Event）。负责检测事件的是windows。Windows通过调用应用程序WndProc()函数通知应用程序的发生。而应用程序根据事件的类型做出相应的处理。这种机制就是事件驱动。可以说事件驱动也是一种特殊的分支，它以从Windows送来的通知为条件，根据通知的内容决定程序的下一步流程。<br>要实现事件驱动，就必须吧应用程序中的WndProc()函数的起始内存地址告诉Windows。这一步将在应用程序WinMain()中作为初始化处理被执行。<h2 id="个人理解-2"><a href="#个人理解-2" class="headerlink" title="个人理解"></a>个人理解</h2>这一章主要理解了PC（process counter）这个东西。好吧，我能说这个东西我看了五六遍才知道大约理解了么……好吧，幸亏看书之前有了做笔记的决定——即使这个笔记大部分是照抄的，也是蛮有用的。话说这个process counter用的是队列吗，要不然怎么知道下一个地址指的是谁？<br>一开始对书中所描绘的“事件驱动”给整蒙了。好吧，这有什么，不就是js中的绑定事件么……就是初始化处理这块我一下子没有转过来弯（好吧，那个on之类的说的大概就是这个）。<br>对于整个中断处理，还是第一次知道到底怎么回事。话说那个键盘输入的例子，就是那个DMA（direct memory access）吧。<br>至于流程图什么的，还真很少做过。主要是感觉费时间。我一直想找一个简单的描绘流程图之类的软件，可惜那大都需要学习成本，一开始就打到我了。<br>那个结构化设计，好吧，除了一开始接触的basic语言，还真没用过。php自带的这个我现在都不会用……</li>
+</ol>
+<h1 id="第五章-与算法成为好朋友的七个要点"><a href="#第五章-与算法成为好朋友的七个要点" class="headerlink" title="第五章 与算法成为好朋友的七个要点"></a>第五章 与算法成为好朋友的七个要点</h1><h2 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>程序中“哨兵”指的是什么？<br>“哨兵”指的是一种含有特殊值的数据，可用于表示数据的结尾等。<br>字符串的末尾用0表示（这不是php……），链表的末尾用-1表示，像这样特殊的数据就是哨兵。<h2 id="小章节-4"><a href="#小章节-4" class="headerlink" title="小章节"></a>小章节</h2><h3 id="算法是程序设计的“熟语”"><a href="#算法是程序设计的“熟语”" class="headerlink" title="算法是程序设计的“熟语”"></a>算法是程序设计的“熟语”</h3></li>
+</ol>
+<ul>
+<li>要点1：算法中解决问题的步骤是明确切有限的。<ul>
+<li>通俗地说，算法就是<strong>把解决问题的步骤无一遗漏地用文字或图表示出来，其中步骤必须是明确并且步骤数必须是有限的</strong>。</li>
+<li>把算法定义中的“用文字或图”换成“用程序”，就成了程序的定义了……</li>
+<li>明确是指，在解决问题的步骤中，有了与直觉相关的因素，就不算算法了。</li>
+</ul>
+</li>
+<li>要点2：计算机不考直觉而是机械地解决问题<ol>
+<li>步骤是明确的、完全不依赖直觉的</li>
+<li>步骤是机械的、不需要动脑筋就能完成的</li>
+<li>使步骤终止的原因是明确的</li>
+</ol>
+</li>
+<li>要点3：了解并应用典型算法</li>
+<li>要点4：利用计算机的处理速度</li>
+<li>要点5：使用编程技巧提升程序执行速度<ul>
+<li>比如“哨兵”</li>
+</ul>
+</li>
+<li>要点6：找出数字间的规律<ul>
+<li>所有的信息都可以用数字表示——这是计算机的特性之一。因此为了构造算法，经常会利用到存在与数字间的规律。</li>
+</ul>
+</li>
+<li>要点7：先在纸上考虑算法<h2 id="个人理解-3"><a href="#个人理解-3" class="headerlink" title="个人理解"></a>个人理解</h2>那个，找出数字间的规律还是满考验“直觉”的，就那个比拳算法我就没有想起来……如果是我，估计得一堆and和or……</li>
+</ul>
+<h1 id="第六章-与数据结构成为好朋友的七个要点"><a href="#第六章-与数据结构成为好朋友的七个要点" class="headerlink" title="第六章 与数据结构成为好朋友的七个要点"></a>第六章 与数据结构成为好朋友的七个要点</h1><h2 id="问题-5"><a href="#问题-5" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>程序中的变量是指什么？<br>变量是数据的容器。<br>变量中所存储的数据是可以改变的。变量的实质是按照变量所存储数据的大小被分配到的一块内存空间。</li>
+<li>把若干个数据沿直线排列起来的数据结构叫做什么？<br>数组<br>使用了数组就可以高效地处理大量的数据。数组的实质是连续分配的一块特定大小的内存空间。</li>
+<li>栈和队列的区别是什么<br>前者LIFO（Last In First Out)，后者FIFO（First In First Out）。<h2 id="小章节-5"><a href="#小章节-5" class="headerlink" title="小章节"></a>小章节</h2></li>
+<li>要点1：了解内存和变量的关系<ul>
+<li>计算机所处理的数据都存储在被称为内存的IC中。在一般的个人计算机中，内存内部被分割成若干数据存储单元，每个单元可以存储8比特的数据（8比特 &#x3D; 1字节）。为了区分这些单元，每个单元被分配了一个编号，这个编号被成为“地址”。</li>
+<li>因为依靠指定地址的方式编写程序很麻烦，所以在几乎所有的高级语言中，都是使用变量把数据存储进内存，或从内存中把数据读出来。</li>
+<li>变量的实质是按照变量所存储数据的大小被分配到的一块内存空间。</li>
+</ul>
+</li>
+<li>要点2：了解作为数据结构基础的数组<ul>
+<li>数组实际上是为了存储多个数据而在内存上集中分配出的一块内存空间。</li>
+<li>数组是数据结构的基础，之所以这么说是因为数组反映了内存的物理结构本身。</li>
+</ul>
+</li>
+<li>要点3：了解数组的应用——作为典型算法的数据结构<ul>
+<li>数组是一种直接利用内存物理结构（计算机的特性）的最基本的数据结构。</li>
+</ul>
+</li>
+<li>要点4：了解并掌握典型数据结构的类型和概念<ul>
+<li>典型数据结构</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>数据结构的特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>栈</td>
+<td>把数据像小山那样堆积起来</td>
+</tr>
+<tr>
+<td>队列</td>
+<td>把数据排成一队</td>
+</tr>
+<tr>
+<td>链表</td>
+<td>可以任意地改变数据的排列顺序</td>
+</tr>
+<tr>
+<td>二叉树</td>
+<td>把数据分成两路排列</td>
+</tr>
+</tbody></table>
+<p>这些数据结构其实都是通过程序从逻辑上改变了内存的物理结构。</p>
+<ul>
+<li>要点５：了解栈和队列的实现方法<br>栈<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> Stack[<span class="number">100</span>];        <span class="comment">/* 作为栈本质的数组 */</span></span><br><span class="line"><span class="type">char</span> StackPointer = <span class="number">0</span>;  <span class="comment">/* 栈顶指针 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 入栈函数 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Push</span><span class="params">(<span class="type">char</span> Data)</span> &#123;</span><br><span class="line">    <span class="comment">/* 把数据存储到栈顶指针所指的位置上 */</span></span><br><span class="line">    Stack[StackPointer] = Data;　</span><br><span class="line">    <span class="comment">/* 更新栈顶指针 */</span></span><br><span class="line">    StackPointer ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 出栈函数 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Pop</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">/* 更新栈顶指针 */</span></span><br><span class="line">    StackPointer --；</span><br><span class="line">    <span class="comment">/* 把数据从栈顶指针所在的位置中取出来 */</span></span><br><span class="line">    <span class="keyword">return</span> Stack[StackPointer];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+队列</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> Queue[<span class="number">100</span>];    <span class="comment">/*作为队列的本质的数组*/</span></span><br><span class="line"><span class="type">char</span> SetIndex = <span class="number">0</span>;  <span class="comment">/*标识数据存储位置的索引*/</span></span><br><span class="line"><span class="type">char</span> GetIndex = <span class="number">0</span>;  <span class="comment">/*标识数据读取位置的索引*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*存储数据的函数*/</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Set</span><span class="params">(<span class="type">char</span> Data)</span> &#123;</span><br><span class="line">    <span class="comment">/*存入数据*/</span></span><br><span class="line">    Queue[SetIndex] = Data;</span><br><span class="line">    <span class="comment">/*更新标识数据存储位置的索引*/</span></span><br><span class="line">    SetIndex ++;</span><br><span class="line">    <span class="comment">/*如果已经达到数组的末尾则折回开头*/</span></span><br><span class="line">    <span class="keyword">if</span> (SetIndex &gt;= <span class="number">100</span>) &#123;</span><br><span class="line">        SetIndex = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*读取数据的函数*/</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Get</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> Data;</span><br><span class="line">    <span class="comment">/*读出数据*/</span></span><br><span class="line">    Data = Queue[GetIndex];</span><br><span class="line">    <span class="comment">/*更新标识数据读取位置的索引*/</span></span><br><span class="line">    GetIndex ++;</span><br><span class="line">    <span class="comment">/*如果已经达到数组的末尾则折回开头*/</span></span><br><span class="line">    <span class="keyword">if</span> (GetIndex &gt;= <span class="number">100</span>) &#123;</span><br><span class="line">        GetIndex = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Data;</span><br><span class="line">&#125;</span><br><span class="line">```   </span><br><span class="line">- 要点<span class="number">6</span>：了解结构体的组成</span><br><span class="line">    - 所谓结构体，就是把若干个数据项汇集到一处并赋予其名字后形成的一个整体。</span><br><span class="line">    - 一旦定义完结构提，就可以把结构提当作是一种数据类型，用它来定义变量。</span><br><span class="line">- 要点<span class="number">7</span>：了解链表和二叉树的实现方法</span><br><span class="line">    - 都是“自我引用的结构体”</span><br><span class="line">## 个人理解</span><br><span class="line">结构体什么的都可以理解了，但是不知道二叉树是怎么用的。</span><br><span class="line"></span><br><span class="line"># 第七章 成为会使用面向对象编程的程序员吧</span><br><span class="line">## 小章节</span><br><span class="line">### 什么是面向对象</span><br><span class="line">面向对象是一种基于以下思路的程序设计方法：将关注点置于对象本身，对象的构成要素包含对象的行为及操作，以此为基础进行编程。这种方法使程序易于复用。其中所使用的主要编程技巧有继承、封装、多态三种。</span><br><span class="line">### 对面向对象的几种观点</span><br><span class="line">- 观点<span class="number">1</span>：面向对象编程通过把组件拼装到一起构建程序</span><br><span class="line">类就是程序的组件。面向对象的关键在于能否灵活地运用类。</span><br><span class="line">- 观点<span class="number">2</span>：面向对象编程能够提升程序的开发效率和可维护性</span><br><span class="line">“我是创造类的人，你是使用类的人”</span><br><span class="line">- 观点<span class="number">3</span>：面向对象是适用于开发大型程序的开发方法</span><br><span class="line">- 观点<span class="number">4</span>：面向对象就是在为现实世界建模</span><br><span class="line">- 观点<span class="number">5</span>：面向对象编程可以借助UML设计程序</span><br><span class="line">- 观点<span class="number">6</span>：面向对象通过在程序间传递消息驱动程序</span><br><span class="line">- 观点<span class="number">7</span>：在面向对象编程中使用继承、封装和多态</span><br><span class="line">    - 继承：通过继承已存在的类所拥有的成员而生成新的类</span><br><span class="line">    - 封装：在类中所拥有的成员中，隐藏掉那些没有必要展现给该类调用着的成员</span><br><span class="line">    - 多态：针对同一种消息，不同的对象可以进行不同的操作</span><br><span class="line">### 类的三种使用方法</span><br><span class="line">- 仅仅调用类所持有的个别成员（函数和变量）</span><br><span class="line">- 在类的定义中包含其他的类（又称组合）</span><br><span class="line">- 通过继承已存在的类定义出新的类</span><br><span class="line">## 个人看法</span><br><span class="line">一开始看到这个章节的时候有些不以为意，可看过之后才知道自己是太年轻了。虽说我一直实践着面向对象编程，可我依旧不知道为什么要使用面向对象编程。在实际的工作中。我所用的的面向对象很大程度上是基于现有的框架。比如说在js中，我的那一套就根本没有用到过面向对象编程。</span><br><span class="line">这几个观点我几乎不知道有什么差距——甚至在我看来那都是面向对象的特性。但这正是我浅薄的一点——哪怕我昨天也看过这一章内容，我也说不清面向对象是什么——即便我一直在“用”。</span><br><span class="line">这也是我一贯的做法——我很懒，懒到连概念都不愿意记。</span><br><span class="line">对于什么是面向对象，这本书的作者说“面向对象编程就是把组件拼装到一起的进行编程的方法”。</span><br><span class="line"></span><br><span class="line"># 第八章一用就会的数据库</span><br><span class="line">## 问题</span><br><span class="line">- 数据库术语中“表”是什么意思？</span><br><span class="line">    - 表（table）就是被整理成表格形式的数据。一张表由若干列和行构成。列也被成为字段（field），行也被成为记录（record）</span><br><span class="line">- DBMS是什么的简称？</span><br><span class="line">    - Database Management System （数据库管理系统）的简称。比如MySQL</span><br><span class="line">- 键和索引的区别是什么？</span><br><span class="line">    - 键是用于设定表与表之前的关系（relationship），而索引是提升数据检索速度的机制。</span><br><span class="line">    - 其上每个值都能唯一标识一条记录的字段被成为主键。为了在表与表之间建立关系而在表中添加的、其他表主键的字段被成为外键。而索引是与键无关的机制。</span><br><span class="line">## 小章节</span><br><span class="line">### 数据库是数据的基地</span><br><span class="line">### 数据文件、DBMS和数据库应用程序</span><br><span class="line">DBMS是应用程序和数据文件的中介</span><br><span class="line">```flow</span><br><span class="line">a=&gt;subroutine: 应用程序</span><br><span class="line">d=&gt;operation: 请求操作数据</span><br><span class="line">b=&gt;subroutine: DBMS</span><br><span class="line">e=&gt;operation: 实际操作数据</span><br><span class="line">c=&gt;subroutine: 数据文件</span><br><span class="line"></span><br><span class="line">a-&gt;d-&gt;b-&gt;e-&gt;c</span><br></pre></td></tr></table></figure>
+<h3 id="构建数据库"><a href="#构建数据库" class="headerlink" title="构建数据库"></a>构建数据库</h3><ol>
+<li>设计数据库<ol>
+<li>把必要数据筛选出来</li>
+<li>考虑各种数据的属性（数据类型）</li>
+</ol>
+</li>
+<li>通过拆表和整理数据实现规范化<ul>
+<li>所谓规范化，就是把一张大表分割成多张小表，然后再在小表之间建立关系，以此来达到整理数据库结构的目的</li>
+<li>规范化的要点是在一个数据库中要避免重复存储相同的数据。</li>
+</ul>
+</li>
+<li>用主键和外键在表间建立关系<ul>
+<li>表之间的关系使记录和记录关联了起来。记录之间虽然在逻辑上有一对一、多对多、一对多（多对一）三种关系，但关系型数据库无法直接表示多对多关系。比如把商城的数据库只分为顾客表和商品表，那么两表之间就形成了多对多关系（一个客人可以买多种商品，同时一种商品也可以被多个人买）。这时，可在两表之间再加一表——销售记录表。这张加入的表被称作链接表（link table）。</li>
+<li>DBMS还具有检查参照完整性的功能，这种机制也是为了一致并安全地存储数据。</li>
+</ul>
+</li>
+<li>索引能够提升数据库的检索速度<ul>
+<li>索引表是一种数据结构，存储着字段的值以及字段所对应记录的位置。如果在顾客表的顾客姓名字段上设置索引，DBMS就会创建一张索引表。表中有两个字段，分别存储着顾客姓名和位置。因为索引表中的字段数更少，所以可以更快地进行数据的检索和排序。当查询数据时，DBMS先在索引表进行数据的检索和排序，然后根据位置信息把完整的数据从原有的表中取出来。</li>
+</ul>
+</li>
+<li>设计用户界面<ul>
+<li>优先设计数据库，再设计用户界面</li>
+</ul>
+</li>
+<li>向DBMS发送CURD操作的SQL语句<ul>
+<li>为了对数据库进行CURD操作，就必须从应用程序向DMBS发送命令（SQL语句）</li>
+</ul>
+</li>
+<li>使用数据对象向DBMS发送SQL语句<ul>
+<li>向DBMS发送SQL语句，一般情况下使用的都是被称为数据对象（data object）的软件组件</li>
+</ul>
+</li>
+<li>事务控制也可以交给DBMS处理<h2 id="个人看法"><a href="#个人看法" class="headerlink" title="个人看法"></a>个人看法</h2>之前以为数据库自己都用了那么久，总该知道点什么。唉，其实书中所述的我都知道，但实际上灵活运用的不多。在现在的开发中，数据库的效率要求不高，各种冗余字段的建立让我感觉像是做了假开发……</li>
+</ol>
+<h1 id="第九章-通过七个简单的实验理解TCP-x2F-IP网络"><a href="#第九章-通过七个简单的实验理解TCP-x2F-IP网络" class="headerlink" title="第九章 通过七个简单的实验理解TCP&#x2F;IP网络"></a>第九章 通过七个简单的实验理解TCP&#x2F;IP网络</h1><h1 id="第十章-试着加密数据吧"><a href="#第十章-试着加密数据吧" class="headerlink" title="第十章 试着加密数据吧"></a>第十章 试着加密数据吧</h1><h1 id="第十一章-XML究竟是什么"><a href="#第十一章-XML究竟是什么" class="headerlink" title="第十一章 XML究竟是什么"></a>第十一章 XML究竟是什么</h1><h1 id="第十二章-SE负责监管计算机系统的构建"><a href="#第十二章-SE负责监管计算机系统的构建" class="headerlink" title="第十二章 SE负责监管计算机系统的构建"></a>第十二章 SE负责监管计算机系统的构建</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag"># 计算机基础</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2517.html" rel="prev" title="MySQL创建高性能索引">
+      <i class="fa fa-chevron-left"></i> MySQL创建高性能索引
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/34544.html" rel="next" title="PHP基础知识值功能设计考点">
+      PHP基础知识值功能设计考点 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%89%E5%A4%A7%E5%8E%9F%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">第一章 计算机的三大原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%AB%A0%E8%8A%82"><span class="nav-number">1.2.</span> <span class="nav-text">小章节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">个人理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%AF%95%E7%9D%80%E8%87%AA%E5%B7%B1%E5%88%B6%E9%80%A0%E4%B8%80%E5%8F%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%90%A7"><span class="nav-number">2.</span> <span class="nav-text">第二章 试着自己制造一台计算机吧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-1"><span class="nav-number">2.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%AB%A0%E8%8A%82-1"><span class="nav-number">2.2.</span> <span class="nav-text">小章节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3-1"><span class="nav-number">2.3.</span> <span class="nav-text">个人理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E4%BD%93%E9%AA%8C%E4%B8%80%E6%AC%A1%E6%89%8B%E5%B7%A5%E6%B1%87%E7%BC%96"><span class="nav-number">3.</span> <span class="nav-text">第三章 体验一次手工汇编</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-2"><span class="nav-number">3.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%AB%A0%E8%8A%82-2"><span class="nav-number">3.2.</span> <span class="nav-text">小章节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E4%BB%8E%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%A7%92%E5%BA%A6%E7%9C%8B%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.1.</span> <span class="nav-text">从从程序员的角度看硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E8%AF%AD%E8%A8%80%E5%92%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80"><span class="nav-number">3.2.2.</span> <span class="nav-text">机器语言和汇编语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z80-CPU%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.3.</span> <span class="nav-text">Z80 CPU寄存器的结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%BD%E8%B8%AA%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">3.2.4.</span> <span class="nav-text">追踪程序的运行过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E6%89%8B%E5%B7%A5%E6%B1%87%E7%BC%96"><span class="nav-number">3.2.5.</span> <span class="nav-text">尝试手工汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E4%BC%B0%E7%AE%97%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">3.2.6.</span> <span class="nav-text">尝试估算程序的执行时间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%A8%8B%E5%BA%8F%E5%83%8F%E6%B2%B3%E6%B5%81%E4%B8%80%E6%A0%B7%E6%B5%81%E5%8A%A8%E7%9D%80"><span class="nav-number">4.</span> <span class="nav-text">第四章 程序像河流一样流动着</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-3"><span class="nav-number">4.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%AB%A0%E8%8A%82-3"><span class="nav-number">4.2.</span> <span class="nav-text">小章节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%81%E7%A8%8B%E5%88%86%E4%B8%BA%E4%B8%89%E7%A7%8D"><span class="nav-number">4.2.1.</span> <span class="nav-text">程序的流程分为三种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="nav-number">4.2.2.</span> <span class="nav-text">结构化程序设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%BB%E6%B5%81%E7%A8%8B%E5%9B%BE%E6%9D%A5%E6%80%9D%E8%80%83%E7%AE%97%E6%B3%95"><span class="nav-number">4.2.3.</span> <span class="nav-text">画流程图来思考算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E2%80%94%E2%80%94%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86"><span class="nav-number">4.2.4.</span> <span class="nav-text">特殊的程序流程——中断处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E2%80%94%E2%80%94%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="nav-number">4.2.5.</span> <span class="nav-text">特殊的程序流程——事件驱动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3-2"><span class="nav-number">4.3.</span> <span class="nav-text">个人理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%8E%E7%AE%97%E6%B3%95%E6%88%90%E4%B8%BA%E5%A5%BD%E6%9C%8B%E5%8F%8B%E7%9A%84%E4%B8%83%E4%B8%AA%E8%A6%81%E7%82%B9"><span class="nav-number">5.</span> <span class="nav-text">第五章 与算法成为好朋友的七个要点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-4"><span class="nav-number">5.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%AB%A0%E8%8A%82-4"><span class="nav-number">5.2.</span> <span class="nav-text">小章节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%98%AF%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E2%80%9C%E7%86%9F%E8%AF%AD%E2%80%9D"><span class="nav-number">5.2.1.</span> <span class="nav-text">算法是程序设计的“熟语”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3-3"><span class="nav-number">5.3.</span> <span class="nav-text">个人理解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%88%90%E4%B8%BA%E5%A5%BD%E6%9C%8B%E5%8F%8B%E7%9A%84%E4%B8%83%E4%B8%AA%E8%A6%81%E7%82%B9"><span class="nav-number">6.</span> <span class="nav-text">第六章 与数据结构成为好朋友的七个要点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98-5"><span class="nav-number">6.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%AB%A0%E8%8A%82-5"><span class="nav-number">6.2.</span> <span class="nav-text">小章节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.2.1.</span> <span class="nav-text">构建数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95"><span class="nav-number">6.3.</span> <span class="nav-text">个人看法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E9%80%9A%E8%BF%87%E4%B8%83%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%9E%E9%AA%8C%E7%90%86%E8%A7%A3TCP-x2F-IP%E7%BD%91%E7%BB%9C"><span class="nav-number">7.</span> <span class="nav-text">第九章 通过七个简单的实验理解TCP&#x2F;IP网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E8%AF%95%E7%9D%80%E5%8A%A0%E5%AF%86%E6%95%B0%E6%8D%AE%E5%90%A7"><span class="nav-number">8.</span> <span class="nav-text">第十章 试着加密数据吧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-XML%E7%A9%B6%E7%AB%9F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">9.</span> <span class="nav-text">第十一章 XML究竟是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-SE%E8%B4%9F%E8%B4%A3%E7%9B%91%E7%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E5%BB%BA"><span class="nav-number">10.</span> <span class="nav-text">第十二章 SE负责监管计算机系统的构建</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="配置篇在服务器上配置git仓库安装git(ubuntu root)apt install git 创建一个git用户adduser git 初始化一个仓库 指定一个目录作为git仓库 git init –bare &#x2F;srv&#x2F;yii.git chown git:git -R &#x2F;srv&#x2F;yii.git创建证书登录 创建&#x2F;home&#x2F;git&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在自己的服务器上搭建一个git服务器">
+<meta property="og:url" content="https://chenmenghui.gitee.io/posts/3261.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="配置篇在服务器上配置git仓库安装git(ubuntu root)apt install git 创建一个git用户adduser git 初始化一个仓库 指定一个目录作为git仓库 git init –bare &#x2F;srv&#x2F;yii.git chown git:git -R &#x2F;srv&#x2F;yii.git创建证书登录 创建&#x2F;home&#x2F;git&amp;#x">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-09-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-15T05:54:44.973Z">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/posts/3261.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>在自己的服务器上搭建一个git服务器 | 陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/3261.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在自己的服务器上搭建一个git服务器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-07T00:00:00+08:00">2018-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/3261.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/3261.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="配置篇"><a href="#配置篇" class="headerlink" title="配置篇"></a>配置篇</h1><h2 id="在服务器上配置git仓库"><a href="#在服务器上配置git仓库" class="headerlink" title="在服务器上配置git仓库"></a>在服务器上配置git仓库</h2><h3 id="安装git-ubuntu-root"><a href="#安装git-ubuntu-root" class="headerlink" title="安装git(ubuntu root)"></a>安装git(ubuntu root)</h3><p>apt install git</p>
+<h3 id="创建一个git用户"><a href="#创建一个git用户" class="headerlink" title="创建一个git用户"></a>创建一个git用户</h3><p>adduser git</p>
+<h3 id="初始化一个仓库"><a href="#初始化一个仓库" class="headerlink" title="初始化一个仓库"></a>初始化一个仓库</h3><ol>
+<li>指定一个目录作为git仓库</li>
+<li>git init –bare &#x2F;srv&#x2F;yii.git</li>
+<li>chown git:git -R &#x2F;srv&#x2F;yii.git<h3 id="创建证书登录"><a href="#创建证书登录" class="headerlink" title="创建证书登录"></a>创建证书登录</h3></li>
+<li>创建&#x2F;home&#x2F;git&#x2F;.ssh&#x2F;authorized_keys(注意:.ssh目录及authorized_key文件是自建的)</li>
+<li>收集需要登陆用户的公匙,导入到上个创建的文件中.一个公匙占一行<h2 id="客户端配置git"><a href="#客户端配置git" class="headerlink" title="客户端配置git"></a>客户端配置git</h2><h3 id="安装git命令行"><a href="#安装git命令行" class="headerlink" title="安装git命令行"></a>安装git命令行</h3></li>
+</ol>
+<ul>
+<li>ubuntu<ul>
+<li>apt install git</li>
+</ul>
+</li>
+<li>win<ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">安装</a><h3 id="配置git用户数据"><a href="#配置git用户数据" class="headerlink" title="配置git用户数据"></a>配置git用户数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 用户信息</span><br><span class="line">git config --global user.name &#x27;***&#x27;</span><br><span class="line">git config --global user.email &#x27;***&#x27;</span><br><span class="line">// 生成密匙</span><br><span class="line">ssh-keygen // 注意会提示保存在哪里,一会要到对应的地方找,默认是在对应用户目录下的.ssh/里</span><br></pre></td></tr></table></figure>
+<h3 id="把用户信息导至服务器"><a href="#把用户信息导至服务器" class="headerlink" title="把用户信息导至服务器"></a>把用户信息导至服务器</h3>把公匙信息复制到服务器的&#x2F;home&#x2F;git&#x2F;.ssh&#x2F;authorized_keys中<br>值得注意的是，公匙是可以在多个git服务器中使用的。自己的github仓库、自建服务器git仓库及公司代码gitlab仓库就是使用的是同一个公匙。<h1 id="使用篇"><a href="#使用篇" class="headerlink" title="使用篇"></a>使用篇</h1><h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2>服务器不能直接查看用户所提交的数据,需要使用git clone [对应仓库目录]把数据提取到当前目录(pwd所在地)<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>git clone <a href="mailto:&#x67;&#105;&#116;&#x40;&#52;&#x37;&#x2e;&#x31;&#x30;&#x34;&#x2e;&#x31;&#56;&#57;&#x2e;&#x36;&#56;">&#x67;&#105;&#116;&#x40;&#52;&#x37;&#x2e;&#x31;&#x30;&#x34;&#x2e;&#x31;&#56;&#57;&#x2e;&#x36;&#56;</a>:&#x2F;srv&#x2F;yii.git (如果没有加入公匙,也可使用git用户对应的密码)</li>
+<li>填写数据</li>
+<li>git add -all <a target="_blank" rel="noopener" href="https://www.cnblogs.com/skura23/p/5859243.html">add</a> 把新创建的文件提交到暂缓区</li>
+<li>git commit -am ‘注释’ 把修改内容保存到缓存区并提交至<strong>本地仓库</strong></li>
+<li>git push origin master 把本地仓库提交至服务器</li>
+<li>git pull origin master 把服务器内容拉取下来</li>
+</ol>
+<h1 id="注意篇"><a href="#注意篇" class="headerlink" title="注意篇"></a>注意篇</h1><h2 id="如果发生冲突"><a href="#如果发生冲突" class="headerlink" title="如果发生冲突"></a>如果发生冲突</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 和线上代码保持一致,也就是放弃上一次push之前的所有修改</span><br><span class="line">git fetch -all</span><br><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+<h2 id="git-clone-提示端口不对"><a href="#git-clone-提示端口不对" class="headerlink" title="git clone 提示端口不对"></a>git clone 提示端口不对</h2><p>可能原因</p>
+<ol>
+<li>服务器没有安装openssh_server(我被这个折腾了快一个小时)</li>
+<li>防火墙拦截(一般不会,默认是22端口)</li>
+</ol>
+<h2 id="To-squelch-this-message-and-still-keep-the-default-behaviour-set-remote-error-‘receive-denyCurrentBranch’-configuration-variable-to-‘refuse’"><a href="#To-squelch-this-message-and-still-keep-the-default-behaviour-set-remote-error-‘receive-denyCurrentBranch’-configuration-variable-to-‘refuse’" class="headerlink" title="To squelch this message and still keep the default behaviour, set remote: error: ‘receive.denyCurrentBranch’ configuration variable to ‘refuse’."></a>To squelch this message and still keep the default behaviour, set remote: error: ‘receive.denyCurrentBranch’ configuration variable to ‘refuse’.</h2><p>出现这个错误是因为在服务器端错误的使用了git init &#x2F;srv&#x2F;advanced<br>注意,远程仓库初始化需要 <code>ogit init --bare  /srv/advanced</code><br>–bare 创建裸仓库.用于记录版本库历史记录的.git目录下面的文件;而不会包含实际项目源文件的拷贝;所以该版本库不能称为工作目录(working tree);</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/49937.html" rel="prev" title="WAMP的一些基本配置">
+      <i class="fa fa-chevron-left"></i> WAMP的一些基本配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/32434.html" rel="next" title="wamp3的安装使用">
+      wamp3的安装使用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">配置篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%85%8D%E7%BD%AEgit%E4%BB%93%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">在服务器上配置git仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git-ubuntu-root"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装git(ubuntu root)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgit%E7%94%A8%E6%88%B7"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建一个git用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="nav-number">1.1.3.</span> <span class="nav-text">初始化一个仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%AF%81%E4%B9%A6%E7%99%BB%E5%BD%95"><span class="nav-number">1.1.4.</span> <span class="nav-text">创建证书登录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AEgit"><span class="nav-number">1.2.</span> <span class="nav-text">客户端配置git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装git命令行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEgit%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置git用户数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E5%AF%BC%E8%87%B3%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">把用户信息导至服务器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">使用篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">2.2.</span> <span class="nav-text">客户端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%AF%87"><span class="nav-number">3.</span> <span class="nav-text">注意篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%8F%91%E7%94%9F%E5%86%B2%E7%AA%81"><span class="nav-number">3.1.</span> <span class="nav-text">如果发生冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-%E6%8F%90%E7%A4%BA%E7%AB%AF%E5%8F%A3%E4%B8%8D%E5%AF%B9"><span class="nav-number">3.2.</span> <span class="nav-text">git clone 提示端口不对</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-squelch-this-message-and-still-keep-the-default-behaviour-set-remote-error-%E2%80%98receive-denyCurrentBranch%E2%80%99-configuration-variable-to-%E2%80%98refuse%E2%80%99"><span class="nav-number">3.3.</span> <span class="nav-text">To squelch this message and still keep the default behaviour, set remote: error: ‘receive.denyCurrentBranch’ configuration variable to ‘refuse’.</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

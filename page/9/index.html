@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="陈孟辉的学习笔记">
+<meta property="og:url" content="https://chenmenghui.gitee.io/page/9/index.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="开发菜鸟 陈孟辉">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/page/9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/22390.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/22390.html" class="post-title-link" itemprop="url">composer切换源</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-29T00:00:00+08:00">2020-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/22390.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/22390.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>127</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>想composer个东西下来，切换了国内源，还是卡。</p>
+<p>然后百度还有其他源可选，比如这个，阿里的，就快好多了</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/17238.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/17238.html" class="post-title-link" itemprop="url">Excel简单应用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Excel/" itemprop="url" rel="index"><span itemprop="name">Excel</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/17238.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/17238.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>169</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>vlockup</li>
+<li>sumif</li>
+<li>sort</li>
+</ul>
+<h4 id="两对单元格比较"><a href="#两对单元格比较" class="headerlink" title="两对单元格比较"></a>两对单元格比较</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CONCAT(IF((A50=Log!F:F) * (B50=Log!B:B),Log!G:G,&quot;&quot;))</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>其中「*」是逻辑与，「+」是逻辑或。</p>
+<p>逻辑非就只有 not() 了。</p>
+<p>使用 concat 是因为两列数据都满足的情况可能不止一个，所以用此方法做了连接。</p>
+<h3 id="透视表"><a href="#透视表" class="headerlink" title="透视表"></a>透视表</h3><ul>
+<li>切片</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/56968.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/56968.html" class="post-title-link" itemprop="url">PhpStorm 插件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-08 15:29:56" itemprop="dateModified" datetime="2022-10-08T15:29:56+08:00">2022-10-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/idea/" itemprop="url" rel="index"><span itemprop="name">idea</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/56968.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/56968.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>243</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <table>
+<thead>
+<tr>
+<th>常用插件名称</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>KJump</td>
+<td align="left">键盘操作的光标定位</td>
+</tr>
+<tr>
+<td>Rainbow Brackets</td>
+<td align="left">加强空格、tab、括号的展示效果</td>
+</tr>
+<tr>
+<td>WakaTime</td>
+<td align="left">记录编写代码的时间</td>
+</tr>
+<tr>
+<td>LeetCode Editor</td>
+<td align="left">可方便地使用idea刷题</td>
+</tr>
+<tr>
+<td>Key Promoter X</td>
+<td align="left">快捷键说明</td>
+</tr>
+<tr>
+<td>Idea Mind Map</td>
+<td align="left">简单的 Mind Map 绘制工具</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td align="left">markdown</td>
+</tr>
+<tr>
+<td>IdeaVim</td>
+<td align="left">Vim 编辑模式</td>
+</tr>
+<tr>
+<td>PlantUml integration</td>
+<td align="left">绘图，配合markdown、hexo食用效果不俗</td>
+</tr>
+<tr>
+<td>Translation</td>
+<td align="left">翻译软件</td>
+</tr>
+<tr>
+<td>Key Promoter X</td>
+<td align="left">快捷键提示</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/53804.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/53804.html" class="post-title-link" itemprop="url">Microsoft Teams 连接不上</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-23T00:00:00+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/53804.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/53804.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>61</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>我这大概率是翻墙导致的，重置网络连接并重启电脑解决了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netsh winsock reset </span><br><span class="line">netsh int ip reset </span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/50806.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/50806.html" class="post-title-link" itemprop="url">bat编程实操：清除jetbrain软件的试用记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-19T00:00:00+08:00">2020-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-17 07:39:08" itemprop="dateModified" datetime="2022-04-17T07:39:08+08:00">2022-04-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/bat/" itemprop="url" rel="index"><span itemprop="name">bat</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/50806.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/50806.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>961</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>该方法现已失效，就拿来看看BAT的语法吧。</p>
+</blockquote>
+<p>删除注册器和和配置文件中的一些记录数据就可以啦</p>
+<p>可使用批处理</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/50806.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/58963.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/58963.html" class="post-title-link" itemprop="url">Yii代码解读</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-14 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-14T00:00:00+08:00">2020-03-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-18 09:06:00" itemprop="dateModified" datetime="2022-04-18T09:06:00+08:00">2022-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/58963.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/58963.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>452</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="yii-base-BaseObject"><a href="#yii-base-BaseObject" class="headerlink" title="\yii\base\BaseObject"></a>\yii\base\BaseObject</h1><p>yii2里的面向对象基础，几乎所有类的最顶层父类都是它，配置各种类时都会遵循这个概念。</p>
+<p>其中封装了些常用的方法，比如</p>
+<ul>
+<li>「set&#x2F;get」 （tp 称之为修改器与获取器）</li>
+<li>「init()」（不推荐使用__construct()，因为会覆盖 \yii\base\BaseObject。可以使用这个来初始化类）</li>
+</ul>
+<h1 id="依赖注入容器"><a href="#依赖注入容器" class="headerlink" title="依赖注入容器"></a>依赖注入容器</h1><h1 id="php之依赖注入、控制反转和依赖倒置原则"><a href="#php之依赖注入、控制反转和依赖倒置原则" class="headerlink" title="php之依赖注入、控制反转和依赖倒置原则"></a>php之依赖注入、控制反转和依赖倒置原则</h1><p>高内聚、低耦合，可作为软件好坏的评判标准。话句话说，就是尽量写出易于维护，低复杂度和低耦合度的代码。</p>
+<p>所谓控制反转，英文 Inversion of Control，简称 IOC，字面上可以理解为对xx的控制进行了一个反转，换句话说就是对xx的控制的另一种实现，是一种思路，一种逻辑思想。其具体实现之一就是依赖注入。  </p>
+<p>依赖注入：把对象A所依赖的其他对象，以属性或者构造函数的方式传递到对象A的内部，而不是直接在对象A内实例化。其目的就是为了让对象A和其依赖的其他对象解耦，减少二者的依赖。即通过“注入”的方式去解决依赖问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/20805.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/20805.html" class="post-title-link" itemprop="url">JMeter 操作中遇到的坑</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-13 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-13T00:00:00+08:00">2020-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JMeter/" itemprop="url" rel="index"><span itemprop="name">JMeter</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/20805.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/20805.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>688</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="Http-请求，从剪切板添加参数"><a href="#Http-请求，从剪切板添加参数" class="headerlink" title="Http 请求，从剪切板添加参数"></a>Http 请求，从剪切板添加参数</h3><p>「从剪切板复制」这个功能是不能识别从浏览器直接复制过来的json字符串的。</p>
+<p>不过多了些转化，比一个个复制快得多了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rptfilters[countryregion.id]</span><br><span class="line">rptfilters[region.id]</span><br><span class="line">rptfilters[branch.id]</span><br><span class="line">rptfilters[office.id]</span><br><span class="line">rptfilters[month]	 2</span><br><span class="line">rptfilters[runyear]	 2020</span><br><span class="line">rptfilters[monthStart]	 0</span><br><span class="line">rptfilters[runyearStart]	 0</span><br><span class="line">rptfilters[monthEnd]	 0</span><br><span class="line">rptfilters[runyearEnd]	 0</span><br><span class="line">rptfilters[dateStart]</span><br><span class="line">rptfilters[dateEnd]</span><br><span class="line">rptfilters[currentsupercheck]	 1</span><br><span class="line">rptfilters[plannedsupercheck]	 1</span><br><span class="line">supervisor_select	 all</span><br><span class="line">run_select	 all</span><br><span class="line">rptfilters[building.id]_label</span><br><span class="line">rptfilters[building.id]</span><br><span class="line">hasactualbutnoplan</span><br><span class="line">otheroption[PlanVisitHours]	 on</span><br><span class="line">rptfilters[sortby]</span><br><span class="line">page	 1</span><br></pre></td></tr></table></figure>
+
+<p>这样就行了。总结起来就是：</p>
+<ol>
+<li>删除所有的双引号</li>
+<li>把「:」转化成「(\t)」</li>
+<li>ba「,」转化成「(\n)」</li>
+</ol>
+<h3 id="Header请求头数据"><a href="#Header请求头数据" class="headerlink" title="Header请求头数据"></a>Header请求头数据</h3><p>同样也有「从剪切板复制」的功能。</p>
+<p>复制请求头（firefox下需切换到原始头模式）就可以了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/32342.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/32342.html" class="post-title-link" itemprop="url">plantUML生成的图片过大时无法显示全部</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-09 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-09T00:00:00+08:00">2020-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/32342.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/32342.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>271</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>实际操作的时候发现，这个plantUML转化的图片大小是有个默认最大值(4086)。普通情况下超出部分不予显示，但缩放的话，字体就看不清了。</p>
+<p>因为使用的是phpstorm，找了半天居然没有找到解决办法。也是在误打误撞的情况下，发现在命令行直接输入</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -DPLANTUML_LIMIT_SIZE=<span class="number">8192</span> -jar /<span class="built_in">path</span>/to/plantuml.jar ...</span><br></pre></td></tr></table></figure>
+<p>可以生成比较大的图。</p>
+<p>既然如此，就在「phpstorm64.exe.vmoptions」把「-DPLANTUML_LIMIT_SIZE&#x3D;8192」添加到最后一行。发现有效。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/48688.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/48688.html" class="post-title-link" itemprop="url">类方法中的静态变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2020-03-02T00:00:00+08:00">2020-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">细碎知识</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/48688.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/48688.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>466</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>直接说结论：即便是重新实例化一个类，类方法中的静态变量也是一直「保留」的。</p>
+<p>验证如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">t</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">static</span> <span class="variable">$rand</span>;</span><br><span class="line">        <span class="built_in">static</span> <span class="variable">$i</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">echo</span> ++<span class="variable">$i</span>.<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="variable">$rand</span>) &#123;</span><br><span class="line">            <span class="variable">$rand</span> = <span class="title function_ invoke__">uniqid</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$rand</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">p</span>(<span class="params"><span class="variable">$data</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$data</span>.<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$t1</span> = <span class="keyword">new</span> <span class="title function_ invoke__">t</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t1</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t1</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t1</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t1</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">sleep</span>(<span class="number">1</span>);</span><br><span class="line"><span class="variable">$t2</span> = <span class="keyword">new</span> <span class="title function_ invoke__">t</span>();</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t2</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t2</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t2</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"><span class="title function_ invoke__">p</span>(<span class="variable">$t2</span>-&gt;<span class="title function_ invoke__">get</span>());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/37559.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/37559.html" class="post-title-link" itemprop="url">SQL进阶</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-04 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-04T00:00:00+08:00">2020-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/37559.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/37559.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>10k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="第一章-神奇的SQL"><a href="#第一章-神奇的SQL" class="headerlink" title="第一章 神奇的SQL"></a>第一章 神奇的SQL</h1><h2 id="CASE表达式"><a href="#CASE表达式" class="headerlink" title="CASE表达式"></a>CASE表达式</h2><h3 id="CASE表达式概述"><a href="#CASE表达式概述" class="headerlink" title="CASE表达式概述"></a>CASE表达式概述</h3><p>写法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-- 简单CASE 表达式</span><br><span class="line">CASE sex</span><br><span class="line">WHEN &#x27;1&#x27; THEN &#x27;男&#x27;</span><br><span class="line">WHEN &#x27;2&#x27; THEN &#x27;女&#x27;</span><br><span class="line">ELSE &#x27;其他&#x27; END</span><br><span class="line"></span><br><span class="line">-- 搜索CASE 表达式</span><br><span class="line">CASE WHEN sex = &#x27;1&#x27; THEN &#x27;男&#x27;</span><br><span class="line">WHEN sex = &#x27;2&#x27; THEN &#x27;女&#x27;</span><br><span class="line">ELSE &#x27;其他&#x27; END</span><br></pre></td></tr></table></figure>
+
+<p>注意事项：</p>
+<ul>
+<li>统一各分支返回的数据类型</li>
+<li>不要忘记写END<ul>
+<li>这是个语法结构，是必选项而非可选项。</li>
+</ul>
+</li>
+<li>养成写ELSE子句的习惯<ul>
+<li>不写的话，其不在WHEN条件中的项结果是NULL</li>
+</ul>
+</li>
+</ul>
+<h3 id="将已有编号方式转换为新的方式并统计"><a href="#将已有编号方式转换为新的方式并统计" class="headerlink" title="将已有编号方式转换为新的方式并统计"></a>将已有编号方式转换为新的方式并统计</h3><p>在进行非定制化统计时，我们经常会遇到将已有编号方式转换为另外一种便于分析的方式并进行统计的需求。</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- 把县编号转换成地区编号(1)</span><br><span class="line">SELECT CASE pref_name</span><br><span class="line">           WHEN &#x27;德岛&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;香川&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;爱媛&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;高知&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;福冈&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">           WHEN &#x27;佐贺&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">           WHEN &#x27;长崎&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">           ELSE &#x27;其他&#x27; END AS district,</span><br><span class="line">       SUM(population)</span><br><span class="line">FROM PopTbl</span><br><span class="line">GROUP BY CASE pref_name</span><br><span class="line">             WHEN &#x27;德岛&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">             WHEN &#x27;香川&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">             WHEN &#x27;爱媛&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">             WHEN &#x27;高知&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">             WHEN &#x27;福冈&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">             WHEN &#x27;佐贺&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">             WHEN &#x27;长崎&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">             ELSE &#x27;其他&#x27; END;</span><br></pre></td></tr></table></figure>
+<p>在mysql等数据库中，可以简化成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">SELECT CASE pref_name</span><br><span class="line">           WHEN &#x27;德岛&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;香川&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;爱媛&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;高知&#x27; THEN &#x27;四国&#x27;</span><br><span class="line">           WHEN &#x27;福冈&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">           WHEN &#x27;佐贺&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">           WHEN &#x27;长崎&#x27; THEN &#x27;九州&#x27;</span><br><span class="line">           ELSE &#x27;其他&#x27; END AS district,</span><br><span class="line">       SUM(population)</span><br><span class="line">FROM PopTbl</span><br><span class="line">GROUP BY district;</span><br></pre></td></tr></table></figure>
+
+<p>补充：MySQL 中的 order by 子句可以识别 select 中定义的别称，如上列中的「district」</p>
+<h3 id="用一条SQL语句进行不同条件的统计"><a href="#用一条SQL语句进行不同条件的统计" class="headerlink" title="用一条SQL语句进行不同条件的统计"></a>用一条SQL语句进行不同条件的统计</h3><p>进行不同条件的统计是 CASE 表达式的著名用法之一。</p>
+<p>例如，我们需要往存储各县人口数量的表 PopTbl 里添加上「性别」列，然后求按性别、县名汇总的人数。具体来说，就是统计表 PopTbl2 中的数据，然后求出如表「统计结果」所示的结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT pref_name, sum(if(sex = 1, population, 0)) AS man, sum(if(sex = 2, population, 0)) as woman</span><br><span class="line">FROM PopTbl2</span><br><span class="line">GROUP BY pref_name;</span><br></pre></td></tr></table></figure>
+
+<p><strong>打开思路，select 子句也可以进行条件分支</strong></p>
+<h3 id="用-CHECK-约束定义多个列的条件关系"><a href="#用-CHECK-约束定义多个列的条件关系" class="headerlink" title="用 CHECK 约束定义多个列的条件关系"></a>用 CHECK 约束定义多个列的条件关系</h3><p>CASE 表达式和 CHECK 约束是很般配的一对组合，这里涉及到「蕴含式」这种和「逻辑与」不同的计算逻辑。「蕴含式」中的约束更为宽松。</p>
+<p>但郁闷的是，在 MySQL 中，这个几乎是无效的。MySQL 在插入的时候不会处理蕴含关系。</p>
+<p>逻辑与</p>
+<table>
+<thead>
+<tr>
+<th>P</th>
+<th>Q</th>
+<th>P∧Q</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>U</td>
+<td>U</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>U</td>
+<td>T</td>
+<td>U</td>
+</tr>
+<tr>
+<td>U</td>
+<td>U</td>
+<td>U</td>
+</tr>
+<tr>
+<td>U</td>
+<td>F</td>
+<td>U</td>
+</tr>
+<tr>
+<td>U</td>
+<td>T</td>
+<td>U</td>
+</tr>
+<tr>
+<td>U</td>
+<td>U</td>
+<td>U</td>
+</tr>
+<tr>
+<td>U</td>
+<td>F</td>
+<td>U</td>
+</tr>
+</tbody></table>
+<p>蕴含式（只有当P为假Q为真时，则P-&gt;Q为假。 如果太阳从西边升起，则……）<br>逻辑与</p>
+<table>
+<thead>
+<tr>
+<th>P</th>
+<th>Q</th>
+<th>P-&gt;Q</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>U</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>U</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>U</td>
+<td>U</td>
+<td>T</td>
+</tr>
+<tr>
+<td>U</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>U</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+</tr>
+</tbody></table>
+<p>蕴含式的结果没有 unknown 么？我所有可以想成 unknown 的结果都是 False。</p>
+<h3 id="在-UPDATE-语句里进行条件分支"><a href="#在-UPDATE-语句里进行条件分支" class="headerlink" title="在 UPDATE 语句里进行条件分支"></a>在 UPDATE 语句里进行条件分支</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPDATE Salaries</span><br><span class="line">SET salary = CASE</span><br><span class="line">                 WHEN salary &gt;= 300000 THEN salary * 0.9</span><br><span class="line">                 WHEN salary &gt;= 250000 AND salary &lt;= 280000 THEN salary * 1.2</span><br><span class="line">                 ELSE salary END;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表之间的数据匹配"><a href="#表之间的数据匹配" class="headerlink" title="表之间的数据匹配"></a>表之间的数据匹配</h3><p>在 CASE 表达式里，我们可以使用 BETWEEN 、LIKE和 &lt; 、&gt; 等便利的谓词组合，以及能嵌套子查询的 IN 和 EXISTS 谓词。因此，CASE 表达式具有非常强大的表达能力。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">SELECT course_name,</span><br><span class="line">       IF(course_id IN (SELECT course_id</span><br><span class="line">                        FROM OpenCourses</span><br><span class="line">                        WHERE month = 200706), &#x27;o&#x27;,</span><br><span class="line">          &#x27;x&#x27;) AS &#x27;June&#x27;,</span><br><span class="line">       IF(course_id IN (SELECT course_id</span><br><span class="line">                        FROM OpenCourses</span><br><span class="line">                        WHERE month = 200707), &#x27;o&#x27;,</span><br><span class="line">          &#x27;x&#x27;) AS &#x27;July&#x27;,</span><br><span class="line">       IF( EXISTS (SELECT course_id</span><br><span class="line">                        FROM OpenCourses</span><br><span class="line">                        WHERE month = 200708), &#x27;o&#x27;,</span><br><span class="line">          &#x27;x&#x27;) AS &#x27;August&#x27; -- 看到这里就是使用了exists</span><br><span class="line">FROM CourseMaster;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 换一种思路</span><br><span class="line">SELECT c.course_name,</span><br><span class="line">       if(sum(IF(month = 200706, 1, 0)) = 0, &#x27;x&#x27;, &#x27;o&#x27;) AS &#x27;六月&#x27;,</span><br><span class="line">       if(sum(IF(month = 200707, 1, 0)) = 0, &#x27;x&#x27;, &#x27;o&#x27;) AS &#x27;七月&#x27;,</span><br><span class="line">       if(sum(IF(month = 200708, 1, 0)) = 0, &#x27;x&#x27;, &#x27;o&#x27;) AS &#x27;八月&#x27;</span><br><span class="line">FROM opencourses o</span><br><span class="line">JOIN coursemaster c</span><br><span class="line">     ON o.course_id = c.course_id</span><br><span class="line">GROUP BY c.course_name</span><br><span class="line">ORDER BY c.course_name;</span><br></pre></td></tr></table></figure>
+<p>这样的查询没有进行聚合，因此也不需要排序，月份增加的时候仅修改 SELECT 子句就可以了，扩展性比较好。<br>无论使用 IN 还是 EXISTS ，得到的结果是一样的，但从性能方面来说， EXISTS 更好。通过 EXISTS 进行的子查询能够用到“month,course_id ”这样的主键索引，因此尤其是当表 OpenCourses 里数据比较多的时候更有优势。</p>
+<h3 id="在-CASE-表达式中使用聚合函数"><a href="#在-CASE-表达式中使用聚合函数" class="headerlink" title="在 CASE 表达式中使用聚合函数"></a>在 CASE 表达式中使用聚合函数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT std_id,</span><br><span class="line">       CASE</span><br><span class="line">           WHEN count(club_id) = 1 THEN max(club_id)</span><br><span class="line">           ELSE max(CASE WHEN main_club_flg = &#x27;Y&#x27; THEN club_id ELSE NULL END)</span><br><span class="line">           END AS main_club_id</span><br><span class="line">FROM StudentClub</span><br><span class="line">GROUP BY std_id;</span><br></pre></td></tr></table></figure>
+<p><em>注意其中的max的用法，这里仅仅是作为一个聚合函数使用的，实际上min、sum等在这里的效果是一样的。不用的话就犯了「SELECT list is not in GROUP BY clause and contains nonaggregated column」的错</em></p>
+<p>至于为什么会有这种「SELECT list is not in GROUP BY clause and contains nonaggregated column」报错，是因为如果select中的项如果没有在group by 中出现，就有可能产生歧义。<br>就拿上面出现的表「PopTbl2」来说，如果写成这个样子，group by 会根据 pref_name 分组，真要如此， man 和 woman 是就可能是 0 或是真实的数字。这显然是「无效」的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT pref_name,(if(sex = 1, population, 0)) AS man,(if(sex = 2, population, 0)) as woman</span><br><span class="line">FROM PopTbl2</span><br><span class="line">GROUP BY pref_name;</span><br></pre></td></tr></table></figure>
+<p>关掉「ONLY_FULL_GROUP_BY」，很容易观察到错误的结果。</p>
+<blockquote>
+<p>为什么会有「SELECT list is not in GROUP BY clause and contains nonaggregated column」</p>
+</blockquote>
+<p>举一个简单的例子：班级的成绩表。一个学生可能有十几门课程，每门课程都会有成绩。</p>
+<table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>课程</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td>语文</td>
+<td>98</td>
+</tr>
+<tr>
+<td>张三</td>
+<td>数学</td>
+<td>78</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>语文</td>
+<td>88</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>数据</td>
+<td>68</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT `成绩` FROM `成绩表` GROUP BY `姓名`</span><br></pre></td></tr></table></figure>
+
+<p>如上，这个成绩会是什么成绩呢？</p>
+<p>实际上并不知道这个分数是属于哪个课程的。之前的版本有就有这种困惑（虽说现在关闭了开关之后也能实现）。为了避免这种「不知道自己的结果是什么」，就加了这种限制。当然，如果在 select 项中使用聚合函数就会避免这种歧义。像最高分之类的，哪里会有刚才的那般歧义呢？</p>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>order by 使用 case 排序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,</span><br><span class="line">       if(x &gt; if(y &gt; z, y, z), x, if(y &gt; z, y, z))</span><br><span class="line">FROM greatests</span><br><span class="line">ORDER BY CASE</span><br><span class="line">             WHEN id = &#x27;A&#x27; THEN 2</span><br><span class="line">             WHEN id = &#x27;B&#x27; THEN 1</span><br><span class="line">             WHEN id = &#x27;D&#x27; THEN 3</span><br><span class="line">             WHEN id = &#x27;B&#x27; THEN 4</span><br><span class="line">             END;</span><br></pre></td></tr></table></figure>
+
+<p>转换行列——在表头里加入汇总和再揭</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT IF(sex = 1, &#x27;男&#x27;, &#x27;女&#x27;)                                         AS sex,</span><br><span class="line">       sum(population)                                               AS &#x27;总人口&#x27;,</span><br><span class="line">       sum(if(pref_name = &#x27;东京&#x27;, population, 0))                      AS &#x27;东京&#x27;,</span><br><span class="line">       sum(if(pref_name IN (&#x27;德岛&#x27;, &#x27;香川&#x27;, &#x27;爱媛&#x27;, &#x27;高知&#x27;), population, 0)) AS &#x27;四国&#x27;</span><br><span class="line">FROM poptbl2</span><br><span class="line">GROUP BY sex;</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>作为表达式，CASE表达式在执行时会被判定为一个固定值，因此它可以写在聚合函数内部；也正因为它是表达式，所以还可以写在SELECE子句、GROUPBY子句、WHERE子句、ORDERBY子句里。简单点说，在能写列名和常量的地方，通常都可以写CASE表达式。</p>
+<p>本节要点：</p>
+<ol>
+<li>在 GROUP BY 子句里使用 CASE 表达式，可以灵活地选择作为聚合的单位的编号或等级。这一点在进行非定制化统计时能发挥巨大的威力。</li>
+<li>在聚合函数中使用 CASE 表达式，可以轻松地将行结构的数据转换成列结构的数据。</li>
+<li>相反，聚合函数也可以嵌套进 CASE 表达式里使用。</li>
+<li>相比依赖于具体数据库的函数，CASE 表达式有更强大的表达能力和更好的可移植性。</li>
+<li>正因为 CASE 表达式是一种表达式而不是语句，才有了这诸多优点。</li>
+</ol>
+<h2 id="自连接的用法"><a href="#自连接的用法" class="headerlink" title="自连接的用法"></a>自连接的用法</h2><h3 id="可重排列、排列、组合"><a href="#可重排列、排列、组合" class="headerlink" title="可重排列、排列、组合"></a>可重排列、排列、组合</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- 用于获取可重排列的SQL 语句（笛卡尔积）</span><br><span class="line">SELECT P1.name AS name_1, P2.name AS name_2</span><br><span class="line">FROM Products P1, Products P2;</span><br><span class="line"></span><br><span class="line">-- 用于获取排列的SQL 语句</span><br><span class="line">SELECT P1.name AS name_1, P2.name AS name_2</span><br><span class="line">FROM Products P1, Products P2</span><br><span class="line">WHERE P1.name &lt;&gt; P2.name;</span><br><span class="line"></span><br><span class="line">-- 用于获取组合的SQL 语句</span><br><span class="line">SELECT P1.name AS name_1, P2.name AS name_2</span><br><span class="line">FROM Products P1, Products P2</span><br><span class="line">WHERE P1.name &gt; P2.name;</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除重复行"><a href="#删除重复行" class="headerlink" title="删除重复行"></a>删除重复行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">DELETE</span><br><span class="line">FROM Products</span><br><span class="line">WHERE id IN (SELECT id</span><br><span class="line">             FROM ((SELECT p2.id</span><br><span class="line">                    FROM Products p1,</span><br><span class="line">                         Products p2</span><br><span class="line">                    WHERE p1.name = p2.name</span><br><span class="line">                      AND p1.price = p2.price</span><br><span class="line">                      AND p1.id &gt; p2.id)) tmp);</span><br><span class="line"></span><br><span class="line"># exists 版</span><br><span class="line">DELETE p1</span><br><span class="line">FROM products p1</span><br><span class="line">WHERE EXISTS(SELECT id</span><br><span class="line">             FROM (SELECT p2.id</span><br><span class="line">                   FROM products p2</span><br><span class="line">                   LEFT JOIN products p3 ON p2.name = p3.name</span><br><span class="line">                   WHERE p3.id &lt; p2.id) tmp</span><br><span class="line">             WHERE p1.id = tmp.id);</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询局部不一致的数据"><a href="#查询局部不一致的数据" class="headerlink" title="查询局部不一致的数据"></a>查询局部不一致的数据</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT p1.name, p1.price</span><br><span class="line">FROM Products p1,</span><br><span class="line">     Products p2</span><br><span class="line">WHERE p1.name != p2.name</span><br><span class="line">  AND p1.price = p2.price;</span><br></pre></td></tr></table></figure>
+
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.*, (SELECT count(DISTINCT p2.price) FROM Products p2 WHERE p2.price &gt; p1.price) + 1 AS rank_1</span><br><span class="line">FROM Products p1</span><br><span class="line">ORDER BY rank_1;</span><br><span class="line"></span><br><span class="line"># JOIN</span><br><span class="line">SELECT p1.name, p1.price, COUNT(DISTINCT p2.price) + 1 AS rank_1</span><br><span class="line">FROM products p1</span><br><span class="line">LEFT JOIN products p2 ON p1.price &lt; p2.price</span><br><span class="line">GROUP BY p1.name, p1.price</span><br><span class="line">ORDER BY rank_1;</span><br></pre></td></tr></table></figure>
+<p>这段代码的排序方法看起来很普通，但很容易扩展。例如去掉标量子查询后边的 +1 ，就可以从 0 开始给商品排 序，而且如果修改成COUNT(DISTINCT P2.price) ，那么存在相同位次的记录时，就可以不跳过之后的位次，而是连续输出（相当于 DENSE_RANK 函数）。由此可知，这条 SQL 语句可以根据不同的需求灵活地进行扩展，实现不同的排序方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT p1.name, max(p1.price), count(p2.name) + 1 AS rank_1</span><br><span class="line">FROM Products p1</span><br><span class="line">     LEFT JOIN Products p2 ON p1.price &lt; p2.price</span><br><span class="line">GROUP BY p1.name</span><br><span class="line">ORDER BY rank_1;</span><br></pre></td></tr></table></figure>
+<p>注意这里使用的外连接，如果使用内连接的话会漏掉排在第一位的数据</p>
+<h3 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h3><p>要点</p>
+<ol>
+<li>自连接经常和非等值连接结合起来使用。</li>
+<li>自连接和 GROUP BY 结合使用可以生成递归集合。</li>
+<li>将自连接看作不同表之间的连接更容易理解。</li>
+<li>应把表看作行的集合，用面向集合的方法来思考。</li>
+<li>自连接的性能开销更大，应尽量给用于连接的列建立索引。</li>
+</ol>
+<h2 id="三值逻辑和NULL"><a href="#三值逻辑和NULL" class="headerlink" title="三值逻辑和NULL"></a>三值逻辑和NULL</h2><p>一时间难以理解。不过也基本上接触不到，工作的时候基本上都加了not null约束</p>
+<p>三值逻辑真值表（NOT)</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>NOT x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>t</td>
+<td>f</td>
+</tr>
+<tr>
+<td>u</td>
+<td>u</td>
+</tr>
+<tr>
+<td>f</td>
+<td>t</td>
+</tr>
+</tbody></table>
+<p>三值逻辑真值表（AND）</p>
+<table>
+<thead>
+<tr>
+<th>AND</th>
+<th>t</th>
+<th>u</th>
+<th>f</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>t</td>
+<td>t</td>
+<td>u</td>
+<td>f</td>
+</tr>
+<tr>
+<td>u</td>
+<td>u</td>
+<td>u</td>
+<td>f</td>
+</tr>
+<tr>
+<td>f</td>
+<td>f</td>
+<td>f</td>
+<td>f</td>
+</tr>
+</tbody></table>
+<p>三值逻辑真值表（OR）</p>
+<table>
+<thead>
+<tr>
+<th>OR</th>
+<th>t</th>
+<th>u</th>
+<th>f</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>t</td>
+<td>t</td>
+<td>t</td>
+<td>t</td>
+</tr>
+<tr>
+<td>u</td>
+<td>t</td>
+<td>u</td>
+<td>u</td>
+</tr>
+<tr>
+<td>f</td>
+<td>t</td>
+<td>u</td>
+<td>f</td>
+</tr>
+</tbody></table>
+<p>比较简单的记法：<br>AND的情况： false &gt; unknown &gt; true<br>OR的情况：true &gt; unknown &gt; false</p>
+<p>null是不能应用于比较运算符的。强行使用的话运算结果是「unknown」（未知）。而 where 会在结果为 true 时才会「命中」，所以 not in (..null..) 是没有结果的。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line"></span><br><span class="line">FROM SeqTbl</span><br><span class="line">WHERE seq NOT IN (1, 2, null);</span><br></pre></td></tr></table></figure>
+<p>是查不到结果的。<br>解释如下，上个sql可以转化成</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM SeqTbl WHERE seq &lt;&gt; 1 AND seq &lt;&gt; 2 AND seq &lt;&gt; NULL;</span><br></pre></td></tr></table></figure>
+<p>而「seq &lt;&gt; null」的结果是unknown。<br>where只有条件为true的情况才会返回值。而「seq &lt;&gt; 1 AND seq &lt;&gt; 2 AND seq &lt;&gt; NULL」的结果是unknown，所以就没有返回值。</p>
+<h3 id="本届小结"><a href="#本届小结" class="headerlink" title="本届小结"></a>本届小结</h3><p>NULL 不是值，和谓词（&gt;、&lt;、&#x3D;、in、between等。除了exists，这货自动把结果转化成true&#x2F;false）的运算结果是unknown。而where只会判定是不是 true 。所以在 not in (…null..)中注定是没有结果的    </p>
+<p>最后说明一下，要想解决 NULL 带来的各种问题，最佳方法应该是往表里添加 NOT NULL 约束来尽力排除 NULL 。这样就可以回到美妙的二值逻辑世界（虽然并不能完全回到）。</p>
+<h2 id="HAVING子句的力量"><a href="#HAVING子句的力量" class="headerlink" title="HAVING子句的力量"></a>HAVING子句的力量</h2><h3 id="寻找缺失的编号"><a href="#寻找缺失的编号" class="headerlink" title="寻找缺失的编号"></a>寻找缺失的编号</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 这个是有缺陷的，缺1查不到，还会多查一个</span><br><span class="line">SELECT (s1.seq + 1)</span><br><span class="line">FROM SeqTbl s1</span><br><span class="line">WHERE (s1.seq + 1) NOT IN (SELECT s2.seq FROM SeqTbl s2);</span><br></pre></td></tr></table></figure>
+
+<h3 id="求众数"><a href="#求众数" class="headerlink" title="求众数"></a>求众数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT income, COUNT(*) AS cnt</span><br><span class="line">FROM Graduates</span><br><span class="line">GROUP BY income</span><br><span class="line">HAVING COUNT(*) &gt;= ALL (SELECT COUNT(*)</span><br><span class="line">                        FROM Graduates</span><br><span class="line">                        GROUP BY income);</span><br></pre></td></tr></table></figure>
+<p>另外，all&#x2F;any谓词用在null或空集时会出现问题，可以使用极值函数替代，如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT count(*) AS num, income</span><br><span class="line">FROM Graduates</span><br><span class="line">GROUP BY income</span><br><span class="line">HAVING num &gt;= (SELECT max(num) FROM (SELECT count(*) AS num, income FROM Graduates GROUP BY income) tmp);</span><br></pre></td></tr></table></figure>
+
+<h3 id="求中位数"><a href="#求中位数" class="headerlink" title="求中位数"></a>求中位数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT t1.value</span><br><span class="line">FROM test t1</span><br><span class="line">JOIN test t2</span><br><span class="line">GROUP BY t1.value</span><br><span class="line">HAVING sum(IF(t1.value &gt;= t2.value, 1, 0)) &gt; COUNT(*) / 2</span><br><span class="line">   AND sum(IF(t1.value &lt;= t2.value, 1, 0)) &gt; COUNT(*) / 2;</span><br></pre></td></tr></table></figure>
+
+<p>主要是 「group by」和 「having」的联合使用。这是一种「集合」的求法。使用「排序」的方式会更直观些。</p>
+<h3 id="查询不包含NULL的集合"><a href="#查询不包含NULL的集合" class="headerlink" title="查询不包含NULL的集合"></a>查询不包含NULL的集合</h3><p>COUNT 函数的使用方法有 COUNT(<em>) 和 COUNT( 列名 ) 两种，它们的区别有两个：第一个是性能上的区别；第二个是 COUNT(</em>) 可以用于 NULL ，而 COUNT( 列名 ) 与其他聚合函数一样，要先排除掉NULL 的行再进行统计。第二个区别也可以这么理解：COUNT(*) 查询的是所有行的数目，而 COUNT( 列名 ) 查询的则不一定是。</p>
+<h3 id="用关系除法运算进行购物篮分析"><a href="#用关系除法运算进行购物篮分析" class="headerlink" title="用关系除法运算进行购物篮分析"></a>用关系除法运算进行购物篮分析</h3><p>带余除法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT SI.shop</span><br><span class="line">FROM ShopItems SI,</span><br><span class="line">     Items I</span><br><span class="line">WHERE SI.item = I.item</span><br><span class="line">GROUP BY SI.shop</span><br><span class="line">HAVING COUNT(SI.item) = (SELECT COUNT(item) FROM Items);</span><br></pre></td></tr></table></figure>
+
+<p>精确关系除法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT si.shop, count(si.item), count(i.item)</span><br><span class="line">FROM ShopItems si</span><br><span class="line">LEFT JOIN Items i ON si.item = i.item</span><br><span class="line">GROUP BY si.shop</span><br><span class="line">HAVING count(si.item) = 3 and count(i.item) = 3;</span><br></pre></td></tr></table></figure>
+
+<p>从SQL中看，区别就在于「join」和「left join」及「count（si.item」和「count（si.item) and count(count(i.item))」。</p>
+<p>在去除group by和having条件之后，就可以看出两者为什么会有这种差别。</p>
+<p>left join和join的区别就是前者会把主表所有的结果都取出来，哪怕对应副表没有相应的数据（这个时候对应附表展示为null）；而后者只取同时满足条件的结果。</p>
+<p>having条件筛选出来的，其实是满足on条件的两个表各自的个数。<br>「join」对应的那条因为「join」的关系，在筛选结果中count(si.item)和count(i.item)的值是一样的。<br>同理，「left join」筛选结果中，count(si.item)是对应group中<strong>表shopItem的所有条目数（不受on约束）</strong>，而count(i.item)会排除结果中相应的null，即<strong>item表所有<em>满足on条件</em>的条目数</strong>。<br>而这两者，是不等价的。</p>
+<h3 id="本章总结"><a href="#本章总结" class="headerlink" title="本章总结"></a>本章总结</h3><ol>
+<li>表不是文件，记录也没有顺序，所以 SQL 不进行排序。（这一点也没有什么用，可通过group by轻松排序。使用此法，中位数可以更容易理解地取出来）。</li>
+<li>SQL 不是面向过程语言，没有循环、条件分支、赋值操作。</li>
+<li>SQL 通过不断生成子集来求得目标集合。SQL 不像面向过程语言那样通过画流程图来思考问题，而是通过画集合的关系图来思考。</li>
+<li>GROUP BY 子句可以用来生成子集。</li>
+<li>WHERE 子句用来调查集合元素的性质，而 HAVING 子句用来调查集合本身的性质。</li>
+</ol>
+<h2 id="外连接的用法"><a href="#外连接的用法" class="headerlink" title="外连接的用法"></a>外连接的用法</h2><h3 id="用外连接进行行列转换-1-（行→列）：制作交叉表"><a href="#用外连接进行行列转换-1-（行→列）：制作交叉表" class="headerlink" title="用外连接进行行列转换 (1)（行→列）：制作交叉表"></a>用外连接进行行列转换 (1)（行→列）：制作交叉表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- 外连接</span><br><span class="line">SELECT C0.name, C1.name, C2.name, C3.name</span><br><span class="line">FROM (SELECT DISTINCT name FROM Courses) C0</span><br><span class="line">LEFT JOIN (SELECT name FROM Courses WHERE course = &#x27;SQL入门&#x27;) C1 ON C0.name = C1.name</span><br><span class="line">LEFT JOIN (SELECT name FROM Courses WHERE course = &#x27;UNIX基础&#x27;) C2 ON C0.name = C2.name</span><br><span class="line">LEFT JOIN (SELECT name FROM Courses WHERE course = &#x27;Java中级&#x27;) C3 ON C0.name = C3.name;</span><br><span class="line"></span><br><span class="line">-- 标量子查询</span><br><span class="line">SELECT name,</span><br><span class="line">       if((SELECT count(*) FROM Courses C1 WHERE C0.name = C1.name AND C1.course = &#x27;SQL入门&#x27;), &#x27;o&#x27;, &#x27;x&#x27;),</span><br><span class="line">       if((SELECT count(*) FROM Courses C1 WHERE C0.name = C1.name AND C1.course = &#x27;UNIX基础&#x27;), &#x27;o&#x27;, &#x27;x&#x27;),</span><br><span class="line">       if((SELECT count(*) FROM Courses C1 WHERE C0.name = C1.name AND C1.course = &#x27;Java中级&#x27;), &#x27;o&#x27;, &#x27;x&#x27;)</span><br><span class="line">FROM (SELECT DISTINCT name FROM Courses) C0;</span><br><span class="line"></span><br><span class="line">-- CASE表达式</span><br><span class="line">SELECT name,</span><br><span class="line">       IF(SUM(IF(course = &#x27;SQL入门&#x27;, 1, 0)) = 1, &#x27;o&#x27;, &#x27;x&#x27;)  AS &#x27;SQL&#x27;,</span><br><span class="line">       IF(SUM(If(course = &#x27;UNIX基础&#x27;, 1, 0)) = 1, &#x27;o&#x27;, &#x27;x&#x27;) AS &#x27;UNIX&#x27;,</span><br><span class="line">       IF(SUM(IF(course = &#x27;java中级&#x27;, 1, 0)) = 1, &#x27;o&#x27;, &#x27;x&#x27;) AS &#x27;JAVA&#x27;</span><br><span class="line">FROM Courses</span><br><span class="line">GROUP BY name;</span><br></pre></td></tr></table></figure>
+
+<p>题外话：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT count(1&lt;&gt;1), sum(1&lt;&gt;1);</span><br><span class="line">-- 1, 0</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

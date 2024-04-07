@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="字符函数 length 获取参数值中的字节个数  12select length(&amp;#x27;join&amp;#x27;);  --    4select length(&amp;#x27;红楼梦&amp;#x27;); --    9   concat 拼接字符串  1SELECT concat(&amp;#x27;2020&amp;#x27;,&amp;#x27;-&amp;#x27;,10);   --  2020-10   upper low">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL常见函数">
+<meta property="og:url" content="https://chenmenghui.gitee.io/posts/16099.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="字符函数 length 获取参数值中的字节个数  12select length(&amp;#x27;join&amp;#x27;);  --    4select length(&amp;#x27;红楼梦&amp;#x27;); --    9   concat 拼接字符串  1SELECT concat(&amp;#x27;2020&amp;#x27;,&amp;#x27;-&amp;#x27;,10);   --  2020-10   upper low">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-15T05:54:44.771Z">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/posts/16099.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MySQL常见函数 | 陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/16099.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL常见函数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-26T00:00:00+08:00">2019-01-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/16099.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/16099.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="字符函数"><a href="#字符函数" class="headerlink" title="字符函数"></a>字符函数</h1><ol>
+<li>length 获取参数值中的字节个数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select length(&#x27;join&#x27;);  --    4</span><br><span class="line">select length(&#x27;红楼梦&#x27;); --    9</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>concat 拼接字符串</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT concat(&#x27;2020&#x27;,&#x27;-&#x27;,10);   --  2020-10</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>upper lower 大小写转化</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT upper(&#x27;aBc&#x27;);    --  ABC</span><br><span class="line">SELECT lower(&#x27;aBc&#x27;);    --  abc</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>substr substring 截取从指定索引处后面所有字符(索引从1开始)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT substr(&#x27;1234&#x27;, 2);   --  234</span><br><span class="line">SELECT substring(&#x27;1234&#x27;, 2);   --  234</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>instr 返回字符串字串第一次出现的索引</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select instr(&#x27;abcde&#x27;, &#x27;b&#x27;)  --  2;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>trim</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select trim(&#x27; 123 &#x27;); -- 123</span><br><span class="line">select trim(&#x27;a&#x27; from &#x27;abcdea&#x27;); --  bcde</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>lpad rpad 用指定的字符串填充</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT lpad(&#x27;123&#x27;, 5, &#x27;0&#x27;); --  00123</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>replace 替换</li>
+</ol>
+<p>select replace (‘abcdf’, ‘f’,’e’);</p>
+<ol start="9">
+<li>SUBSTRING_INDEX</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DO @str := &#x27;www.baidu.com&#x27;;</span><br><span class="line">SELECT substring_index(@str, &#x27;.&#x27;, 1); --    www</span><br><span class="line">SELECT substring_index(@str, &#x27;.&#x27;, -1); --    com</span><br></pre></td></tr></table></figure>
+
+<h1 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h1><ol>
+<li>round 四舍五入</li>
+</ol>
+<p>select round(1.65);</p>
+<p>select round(1.655, 2);</p>
+<ol start="2">
+<li><p>ceil 天花板数</p>
+</li>
+<li><p>floor 地板数</p>
+</li>
+<li><p>truncate 截断</p>
+</li>
+</ol>
+<p>select truncate(1.999, 2);</p>
+<ol start="5">
+<li>mod 取余</li>
+</ol>
+<h1 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h1><ol>
+<li><p>now 返回当前系统日期时间</p>
+</li>
+<li><p>curdate 返回当前系统日期</p>
+</li>
+<li><p>curtime 返回当前的时间</p>
+</li>
+<li><p>year month day hour minute second 获取年月日时分秒</p>
+</li>
+<li><p>str_to_date 将日期格式的字符串转化成指定格式的时间</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>格式符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%Y</td>
+<td>四位数年份</td>
+</tr>
+<tr>
+<td>%y</td>
+<td>两位数年份</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>月份(01,02,…12)</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>月份(1,2,…12)</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>日(01,02,…)</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>小时(24)</td>
+</tr>
+<tr>
+<td>%h</td>
+<td>小时(12)</td>
+</tr>
+<tr>
+<td>%i</td>
+<td>分钟</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>秒</td>
+</tr>
+</tbody></table>
+<ol start="6">
+<li>date_format 将日期转化成字符</li>
+</ol>
+<h1 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h1><ul>
+<li>coalesce<ul>
+<li>返回第一个不是 NULL 的值</li>
+</ul>
+</li>
+<li>database</li>
+<li>user</li>
+<li>version</li>
+</ul>
+<h1 id="流程控制函数"><a href="#流程控制函数" class="headerlink" title="流程控制函数"></a>流程控制函数</h1><ol>
+<li>if</li>
+</ol>
+<p>select if(10&lt;5, ‘y’, ‘n’);</p>
+<ol start="2">
+<li>case</li>
+</ol>
+<p>使用一(类似switch)<br>case 要判断的字段或表达式<br>when 常量 then 要显示的值或语句1;<br>when 常量 then 要显示的值或语句2;<br>…<br>else 都没有命中的时候<br>end;</p>
+<p>select salary,department_id<br>case 1 then salary<em>1.1<br>case 2 then salary</em>1.2<br>else salary<br>end from emplory;</p>
+<p>使用二(多重if)</p>
+<p>case<br>when 条件1 then 要显示的内容1<br>when 条件2 then 要显示的内容2</p>
+<h1 id="多行函数-聚合函数"><a href="#多行函数-聚合函数" class="headerlink" title="多行函数(聚合函数)"></a>多行函数(聚合函数)</h1><p>sum avg max min count</p>
+<p>特点:</p>
+<ol>
+<li>sum avg用于处理数值类型,max min count可以处理其他</li>
+<li>忽略null值</li>
+<li>可以和distinct搭配实现去重</li>
+<li>count统计行数,count(*)效率较高</li>
+<li>和分组函数一同查询字段要求是group by之后的字段</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># count函数详细介绍</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> employees; # 和上着的区别在于,这个展示的是行数,上个取得是除<span class="keyword">null</span>之后的数</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="number">1</span>) <span class="keyword">from</span> employees; # 相当于数据多了一行<span class="number">1</span>,然后统计个数(实际就是行数)</span><br></pre></td></tr></table></figure>
+
+<h1 id="any-some-all-in-exists"><a href="#any-some-all-in-exists" class="headerlink" title="any some all in exists"></a>any some all in exists</h1><p>exists用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False。<br>any对于子查询返回的列中的任一数值，如果比较结果为true，则返回true。<br>some是any的别名。<br>all对于子查询返回的列中的所有值，如果比较结果为true，则返回true。</p>
+<p>使用方法如下，注意any&#x2F;all&#x2F;是和比较操作符一起使用的</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> TableIn <span class="keyword">where</span> <span class="keyword">exists</span>(<span class="keyword">select</span> BID <span class="keyword">from</span> TableEx <span class="keyword">where</span> BNAME<span class="operator">=</span>TableIn.ANAME);</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> TableIn <span class="keyword">where</span> ANAME<span class="operator">=</span><span class="keyword">ANY</span>(<span class="keyword">select</span> BNAME <span class="keyword">from</span> TableEx);</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> TableIn <span class="keyword">where</span> ANAME <span class="keyword">IN</span> (<span class="keyword">select</span> BNAME <span class="keyword">FROM</span> TableEx);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> TableIn <span class="keyword">where</span> ANAME<span class="operator">=</span><span class="keyword">ALL</span>(<span class="keyword">select</span> BNAME <span class="keyword">from</span> TableEx);</span><br></pre></td></tr></table></figure>
+<p>这里提一下，估计之后看到的时候也会忘记为什么了。in和exists意义并不完全相同，在字段有null值存在的情况，使用两种方法获得的结果可能会不一样。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> test</span><br><span class="line"><span class="keyword">WHERE</span> id <span class="keyword">IN</span> (<span class="keyword">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> test</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">exists</span>(<span class="keyword">SELECT</span> <span class="keyword">NULL</span>);</span><br></pre></td></tr></table></figure>
+<p>如上，第一个查不到数据，第二个查出了test表的所有数据。<br>产生这样的结果，是因为EXISTS 谓词永远不会返回 unknown (select null 的结果是「unknown」，表示未知) 。EXISTS 只会返回 true 或者false 。因此就有了 IN 和 EXISTS 可以互相替换使用，而 NOT IN和 NOT EXISTS 却不可以互相替换的混乱现象。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/20513.html" rel="prev" title="MySql表分区">
+      <i class="fa fa-chevron-left"></i> MySql表分区
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/40296.html" rel="next" title="MySQL分组函数">
+      MySQL分组函数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">字符函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">数学函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">日期函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">其他函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">流程控制函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E5%87%BD%E6%95%B0-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">多行函数(聚合函数)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#any-some-all-in-exists"><span class="nav-number">7.</span> <span class="nav-text">any some all in exists</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

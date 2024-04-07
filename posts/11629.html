@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="依赖注入 控制反转 依赖倒置依赖倒置、控制反转和依赖注入辨析 其实知乎上就有非常好的解析。 说起来自己看了这个概念也快两年了，一直没能够理解。一方面是代码量太少，另一方面其实没有概念，只扣字眼是看不出什么的。这个时候生动的例子就格外重要了。 说起来，自己写的代码里也一直没有用到这些东西。 背历史政治的时候最怕的就是什么背景啊意义啊什么的。太多搞不明白其中有什么区别的情况。现在是工作，没必要扣字眼。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习Yii">
+<meta property="og:url" content="https://chenmenghui.gitee.io/posts/11629.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="依赖注入 控制反转 依赖倒置依赖倒置、控制反转和依赖注入辨析 其实知乎上就有非常好的解析。 说起来自己看了这个概念也快两年了，一直没能够理解。一方面是代码量太少，另一方面其实没有概念，只扣字眼是看不出什么的。这个时候生动的例子就格外重要了。 说起来，自己写的代码里也一直没有用到这些东西。 背历史政治的时候最怕的就是什么背景啊意义啊什么的。太多搞不明白其中有什么区别的情况。现在是工作，没必要扣字眼。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-06-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-15T05:54:44.846Z">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/posts/11629.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>学习Yii | 陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/11629.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          学习Yii
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-09 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-09T00:00:00+08:00">2020-06-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/11629.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/11629.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="依赖注入-控制反转-依赖倒置"><a href="#依赖注入-控制反转-依赖倒置" class="headerlink" title="依赖注入 控制反转 依赖倒置"></a>依赖注入 控制反转 依赖倒置</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/moreorless/article/details/4510859">依赖倒置、控制反转和依赖注入辨析</a></p>
+<p>其实<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?type=content&q=%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC">知乎上就有非常好的解析</a>。</p>
+<p>说起来自己看了这个概念也快两年了，一直没能够理解。一方面是代码量太少，另一方面其实没有概念，只扣字眼是看不出什么的。这个时候生动的例子就格外重要了。</p>
+<p>说起来，自己写的代码里也一直没有用到这些东西。</p>
+<p>背历史政治的时候最怕的就是什么背景啊意义啊什么的。太多搞不明白其中有什么区别的情况。现在是工作，没必要扣字眼。</p>
+<p>简单的来说，控制反转是思想，依赖注入是方法。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailSender</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;发送邮件&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$email</span> = <span class="keyword">new</span> <span class="title class_">EmailSender</span>;</span><br><span class="line">        <span class="variable">$email</span>-&gt;<span class="title function_ invoke__">send</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如下修改之后</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#2</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">EmailSender</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailSenderByQq</span> <span class="keyword">implements</span> <span class="title">EmailSender</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;通过qq发送邮件&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$_emailSenderObject</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">EmailSender <span class="variable">$_emailSenderObject</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;_emailSenderObject = <span class="variable">$_emailSenderObject</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;_emailSenderObject-&gt;<span class="title function_ invoke__">send</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$user</span> = <span class="keyword">new</span> <span class="title class_">User</span>(<span class="keyword">new</span> <span class="title class_">EmailSenderByQq</span>()); <span class="comment">// 依赖注入 依赖倒置原则</span></span><br><span class="line"><span class="variable">$user</span>-&gt;<span class="title function_ invoke__">register</span>();</span><br></pre></td></tr></table></figure>
+
+<p>看到上面两端代码，应该可以看到其中的区别。#1 是我常用的方式，其缺点显而易见，就是 User 类内部绑死了 EmailSender。这种操作应该就是「正向控制流程」。那「控制反转」自然就是反向操作——在User 类内部绑死的类被移交到 User 外部绑定，这就是依赖注入。</p>
+<p>其实我在实际工作中体会不到这种优势，因为工作流程大都固定，类的数量较少，其中关联关系的数量就更少了。加上更多是在框架上敲业务代码，不免就远离了这些。</p>
+<p>不要抱怨什么了。书到用时方恨少。这些都是前人的总结，浪费就太可惜了。</p>
+<h1 id="Yii的依赖注入容器"><a href="#Yii的依赖注入容器" class="headerlink" title="Yii的依赖注入容器"></a>Yii的依赖注入容器</h1><p>Yii中包含一个重要的基类「BaseObject」，几乎所有的类都会继承于它。覆写了那些魔术方法及构造函数。</p>
+<p>Yii的配置比较灵活。比如可以方便地对框架自带的类属性进行覆写。<br>简单看就是设置类属性。把类属性设置和类声明分开，可以实现统一设置多处引用效果。</p>
+<p>以分页类为例。查阅代码可知两个重要的参数「page（当前页）」「per-page（每页条数）」，在框架中有自己的定义。可以这般实现自定义。</p>
+<p><em>最基本的用法</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">controllers</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这里就是直接在实例化类的时候通过构造函数初始化那些预设的属性</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$pagination</span> = <span class="keyword">new</span> <span class="title class_">Pagination</span>([</span><br><span class="line">            <span class="string">&#x27;totalCount&#x27;</span> =&gt; <span class="number">9</span>,</span><br><span class="line">            <span class="string">&#x27;pageParam&#x27;</span>      =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">halt</span>(<span class="variable">$pagination</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>进而</em>可以这样</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">controllers</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 利用容器——其中一点和单例模式挺像的，每每实例化类的时候先看看其中有没有，有的话就直接返回了</span></span><br><span class="line"><span class="comment">     *（容器的另一个特点是可以自动实例化那些被当下实例化类所依赖的类）</span></span><br><span class="line"><span class="comment">     * 利用这点，可以在保存在容器前利用构造函数覆盖类中的属性，这样之后的调用就可以拿到「自定义」一些属性的类了</span></span><br><span class="line"><span class="comment">     * 下面几个方法就是这一点的更进一步的运用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>,[</span><br><span class="line">            <span class="string">&#x27;pageParam&#x27;</span>      =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$pagination</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [],[</span><br><span class="line">            <span class="string">&#x27;totalCount&#x27;</span>    =&gt; <span class="number">9</span></span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">halt</span>(<span class="variable">$pagination</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>然后</em>可以把那两个自定义的参数封装到bootstrap中（bootstrap是在入口脚本处引入的）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//frontend/config/bootstrap.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [</span><br><span class="line">    <span class="string">&#x27;pageParam&#x27;</span>      =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<p>现在就可以在frontend模块中所有的地方使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">controllers</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$pagination</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [],[</span><br><span class="line">            <span class="string">&#x27;totalCount&#x27;</span>    =&gt; <span class="number">9</span></span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">halt</span>(<span class="variable">$pagination</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>再进一步</em>，bootstrap的那段可以自定义引导类更灵活的配置</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//frontend/bootstrap/DiBootstrap.php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">bootstrap</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">BootstrapInterface</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这里使用了接口「BootstrapInterface」</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DiBootstrap</span> <span class="keyword">implements</span> <span class="title">BootstrapInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"><span class="variable">$app</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [</span><br><span class="line">            <span class="string">&#x27;pageParam&#x27;</span>     =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时在需要的模块配置文件中配置好引导类，像这样</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//frontend/config/main.php</span></span><br><span class="line">...</span><br><span class="line"><span class="string">&#x27;bootstrap&#x27;</span> =&gt; [<span class="string">&#x27;log&#x27;</span>, \frontend\bootstrap<span class="title class_">\DiBootstrap</span>::<span class="variable language_">class</span>],</span><br><span class="line">..  .</span><br></pre></td></tr></table></figure>
+
+<p>调用和上一个方式一样</p>
+<h1 id="Yii中创建对象的三种方法"><a href="#Yii中创建对象的三种方法" class="headerlink" title="Yii中创建对象的三种方法"></a>Yii中创建对象的三种方法</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">models</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 只需要简单的创建一个类</span></span><br><span class="line"><span class="comment"> * Class User</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> frontend\models</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">models</span>\<span class="title">User</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">defined</span>(<span class="string">&#x27;YII_DEBUG&#x27;</span>) <span class="keyword">or</span> <span class="title function_ invoke__">define</span>(<span class="string">&#x27;YII_DEBUG&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="title function_ invoke__">defined</span>(<span class="string">&#x27;YII_ENV&#x27;</span>) <span class="keyword">or</span> <span class="title function_ invoke__">define</span>(<span class="string">&#x27;YII_ENV&#x27;</span>, <span class="string">&#x27;dev&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/autoload.php&#x27;</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/yiisoft/yii2/Yii.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 向此容器注册一个类定义</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>, [</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>   =&gt; <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Grey&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">26</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实例化的三种方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$user1</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>);</span><br><span class="line"><span class="variable">$user2</span> = <span class="title class_">Yii</span>::<span class="title function_ invoke__">createObject</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>);</span><br><span class="line"><span class="variable">$user3</span> = \yii\di<span class="title class_">\Instance</span>::<span class="title function_ invoke__">ensure</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="容器扩展"><a href="#容器扩展" class="headerlink" title="容器扩展"></a>容器扩展</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/autoload.php&#x27;</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/yiisoft/yii2/Yii.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$val</span> = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="variable">$id</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$age</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">private</span> Foo <span class="variable">$foo</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Foo <span class="variable">$foo</span>, <span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;foo = <span class="variable">$foo</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;id = <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">BaseObject</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="variable">$id</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$age</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">private</span> Foo <span class="variable">$foo</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Foo <span class="variable">$foo</span>, <span class="variable">$id</span>, <span class="variable">$config</span> = []</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">parent</span>::<span class="title function_ invoke__">__construct</span>(<span class="variable">$config</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;foo = <span class="variable">$foo</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;id = <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$container</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>;</span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>, [<span class="number">1</span> =&gt; <span class="number">123</span>], [</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Grey&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>  =&gt; <span class="number">28</span>,</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="variable">$student</span> = <span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">Student</span>::<span class="variable language_">class</span>,</span><br><span class="line">    [<span class="number">1</span> =&gt; <span class="number">123</span>, ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">26</span>,</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Red&#x27;</span></span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">die</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意上述代码中类 User 和类 Student 的参数不同之处。</p>
+<p>Yii 会使用__set&#x2F;__get对类中已声明的属性进行覆盖。但对于继承 BaseObject 的类，就需要配置第三个参数「$config」来覆盖了。</p>
+<h1 id="模仿-laravel-中的-Facade"><a href="#模仿-laravel-中的-Facade" class="headerlink" title="模仿 laravel 中的 Facade"></a>模仿 laravel 中的 Facade</h1><ol start="0">
+<li>创建 接口 和 类</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">service</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IUserService</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findAll</span>(<span class="params"><span class="variable">$offset</span>, <span class="variable">$limit</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findOne</span>(<span class="params"><span class="variable">$id</span></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">service</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">IUserService</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findAll</span>(<span class="params"><span class="variable">$offset</span>, <span class="variable">$limit</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="variable">$offset</span>, <span class="variable">$limit</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findOne</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="0">
+<li>在 bootstrap 中绑定接口和类</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// frontend/config/bootstrap.php</span></span><br><span class="line"><span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(\frontend\service<span class="title class_">\IUserService</span>::<span class="variable language_">class</span>, \frontend\service<span class="title class_">\UserServiceImpl</span>::<span class="variable language_">class</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="0">
+<li>创建 Facade</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">service</span>\<span class="title">IUserService</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class UserFacade</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> frontend\facade</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findAll($offset, $limit)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findOne($id)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__callStatic</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$name</span>, <span class="keyword">array</span> <span class="variable">$arguments</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">/** <span class="doctag">@var</span> IUserService $service */</span></span><br><span class="line">        <span class="variable">$service</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">IUserService</span>::<span class="variable language_">class</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$service</span>, <span class="variable">$name</span>], <span class="variable">$arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="0">
+<li>调用</li>
+</ol>
+<p>比如在控制器中</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// \frontend\controllers\ApiController</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionService3</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">halt</span>(<span class="title class_">StudentFacade</span>::<span class="title function_ invoke__">findAll</span>(<span class="number">60</span>,<span class="number">20</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="0">
+<li>更进一步，创建一个 Facade 基类</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">InvalidConfigException</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">di</span>\<span class="title">Instance</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> object|string|array|static</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> InvalidConfigException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidConfigException</span>(<span class="string">&#x27;Facade does not implement getFacadeAccessor method&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $arguments</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> InvalidConfigException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__callStatic</span>(<span class="params"><span class="variable">$name</span>, <span class="variable">$arguments</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$server</span> = <span class="title class_">Instance</span>::<span class="title function_ invoke__">ensure</span>(<span class="built_in">static</span>::<span class="title function_ invoke__">getFacadeAccessor</span>());</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$server</span>, <span class="variable">$name</span>], <span class="variable">$arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在创建类</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">service</span>\<span class="title">IUserService</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class UserFacade</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> frontend\facade</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findAll($offset, $limit)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findOne($id)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentFacade</span> <span class="keyword">extends</span> <span class="title">BaseFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">IUserService</span>::<span class="variable language_">class</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用方式和4一致</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// \frontend\controllers\ApiController</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionService3</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">halt</span>(<span class="title class_">StudentFacade</span>::<span class="title function_ invoke__">findAll</span>(<span class="number">60</span>,<span class="number">20</span>));</span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<ol start="0">
+<li>利用这一点可以更「方便」的使用诸如Redis。</li>
+</ol>
+<p>注意 Yii 中的 redis 模块是 composer 另外安装的。所以在ide中没有代码提示的功能</p>
+<p>安装之后，需要配置在 config 中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// common/config/main-local.php</span><br><span class="line">&lt;?php</span><br><span class="line">return [</span><br><span class="line">    &#x27;components&#x27; =&gt; [</span><br><span class="line">        ...</span><br><span class="line">        &#x27;redis&#x27;  =&gt; [</span><br><span class="line">            &#x27;class&#x27;    =&gt; &#x27;yii\redis\Connection&#x27;,</span><br><span class="line">            &#x27;hostname&#x27; =&gt; &#x27;127.0.0.1&#x27;,</span><br><span class="line">            &#x27;port&#x27;     =&gt; 6379,</span><br><span class="line">            &#x27;database&#x27; =&gt; 0,</span><br><span class="line">        ],</span><br><span class="line">        ...</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>这个时候就可以使用 Yii::$app-&gt;redis 来调用 redis 类中的方法了</p>
+<p>其中的注释也是必要的，从 yii\redis\Connection 中复制后在每个 method 后加 static，ide可以据此提供代码提示的功能</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">service</span>\<span class="title">IUserService</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">redis</span>\<span class="title">LuaScriptBuilder</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ...</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> static mixed set($key, $value, ...$options) Set the string value of a key. &lt;https://redis.io/commands/set&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> static mixed get($key) Get the value of a key. &lt;https://redis.io/commands/get&gt;</span></span><br><span class="line"><span class="comment"> * ...</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Redis</span> <span class="keyword">extends</span> <span class="title">BaseFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 其实5中的基类就是实现这个功能</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// public static function __callStatic($name, $arguments)</span></span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//     if (isset(Yii::$app-&gt;redis)) &#123;</span></span><br><span class="line">    <span class="comment">//         $service = Yii::$app-&gt;redis;</span></span><br><span class="line">    <span class="comment">//         return call_user_func_array([$service, $name], $arguments);</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Instance::ensure(&#x27;redis&#x27;) 在这里其实就是调用了 Yii::$app-&gt;redi</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;redis&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结起来，这一步其实就是对 __callstatic 和 Instance 的实际应用</p>
+<p>代码很容易读懂，使用也比较舒服。</p>
+<h3 id="控制器生命周期"><a href="#控制器生命周期" class="headerlink" title="控制器生命周期"></a>控制器生命周期</h3><ol start="0">
+<li>在控制器创建和配置之后，yii\base\Controller::init()方法会被调用</li>
+<li>控制器根据请求ID创建一个操作对象：<ul>
+<li>如果操作ID没有指定，会使用default action ID默认操作ID</li>
+<li>如果在action map找到操作ID, 会创建一个独立操作</li>
+<li>如果操作ID对应操作方法,会创建一个内联操作</li>
+<li>否则会抛出yii\base\InvalidRouteException异常</li>
+</ul>
+</li>
+<li>控制器按顺序调用应用主题,模块(如果控制器属于模块),控制器的beforeAction方法<ul>
+<li>如果任意一个调用返回false,后面为调用的beforeAction()会跳过并且操作执行会被取消</li>
+<li>默认情况下每个beforeAciton()方法会触发一个beforeAction事件,在事件中可以追加事件处理操作</li>
+</ul>
+</li>
+<li>控制器执行操作<ul>
+<li>请求数据解析和填入到操作参数</li>
+</ul>
+</li>
+<li>控制器按顺序调用控制器,模块(如果控制器属于模块),应用主体的afterAction()<ul>
+<li>默认情况下每个afterAction()会触发一个afterAction事件,在事件中可以追加事件处理操作</li>
+</ul>
+</li>
+<li>应用主体获取操作结果并赋值给响应</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/25320.html" rel="prev" title="PHP 常用函数">
+      <i class="fa fa-chevron-left"></i> PHP 常用函数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/45672.html" rel="next" title="MySql Between">
+      MySql Between <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5-%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC-%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">依赖注入 控制反转 依赖倒置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yii%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">Yii的依赖注入容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yii%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">Yii中创建对象的三种方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E6%89%A9%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">容器扩展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E4%BB%BF-laravel-%E4%B8%AD%E7%9A%84-Facade"><span class="nav-number">5.</span> <span class="nav-text">模仿 laravel 中的 Facade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">5.0.1.</span> <span class="nav-text">控制器生命周期</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="陈孟辉的学习笔记">
+<meta property="og:url" content="https://chenmenghui.gitee.io/page/3/index.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="开发菜鸟 陈孟辉">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/34179.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/34179.html" class="post-title-link" itemprop="url">PHP 多线程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-13 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-13T00:00:00+08:00">2022-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/34179.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/34179.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>使用 pcntl 处理</p>
+<p>下面就是我相关实际使用的代码（删除相关业务了）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/php -q</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Auto schedule entry</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This cron job is used to schedule automatically for TBM V2.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 3.1 US will be a regular script, run every date.</span></span><br><span class="line"><span class="comment"> * Get all units that meet the following conditions:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Get runs by the unit filtered by upper steps.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The automatic schedule script can arrange 6 runs per minute (assume 160 units in a run), and 360 runs per hour. In China, for example, there are nearly 400000 units with nearly 5000 runs, with 300 possible changes a day. Even if all of those runs had a schedule, we could do it in less than an hour.</span></span><br><span class="line"><span class="comment"> * To avoid unrestricted execution of the script, we can set the script to run for up to an hour per day, which is enough to cover the daily change.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * To achieve this function, I have added a special switch named Enable Auto TBM Scheduling Job. There is a cron job to run auto_schedule_batch at 5:00 every day. The script will run based on the two switch (Enable Auto TBM Scheduling Job &amp;&amp; Enable Maintenance Schedule Generic Logic V2)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>     v1.1</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>      ValenChen</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@subpackage</span>  common</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$_SERVER</span>[<span class="string">&quot;DOCUMENT_ROOT&quot;</span>])) &#123;</span><br><span class="line">    <span class="variable">$_SERVER</span>[<span class="string">&quot;DOCUMENT_ROOT&quot;</span>] = <span class="variable">$_ENV</span>[<span class="string">&#x27;HOME&#x27;</span>].<span class="string">&#x27;/web&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$iLimitTime</span> = <span class="keyword">isset</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;argv&#x27;</span>][<span class="number">1</span>]) ? <span class="title function_ invoke__">trim</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;argv&#x27;</span>][<span class="number">1</span>]) : <span class="number">3600</span>;</span><br><span class="line"><span class="variable">$iYear</span> = <span class="keyword">isset</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;argv&#x27;</span>][<span class="number">2</span>]) ? <span class="title function_ invoke__">trim</span>(<span class="variable">$_SERVER</span>[<span class="string">&#x27;argv&#x27;</span>][<span class="number">2</span>]) : <span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y&#x27;</span>);</span><br><span class="line"><span class="variable">$bIsScheduleNextYear</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;argv&#x27;</span>][<span class="number">3</span>];</span><br><span class="line"><span class="variable">$iMaxChildPro</span> = <span class="variable">$_SERVER</span>[<span class="string">&#x27;argv&#x27;</span>][<span class="number">4</span>] ?? <span class="number">5</span>; <span class="comment">// Maximum number of processes</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">set_time_limit</span>(<span class="variable">$iLimitTime</span> + <span class="number">60</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$info</span> = [];</span><br><span class="line"><span class="variable">$iCurChildPro</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!(<span class="title function_ invoke__">open</span>(<span class="string">&#x27;AUTO_TBM_SCHEDULING_JOB&#x27;</span>) &amp;&amp; <span class="title function_ invoke__">open</span>(<span class="string">&#x27;MAINTENANCE_GENERIC_LOGIC_V2&#x27;</span>))) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="string">&quot;The auto schedule switch has not opened&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$info</span> =  [ <span class="string">&#x27;JobId&#x27;</span> =&gt; <span class="number">1</span>, <span class="string">&#x27;BatchRunInfo&#x27;</span> =&gt; []];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">scheduleResult</span>(<span class="params"><span class="variable">$iJobId</span>, <span class="variable">$sResult</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">exec</span>(<span class="string">&quot;php xxx/auto_schedule_result.php <span class="subst">&#123;$iJobId&#125;</span> <span class="subst">&#123;$sResult&#125;</span>&quot;</span>, <span class="variable">$res</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;COMPLETED&lt;/p&gt;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$iRunCnt</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$info</span>[<span class="string">&#x27;BatchRunInfo&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sig_handler</span>(<span class="params"><span class="variable">$sig</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">global</span> <span class="variable">$iCurChildPro</span>;</span><br><span class="line">        <span class="keyword">switch</span> (<span class="variable">$sig</span>) &#123;</span><br><span class="line">            <span class="keyword">case</span> SIGCHLD:</span><br><span class="line">                <span class="variable">$iCurChildPro</span>--;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">declare</span>(ticks=<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">pcntl_signal</span>(SIGCHLD, <span class="string">&quot;sig_handler&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$iScheduleStartTime</span> = <span class="title function_ invoke__">time</span>();</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$info</span>[<span class="string">&#x27;BatchRunInfo&#x27;</span>] <span class="keyword">as</span> <span class="variable">$aRunInfo</span>) &#123;</span><br><span class="line">        <span class="variable">$iRunCnt</span>--;</span><br><span class="line">        <span class="variable">$iCurChildPro</span>++;</span><br><span class="line">        <span class="variable">$pid</span> = <span class="title function_ invoke__">pcntl_fork</span>();</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$pid</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$iCurChildPro</span> &gt;= <span class="variable">$iMaxChildPro</span>) &#123;</span><br><span class="line">                <span class="title function_ invoke__">pcntl_wait</span>(<span class="variable">$status</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// overtime</span></span><br><span class="line">            <span class="variable">$iNow</span> = <span class="title function_ invoke__">time</span>();</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$iLimitTime</span> &amp;&amp; <span class="variable">$iNow</span> - <span class="variable">$iScheduleStartTime</span> &gt; <span class="variable">$iLimitTime</span>) &#123;</span><br><span class="line">                <span class="comment">// The timeout will be cancelled</span></span><br><span class="line">                <span class="title function_ invoke__">scheduleResult</span>(<span class="variable">$info</span>[<span class="string">&#x27;JobId&#x27;</span>], xxx<span class="title class_">\MaintenanceScheduleJobService</span>::<span class="variable constant_">RUNNING_STATUS_CANCELED</span>);</span><br><span class="line">                <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="title function_ invoke__">exec</span>(<span class="string">&quot;php xxx/auto_schedule.php <span class="subst">&#123;$info[&#x27;JobId&#x27;]&#125;</span> <span class="subst">&#123;$aRunInfo[&#x27;RunId&#x27;]&#125;</span> <span class="subst">&#123;$aRunInfo[&#x27;Year&#x27;]&#125;</span>&quot;</span>, <span class="variable">$res</span>);</span><br><span class="line">            <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_ invoke__">scheduleResult</span>(<span class="variable">$info</span>[<span class="string">&#x27;JobId&#x27;</span>], xxx<span class="title class_">\MaintenanceScheduleJobService</span>::<span class="variable constant_">RUNNING_STATUS_COMPLETED</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$exception</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$oScheduleBatchService</span>)) &#123;</span><br><span class="line">        <span class="title function_ invoke__">scheduleResult</span>(<span class="variable">$info</span>[<span class="string">&#x27;JobId&#x27;</span>], xxx<span class="title class_">\MaintenanceScheduleJobService</span>::<span class="variable constant_">RUNNING_STATUS_FAILED</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$sMsg</span> = <span class="variable">$exception</span>-&gt;<span class="title function_ invoke__">getMessage</span>().<span class="string">&quot;\n\n&quot;</span>.<span class="variable">$exception</span>-&gt;<span class="title function_ invoke__">getTraceAsString</span>();</span><br><span class="line">    <span class="title function_ invoke__">log</span>( <span class="variable">$info</span>[<span class="string">&#x27;JobId&#x27;</span>], <span class="variable">$sMsg</span>, <span class="string">&#x27;AutoSchedule&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/28389.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/28389.html" class="post-title-link" itemprop="url">PHP 配置相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-13 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-13T00:00:00+08:00">2022-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/%E9%85%8D%E7%BD%AE/" itemprop="url" rel="index"><span itemprop="name">配置</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/28389.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/28389.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>147</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Warning-Unknown-Input-variables-exceeded-1000-To-increase-the-limit-chang"><a href="#Warning-Unknown-Input-variables-exceeded-1000-To-increase-the-limit-chang" class="headerlink" title="Warning: Unknown: Input variables exceeded 1000. To increase the limit chang"></a>Warning: Unknown: Input variables exceeded 1000. To increase the limit chang</h1><p>修改 php.ini 中的 max_input_vars</p>
+<h1 id="Call-to-undefined-function-socket-create"><a href="#Call-to-undefined-function-socket-create" class="headerlink" title="Call to undefined function socket_create()"></a>Call to undefined function socket_create()</h1><p>配置 php.ini 中的 sockets</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/56639.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/56639.html" class="post-title-link" itemprop="url">Hexo 遇到的问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-12T00:00:00+08:00">2022-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/56639.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/56639.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>514</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>记录一下问题</p>
+<ul>
+<li>hexo-renderer-sass失效，原因是nodejs版本过高。这个其实是有链接提示的。</li>
+<li>hexo-filter-kroki 安装失败，不清楚具体原因，后来删除 node_modules，并使用cnpm安装就解决了。</li>
+<li>gitee pages 一直不刷新。好吧，gitee免费的gitee没有自动刷新，需要代码库-&gt;服务-&gt;gitee pages页面手动触发更新按钮。</li>
+</ul>
+<p>记录这次安装插件hexo-filter-kroki的过程：</p>
+<p>没有系统地看过node，好多概念不知道。不少安装报错还是可以通过提示直接查到的。不过我也是后知后觉，都是跳过信息直接百度的。</p>
+<p>主要是想使用markdown直接绘制思维导图等plantuml，百度到了插件hexo-filter-kroki。只是安装各种报错。</p>
+<p>也没有细看错误信息，直接升级hexo。</p>
+<p>然后css之类的不加载之类的问题出现了。</p>
+<p>好吧，css不加载是主题依赖的插件hexo-renderer-sass失效了，失效的原因是我本地node版本过高，之前没有发现是没有执行过 hexo clean。</p>
+<p>之后就是node降级（用的还是最笨的方法，卸载重安装）。现在终于好了。是得找空过一下nodejs。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/7658.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/7658.html" class="post-title-link" itemprop="url">本站 Hexo 配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-12T00:00:00+08:00">2022-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-26 10:19:06" itemprop="dateModified" datetime="2022-04-26T10:19:06+08:00">2022-04-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/7658.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/7658.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>都是插件<a target="_blank" rel="noopener" href="https://github.com/miao1007/hexo-filter-kroki">hexo-filter-kroki</a>的功劳，nodejs太强大了。</p>
+<p>大致试了一下，都能实现。就是生成的图没有交互。以后可能会有的吧。只是不能等到事情齐备了之后才去做。</p>
+<p>这个文件是为了测试「hexo-filter-kroki」是否生效。</p>
+<p><a target="_blank" rel="noopener" href="https://plantuml.com/zh/">官网已经很详细了，还自带中文，很容易看懂</a></p>
+<h1 id="PlantUml-实际例子"><a href="#PlantUml-实际例子" class="headerlink" title="PlantUml 实际例子"></a>PlantUml 实际例子</h1><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>额，这个不是，只是用于说明码的时候数字不必要手动打123，会自动按行和tab排。</p>
+<p>实际代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. edit plan</span><br><span class="line">1. add plans</span><br><span class="line">    1. update unit prefer</span><br><span class="line">    1. if</span><br><span class="line">        1. insert plan</span><br><span class="line">    1. lock exists plan</span><br></pre></td></tr></table></figure>
+
+<p>效果展示：</p>
+<ol>
+<li>edit plan</li>
+<li>add plans<ol>
+<li>update unit prefer<ol>
+<li>insert plan</li>
+</ol>
+</li>
+<li>lock exists plan</li>
+</ol>
+</li>
+</ol>
+<h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><img class="kroki" src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI0MTZweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjM0OHB4O2hlaWdodDo0MTZweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzNDggNDE2IiB3aWR0aD0iMzQ4cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNDAiIHg9IjEwIiB5PSIxODguODkwNiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIwIiB4PSIyMCIgeT0iMjExLjg4NTciPk9TPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI0OSIgeD0iMTAwIiB5PSIyMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI5IiB4PSIxMTAiIHk9IjQyLjk5NTEiPlVuaXg8L3RleHQ+PHBhdGggZD0iTTUwLDIwNy4wMzkxIEw2MCwyMDcuMDM5MSBDNzUsMjA3LjAzOTEgNzUsMzguMTQ4NCA5MCwzOC4xNDg0IEwxMDAsMzguMTQ4NCAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI1NSIgeD0iMTAwIiB5PSI3Ni4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzUiIHg9IjExMCIgeT0iOTkuMjkyIj5MaW51eDwvdGV4dD48cGF0aCBkPSJNNTAsMjA3LjAzOTEgTDYwLDIwNy4wMzkxIEM3NSwyMDcuMDM5MSA3NSw5NC40NDUzIDkwLDk0LjQ0NTMgTDEwMCw5NC40NDUzICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjY4IiB4PSIxMDAiIHk9IjEzMi41OTM4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNDgiIHg9IjExMCIgeT0iMTU1LjU4ODkiPk1hY09TPC90ZXh0PjxwYXRoIGQ9Ik01MCwyMDcuMDM5MSBMNjAsMjA3LjAzOTEgQzc1LDIwNy4wMzkxIDc1LDE1MC43NDIyIDkwLDE1MC43NDIyIEwxMDAsMTUwLjc0MjIgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iODIiIHg9IjEwMCIgeT0iMTg4Ljg5MDYiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2MiIgeD0iMTEwIiB5PSIyMTEuODg1NyI+V2luZG93czwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTA0IiB4PSIyMzIiIHk9Ijc2LjI5NjkiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4NCIgeD0iMjQyIiB5PSI5OS4yOTIiPldpbmRvd3MgOTU8L3RleHQ+PHBhdGggZD0iTTE4MiwyMDcuMDM5MSBMMTkyLDIwNy4wMzkxIEMyMDcsMjA3LjAzOTEgMjA3LDk0LjQ0NTMgMjIyLDk0LjQ0NTMgTDIzMiw5NC40NDUzICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjEwNCIgeD0iMjMyIiB5PSIxMzIuNTkzOCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg0IiB4PSIyNDIiIHk9IjE1NS41ODg5Ij5XaW5kb3dzIDk4PC90ZXh0PjxwYXRoIGQ9Ik0xODIsMjA3LjAzOTEgTDE5MiwyMDcuMDM5MSBDMjA3LDIwNy4wMzkxIDIwNywxNTAuNzQyMiAyMjIsMTUwLjc0MjIgTDIzMiwxNTAuNzQyMiAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI5NSIgeD0iMjMyIiB5PSIxODguODkwNiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijc1IiB4PSIyNDIiIHk9IjIxMS44ODU3Ij5XaW5kb3dzIDc8L3RleHQ+PHBhdGggZD0iTTE4MiwyMDcuMDM5MSBMMTkyLDIwNy4wMzkxIEMyMDcsMjA3LjAzOTEgMjA3LDIwNy4wMzkxIDIyMiwyMDcuMDM5MSBMMjMyLDIwNy4wMzkxICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9Ijk1IiB4PSIyMzIiIHk9IjI0NS4xODc1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzUiIHg9IjI0MiIgeT0iMjY4LjE4MjYiPldpbmRvd3MgODwvdGV4dD48cGF0aCBkPSJNMTgyLDIwNy4wMzkxIEwxOTIsMjA3LjAzOTEgQzIwNywyMDcuMDM5MSAyMDcsMjYzLjMzNTkgMjIyLDI2My4zMzU5IEwyMzIsMjYzLjMzNTkgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTA0IiB4PSIyMzIiIHk9IjMwMS40ODQ0Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODQiIHg9IjI0MiIgeT0iMzI0LjQ3OTUiPldpbmRvd3MgMTA8L3RleHQ+PHBhdGggZD0iTTE4MiwyMDcuMDM5MSBMMTkyLDIwNy4wMzkxIEMyMDcsMjA3LjAzOTEgMjA3LDMxOS42MzI4IDIyMiwzMTkuNjMyOCBMMjMyLDMxOS42MzI4ICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTUwLDIwNy4wMzkxIEw2MCwyMDcuMDM5MSBDNzUsMjA3LjAzOTEgNzUsMjA3LjAzOTEgOTAsMjA3LjAzOTEgTDEwMCwyMDcuMDM5MSAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzYuMjk2OSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI4MSIgeD0iMTAwIiB5PSIyNDUuMTg3NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYxIiB4PSIxMTAiIHk9IjI2OC4xODI2Ij5GcmVlQlNEPC90ZXh0PjxwYXRoIGQ9Ik01MCwyMDcuMDM5MSBMNjAsMjA3LjAzOTEgQzc1LDIwNy4wMzkxIDc1LDI2My4zMzU5IDkwLDI2My4zMzU5IEwxMDAsMjYzLjMzNTkgIiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjM2LjI5NjkiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNTkiIHg9IjEwMCIgeT0iMzU3Ljc4MTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzOSIgeD0iMTEwIiB5PSIzODAuNzc2NCI+T3RoZXI8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzNi4yOTY5IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjQ3IiB4PSIyMDkiIHk9IjM1Ny43ODEzIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjciIHg9IjIxOSIgeT0iMzgwLjc3NjQiPnRlc3Q8L3RleHQ+PHBhdGggZD0iTTE1OSwzNzUuOTI5NyBMMTY5LDM3NS45Mjk3IEMxODQsMzc1LjkyOTcgMTg0LDM3NS45Mjk3IDE5OSwzNzUuOTI5NyBMMjA5LDM3NS45Mjk3ICIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTUwLDIwNy4wMzkxIEw2MCwyMDcuMDM5MSBDNzUsMjA3LjAzOTEgNzUsMzc1LjkyOTcgOTAsMzc1LjkyOTcgTDEwMCwzNzUuOTI5NyAiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjwhLS1TUkM9W0xLdkRReTkwNEJ0bGh2WVo0WWc5QTRycGFnZWZJOEJJNjdsVTk2RFNJNlJCeGdual90cXRzV2cxV05jRnp5NVJNUFE2VXFMREJwejUwRmoyMTA2S2ZCdzdkb2JvRHYzQi1ndnlVQVYtaVh1LUNCbWlucEdVcVVTSDZzakhFN0ljMWw2cnMwbm1wblNxRG1rWlBSNTJsLWpsY3BYcWFoWkNDeFlZaUtlSkhCRHZFNV9DZWlkbnVZMzUyaTg4ZVpabmpybjBVTHAzODRfNXZFc0dXVE5FcjBZRGljbkt2VFpkZnM4ZGhuQlU3UjdnQ0c1b05JVHNmcG8xbWJOVTlYZFhiOGlEZGdOaDZCUEt3cVBIY19aZ3oyYU1jUUpNb1ZPX2tEUS1uX3BTc0l5MF0tLT48L2c+PC9zdmc+'>
+
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><img class="kroki" src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI5MDZweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjQ3OXB4O2hlaWdodDo5MDZweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0NzkgOTA2IiB3aWR0aD0iNDc5cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48ZWxsaXBzZSBjeD0iMTg5LjUiIGN5PSIyMCIgZmlsbD0iIzIyMjIyMiIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIyMDAiIHg9Ijg5LjUiIHk9IjUwIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTgwIiB4PSI5OS41IiB5PSI3MS4xMzg3Ij5DbGlja1NlcnZsZXQuaGFuZGxlUmVxdWVzdCgpPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI4MSIgeD0iMTQ5IiB5PSIxMDMuOTY4OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjYxIiB4PSIxNTkiIHk9IjEyNS4xMDc0Ij5uZXcgcGFnZTwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTAxIiB4PSIxMzkiIHk9IjIwNi4zMzk4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODEiIHg9IjE0OSIgeT0iMjI3LjQ3ODUiPlBhZ2Uub25Jbml0KCk8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEyNSIgeD0iMTI3IiB5PSIzMDguNzEwOSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNSIgeD0iMTM3IiB5PSIzMjkuODQ5NiI+UHJvY2VzcyBjb250cm9sczwvdGV4dD48cG9seWdvbiBmaWxsPSIjRjFGMUYxIiBwb2ludHM9IjEyOSwzNjIuNjc5NywyNTAsMzYyLjY3OTcsMjYyLDM3NC42Nzk3LDI1MCwzODYuNjc5NywxMjksMzg2LjY3OTcsMTE3LDM3NC42Nzk3LDEyOSwzNjIuNjc5NyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTIxIiB4PSIxMjkiIHk9IjM3OC40ODc4Ij5jb250aW51ZSBwcm9jZXNzaW5nPzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNCIgeD0iMjYyIiB5PSIzNzIuMDg1NCI+bm88L3RleHQ+PGVsbGlwc2UgY3g9IjI5OCIgY3k9IjM3NC42Nzk3IiBmaWxsPSJub25lIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMjIyMjIyO3N0cm9rZS13aWR0aDoxLjA7Ii8+PGVsbGlwc2UgY3g9IjI5OCIgY3k9IjM3NC42Nzk3IiBmaWxsPSIjMjIyMjIyIiByeD0iNiIgcnk9IjYiIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6MS4wOyIvPjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMTY5LDQzMS4xOTUzLDIxMCw0MzEuMTk1MywyMjIsNDQzLjE5NTMsMjEwLDQ1NS4xOTUzLDE2OSw0NTUuMTk1MywxNTcsNDQzLjE5NTMsMTY5LDQzMS4xOTUzIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0MSIgeD0iMTY5IiB5PSI0NDcuMDAzNCI+aXNQb3N0PzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMCIgeD0iMTM3IiB5PSI0NDAuNjAxMSI+eWVzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE0IiB4PSIyMjIiIHk9IjQ0MC42MDExIj5ubzwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTEwIiB4PSI3MSIgeT0iNDY1LjE5NTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5MCIgeD0iODEiIHk9IjQ4Ni4zMzQiPlBhZ2Uub25Qb3N0KCk8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEwNCIgeD0iMjAxIiB5PSI0NjUuMTk1MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg0IiB4PSIyMTEiIHk9IjQ4Ni4zMzQiPlBhZ2Uub25HZXQoKTwvdGV4dD48cG9seWdvbiBmaWxsPSIjRjFGMUYxIiBwb2ludHM9IjE4OS41LDUwNS4xNjQxLDIwMS41LDUxNy4xNjQxLDE4OS41LDUyOS4xNjQxLDE3Ny41LDUxNy4xNjQxLDE4OS41LDUwNS4xNjQxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiLz48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTI3IiB4PSIxMjYiIHk9IjU0OS4xNjQxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTA3IiB4PSIxMzYiIHk9IjU3MC4zMDI3Ij5QYWdlLm9uUmVuZGVyKCk8L3RleHQ+PHBvbHlnb24gZmlsbD0iI0YxRjFGMSIgcG9pbnRzPSIxNTguNSwyNjAuMzA4NiwyMjAuNSwyNjAuMzA4NiwyMzIuNSwyNzIuMzA4NiwyMjAuNSwyODQuMzA4NiwxNTguNSwyODQuMzA4NiwxNDYuNSwyNzIuMzA4NiwxNTguNSwyNjAuMzA4NiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQiIHg9IjE5My41IiB5PSIyOTQuNTE5Ij5ubzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI2MiIgeD0iMTU4LjUiIHk9IjI3Ni4xMTY3Ij5pc0ZvcndhcmQ/PC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMTg5LjUsNjAzLjEzMjgsMjAxLjUsNjE1LjEzMjgsMTg5LjUsNjI3LjEzMjgsMTc3LjUsNjE1LjEzMjgsMTg5LjUsNjAzLjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMTI2LjUsMTU3LjkzNzUsMjUyLjUsMTU3LjkzNzUsMjY0LjUsMTY5LjkzNzUsMjUyLjUsMTgxLjkzNzUsMTI2LjUsMTgxLjkzNzUsMTE0LjUsMTY5LjkzNzUsMTI2LjUsMTU3LjkzNzUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIzIiB4PSIxOTMuNSIgeT0iMTkyLjE0NzkiPnRydWU8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTI2IiB4PSIxMjYuNSIgeT0iMTczLjc0NTYiPlBhZ2Uub25TZWN1cml0eUNoZWNrPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI4IiB4PSIyNjQuNSIgeT0iMTY3LjM0MzMiPmZhbHNlPC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMTg5LjUsNjQ3LjEzMjgsMjAxLjUsNjU5LjEzMjgsMTg5LjUsNjcxLjEzMjgsMTc3LjUsNjU5LjEzMjgsMTg5LjUsNjQ3LjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjxwb2x5Z29uIGZpbGw9IiNGMUYxRjEiIHBvaW50cz0iMTU1LjUsNjkxLjEzMjgsMjIzLjUsNjkxLjEzMjgsMjM1LjUsNzAzLjEzMjgsMjIzLjUsNzE1LjEzMjgsMTU1LjUsNzE1LjEzMjgsMTQzLjUsNzAzLjEzMjgsMTU1LjUsNjkxLjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjY4IiB4PSIxNTUuNSIgeT0iNzA2Ljk0MDkiPmRvIHJlZGlyZWN0PzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMCIgeD0iMTIzLjUiIHk9IjcwMC41Mzg2Ij55ZXM8L3RleHQ+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEyMyIgeD0iMTEiIHk9IjcyNS4xMzI4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTAzIiB4PSIyMSIgeT0iNzQ2LjI3MTUiPnJlZGlyZWN0IHByb2Nlc3M8L3RleHQ+PHBvbHlnb24gZmlsbD0iI0YxRjFGMSIgcG9pbnRzPSIyNzIuNSw3MjUuMTMyOCwzNDAuNSw3MjUuMTMyOCwzNTIuNSw3MzcuMTMyOCwzNDAuNSw3NDkuMTMyOCwyNzIuNSw3NDkuMTMyOCwyNjAuNSw3MzcuMTMyOCwyNzIuNSw3MjUuMTMyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjgiIHg9IjI3Mi41IiB5PSI3NDAuOTQwOSI+ZG8gZm9yd2FyZD88L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMjAiIHg9IjI0MC41IiB5PSI3MzQuNTM4NiI+eWVzPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjExIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE0IiB4PSIzNTIuNSIgeT0iNzM0LjUzODYiPm5vPC90ZXh0PjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iMzMuOTY4OCIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxMjMiIHg9IjE2NCIgeT0iNzU5LjEzMjgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDMiIHg9IjE3NCIgeT0iNzgwLjI3MTUiPkZvcndhcmQgcmVxdWVzdDwvdGV4dD48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTYxIiB4PSIzMDciIHk9Ijc1OS4xMzI4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQxIiB4PSIzMTciIHk9Ijc4MC4yNzE1Ij5SZW5kZXIgcGFnZSB0ZW1wbGF0ZTwvdGV4dD48cG9seWdvbiBmaWxsPSIjRjFGMUYxIiBwb2ludHM9IjMwNi41LDc5OS4xMDE2LDMxOC41LDgxMS4xMDE2LDMwNi41LDgyMy4xMDE2LDI5NC41LDgxMS4xMDE2LDMwNi41LDc5OS4xMDE2IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiLz48cG9seWdvbiBmaWxsPSIjRjFGMUYxIiBwb2ludHM9IjE4OS41LDgyOS4xMDE2LDIwMS41LDg0MS4xMDE2LDE4OS41LDg1My4xMDE2LDE3Ny41LDg0MS4xMDE2LDE4OS41LDgyOS4xMDE2IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiLz48ZWxsaXBzZSBjeD0iMTg5LjUiIGN5PSI4ODQuMTAxNiIgZmlsbD0ibm9uZSIgcng9IjExIiByeT0iMTEiIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6MS4wOyIvPjxlbGxpcHNlIGN4PSIxODkuNSIgY3k9Ijg4NC4xMDE2IiBmaWxsPSIjMjIyMjIyIiByeD0iNiIgcnk9IjYiIHN0eWxlPSJzdHJva2U6IzIyMjIyMjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4OS41IiB4Mj0iMTg5LjUiIHkxPSIzMCIgeTI9IjUwIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxODUuNSw0MCwxODkuNSw1MCwxOTMuNSw0MCwxODkuNSw0NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5LjUiIHgyPSIxODkuNSIgeTE9IjgzLjk2ODgiIHkyPSIxMDMuOTY4OCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTg1LjUsOTMuOTY4OCwxODkuNSwxMDMuOTY4OCwxOTMuNSw5My45Njg4LDE4OS41LDk3Ljk2ODgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4OS41IiB4Mj0iMTg5LjUiIHkxPSIzODYuNjc5NyIgeTI9IjQzMS4xOTUzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxODUuNSw0MjEuMTk1MywxODkuNSw0MzEuMTk1MywxOTMuNSw0MjEuMTk1MywxODkuNSw0MjUuMTk1MyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjYyIiB4Mj0iMjg3IiB5MT0iMzc0LjY3OTciIHkyPSIzNzQuNjc5NyIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMjc3LDM3MC42Nzk3LDI4NywzNzQuNjc5NywyNzcsMzc4LjY3OTcsMjgxLDM3NC42Nzk3IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODkuNSIgeDI9IjE4OS41IiB5MT0iMzQyLjY3OTciIHkyPSIzNjIuNjc5NyIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTg1LjUsMzUyLjY3OTcsMTg5LjUsMzYyLjY3OTcsMTkzLjUsMzUyLjY3OTcsMTg5LjUsMzU2LjY3OTciIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE1NyIgeDI9IjEyNiIgeTE9IjQ0My4xOTUzIiB5Mj0iNDQzLjE5NTMiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMjYiIHgyPSIxMjYiIHkxPSI0NDMuMTk1MyIgeTI9IjQ2NS4xOTUzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxMjIsNDU1LjE5NTMsMTI2LDQ2NS4xOTUzLDEzMCw0NTUuMTk1MywxMjYsNDU5LjE5NTMiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjIyMiIgeDI9IjI1MyIgeTE9IjQ0My4xOTUzIiB5Mj0iNDQzLjE5NTMiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIyNTMiIHgyPSIyNTMiIHkxPSI0NDMuMTk1MyIgeTI9IjQ2NS4xOTUzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyNDksNDU1LjE5NTMsMjUzLDQ2NS4xOTUzLDI1Nyw0NTUuMTk1MywyNTMsNDU5LjE5NTMiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjEyNiIgeDI9IjEyNiIgeTE9IjQ5OS4xNjQxIiB5Mj0iNTE3LjE2NDEiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxMjYiIHgyPSIxNzcuNSIgeTE9IjUxNy4xNjQxIiB5Mj0iNTE3LjE2NDEiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE2Ny41LDUxMy4xNjQxLDE3Ny41LDUxNy4xNjQxLDE2Ny41LDUyMS4xNjQxLDE3MS41LDUxNy4xNjQxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIyNTMiIHgyPSIyNTMiIHkxPSI0OTkuMTY0MSIgeTI9IjUxNy4xNjQxIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjUzIiB4Mj0iMjAxLjUiIHkxPSI1MTcuMTY0MSIgeTI9IjUxNy4xNjQxIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyMTEuNSw1MTMuMTY0MSwyMDEuNSw1MTcuMTY0MSwyMTEuNSw1MjEuMTY0MSwyMDcuNSw1MTcuMTY0MSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5LjUiIHgyPSIxODkuNSIgeTE9IjUyOS4xNjQxIiB5Mj0iNTQ5LjE2NDEiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE4NS41LDUzOS4xNjQxLDE4OS41LDU0OS4xNjQxLDE5My41LDUzOS4xNjQxLDE4OS41LDU0My4xNjQxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODkuNSIgeDI9IjE4OS41IiB5MT0iMjg0LjMwODYiIHkyPSIzMDguNzEwOSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTg1LjUsMjk4LjcxMDksMTg5LjUsMzA4LjcxMDksMTkzLjUsMjk4LjcxMDksMTg5LjUsMzAyLjcxMDkiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjIzMi41IiB4Mj0iMzMxIiB5MT0iMjcyLjMwODYiIHkyPSIyNzIuMzA4NiIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMzI3LDQxNi42Nzk3LDMzMSw0MjYuNjc5NywzMzUsNDE2LjY3OTcsMzMxLDQyMC42Nzk3IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzMzEiIHgyPSIzMzEiIHkxPSIyNzIuMzA4NiIgeTI9IjYxNS4xMzI4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMzMxIiB4Mj0iMjAxLjUiIHkxPSI2MTUuMTMyOCIgeTI9IjYxNS4xMzI4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyMTEuNSw2MTEuMTMyOCwyMDEuNSw2MTUuMTMyOCwyMTEuNSw2MTkuMTMyOCwyMDcuNSw2MTUuMTMyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5LjUiIHgyPSIxODkuNSIgeTE9IjU4My4xMzI4IiB5Mj0iNjAzLjEzMjgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE4NS41LDU5My4xMzI4LDE4OS41LDYwMy4xMzI4LDE5My41LDU5My4xMzI4LDE4OS41LDU5Ny4xMzI4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODkuNSIgeDI9IjE4OS41IiB5MT0iMjQwLjMwODYiIHkyPSIyNjAuMzA4NiIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTg1LjUsMjUwLjMwODYsMTg5LjUsMjYwLjMwODYsMTkzLjUsMjUwLjMwODYsMTg5LjUsMjU0LjMwODYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4OS41IiB4Mj0iMTg5LjUiIHkxPSIxODEuOTM3NSIgeTI9IjIwNi4zMzk4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxODUuNSwxOTYuMzM5OCwxODkuNSwyMDYuMzM5OCwxOTMuNSwxOTYuMzM5OCwxODkuNSwyMDAuMzM5OCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjY0LjUiIHgyPSIzNTMiIHkxPSIxNjkuOTM3NSIgeTI9IjE2OS45Mzc1Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIzNDksMzk2LjY3OTcsMzUzLDQwNi42Nzk3LDM1NywzOTYuNjc5NywzNTMsNDAwLjY3OTciIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjM1MyIgeDI9IjM1MyIgeTE9IjE2OS45Mzc1IiB5Mj0iNjU5LjEzMjgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzNTMiIHgyPSIyMDEuNSIgeTE9IjY1OS4xMzI4IiB5Mj0iNjU5LjEzMjgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjIxMS41LDY1NS4xMzI4LDIwMS41LDY1OS4xMzI4LDIxMS41LDY2My4xMzI4LDIwNy41LDY1OS4xMzI4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIxODkuNSIgeDI9IjE4OS41IiB5MT0iNjI3LjEzMjgiIHkyPSI2NDcuMTMyOCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMTg1LjUsNjM3LjEzMjgsMTg5LjUsNjQ3LjEzMjgsMTkzLjUsNjM3LjEzMjgsMTg5LjUsNjQxLjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4OS41IiB4Mj0iMTg5LjUiIHkxPSIxMzcuOTM3NSIgeTI9IjE1Ny45Mzc1Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxODUuNSwxNDcuOTM3NSwxODkuNSwxNTcuOTM3NSwxOTMuNSwxNDcuOTM3NSwxODkuNSwxNTEuOTM3NSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjYwLjUiIHgyPSIyMjUuNSIgeTE9IjczNy4xMzI4IiB5Mj0iNzM3LjEzMjgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIyMjUuNSIgeDI9IjIyNS41IiB5MT0iNzM3LjEzMjgiIHkyPSI3NTkuMTMyOCIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMjIxLjUsNzQ5LjEzMjgsMjI1LjUsNzU5LjEzMjgsMjI5LjUsNzQ5LjEzMjgsMjI1LjUsNzUzLjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjM1Mi41IiB4Mj0iMzg3LjUiIHkxPSI3MzcuMTMyOCIgeTI9IjczNy4xMzI4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMzg3LjUiIHgyPSIzODcuNSIgeTE9IjczNy4xMzI4IiB5Mj0iNzU5LjEzMjgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjM4My41LDc0OS4xMzI4LDM4Ny41LDc1OS4xMzI4LDM5MS41LDc0OS4xMzI4LDM4Ny41LDc1My4xMzI4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIyMjUuNSIgeDI9IjIyNS41IiB5MT0iNzkzLjEwMTYiIHkyPSI4MTEuMTAxNiIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjIyNS41IiB4Mj0iMjk0LjUiIHkxPSI4MTEuMTAxNiIgeTI9IjgxMS4xMDE2Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyODQuNSw4MDcuMTAxNiwyOTQuNSw4MTEuMTAxNiwyODQuNSw4MTUuMTAxNiwyODguNSw4MTEuMTAxNiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMzg3LjUiIHgyPSIzODcuNSIgeTE9Ijc5My4xMDE2IiB5Mj0iODExLjEwMTYiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzODcuNSIgeDI9IjMxOC41IiB5MT0iODExLjEwMTYiIHkyPSI4MTEuMTAxNiIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMzI4LjUsODA3LjEwMTYsMzE4LjUsODExLjEwMTYsMzI4LjUsODE1LjEwMTYsMzI0LjUsODExLjEwMTYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE0My41IiB4Mj0iNzIuNSIgeTE9IjcwMy4xMzI4IiB5Mj0iNzAzLjEzMjgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI3Mi41IiB4Mj0iNzIuNSIgeTE9IjcwMy4xMzI4IiB5Mj0iNzI1LjEzMjgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjY4LjUsNzE1LjEzMjgsNzIuNSw3MjUuMTMyOCw3Ni41LDcxNS4xMzI4LDcyLjUsNzE5LjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjIzNS41IiB4Mj0iMzA2LjUiIHkxPSI3MDMuMTMyOCIgeTI9IjcwMy4xMzI4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMzA2LjUiIHgyPSIzMDYuNSIgeTE9IjcwMy4xMzI4IiB5Mj0iNzI1LjEzMjgiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjMwMi41LDcxNS4xMzI4LDMwNi41LDcyNS4xMzI4LDMxMC41LDcxNS4xMzI4LDMwNi41LDcxOS4xMzI4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI3Mi41IiB4Mj0iNzIuNSIgeTE9Ijc1OS4xMDE2IiB5Mj0iODQxLjEwMTYiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI3Mi41IiB4Mj0iMTc3LjUiIHkxPSI4NDEuMTAxNiIgeTI9Ijg0MS4xMDE2Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxNjcuNSw4MzcuMTAxNiwxNzcuNSw4NDEuMTAxNiwxNjcuNSw4NDUuMTAxNiwxNzEuNSw4NDEuMTAxNiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMzA2LjUiIHgyPSIzMDYuNSIgeTE9IjgyMy4xMDE2IiB5Mj0iODQxLjEwMTYiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzMDYuNSIgeDI9IjIwMS41IiB5MT0iODQxLjEwMTYiIHkyPSI4NDEuMTAxNiIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMjExLjUsODM3LjEwMTYsMjAxLjUsODQxLjEwMTYsMjExLjUsODQ1LjEwMTYsMjA3LjUsODQxLjEwMTYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjE4OS41IiB4Mj0iMTg5LjUiIHkxPSI2NzEuMTMyOCIgeTI9IjY5MS4xMzI4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxODUuNSw2ODEuMTMyOCwxODkuNSw2OTEuMTMyOCwxOTMuNSw2ODEuMTMyOCwxODkuNSw2ODUuMTMyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMTg5LjUiIHgyPSIxODkuNSIgeTE9Ijg1My4xMDE2IiB5Mj0iODczLjEwMTYiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE4NS41LDg2My4xMDE2LDE4OS41LDg3My4xMDE2LDE5My41LDg2My4xMDE2LDE4OS41LDg2Ny4xMDE2IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48IS0tU1JDPVtQTEF6UmVDbTREeHo1QlNMWGkxa1hXd0hNZE1CYVlUbXBHNU1aNHRpOHI3VWxsdTFJZmw5Zl9qLXpEc1R0bVFZb1ZFd2RoR21EOC13YWRRaVhJSHJMX0d5ajRocUplbzdSb0oxYzJWWFlGNlpMbDl3R05WTklES1dKQWxuWkJTUEZITGJteFoxMXFvWW51UWYzZWZKZzJmaEJZWGQ1bm9GMHlmaDJKSVdXT0JTWjJLM3UwbGZvd1hhMEgyTG9kek96bjJrVkxfdm5hUHN2M2locU5rR3JmMnBzWlVmN0tNbmV5b0NDNk1BQ2xzQjdDMkpkTEE5ZmJLVHN6SkFkd29kSlYxNGxvaE1ZMTdGNE9ET1V6b3hoZm5GX0FLYV9wcnUzWXJxNlN6ZWprYjRVNGdzMThmWE1XaUVNLUxHbFlKWUF4MkVzSUlOUE41MXNGdFJ0M085TnRPUWhERjVLZW1fU18yU0M5cUcyQ1ZtQ0dYdFFORjBqQzRWXS0tPjwvZz48L3N2Zz4='>
+
+<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><img class="kroki" src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSI5MjZweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjc2NnB4O2hlaWdodDo5MjZweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA3NjYgOTI2IiB3aWR0aD0iNzY2cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4OC42NjQxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iMjEiIHk9IjMxMi4wOTM4Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIxMzAuMzk4NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjE5MyIgeT0iMzQxLjIyNjYiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE1NC41MzEzIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iMTkzIiB5PSI1MDAuNzU3OCIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjY1Ljc5NjkiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIyNzIuNSIgeT0iNDYuMjk2OSIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjAwLjUzMTMiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIyNzcuNSIgeT0iNzUuNDI5NyIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIyODIuNSIgeT0iMjQ3Ljk2MDkiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjM5LjY5OTIiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIyNzIuNSIgeT0iNjk0Ljk4ODMiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI5LjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIyNzIuNSIgeT0iNzg3Ljk1MzEiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjEwMS4yNjU2IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iNTA5LjUiIHk9IjEwOS41NjI1Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjUxNC41IiB5PSIxNDYuNjk1MyIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTAxLjI2NTYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI1MDkuNSIgeT0iMzcwLjM1OTQiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iNTE0LjUiIHk9IjQwNy40OTIyIi8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIxMjUuMzk4NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjUwOS41IiB5PSI1MjkuODkwNiIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI1MTQuNSIgeT0iNTY3LjAyMzQiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjM5LjY5OTIiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI1MDkuNSIgeT0iNjk0Ljk4ODMiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI5LjEzMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI1MDkuNSIgeT0iNzg3Ljk1MzEiLz48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjIxNS4wNjI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI1MzgiIHg9IjIyMi41IiB5PSI2MTcuMDIzNCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNzUuMzk4NCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMzQxIiB4PSIyMzIuNSIgeT0iNzQ5LjY4NzUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTtzdHJva2UtZGFzaGFycmF5OjUuMCw1LjA7IiB4MT0iMjYiIHgyPSIyNiIgeTE9IjM2LjI5NjkiIHkyPSI4OTEuMjE4OCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41O3N0cm9rZS1kYXNoYXJyYXk6NS4wLDUuMDsiIHgxPSIxOTcuNSIgeDI9IjE5Ny41IiB5MT0iMzYuMjk2OSIgeTI9Ijg5MS4yMTg4Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7c3Ryb2tlLWRhc2hhcnJheTo1LjAsNS4wOyIgeDE9IjI3Ny41IiB4Mj0iMjc3LjUiIHkxPSIzNi4yOTY5IiB5Mj0iODkxLjIxODgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTtzdHJva2UtZGFzaGFycmF5OjUuMCw1LjA7IiB4MT0iNTE0LjUiIHgyPSI1MTQuNSIgeTE9IjM2LjI5NjkiIHkyPSI4OTEuMjE4OCIvPjxyZWN0IGZpbGw9IiNFMkUyRjAiIGhlaWdodD0iMzAuMjk2OSIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iNDIiIHg9IjUiIHk9IjUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyOCIgeD0iMTIiIHk9IjI0Ljk5NTEiPiYjMjk5OTI7JiMyNTE0Mzs8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI0MiIgeD0iNSIgeT0iODkwLjIxODgiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyOCIgeD0iMTIiIHk9IjkxMC4yMTM5Ij4mIzI5OTkyOyYjMjUxNDM7PC90ZXh0PjxyZWN0IGZpbGw9IiNFMkUyRjAiIGhlaWdodD0iMzAuMjk2OSIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iNjkiIHg9IjE2My41IiB5PSI1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTUiIHg9IjE3MC41IiB5PSIyNC45OTUxIj4mIzI0NDk0OyYjMjA0NDk7QVBQPC90ZXh0PjxyZWN0IGZpbGw9IiNFMkUyRjAiIGhlaWdodD0iMzAuMjk2OSIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iNjkiIHg9IjE2My41IiB5PSI4OTAuMjE4OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjU1IiB4PSIxNzAuNSIgeT0iOTEwLjIxMzkiPiYjMjQ0OTQ7JiMyMDQ0OTtBUFA8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI3MCIgeD0iMjQyLjUiIHk9IjUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI1NiIgeD0iMjQ5LjUiIHk9IjI0Ljk5NTEiPiYjMjE4MzA7JiMyNTE0MzsmIzIxNTE4OyYjMjE0ODg7PC90ZXh0PjxyZWN0IGZpbGw9IiNFMkUyRjAiIGhlaWdodD0iMzAuMjk2OSIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iNzAiIHg9IjI0Mi41IiB5PSI4OTAuMjE4OCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjU2IiB4PSIyNDkuNSIgeT0iOTEwLjIxMzkiPiYjMjE4MzA7JiMyNTE0MzsmIzIxNTE4OyYjMjE0ODg7PC90ZXh0PjxyZWN0IGZpbGw9IiNFMkUyRjAiIGhlaWdodD0iMzAuMjk2OSIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iOTgiIHg9IjQ2NS41IiB5PSI1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODQiIHg9IjQ3Mi41IiB5PSIyNC45OTUxIj4mIzI0NDk0OyYjMjA0NDk7JiMyNTkwMzsmIzIwMTg0OyYjMzE5OTU7JiMzMjQ3OTs8L3RleHQ+PHJlY3QgZmlsbD0iI0UyRTJGMCIgaGVpZ2h0PSIzMC4yOTY5IiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI5OCIgeD0iNDY1LjUiIHk9Ijg5MC4yMTg4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iODQiIHg9IjQ3Mi41IiB5PSI5MTAuMjEzOSI+JiMyNDQ5NDsmIzIwNDQ5OyYjMjU5MDM7JiMyMDE4NDsmIzMxOTk1OyYjMzI0Nzk7PC90ZXh0PjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTg4LjY2NDEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIyMSIgeT0iMzEyLjA5MzgiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjEzMC4zOTg0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iMTkzIiB5PSIzNDEuMjI2NiIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTU0LjUzMTMiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSIxOTMiIHk9IjUwMC43NTc4Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIyNjUuNzk2OSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjI3Mi41IiB5PSI0Ni4yOTY5Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIyMDAuNTMxMyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjI3Ny41IiB5PSI3NS40Mjk3Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjI4Mi41IiB5PSIyNDcuOTYwOSIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMzkuNjk5MiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjI3Mi41IiB5PSI2OTQuOTg4MyIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjkuMTMyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjI3Mi41IiB5PSI3ODcuOTUzMSIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMTAxLjI2NTYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI1MDkuNSIgeT0iMTA5LjU2MjUiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI4IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iNTE0LjUiIHk9IjE0Ni42OTUzIi8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIxMDEuMjY1NiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjUwOS41IiB5PSIzNzAuMzU5NCIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjEwIiB4PSI1MTQuNSIgeT0iNDA3LjQ5MjIiLz48cmVjdCBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjEyNS4zOTg0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIxMCIgeD0iNTA5LjUiIHk9IjUyOS44OTA2Ii8+PHJlY3QgZmlsbD0iI0ZGRkZGRiIgaGVpZ2h0PSIyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjUxNC41IiB5PSI1NjcuMDIzNCIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMzkuNjk5MiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjUwOS41IiB5PSI2OTQuOTg4MyIvPjxyZWN0IGZpbGw9IiNGRkZGRkYiIGhlaWdodD0iMjkuMTMyOCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB3aWR0aD0iMTAiIHg9IjUwOS41IiB5PSI3ODcuOTUzMSIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjI4Mi41IiB4Mj0iMzI5LjUiIHkxPSI2Mi40Mjk3IiB5Mj0iNjIuNDI5NyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjMyOS41IiB4Mj0iMzI5LjUiIHkxPSI2Mi40Mjk3IiB5Mj0iNzUuNDI5NyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjI4OC41IiB4Mj0iMzI5LjUiIHkxPSI3NS40Mjk3IiB5Mj0iNzUuNDI5NyIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMjk4LjUsNzEuNDI5NywyODguNSw3NS40Mjk3LDI5OC41LDc5LjQyOTcsMjk0LjUsNzUuNDI5NyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTIiIHg9IjI5NC41IiB5PSI1Ny4zNjM4Ij4mIzI5OTgzOyYjMjUxMDQ7JiMzNTc0NjsmIzIxMzMzOzwvdGV4dD48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjQ5Ny41LDEwNS41NjI1LDUwNy41LDEwOS41NjI1LDQ5Ny41LDExMy41NjI1LDUwMS41LDEwOS41NjI1IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIyODcuNSIgeDI9IjUwMy41IiB5MT0iMTA5LjU2MjUiIHkyPSIxMDkuNTYyNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg1IiB4PSIyOTQuNSIgeT0iMTA0LjQ5NjYiPiYjMzU4NDM7JiMzMjQ3OTsmIzE5OTY4OyYjMTk5Nzk7JiMyMTMzMztBUEk8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iNTI0LjUiIHgyPSI1NjYuNSIgeTE9IjEzOC42OTUzIiB5Mj0iMTM4LjY5NTMiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI1NjYuNSIgeDI9IjU2Ni41IiB5MT0iMTM4LjY5NTMiIHkyPSIxNTEuNjk1MyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjUyNS41IiB4Mj0iNTY2LjUiIHkxPSIxNTEuNjk1MyIgeTI9IjE1MS42OTUzIi8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI1MzUuNSwxNDcuNjk1Myw1MjUuNSwxNTEuNjk1Myw1MzUuNSwxNTUuNjk1Myw1MzEuNSwxNTEuNjk1MyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTEiIHg9IjUzMS41IiB5PSIxMzMuNjI5NCI+JiMyOTk4MzsmIzI1MTA0OyYjMzkwNDQ7JiMyNTkwMzsmIzIwMTg0OyYjMjAxMzI7JiMyNjEzMTs8L3RleHQ+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyOTguNSwyMDYuODI4MSwyODguNSwyMTAuODI4MSwyOTguNSwyMTQuODI4MSwyOTQuNSwyMTAuODI4MSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7c3Ryb2tlLWRhc2hhcnJheToyLjAsMi4wOyIgeDE9IjI5Mi41IiB4Mj0iNTEzLjUiIHkxPSIyMTAuODI4MSIgeTI9IjIxMC44MjgxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTI1IiB4PSIzMDQuNSIgeT0iMjA1Ljc2MjIiPjogJiMzNjgyMDsmIzIyMjM4OyYjMzkwNDQ7JiMyNTkwMzsmIzIwMTg0OyYjMjAxMzI7JiMyNjEzMTsmIzM4MTQyOyYjMjU1MDk7PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjI5Mi41IiB4Mj0iMzM0LjUiIHkxPSIyMzkuOTYwOSIgeTI9IjIzOS45NjA5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMzM0LjUiIHgyPSIzMzQuNSIgeTE9IjIzOS45NjA5IiB5Mj0iMjUyLjk2MDkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIyOTMuNSIgeDI9IjMzNC41IiB5MT0iMjUyLjk2MDkiIHkyPSIyNTIuOTYwOSIvPjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMzAzLjUsMjQ4Ljk2MDksMjkzLjUsMjUyLjk2MDksMzAzLjUsMjU2Ljk2MDksMjk5LjUsMjUyLjk2MDkiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE2OSIgeD0iMjk5LjUiIHk9IjIzNC44OTUiPiYjMjM1NTg7JiMyNTkwMzsmIzIwMTg0OyYjMjAxMzI7JiMyNjEzMTsmIzM4MTQyOyYjMjU1MDk7JiMzNjcxNjsmIzIxMjcwOyYjMjUxMDQ7JiMyMDEwODsmIzMyNTAwOyYjMzA3MjE7PC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iNDIsMzA4LjA5MzgsMzIsMzEyLjA5MzgsNDIsMzE2LjA5MzgsMzgsMzEyLjA5MzgiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wO3N0cm9rZS1kYXNoYXJyYXk6Mi4wLDIuMDsiIHgxPSIzNiIgeDI9IjI3Ni41IiB5MT0iMzEyLjA5MzgiIHkyPSIzMTIuMDkzOCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExNyIgeD0iNDgiIHk9IjMwNy4wMjc4Ij4mIzI1MjI2OyYjMjAxMDg7JiMzMjUwMDsmIzMwNzIxOyYjMjM2Mzc7JiMzMTAzNDsmIzMyNDczOyYjMjk5OTI7JiMyNTE0Mzs8L3RleHQ+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIxODEsMzM3LjIyNjYsMTkxLDM0MS4yMjY2LDE4MSwzNDUuMjI2NiwxODUsMzQxLjIyNjYiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjMxIiB4Mj0iMTg3IiB5MT0iMzQxLjIyNjYiIHkyPSIzNDEuMjI2NiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjExNyIgeD0iMzgiIHk9IjMzNi4xNjA2Ij4mIzI5OTkyOyYjMjUxNDM7JiMyNTE3MTsmIzI0MzIwOyYjMjQ0OTQ7JiMyMDQ0OTsmIzI1MTk1OyYjMTk5Njg7JiMyNTE5NTs8L3RleHQ+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI0OTcuNSwzNjYuMzU5NCw1MDcuNSwzNzAuMzU5NCw0OTcuNSwzNzQuMzU5NCw1MDEuNSwzNzAuMzU5NCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjAzIiB4Mj0iNTAzLjUiIHkxPSIzNzAuMzU5NCIgeTI9IjM3MC4zNTk0Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzgiIHg9IjIxMCIgeT0iMzY1LjI5MzUiPiYjMjU1NTI7JiMyMDEzMjsmIzI1MTk1OyYjMjU1NTE7JiMzODE0MjsmIzI1NTA5OzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI1MjQuNSIgeDI9IjU2Ni41IiB5MT0iMzk5LjQ5MjIiIHkyPSIzOTkuNDkyMiIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjU2Ni41IiB4Mj0iNTY2LjUiIHkxPSIzOTkuNDkyMiIgeTI9IjQxMi40OTIyIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iNTI1LjUiIHgyPSI1NjYuNSIgeTE9IjQxMi40OTIyIiB5Mj0iNDEyLjQ5MjIiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjUzNS41LDQwOC40OTIyLDUyNS41LDQxMi40OTIyLDUzNS41LDQxNi40OTIyLDUzMS41LDQxMi40OTIyIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMDQiIHg9IjUzMS41IiB5PSIzOTQuNDI2MyI+JiMzOTU2NDsmIzM1Nzc3OyYjMzgxNDI7JiMyNTUwOTsmIzI2MTU5OyYjMjE1NDI7JiMyNjM3NzsmIzI1OTI4OzwvdGV4dD48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjIwOSw0NjcuNjI1LDE5OSw0NzEuNjI1LDIwOSw0NzUuNjI1LDIwNSw0NzEuNjI1IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDtzdHJva2UtZGFzaGFycmF5OjIuMCwyLjA7IiB4MT0iMjAzIiB4Mj0iNTEzLjUiIHkxPSI0NzEuNjI1IiB5Mj0iNDcxLjYyNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNCIgeD0iMjE1IiB5PSI0NjYuNTU5MSI+JiMzNjgyMDsmIzIyMjM4OyYjMzg2NTY7JiMzNTIwMTsmIzI1OTAzOyYjMjAxODQ7JiMyNTQ4MDsmIzI2NDM1OzwvdGV4dD48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjE4MSw0OTYuNzU3OCwxOTEsNTAwLjc1NzgsMTgxLDUwNC43NTc4LDE4NSw1MDAuNzU3OCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjYiIHgyPSIxODciIHkxPSI1MDAuNzU3OCIgeTI9IjUwMC43NTc4Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTQzIiB4PSIzMyIgeT0iNDk1LjY5MTkiPiYjMjk5OTI7JiMyNTE0MzsmIzMwODMwOyYjMzU3NDg7JiMyNTkwMzsmIzIwMTg0OyYjNjUyOTI7JiMzNjc1NTsmIzIwODM3OyYjMjM0OTQ7JiMzMDcyMTs8L3RleHQ+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI0OTcuNSw1MjUuODkwNiw1MDcuNSw1MjkuODkwNiw0OTcuNSw1MzMuODkwNiw1MDEuNSw1MjkuODkwNiIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjAzIiB4Mj0iNTAzLjUiIHkxPSI1MjkuODkwNiIgeTI9IjUyOS44OTA2Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzgiIHg9IjIxMCIgeT0iNTI0LjgyNDciPiYjMjU1NTI7JiMyMDEzMjsmIzI1OTAzOyYjMjAxODQ7JiMyNTQ4MDsmIzI2NDM1OzwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSI1MjQuNSIgeDI9IjU2Ni41IiB5MT0iNTU5LjAyMzQiIHkyPSI1NTkuMDIzNCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjU2Ni41IiB4Mj0iNTY2LjUiIHkxPSI1NTkuMDIzNCIgeTI9IjU3Mi4wMjM0Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iNTI1LjUiIHgyPSI1NjYuNSIgeTE9IjU3Mi4wMjM0IiB5Mj0iNTcyLjAyMzQiLz48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjUzNS41LDU2OC4wMjM0LDUyNS41LDU3Mi4wMjM0LDUzNS41LDU3Ni4wMjM0LDUzMS41LDU3Mi4wMjM0IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNDMiIHg9IjUzMS41IiB5PSI1NTMuOTU3NSI+JiMzOTU2NDsmIzM1Nzc3OyYjMjU5MDM7JiMyMDE4NDsmIzI1NDgwOyYjMjY0MzU7JiM2NTI5MjsmIzIzNDM2OyYjMjUxMDQ7JiMyMDEzMjsmIzI2MTMxOzwvdGV4dD48cGF0aCBkPSJNMjIyLjUsNjE3LjAyMzQgTDI4Ni41LDYxNy4wMjM0IEwyODYuNSw2MjQuMTU2MyBMMjc2LjUsNjM0LjE1NjMgTDIyMi41LDYzNC4xNTYzIEwyMjIuNSw2MTcuMDIzNCAiIGZpbGw9IiNFRUVFRUUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iMjE1LjA2MjUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjUzOCIgeD0iMjIyLjUiIHk9IjYxNy4wMjM0Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE5IiB4PSIyMzcuNSIgeT0iNjMwLjA5MDMiPmFsdDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNTQiIHg9IjMwMS41IiB5PSI2MjkuMjMzOSI+WyYjMjQxODI7JiMzNDg5MjsmIzIyNzg4OyYjMjk3MDI7XTwvdGV4dD48cG9seWdvbiBmaWxsPSIjMTgxODE4IiBwb2ludHM9IjI4OC41LDY1MS4yODkxLDI3OC41LDY1NS4yODkxLDI4OC41LDY1OS4yODkxLDI4NC41LDY1NS4yODkxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDtzdHJva2UtZGFzaGFycmF5OjIuMCwyLjA7IiB4MT0iMjgyLjUiIHgyPSI1MTMuNSIgeTE9IjY1NS4yODkxIiB5Mj0iNjU1LjI4OTEiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMDgiIHg9IjI5NC41IiB5PSI2NTAuMjIzMSI+JiMzNjgyMDsmIzIyMjM4OyYjMjU5MDM7JiMyMDE4NDsmIzMyNDY3OyYjMjY1MjQ7JiM2NTI5MjsmIzIxNDU3OyYjMzY4NjU7JiMzMDcwMTsmIzIwNDQ5OyYjMjE2NDQ7JiMyODA0MDsmIzI0Njg3OyYjMjU1NTI7JiMzMTAzNDs8L3RleHQ+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyOTMuNSw2OTAuOTg4MywyODMuNSw2OTQuOTg4MywyOTMuNSw2OTguOTg4MywyODkuNSw2OTQuOTg4MyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjg3LjUiIHgyPSI1MDguNSIgeTE9IjY5NC45ODgzIiB5Mj0iNjk0Ljk4ODMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTYiIHg9IjI5OS41IiB5PSI2ODkuOTIyNCI+JiMyNDMyMjsmIzI3NDkzOyYjMzY4OTA7JiMzMDY5MzsmIzIxODMwOyYjMjUxNDM7JiMyMTUxODsmIzIxNDg4OyYjMjU5MDM7JiMyMDE4NDsmIzMyNDY3OyYjMjY1MjQ7PC90ZXh0PjxwYXRoIGQ9Ik01MjQsNjY4LjI4OTEgTDUyNCw3MDguMjg5MSBMNzU1LDcwOC4yODkxIEw3NTUsNjc4LjI4OTEgTDc0NSw2NjguMjg5MSBMNTI0LDY2OC4yODkxICIgZmlsbD0iI0ZFRkZERCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7Ii8+PHBhdGggZD0iTTc0NSw2NjguMjg5MSBMNzQ1LDY3OC4yODkxIEw3NTUsNjc4LjI4OTEgTDc0NSw2NjguMjg5MSAiIGZpbGw9IiNGRUZGREQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEzMCIgeD0iNTMwIiB5PSI2ODUuMzU2Ij4mIzM2ODI1OyYjMzczMjQ7JiMxOTk4MTsmIzMwNjkzOyYjMzY5NDc7JiMyNDU5MDsmIzIwMDQwOyYjMjIyMzg7JiMyMDEwNzsmIzY1MjkyOzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyMTAiIHg9IjUzMCIgeT0iNzAwLjQ4ODgiPiYjMjQ1MTc7JiMzOTAzNTsmIzI1OTE4OyYjMjIzMTI7YWN0aXZhdGUgcGF5X3N5c3RlbSYjMTk5Nzg7JiMzODc1NDs8L3RleHQ+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSI1MDIuNSw3MzAuNjg3NSw1MTIuNSw3MzQuNjg3NSw1MDIuNSw3MzguNjg3NSw1MDYuNSw3MzQuNjg3NSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7c3Ryb2tlLWRhc2hhcnJheToyLjAsMi4wOyIgeDE9IjI3Ny41IiB4Mj0iNTA4LjUiIHkxPSI3MzQuNjg3NSIgeTI9IjczNC42ODc1Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTMwIiB4PSIyODQuNSIgeT0iNzI5LjYyMTYiPiYjMjE1Nzg7JiMzMDY5MzsmIzI1OTAzOyYjMjAxODQ7JiMzMjQ2NzsmIzI2NTI0OyYjMjU1MDk7JiMyMTQ2MzsmIzI0NzczOyYjMjA5MTc7PC90ZXh0PjxwYXRoIGQ9Ik0yMzIuNSw3NDkuNjg3NSBMMjk2LjUsNzQ5LjY4NzUgTDI5Ni41LDc1Ni44MjAzIEwyODYuNSw3NjYuODIwMyBMMjMyLjUsNzY2LjgyMDMgTDIzMi41LDc0OS42ODc1ICIgZmlsbD0iI0VFRUVFRSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7Ii8+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI3NS4zOTg0IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIzNDEiIHg9IjIzMi41IiB5PSI3NDkuNjg3NSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxOSIgeD0iMjQ3LjUiIHk9Ijc2Mi43NTQ0Ij5hbHQ8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijc2IiB4PSIzMTEuNSIgeT0iNzYxLjg5NzkiPlsmIzIxMDI4OyYjMjYwMjk7JiMyNTkwMzsmIzIwMTg0OyYjMjkzNjY7JiMyNDU3NztdPC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iNDk3LjUsNzgzLjk1MzEsNTA3LjUsNzg3Ljk1MzEsNDk3LjUsNzkxLjk1MzEsNTAxLjUsNzg3Ljk1MzEiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjI4Mi41IiB4Mj0iNTAzLjUiIHkxPSI3ODcuOTUzMSIgeTI9Ijc4Ny45NTMxIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iOTgiIHg9IjI4OS41IiB5PSI3ODIuODg3MiI+JiMzNTg0MzsmIzI5OTkyOyYjMjY1OTc7JiMzNTgxMDsmIzM1NzQ2OyYjMjEzMzM7QVBJPC90ZXh0Pjxwb2x5Z29uIGZpbGw9IiMxODE4MTgiIHBvaW50cz0iMjg4LjUsODEzLjA4NTksMjc4LjUsODE3LjA4NTksMjg4LjUsODIxLjA4NTksMjg0LjUsODE3LjA4NTkiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wO3N0cm9rZS1kYXNoYXJyYXk6Mi4wLDIuMDsiIHgxPSIyODIuNSIgeDI9IjUxMy41IiB5MT0iODE3LjA4NTkiIHkyPSI4MTcuMDg1OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijc4IiB4PSIyOTQuNSIgeT0iODEyLjAyIj4mIzM2ODIwOyYjMjIyMzg7JiMyNTkwMzsmIzIwMTg0OyYjMjkzNjY7JiMyNDU3Nzs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7IiB4MT0iMjc3LjUiIHgyPSIzMTkuNSIgeTE9Ijg2NS4yMTg4IiB5Mj0iODY1LjIxODgiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiIHgxPSIzMTkuNSIgeDI9IjMxOS41IiB5MT0iODY1LjIxODgiIHkyPSI4NzguMjE4OCIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIgeDE9IjI3Mi41IiB4Mj0iMzE5LjUiIHkxPSI4NzguMjE4OCIgeTI9Ijg3OC4yMTg4Ii8+PHBvbHlnb24gZmlsbD0iIzE4MTgxOCIgcG9pbnRzPSIyODIuNSw4NzQuMjE4OCwyNzIuNSw4NzguMjE4OCwyODIuNSw4ODIuMjE4OCwyNzguNSw4NzguMjE4OCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNjUiIHg9IjI4NC41IiB5PSI4NjAuMTUyOCI+JiMyMTQ1NzsmIzM2MTM1OyYjMzE1NjE7JiMyNTgwNTsmIzIwMzE2OzwvdGV4dD48IS0tU1JDPVtiTFJIS2pmMDU3dEZMc0h5em1UeVNDUjdsbGExZFVjYWFoNUNzdlc5ZUpFLTlMTGZtNFltMFFpallaMVdkTGgwSllyNVdsV3BzVHRhZ1JfR3RHSFg0eEEwVU0wMlQtIC12enZ2eHhidmFHTDdKTXNiUGE1SC0xUE1sZVY1dFhIU29WM09aQWZuQzZ5NmV1cHhNRHBPdDB4aVdvcDVwOU9UekdRYThoRGxXbjZqWHctc3NpZkVMS2FhdWlEbnJkTEZxc3E1RUJKV2syeGtsQ2hpUExOcEYyTGxnWlg5Yzg0ZmdNanFEZWVyVkFUWm5CdkdkU0tyXzQ1SUhGaVJaUF9mclROdHdsaVFaU1dxUTlRX0owNFVMdTIwQjgwdW8zUmg2VXhUeGswZ3RoeGR6R3VvcGlWYll1WEExZjFCYk95X0s1OEtFeV9DUi1vNVZ4ZzA5Si1xUHhzS1lmQ0hiSlljWWNiS2FORDlaNk5veFlDTnJ4SDRpamhaYktMY2lXemxTQkF4dHkxRU85eFhRVHMwWXZtdlR3am5DVkdiRGVKQThNVGFNQWdfTFRRQXBESHVNMmZFdXU1UzVER1Y4RUdsZFdLaTZjY2VqSzJoMTlJLWh3cllpZjc3NDVVUGpDREo2WWlfVk84ZFdwd1pFWUJHZFRTZm9qRnRHQVg2QXlaVkdpY0JpQi1lY0lyNy0zekZod1k0T0ZFczJxWE1pdmM3NVU5UGE1dWlmNURBSlpnZ1FUd003Qk9UNTB2eGxTT2tIQUNpSkhwRnllZGg3d3BIM3U3ejNxbmxQdUEwNWtaYVk3aWVfUTEwdDB5VVlFdnhkbDVoZHFxbjN1Vm4wbm1wcTdIZFlVVVpwVUhSVWdKb3V4dGJyNHBKdEtJZDd3ZHpxLUNBTVpFelZudU9OTFBBUFRVbmhFZ2dyaUwzMVBuRnMzQVh0Q0hydTNaWHM4aDRNQ1ZLTmNWdFhIelhrLVRmTkw2bEhFdURFdzViUWQ3U3ZhNFZRbUpPYmxWcjY5Uk1WLVB6Q2p0LTRXX2t3M1JNWVVzeldEanAxOElSWGZHR1UzX293MHlpWktCckVZRWxzMl92djh1OFVrS2ZlME8zWjBXdjJMdUs3M2JYVnVEdTFvRnJYSkhFWlhjSndlcEdHQ0hYRFVEOFVub3BxZUFRcFNnTEo5VWlCSnJFanZOS1J1SVBhUloxNlVpbGtlOWNCV1BkZ2lzYlhkMTJiNTY2Nll0ekZfQUYwTjVWTWlOVnQ3Uk5wcTN2bzd3aDktIC0wX10tLT48L2c+PC9zdmc+'>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/7658.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/10638.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/10638.html" class="post-title-link" itemprop="url">165 比较版本号</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/10638.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/10638.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>422</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>按逗号分割，分段比较。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">compareVersion</span>(<span class="params"><span class="variable">$version1</span>, <span class="variable">$version2</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$version1</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;.&#x27;</span>, <span class="variable">$version1</span>);</span><br><span class="line">        <span class="variable">$version2</span> = <span class="title function_ invoke__">explode</span>(<span class="string">&#x27;.&#x27;</span>, <span class="variable">$version2</span>);</span><br><span class="line">        <span class="variable">$cnt</span> = <span class="title function_ invoke__">max</span>(<span class="title function_ invoke__">count</span>(<span class="variable">$version1</span>), <span class="title function_ invoke__">count</span>(<span class="variable">$version2</span>));</span><br><span class="line">        <span class="variable">$i</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="variable">$i</span> &lt; <span class="variable">$cnt</span>) &#123;</span><br><span class="line">            <span class="variable">$v1</span> = <span class="title function_ invoke__">ceil</span>(<span class="variable">$version1</span>[<span class="variable">$i</span>]);</span><br><span class="line">            <span class="variable">$v2</span> = <span class="title function_ invoke__">ceil</span>(<span class="variable">$version2</span>[<span class="variable">$i</span>]);</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$v1</span> &gt; <span class="variable">$v2</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">elseif</span> (<span class="variable">$v1</span> &lt; <span class="variable">$v2</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ++<span class="variable">$i</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/27444.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/27444.html" class="post-title-link" itemprop="url">189 轮转数组</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/27444.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/27444.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>358</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="使用额外数组"><a href="#使用额外数组" class="headerlink" title="使用额外数组"></a>使用额外数组</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">rotate</span>(<span class="params">&amp;<span class="variable">$nums</span>, <span class="variable">$k</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$len</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$nums</span>);</span><br><span class="line">        <span class="variable">$k</span> = <span class="variable">$k</span> % <span class="variable">$len</span>;</span><br><span class="line">        <span class="variable">$new</span> = [];</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$nums</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$val</span>) &#123;</span><br><span class="line">            <span class="variable">$new</span>[<span class="variable">$key</span>] = <span class="variable">$nums</span>[<span class="variable">$key</span> - <span class="variable">$k</span>] ?? <span class="variable">$nums</span>[<span class="variable">$len</span> + <span class="variable">$key</span> - <span class="variable">$k</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable">$nums</span> = <span class="variable">$new</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="环状替换"><a href="#环状替换" class="headerlink" title="环状替换"></a>环状替换</h3><p>略过，官方答案一时没能看全。</p>
+<h3 id="数组翻转"><a href="#数组翻转" class="headerlink" title="数组翻转"></a>数组翻转</h3><p>建立数学模型，发现轮转数组其实可以通过翻转的形式完成。</p>
+<p>对于数组[a,b,c,d,e,f,g]，翻转3次，可以</p>
+<ol>
+<li>先把数组整体翻转 [g,f,e,d,c,b,a]</li>
+<li>再反转数组后半没有「掉头」的部分 [g,f,e,a,b,c,d]</li>
+</ol>
+<p>代码略</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/17323.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/17323.html" class="post-title-link" itemprop="url">167 两数之和 有序数列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/" itemprop="url" rel="index"><span itemprop="name">双指针</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/%E5%AF%B9%E6%92%9E%E6%8C%87%E9%92%88/" itemprop="url" rel="index"><span itemprop="name">对撞指针</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/17323.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/17323.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>786</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>双指针之对撞指针</p>
+<h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><p>如果数组本身是有顺序的。如下遍历，对于有递增数组，如果 ai + aj &gt; sum, 则 ai + a(j+x)  &gt; sum，反之如果 ai + aj &lt; sum,则 a(i-x) + aj &lt; sum。这样便可使用双指针之对撞指针。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">twoSum</span>(<span class="params"><span class="variable">$numbers</span>, <span class="variable">$target</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$len</span> = <span class="title function_ invoke__">count</span>(<span class="variable">$numbers</span>);</span><br><span class="line">        <span class="variable">$l</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="variable">$r</span> = <span class="variable">$len</span> - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="variable">$l</span> &lt;= <span class="variable">$r</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$numbers</span>[<span class="variable">$l</span>] + <span class="variable">$numbers</span>[<span class="variable">$r</span>] &gt; <span class="variable">$target</span>) &#123;</span><br><span class="line">                --<span class="variable">$r</span>;</span><br><span class="line">            &#125; <span class="keyword">elseif</span> (<span class="variable">$numbers</span>[<span class="variable">$l</span>] + <span class="variable">$numbers</span>[<span class="variable">$r</span>] &lt; <span class="variable">$target</span>) &#123;</span><br><span class="line">                ++<span class="variable">$l</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> [<span class="variable">$l</span>+<span class="number">1</span>, <span class="variable">$r</span>+<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$numbers</span> = [<span class="number">12</span>,<span class="number">83</span>,<span class="number">104</span>,<span class="number">129</span>,<span class="number">140</span>,<span class="number">184</span>,<span class="number">199</span>,<span class="number">300</span>,<span class="number">306</span>,<span class="number">312</span>,<span class="number">321</span>,<span class="number">325</span>,<span class="number">341</span>,<span class="number">344</span>,<span class="number">349</span>,<span class="number">356</span>,<span class="number">370</span>,<span class="number">405</span>,<span class="number">423</span>,<span class="number">444</span>,<span class="number">446</span>,<span class="number">465</span>,<span class="number">471</span>,<span class="number">491</span>,<span class="number">500</span>,<span class="number">506</span>,<span class="number">508</span>,<span class="number">530</span>,<span class="number">539</span>,<span class="number">543</span>,<span class="number">569</span>,<span class="number">591</span>,<span class="number">606</span>,<span class="number">607</span>,<span class="number">612</span>,<span class="number">614</span>,<span class="number">623</span>,<span class="number">627</span>,<span class="number">645</span>,<span class="number">662</span>,<span class="number">670</span>,<span class="number">685</span>,<span class="number">689</span>,<span class="number">726</span>,<span class="number">731</span>,<span class="number">737</span>,<span class="number">744</span>,<span class="number">747</span>,<span class="number">764</span>,<span class="number">773</span>,<span class="number">778</span>,<span class="number">787</span>,<span class="number">802</span>,<span class="number">805</span>,<span class="number">811</span>,<span class="number">819</span>,<span class="number">829</span>,<span class="number">841</span>,<span class="number">879</span>,<span class="number">905</span>,<span class="number">918</span>,<span class="number">918</span>,<span class="number">929</span>,<span class="number">955</span>,<span class="number">997</span>];</span><br><span class="line"><span class="variable">$target</span> = <span class="number">789</span>;</span><br><span class="line"><span class="variable">$res</span> = (<span class="keyword">new</span> <span class="title class_">Solution</span>())-&gt;<span class="title function_ invoke__">twoSum</span>(<span class="variable">$numbers</span>, <span class="variable">$target</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$res</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/5069.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/5069.html" class="post-title-link" itemprop="url">206 翻转链表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-18 17:22:31" itemprop="dateModified" datetime="2022-04-18T17:22:31+08:00">2022-04-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E9%93%BE%E8%A1%A8/" itemprop="url" rel="index"><span itemprop="name">链表</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/5069.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/5069.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>988</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>递归对调链接指向</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/5069.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/31953.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/31953.html" class="post-title-link" itemprop="url">215 第K个最大值</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/31953.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/31953.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>199</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">findKthLargest</span>(<span class="params"><span class="variable">$nums</span>, <span class="variable">$k</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">rsort</span>(<span class="variable">$nums</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$nums</span>[<span class="variable">$k</span> - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$s</span> = <span class="keyword">new</span> <span class="title class_">Solution</span>();</span><br><span class="line"><span class="variable">$res</span> = <span class="variable">$s</span>-&gt;<span class="title function_ invoke__">findKthLargest</span>([<span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">4</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$res</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/22894.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/22894.html" class="post-title-link" itemprop="url">278 第一个错误版本</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-11T00:00:00+08:00">2022-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-28 17:20:39" itemprop="dateModified" datetime="2022-04-28T17:20:39+08:00">2022-04-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/" itemprop="url" rel="index"><span itemprop="name">双指针</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/%E5%AF%B9%E6%92%9E%E9%92%88/" itemprop="url" rel="index"><span itemprop="name">对撞针</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/22894.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/22894.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>692</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>采用 二分法 + 对撞指针。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/22894.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

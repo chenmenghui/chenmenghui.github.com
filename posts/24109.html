@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="mysql一行信息中匹配特定的数据1SELECT * FROM user WHERE nick_name REGEXP &amp;#x27;[[:&lt;:]]不觉风止[[:&gt;:]]&amp;#x27;; 如果是类似”1,2,3,4”这种,不用正则也可以 1SELECT * FROM user WHERE find_in_set(nick_name, &amp;#x27;不觉风止&amp;#x27;); 用like就太繁琐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发中遇到mysql的一些零碎的基础知识">
+<meta property="og:url" content="https://chenmenghui.gitee.io/posts/24109.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="mysql一行信息中匹配特定的数据1SELECT * FROM user WHERE nick_name REGEXP &amp;#x27;[[:&lt;:]]不觉风止[[:&gt;:]]&amp;#x27;; 如果是类似”1,2,3,4”这种,不用正则也可以 1SELECT * FROM user WHERE find_in_set(nick_name, &amp;#x27;不觉风止&amp;#x27;); 用like就太繁琐">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-09-06T11:45:55.000Z">
+<meta property="article:modified_time" content="2022-04-15T05:54:44.890Z">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="实用代码">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/posts/24109.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>开发中遇到mysql的一些零碎的基础知识 | 陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/24109.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          开发中遇到mysql的一些零碎的基础知识
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 19:45:55" itemprop="dateCreated datePublished" datetime="2018-09-06T19:45:55+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-15 13:54:44" itemprop="dateModified" datetime="2022-04-15T13:54:44+08:00">2022-04-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/24109.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/24109.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="mysql一行信息中匹配特定的数据"><a href="#mysql一行信息中匹配特定的数据" class="headerlink" title="mysql一行信息中匹配特定的数据"></a>mysql一行信息中匹配特定的数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> nick_name REGEXP <span class="string">&#x27;[[:&lt;:]]不觉风止[[:&gt;:]]&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>如果是类似”1,2,3,4”这种,不用正则也可以</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> find_in_set(nick_name, <span class="string">&#x27;不觉风止&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>用like就太繁琐了,需要考虑多种情况</p>
+<h3 id="mysql中join之后的on"><a href="#mysql中join之后的on" class="headerlink" title="mysql中join之后的on"></a>mysql中join之后的on</h3><p>看一个sql语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  n.cat_id,</span><br><span class="line">  c.cat_id</span><br><span class="line"><span class="keyword">FROM</span> site_news n <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> site_news_category c</span><br><span class="line">    <span class="keyword">ON</span> n.cat_id <span class="operator">=</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>他的结果集居然是site_news的所有的记录。</p>
+<p>把sql语句改成这个样子</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">  n.cat_id,</span><br><span class="line">  c.cat_id</span><br><span class="line"><span class="keyword">FROM</span> site_news n <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> site_news_category c</span><br><span class="line">    <span class="keyword">ON</span> n.cat_id <span class="operator">=</span> c.cat_id</span><br><span class="line"><span class="keyword">WHERE</span> c.cat_id <span class="operator">=</span> <span class="number">21</span>;</span><br></pre></td></tr></table></figure>
+<p>其结果就符合预期了.</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33864656/article/details/77838258">百度之后,看到这样的结论</a></p>
+<blockquote>
+<p>假如是左连接的话，如果左边表的某条记录不符合连接条件，那么它不进行连接，但是仍然留在结果集中（此时右边部分的连接结果为NULL）</p>
+</blockquote>
+<p>才知道困惑我的原因竟在于此</p>
+<p>原来,on只是作为两个表的链接条件而使用的.具体的筛选,还需要使用where处理</p>
+<h3 id="mysql中的on、where、having之间的区别"><a href="#mysql中的on、where、having之间的区别" class="headerlink" title="mysql中的on、where、having之间的区别"></a>mysql中的on、where、having之间的区别</h3><p>在select语句中，这三者筛选是有时序的。on最先，where次之，having最后。</p>
+<p>在通过两张及两张以上的表链接来返回记录时，首先会产生一个中间的临时表。on是产生临时表所需要的条件。同时，记住上述所说的话。</p>
+<p>之后where是在这张临时表的基础之上起作用的。另外where的条件是数据表中原有的字段。</p>
+<p>然后就是having在where之后的基础起作用。having对聚合函数及as产生的别名有效</p>
+<h3 id="mysql把搜索到的内容展示成一行"><a href="#mysql把搜索到的内容展示成一行" class="headerlink" title="mysql把搜索到的内容展示成一行"></a>mysql把搜索到的内容展示成一行</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> group_concat(key) <span class="keyword">FROM</span> config <span class="keyword">WHERE</span> <span class="keyword">group</span> <span class="operator">=</span> <span class="string">&#x27;points&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="UPDATE把一个表中的字段与另一个表的字段对应上"><a href="#UPDATE把一个表中的字段与另一个表的字段对应上" class="headerlink" title="UPDATE把一个表中的字段与另一个表的字段对应上"></a>UPDATE把一个表中的字段与另一个表的字段对应上</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> store_reply s, base_user c</span><br><span class="line"><span class="keyword">set</span> s.head_img_url <span class="operator">=</span> c.head_img_url</span><br><span class="line"><span class="keyword">where</span> s.user_id <span class="operator">=</span> c.id;</span><br></pre></td></tr></table></figure>
+
+<h3 id="INSERT另外一个表的数据"><a href="#INSERT另外一个表的数据" class="headerlink" title="INSERT另外一个表的数据"></a>INSERT另外一个表的数据</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> favorite_num (rid, favorite_num)</span><br><span class="line">  <span class="keyword">SELECT</span></span><br><span class="line">    rid,</span><br><span class="line">    <span class="built_in">count</span>(id)</span><br><span class="line">  <span class="keyword">FROM</span> store_favorite</span><br><span class="line">  <span class="keyword">GROUP</span> <span class="keyword">BY</span> rid;</span><br></pre></td></tr></table></figure>
+
+<p>两个表的字段顺序对应上就可以了</p>
+<h3 id="mysql5-7-mysql5-7默认开启了ONLY-FULL-GROUP-BY-有时需要将其关闭"><a href="#mysql5-7-mysql5-7默认开启了ONLY-FULL-GROUP-BY-有时需要将其关闭" class="headerlink" title="mysql5.7 mysql5.7默认开启了ONLY_FULL_GROUP_BY,有时需要将其关闭"></a>mysql5.7 mysql5.7默认开启了ONLY_FULL_GROUP_BY,有时需要将其关闭</h3><p>SET SESSION sql_mode &#x3D; ‘STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION ‘;</p>
+<h3 id="比较两个表中的数据是否一致"><a href="#比较两个表中的数据是否一致" class="headerlink" title="比较两个表中的数据是否一致"></a>比较两个表中的数据是否一致</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id,title</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">       <span class="keyword">SELECT</span> id,title</span><br><span class="line">       <span class="keyword">FROM</span> text1</span><br><span class="line">       <span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">       <span class="keyword">SELECT</span> id,title</span><br><span class="line">       <span class="keyword">FROM</span> text2</span><br><span class="line">     ) tb1</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> id,title</span><br><span class="line"><span class="keyword">HAVING</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> id, title</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过另一个表的数据更新当前表"><a href="#通过另一个表的数据更新当前表" class="headerlink" title="通过另一个表的数据更新当前表"></a>通过另一个表的数据更新当前表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> vip_dynamic_reward_record record, vip_member <span class="keyword">member</span></span><br><span class="line"><span class="keyword">SET</span> record.market <span class="operator">=</span> member.market</span><br><span class="line"><span class="keyword">WHERE</span> record.member_child_id <span class="operator">=</span> member.id;</span><br></pre></td></tr></table></figure>
+<p>或者子句的模式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> vip_dynamic_reward_record</span><br><span class="line"><span class="keyword">SET</span> market <span class="operator">=</span> (<span class="keyword">SELECT</span> market <span class="keyword">FROM</span> vip_member <span class="keyword">WHERE</span> vip_dynamic_reward_record.member_child_id <span class="operator">=</span> vip_member.id);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">user</span></span><br><span class="line"><span class="keyword">SET</span> average_score <span class="operator">=</span> (<span class="keyword">SELECT</span> <span class="built_in">avg</span>(score) <span class="keyword">FROM</span> score <span class="keyword">WHERE</span> user_id <span class="operator">=</span> user.id);</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> vip_member</span><br><span class="line"><span class="keyword">SET</span> dynamic_reward <span class="operator">=</span> (<span class="keyword">SELECT</span> ifnull(<span class="built_in">sum</span>(times <span class="operator">*</span> least(left_dynamic_reward, right_dynamic_reward) <span class="operator">*</span> <span class="number">2</span> <span class="operator">*</span> <span class="number">0.03</span> <span class="operator">*</span> <span class="number">0.95</span>), <span class="number">0</span>)</span><br><span class="line">                      <span class="keyword">FROM</span> vip_dynamic_reward</span><br><span class="line">                      <span class="keyword">WHERE</span> vip_member.id <span class="operator">=</span> vip_dynamic_reward.member_id);</span><br></pre></td></tr></table></figure>
+<p>令我奇怪的是,这里的set之后居然没有where限定条件也能正常运行</p>
+<h3 id="创建一个临时表并把另一个表的数据插入进去"><a href="#创建一个临时表并把另一个表的数据插入进去" class="headerlink" title="创建一个临时表并把另一个表的数据插入进去"></a>创建一个临时表并把另一个表的数据插入进去</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> record1</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> vip_dynamic_reward_record;</span><br></pre></td></tr></table></figure>
+
+<p>原来如此,创建表的时候不一定需要先定义字段再插入数据,可以直接把一个子表的内容插进去的.</p>
+<h3 id="mysql中获取一列数据中几栏里的最小值"><a href="#mysql中获取一列数据中几栏里的最小值" class="headerlink" title="mysql中获取一列数据中几栏里的最小值"></a>mysql中获取一列数据中几栏里的最小值</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `member_id`,least(<span class="built_in">sum</span>(`left_dynamic_reward`), <span class="built_in">sum</span>(`right_dynamic_reward`))<span class="operator">*</span><span class="number">2</span><span class="operator">*</span><span class="number">0.03</span><span class="operator">*</span><span class="number">0.95</span> `dynamic_reward`</span><br><span class="line"><span class="keyword">FROM</span> `vip_dynamic_reward`</span><br><span class="line"><span class="keyword">WHERE</span> `times` <span class="operator">&lt;</span> <span class="number">25</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> `member_id`</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL中的if"><a href="#MySQL中的if" class="headerlink" title="MySQL中的if"></a>MySQL中的if</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- IF(expr1,expr2,expr3)</span></span><br><span class="line"><span class="keyword">SELECT</span> if (<span class="literal">true</span>, <span class="number">1</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- IFNULL(expr1,expr2)</span></span><br><span class="line"><span class="keyword">SELECT</span> ifnull(<span class="keyword">null</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CASE</span> sex</span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">&#x27;男&#x27;</span> </span><br><span class="line">    <span class="keyword">ELSE</span> <span class="string">&#x27;女&#x27;</span> </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"><span class="keyword">FROM</span> test;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mysql中的时间"><a href="#mysql中的时间" class="headerlink" title="mysql中的时间"></a>mysql中的时间</h3><ul>
+<li>DATE_FORMAT() 函数用于以不同的格式显示日期&#x2F;时间数据。</li>
+<li>MySQL 格式化函数 FROM_UNIXTIME()</li>
+</ul>
+<p>具体内容参考链接<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dest/p/4205371.html">mysql格式化日期</a></p>
+<h3 id="删除表记录后重新设置自增索引值"><a href="#删除表记录后重新设置自增索引值" class="headerlink" title="删除表记录后重新设置自增索引值"></a>删除表记录后重新设置自增索引值</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `system_menu`</span><br><span class="line">    AUTO_INCREMENT <span class="operator">=</span> <span class="number">60</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Insert-ignore-into"><a href="#Insert-ignore-into" class="headerlink" title="Insert ignore into"></a>Insert ignore into</h3><p><a target="_blank" rel="noopener" href="http://www.mysqltutorial.org/mysql-insert-ignore/">MySQL INSERT IGNORE Statement</a></p>
+<p>insert ignore into 指的是插入时忽略错误信息。<br>比如，如果没有「ignore」，一条包含多个数据的插入语句会在报错（如重复索引）后直接退出执行；而有「ignore」，则会忽略报错继续执行其他可执行的部分。</p>
+<h3 id="on-duplicate-key-update"><a href="#on-duplicate-key-update" class="headerlink" title="on duplicate key update"></a>on duplicate key update</h3><p>这个就牛逼了，实现了有则更新，无则添加的功能</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> daily_hit_count(<span class="keyword">day</span>, slot, cnt)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="built_in">current_date</span>,</span><br><span class="line">        <span class="built_in">floor</span>(rand() <span class="operator">*</span> <span class="number">10</span>),</span><br><span class="line">        <span class="number">1</span>)</span><br><span class="line"><span class="keyword">ON</span> DUPLICATE KEY <span class="keyword">UPDATE</span> cnt <span class="operator">=</span>cnt <span class="operator">+</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h3><p>之前遇到排序结果是需要自定义的，现在有一个思路</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `key`,<span class="keyword">CASE</span> `key` <span class="keyword">WHEN</span> <span class="string">&#x27;B&#x27;</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">WHEN</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">THEN</span> <span class="number">2</span> <span class="keyword">WHEN</span> <span class="string">&#x27;C&#x27;</span> <span class="keyword">THEN</span> <span class="number">4</span> <span class="keyword">WHEN</span> <span class="string">&#x27;D&#x27;</span> <span class="keyword">THEN</span> <span class="number">3</span> <span class="keyword">ELSE</span> <span class="keyword">NULL</span> <span class="keyword">END</span> <span class="keyword">AS</span> new_sort</span><br><span class="line"><span class="keyword">FROM</span> Greatests</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> new_sort;</span><br></pre></td></tr></table></figure>
+
+<h3 id="「-x3D-」和「-x3D-」的区别"><a href="#「-x3D-」和「-x3D-」的区别" class="headerlink" title="「&#x3D;」和「:&#x3D;」的区别"></a>「&#x3D;」和「:&#x3D;」的区别</h3><ul>
+<li>「&#x3D;」只有在update或set中才是赋值，其他地方是判断。而判断的结果是1或2</li>
+<li>「:&#x3D;」只有赋值</li>
+</ul>
+<h3 id="UPDATE操作是有顺序的"><a href="#UPDATE操作是有顺序的" class="headerlink" title="UPDATE操作是有顺序的"></a>UPDATE操作是有顺序的</h3><p>第一次见到没有看懂，记下来吧。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> test;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> test</span><br><span class="line">(</span><br><span class="line">    id    <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> KEY AUTO_INCREMENT,</span><br><span class="line">    <span class="keyword">start</span> <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">end</span>   <span class="type">INT</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span></span><br><span class="line">) CHARSET utf8</span><br><span class="line">  ENGINE innodb;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test (<span class="keyword">start</span>)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="number">1</span>),</span><br><span class="line">       (<span class="number">2</span>),</span><br><span class="line">       (<span class="number">3</span>),</span><br><span class="line">       (<span class="number">4</span>),</span><br><span class="line">       (<span class="number">5</span>),</span><br><span class="line">       (<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> <span class="variable">@new</span>_num <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> test</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">end</span>   <span class="operator">=</span> <span class="variable">@new</span>_num,</span><br><span class="line">    <span class="keyword">start</span> <span class="operator">=</span> (<span class="variable">@new</span>_num :<span class="operator">=</span> <span class="keyword">start</span>) #<span class="number">1</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> id <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<p>注意#1的地方。</p>
+<p>这几天看那本SQL进阶，因为其中反复强调SQL是无序集合，所以产生了个误区，总感觉update操作时同时进行的。从这个可以看出结果，还是有顺序的，甚而还会受到order by的影响。</p>
+<p>其实想想也是，数据表本身就是按一定顺序排列的「文本」结构，怎么可能会没有顺序呢。不仅仅是update，其他操作也是有顺序的。就比如之前常见的排列序号，如果没有顺序，是不可能实现的。</p>
+<h3 id="SQL-CALC-FOUND-ROWS"><a href="#SQL-CALC-FOUND-ROWS" class="headerlink" title="SQL_CALC_FOUND_ROWS"></a>SQL_CALC_FOUND_ROWS</h3><p>在经常使用的分页查询中，经常是「select count（*） from 子句」和「子句」这般查两次。使用该函数，就无须这样的操作了。在处理复杂的「子句」时，大大提高了效率。</p>
+<h3 id="通过SQL查看表所包含的字段"><a href="#通过SQL查看表所包含的字段" class="headerlink" title="通过SQL查看表所包含的字段"></a>通过SQL查看表所包含的字段</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> COLUMN_NAME</span><br><span class="line"><span class="keyword">FROM</span> information_schema.COLUMNS</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA <span class="operator">=</span> <span class="string">&#x27;库名&#x27;</span></span><br><span class="line">  <span class="keyword">AND</span> TABLE_NAME <span class="operator">=</span> <span class="string">&#x27;表名&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询结果按-非零非null、非null、null-进行排序"><a href="#查询结果按-非零非null、非null、null-进行排序" class="headerlink" title="查询结果按 非零非null、非null、null 进行排序"></a>查询结果按 非零非null、非null、null 进行排序</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> test</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ISNULL(<span class="keyword">end</span>), <span class="keyword">NOT</span> (<span class="keyword">end</span>), <span class="keyword">end</span>;</span><br></pre></td></tr></table></figure>
+
+<p>isnull 值为null，结果为1；值为非null，结果为0。排序结果就会把所有的非null放在前面</p>
+<p>not 值为null，结果为null；值为0，结果为1；值为非null非0，结果为0</p>
+<p>所以，排序结果就是按 非零非null、非null、null 排序</p>
+<h3 id="创建字段时默认值（5-7）"><a href="#创建字段时默认值（5-7）" class="headerlink" title="创建字段时默认值（5.7）"></a>创建字段时默认值（5.7）</h3><p>和之前的版本有些区别。比如</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34112030/article/details/92068637">datetime 不能使用「0000-00-00 00:00:00」</a></p>
+<p>text 等格式不能有默认值</p>
+<p>这些也都是可以通过配置项处理。但也没有必要。</p>
+<h3 id="查看表的创建时间"><a href="#查看表的创建时间" class="headerlink" title="查看表的创建时间"></a>查看表的创建时间</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CREATE_TIME</span><br><span class="line">FROM information_schema.TABLES</span><br><span class="line">WHERE TABLE_SCHEMA = &#x27;tkchina&#x27;</span><br><span class="line">  AND TABLE_NAME = &#x27;actionlog&#x27;;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/88342863">information_schema 中的表</a>：</p>
+<ul>
+<li>CHARACTER_SETS</li>
+<li>COLLATIONS</li>
+<li>COLLATION_CHARACTER_SET_APPLICABILITY</li>
+<li>COLUMNS</li>
+<li>COLUMN_PRIVILEGES</li>
+<li>ENGINES</li>
+<li>EVENTS</li>
+<li>FILES</li>
+<li>GLOBAL_STATUS</li>
+<li>GLOBAL_VARIABLES</li>
+<li>KEY_COLUMN_USAGE</li>
+<li>OPTIMIZER_TRACE</li>
+<li>PARAMETERS</li>
+<li>PARTITIONS</li>
+<li>PLUGINS</li>
+<li>PROCESSLIST</li>
+<li>PROFILING</li>
+<li>REFERENTIAL_CONSTRAINTS</li>
+<li>ROUTINES</li>
+<li>SCHEMATA</li>
+<li>SCHEMA_PRIVILEGES</li>
+<li>SESSION_STATUS</li>
+<li>SESSION_VARIABLES</li>
+<li>STATISTICS</li>
+<li>TABLES</li>
+<li>TABLESPACES</li>
+<li>TABLE_CONSTRAINTS</li>
+<li>TABLE_PRIVILEGES</li>
+<li>TRIGGERS</li>
+<li>USER_PRIVILEGES</li>
+<li>VIEWS</li>
+<li>INNODB_LOCKS</li>
+<li>INNODB_TRX</li>
+<li>INNODB_SYS_DATAFILES</li>
+<li>INNODB_FT_CONFIG</li>
+<li>INNODB_SYS_VIRTUAL</li>
+<li>INNODB_CMP</li>
+<li>INNODB_FT_BEING_DELETED</li>
+<li>INNODB_CMP_RESET</li>
+<li>INNODB_CMP_PER_INDEX</li>
+<li>INNODB_CMPMEM_RESET</li>
+<li>INNODB_FT_DELETED</li>
+<li>INNODB_BUFFER_PAGE_LRU</li>
+<li>INNODB_LOCK_WAITS</li>
+<li>INNODB_TEMP_TABLE_INFO</li>
+<li>INNODB_SYS_INDEXES</li>
+<li>INNODB_SYS_TABLES</li>
+<li>INNODB_SYS_FIELDS</li>
+<li>INNODB_CMP_PER_INDEX_RESET</li>
+<li>INNODB_BUFFER_PAGE</li>
+<li>INNODB_FT_DEFAULT_STOPWORD</li>
+<li>INNODB_FT_INDEX_TABLE</li>
+<li>INNODB_FT_INDEX_CACHE</li>
+<li>INNODB_SYS_TABLESPACES</li>
+<li>INNODB_METRICS</li>
+<li>INNODB_SYS_FOREIGN_COLS</li>
+<li>INNODB_CMPMEM</li>
+<li>INNODB_BUFFER_POOL_STATS</li>
+<li>INNODB_SYS_COLUMNS</li>
+<li>INNODB_SYS_FOREIGN</li>
+<li>INNODB_SYS_TABLESTATS</li>
+</ul>
+<p>可以很轻松的查找 表、字段、视图、触发器、存储过程等相关信息。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># mysql</a>
+              <a href="/tags/%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/" rel="tag"># 实用代码</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/34544.html" rel="prev" title="PHP基础知识值功能设计考点">
+      <i class="fa fa-chevron-left"></i> PHP基础知识值功能设计考点
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/62015.html" rel="next" title="WdatePicker设置最大最小日期">
+      WdatePicker设置最大最小日期 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E4%B8%80%E8%A1%8C%E4%BF%A1%E6%81%AF%E4%B8%AD%E5%8C%B9%E9%85%8D%E7%89%B9%E5%AE%9A%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">mysql一行信息中匹配特定的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E4%B8%ADjoin%E4%B9%8B%E5%90%8E%E7%9A%84on"><span class="nav-number">2.</span> <span class="nav-text">mysql中join之后的on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E4%B8%AD%E7%9A%84on%E3%80%81where%E3%80%81having%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">mysql中的on、where、having之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E6%8A%8A%E6%90%9C%E7%B4%A2%E5%88%B0%E7%9A%84%E5%86%85%E5%AE%B9%E5%B1%95%E7%A4%BA%E6%88%90%E4%B8%80%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">mysql把搜索到的内容展示成一行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UPDATE%E6%8A%8A%E4%B8%80%E4%B8%AA%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8E%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%9A%84%E5%AD%97%E6%AE%B5%E5%AF%B9%E5%BA%94%E4%B8%8A"><span class="nav-number">5.</span> <span class="nav-text">UPDATE把一个表中的字段与另一个表的字段对应上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#INSERT%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="nav-number">6.</span> <span class="nav-text">INSERT另外一个表的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql5-7-mysql5-7%E9%BB%98%E8%AE%A4%E5%BC%80%E5%90%AF%E4%BA%86ONLY-FULL-GROUP-BY-%E6%9C%89%E6%97%B6%E9%9C%80%E8%A6%81%E5%B0%86%E5%85%B6%E5%85%B3%E9%97%AD"><span class="nav-number">7.</span> <span class="nav-text">mysql5.7 mysql5.7默认开启了ONLY_FULL_GROUP_BY,有时需要将其关闭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AA%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4"><span class="nav-number">8.</span> <span class="nav-text">比较两个表中的数据是否一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9B%B4%E6%96%B0%E5%BD%93%E5%89%8D%E8%A1%A8"><span class="nav-number">9.</span> <span class="nav-text">通过另一个表的数据更新当前表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%B4%E6%97%B6%E8%A1%A8%E5%B9%B6%E6%8A%8A%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A1%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5%E8%BF%9B%E5%8E%BB"><span class="nav-number">10.</span> <span class="nav-text">创建一个临时表并把另一个表的数据插入进去</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E4%B8%AD%E8%8E%B7%E5%8F%96%E4%B8%80%E5%88%97%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%87%A0%E6%A0%8F%E9%87%8C%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-number">11.</span> <span class="nav-text">mysql中获取一列数据中几栏里的最小值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL%E4%B8%AD%E7%9A%84if"><span class="nav-number">12.</span> <span class="nav-text">MySQL中的if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E4%B8%AD%E7%9A%84%E6%97%B6%E9%97%B4"><span class="nav-number">13.</span> <span class="nav-text">mysql中的时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A1%A8%E8%AE%B0%E5%BD%95%E5%90%8E%E9%87%8D%E6%96%B0%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%A2%9E%E7%B4%A2%E5%BC%95%E5%80%BC"><span class="nav-number">14.</span> <span class="nav-text">删除表记录后重新设置自增索引值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert-ignore-into"><span class="nav-number">15.</span> <span class="nav-text">Insert ignore into</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-duplicate-key-update"><span class="nav-number">16.</span> <span class="nav-text">on duplicate key update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F"><span class="nav-number">17.</span> <span class="nav-text">自定义排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%80%8C-x3D-%E3%80%8D%E5%92%8C%E3%80%8C-x3D-%E3%80%8D%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">18.</span> <span class="nav-text">「&#x3D;」和「:&#x3D;」的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UPDATE%E6%93%8D%E4%BD%9C%E6%98%AF%E6%9C%89%E9%A1%BA%E5%BA%8F%E7%9A%84"><span class="nav-number">19.</span> <span class="nav-text">UPDATE操作是有顺序的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-CALC-FOUND-ROWS"><span class="nav-number">20.</span> <span class="nav-text">SQL_CALC_FOUND_ROWS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87SQL%E6%9F%A5%E7%9C%8B%E8%A1%A8%E6%89%80%E5%8C%85%E5%90%AB%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="nav-number">21.</span> <span class="nav-text">通过SQL查看表所包含的字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E6%8C%89-%E9%9D%9E%E9%9B%B6%E9%9D%9Enull%E3%80%81%E9%9D%9Enull%E3%80%81null-%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F"><span class="nav-number">22.</span> <span class="nav-text">查询结果按 非零非null、非null、null 进行排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%97%E6%AE%B5%E6%97%B6%E9%BB%98%E8%AE%A4%E5%80%BC%EF%BC%885-7%EF%BC%89"><span class="nav-number">23.</span> <span class="nav-text">创建字段时默认值（5.7）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4"><span class="nav-number">24.</span> <span class="nav-text">查看表的创建时间</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于北京瑞友科技，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">204k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:06</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : '9jQqXQuURk2dvsv5oVh9D0VM-gzGzoHsz',
+      appKey     : 'YfjrSNHQAtj63yeNmdmrLlLw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
