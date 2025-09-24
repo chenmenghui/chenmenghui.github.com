@@ -1,0 +1,2319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="陈孟辉的学习笔记">
+<meta property="og:url" content="https://chenmenghui.gitee.io/page/18/index.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="开发菜鸟 陈孟辉">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/page/18/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/6910.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/6910.html" class="post-title-link" itemprop="url">MySQL数据库基础考点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h1><h3 id="整形"><a href="#整形" class="headerlink" title="整形"></a>整形</h3><p>tinyint<br>smallint<br>mediumint<br>int<br>bigint</p>
+<ul>
+<li>属性<ul>
+<li>unsigned</li>
+</ul>
+</li>
+<li>长度<ul>
+<li>可以为整数类型指定宽度,如int(11),对大多数应用是没有意义的,他不会限制值的合法范围,只会影响显示字符的个数</li>
+<li>zerofill(零填充)</li>
+</ul>
+</li>
+</ul>
+<h3 id="实数类型"><a href="#实数类型" class="headerlink" title="实数类型"></a>实数类型</h3><p>float<br>double<br>decimal</p>
+<p>decimal可以存储bigint还大的整数;可以用于存储精确的小数</p>
+<p>Float和double类型支持使用标准的浮点进行近似计算</p>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p>varchar<br>char<br>text<br>blob</p>
+<p>varchar类型用户存储可变长字符串,它比定长类型更节省空间.varchar使用1或2个额外字节记录字符串的长度,列长度小于255字节,使用一个字节表示否则用2个</p>
+<p>varchar长度,如果存储内容超出指定长度,会报错</p>
+<p>char是定长的,根据定义的字符串长度分配足够的空间</p>
+<p>char会根据需要采用空格进行填充以方便比较</p>
+<p>char适合存储很短的字符串,或者所有值都接近同一长度</p>
+<p>char长度,超出设定的长度,会被截断</p>
+<p>对于经常变更的数据,char比varchar更好.char不容易产生碎片</p>
+<p>对于非常短的列,char比varchar在存储空间更具效率</p>
+<p>只分配真正需要的空间,更长的列会消耗更多的内存</p>
+<p>尽量避免使用blog和text类型,查询会使用临时表,导致严重的性能开销</p>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p>有时可以使用枚举替代常用的字符串类型</p>
+<p>把不重复的集合存储成一个预定义的集合</p>
+<p>非常紧凑,把列表值压缩到1或2个字节</p>
+<p>内部存储的是整数</p>
+<p>尽量避免使用数组作为枚举的常量,易混乱</p>
+<p>排序是按照内部存储的整数进行排序</p>
+<p>枚举表会使表大小大大减小</p>
+<h3 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h3><p>尽量使用timestamp,比datetime空间效率高</p>
+<p>用整数保存时间戳的格式通常不方便处理</p>
+<p>如果需要存储微秒,可以使用bigint存储</p>
+<h3 id="列属性"><a href="#列属性" class="headerlink" title="列属性"></a>列属性</h3><ul>
+<li>auto_increment</li>
+<li>default</li>
+<li>not null</li>
+<li>zerofill</li>
+</ul>
+<h1 id="MySql基础操作"><a href="#MySql基础操作" class="headerlink" title="MySql基础操作"></a>MySql基础操作</h1><h3 id="MySQL的连接和关闭"><a href="#MySQL的连接和关闭" class="headerlink" title="MySQL的连接和关闭"></a>MySQL的连接和关闭</h3><ul>
+<li>mysql -u -p -h -P(端口)</li>
+<li>其他<ul>
+<li>\G<br>  格式化处理结果</li>
+<li>\c<br>   取消当前的sql命令</li>
+<li>\q<br>  退出</li>
+<li>\s<br>  显示服务器状态</li>
+<li>\h<br>  帮助信息</li>
+<li>\d<br>  改变执行符(;)</li>
+</ul>
+</li>
+</ul>
+<h3 id="MySQL数据表引擎"><a href="#MySQL数据表引擎" class="headerlink" title="MySQL数据表引擎"></a>MySQL数据表引擎</h3><ul>
+<li>innodb<ul>
+<li>默认事务型引擎,最重要最广泛的存储引擎,性能优秀</li>
+<li>数据存储在共享表空间,可以通过配置分开</li>
+<li>对主键查询的性能高于其他类型的存储引擎</li>
+<li>内部做了很多优化,从磁盘读取数据时自动在内存构建hash索引,插入数据时自动构建插入缓冲区</li>
+<li>通过一些机制和工具支持真正的热备份</li>
+<li>支持崩溃后的安全恢复</li>
+<li>支持行级锁</li>
+<li>支持外键</li>
+</ul>
+</li>
+<li>myisam<ul>
+<li>5.1版本前,myisam是默认的引擎</li>
+<li>拥有全文索引,压缩,空间函数</li>
+<li>不支持事务和行级锁,不支持崩溃后的安全恢复</li>
+<li>表存储在两个文件,myd和myi</li>
+<li>设计简单,某些场景下性能很好(select *)</li>
+</ul>
+</li>
+<li>其他表引擎<br>  Archive<br>  Blackhole<br>  Csv<br>  Memory</li>
+<li>优先使用innodb</li>
+</ul>
+<h3 id="MySQL的锁机制"><a href="#MySQL的锁机制" class="headerlink" title="MySQL的锁机制"></a>MySQL的锁机制</h3><h5 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h5><ul>
+<li>表锁是日常开发中常见的问题,因此也是面试当中最常见的考察点.当多个查询同一时刻进行数据修改时,就会产生并发控制的问题</li>
+<li>共享锁和排它锁,其实就是读锁和写锁<ul>
+<li>读锁<br>  共享的,不堵塞.多个用户可以同时读取一个资源,互不干扰</li>
+<li>写锁<br>  排他的,一个写锁会阻塞其他的写锁和读锁.这样可以只允许一个人进行写入,防止其他用户读取正在写入的资源</li>
+</ul>
+</li>
+<li>锁粒度<ul>
+<li>表锁<br>  系统性能开销最小,会锁定整张表,myisam使用表锁</li>
+<li>行锁<br>  最大程度地支持并发处理,但是也会带来了最大的锁开销,innodb实现行锁</li>
+</ul>
+</li>
+</ul>
+<h3 id="MySQL事务处理"><a href="#MySQL事务处理" class="headerlink" title="MySQL事务处理"></a>MySQL事务处理</h3><p>MySQL提供事务处理的表引擎,innodb</p>
+<p>服务器不管理事务,由下层的引擎实现,所以同一个事务中,使用多种存储引擎不靠谱</p>
+<p>在非事务的表上执行事务操作MySQL不会发出提醒,也不会报错</p>
+<h3 id="MySQL存储过程"><a href="#MySQL存储过程" class="headerlink" title="MySQL存储过程"></a>MySQL存储过程</h3><p>为以后的使用而保存的一条或多条MySQL语句的集合</p>
+<p>存储过程就是有业务逻辑和流程的集合</p>
+<p>可以在存储过程中创建表,更新表,删除表等等</p>
+<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><ul>
+<li>通过把处理封装在容易使用的单元中,简化复杂的操作</li>
+<li>保证数据的一致性</li>
+<li>简化对变动的管理</li>
+</ul>
+<h3 id="MySQL的触发器"><a href="#MySQL的触发器" class="headerlink" title="MySQL的触发器"></a>MySQL的触发器</h3><p>触发器是提供程序猿和数据分析员来保证数据完整性的一种方法,它是与表事件相关的特殊的存储过程</p>
+<h5 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h5><ul>
+<li>可通过数据库中相关表实现级连更改</li>
+<li>实时监控某表中的某个字段的更改而需要做出相应的处理</li>
+<li>某些业务编号的生成</li>
+<li>滥用会造成数据库及应用程序维护困难</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/17036.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/17036.html" class="post-title-link" itemprop="url">PHP基础知识之JavaScript和JQuery的基础考点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>822</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>JavaScript基础语法</p>
+<p>变量的定义<br>变量名可以是字符_$<br>变量名称对大小写敏感<br>使用var关键字声明变量<br>未使用值声明的变量,值是undefined<br>如果重新声明JavaScript变量,该变量的值不会丢失</p>
+<p>数据类型</p>
+<p>JavaScript变量均为对象.声明一个变量,就创建了一个新的对象</p>
+<p>创建对象</p>
+<ul>
+<li>new Object()</li>
+<li>使用对象构造器</li>
+<li>json对象</li>
+</ul>
+<p>函数<br>不支持默认值<br>函数内部声明的变量(使用var)是局部变量<br>在函数外声明的变量全局可访</p>
+<p>else if必须分开写</p>
+<p>JavaScript内置对象</p>
+<ul>
+<li><p>Number</p>
+<ul>
+<li>var pi &#x3D; 3.14</li>
+<li>var myNum &#x3D; new Number(value)</li>
+<li>var myNum &#x3D; Number(value)</li>
+</ul>
+</li>
+<li><p>String</p>
+<ul>
+<li>var str &#x3D; ‘Hello’ &#x2F;&#x2F; 单引号双引号无区别</li>
+<li>var str &#x3D; new String(s)</li>
+<li>var str &#x3D; String(s)</li>
+</ul>
+</li>
+<li><p>Boolean</p>
+<ul>
+<li>var bol &#x3D; true</li>
+<li>var bol &#x3D;  New Boolean(value)</li>
+<li>var bol &#x3D; Boolean(value)</li>
+</ul>
+</li>
+<li><p>Array</p>
+<ul>
+<li>var arr &#x3D; new Array();</li>
+<li>var arr &#x3D; new Array(size);</li>
+<li>var arr &#x3D; new Array(e1,e2,…)</li>
+</ul>
+</li>
+<li><p>Date</p>
+<ul>
+<li>var date &#x3D; new Date();</li>
+</ul>
+</li>
+<li><p>Math</p>
+<ul>
+<li>var pi &#x3D; Math.PI;</li>
+</ul>
+</li>
+<li><p>RegExp</p>
+<ul>
+<li>&#x2F;pattern&#x2F;attributes</li>
+<li>new RegExp(pattern, attributes)</li>
+</ul>
+</li>
+</ul>
+<p>延伸考点:window对象</p>
+<ul>
+<li>window</li>
+<li>Navigator</li>
+<li>Screen</li>
+<li>History</li>
+<li>Location</li>
+</ul>
+<p>延伸考点:DOM对象</p>
+<ul>
+<li>Document</li>
+<li>Element</li>
+<li>Attr</li>
+<li>Event</li>
+</ul>
+<p>延伸考点:jQuery基础知识</p>
+<ul>
+<li>jQuery选择器</li>
+<li>jQuery事件</li>
+<li>jQuery效果</li>
+<li>jQuery DOM操作<ul>
+<li>属性</li>
+<li>值</li>
+<li>节点</li>
+<li>css</li>
+<li>尺寸</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/2517.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/2517.html" class="post-title-link" itemprop="url">MySQL创建高性能索引</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>565</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MySQL索引的基础和类型<br>索引的基础</p>
+<ul>
+<li>索引类似于书籍的目录,想要找到一本书的某个特定主题,需要先查找书的目录,定位对应页码</li>
+<li>存储引擎使用类似的方法进行数据查询,先去索引当中找到对应的值,然后根据匹配的索引找到对应的数据行</li>
+</ul>
+<p>索引对性能的影响</p>
+<ul>
+<li><p>优</p>
+<ul>
+<li>大大减少服务器需要扫描的数据量</li>
+<li>帮助服务器避免排序和临时表</li>
+<li>将随机I&#x2F;O变顺序I&#x2F;O</li>
+<li>大大提升查询速度</li>
+</ul>
+</li>
+<li><p>缺</p>
+<ul>
+<li>降低写的性能</li>
+<li>占用磁盘空间</li>
+</ul>
+</li>
+<li><p>索引的使用场景</p>
+<ul>
+<li>对于非常小的表,大部分情况下全表扫描的效率更高</li>
+<li>中到大型表,索引非常有效</li>
+<li>特大型表,建立和使用索引的代价随之增大,可以使用分区技术来解决</li>
+</ul>
+</li>
+</ul>
+<p>索引类型</p>
+<ul>
+<li><p>索引有很多类型,都是实现在存储引擎中</p>
+<ul>
+<li>普通索引:最基本的索引,没有任何约束限制</li>
+<li>唯一索引:与普通索引类似,但是具有唯一性约束</li>
+<li>主键索引:特殊的唯一索引,不允许有空值</li>
+<li>组合索引:将多个列组合在一起创建索引,可以覆盖多个列</li>
+<li>外键索引:只有Innodb类型的表才可以使用外键索引,保证数据的一致性,完整性和实现级联操作</li>
+<li>全文索引:MySQL自带的全文索引只能用于MyISAM,并且只能对英文进行全文检索</li>
+</ul>
+</li>
+<li><p>主键和唯一索引的区别</p>
+<ul>
+<li>一个表只能有一个主键索引,可以有多个唯一索引</li>
+<li>主键索引一定是唯一索引,唯一索引不是主键索引</li>
+<li>主键可以与外键构成参照完整性约束,防止数据不一致</li>
+</ul>
+</li>
+</ul>
+<p>延伸:MySQL索引的创建原则<br>延伸:MySQL索引的注意事项</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/38642.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/38642.html" class="post-title-link" itemprop="url">PHP基础知识之常见linux命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>522</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h1><h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><h3 id="系统定时任务"><a href="#系统定时任务" class="headerlink" title="系统定时任务"></a>系统定时任务</h3><h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h3><h3 id="shell命令"><a href="#shell命令" class="headerlink" title="shell命令"></a>shell命令</h3><h2 id="系统安全"><a href="#系统安全" class="headerlink" title="系统安全"></a>系统安全</h2><ul>
+<li>sudo </li>
+<li>su </li>
+<li>chmod</li>
+<li>setfacl<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2></li>
+<li>w</li>
+<li>top</li>
+<li>ps</li>
+<li>kill</li>
+<li>pkill</li>
+<li>pstree</li>
+<li>killall<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2></li>
+<li>id</li>
+<li>usermod</li>
+<li>useradd</li>
+<li>groupadd</li>
+<li>userdel<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2></li>
+<li>mount</li>
+<li>umount</li>
+<li>fsck</li>
+<li>df</li>
+<li>du<h2 id="系统关机和重启"><a href="#系统关机和重启" class="headerlink" title="系统关机和重启"></a>系统关机和重启</h2></li>
+<li>shutdown</li>
+<li>reboot<h2 id="网络应用"><a href="#网络应用" class="headerlink" title="网络应用"></a>网络应用</h2></li>
+<li>curl</li>
+<li>telnet</li>
+<li>mail</li>
+<li>elinks<h2 id="网络测试"><a href="#网络测试" class="headerlink" title="网络测试"></a>网络测试</h2></li>
+<li>ping</li>
+<li>netstat</li>
+<li>host<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2></li>
+<li>hostname</li>
+<li>ifconfig<h2 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h2></li>
+<li>ssh</li>
+<li>screen</li>
+<li>clear</li>
+<li>who</li>
+<li>date<h2 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h2></li>
+<li>yum</li>
+<li>rpm</li>
+<li>apt-get<h2 id="文件查找和比较"><a href="#文件查找和比较" class="headerlink" title="文件查找和比较"></a>文件查找和比较</h2></li>
+<li>locate</li>
+<li>find<h2 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h2></li>
+<li>head</li>
+<li>tail</li>
+<li>less</li>
+<li>more<h2 id="文件处理"><a href="#文件处理" class="headerlink" title="文件处理"></a>文件处理</h2></li>
+<li>touch</li>
+<li>unlink</li>
+<li>rename</li>
+<li>ln</li>
+<li>cat<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2></li>
+<li>cd</li>
+<li>mv</li>
+<li>pwd</li>
+<li>tree</li>
+<li>cp</li>
+<li>ls<h2 id="文件权限属性"><a href="#文件权限属性" class="headerlink" title="文件权限属性"></a>文件权限属性</h2></li>
+<li>setfacl</li>
+<li>chmod</li>
+<li>chown</li>
+<li>chgrp<h2 id="压缩-x2F-解压"><a href="#压缩-x2F-解压" class="headerlink" title="压缩&#x2F;解压"></a>压缩&#x2F;解压</h2></li>
+<li>bzip2&#x2F;bunzip2</li>
+<li>gzip&#x2F;gunzip</li>
+<li>zip&#x2F;unzip</li>
+<li>tar<h2 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h2></li>
+<li>ftp</li>
+<li>scp<h2 id="系统定时任务-1"><a href="#系统定时任务-1" class="headerlink" title="系统定时任务"></a>系统定时任务</h2></li>
+<li>crontab</li>
+<li>at<h1 id="shell基础"><a href="#shell基础" class="headerlink" title="shell基础"></a>shell基础</h1></li>
+<li>赋予权限,直接执行</li>
+<li>调用解释器执行<ul>
+<li>#!&#x2F;bin&#x2F;sh 指定脚本解释器</li>
+</ul>
+</li>
+<li>source命令执行</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/9091.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/9091.html" class="post-title-link" itemprop="url">PHP基础知识值面向对象</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>163</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h2><p>请写出PHP类权限控制修饰符</p>
+<ul>
+<li>public</li>
+<li>private</li>
+<li>protected</li>
+</ul>
+<p>成员访问权限<br>单一继承<br>方法重写</p>
+<p>延伸:面向对象的封装、继承和多态</p>
+<p>抽象类的定义<br>接口的定义</p>
+<p>延伸:魔术方法</p>
+<p>延伸:设计模式</p>
+<p>常见设计模式:<br>工厂模式<br>单例模式<br>注册数模式<br>适配器模式<br>观察者模式<br>策略模式</p>
+<p>着重记忆php面向对象的基本语法,记忆魔术方法,理解常见设计模式</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/30908.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/30908.html" class="post-title-link" itemprop="url">PHP基础知识之自定义函数和内部函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>871</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>考点<br>变量的作用域和静态变量<br>延伸:函数的参数及参数引用传递<br>延伸:函数的返回值及引用返回<br>延伸:外部文件的导入<br>延伸:系统内置函数</li>
+</ul>
+<blockquote>
+<p>变量的作用域也称变量的范围,变量的范围即它定义的上下文背景(也是它的生效范围).大部分PHP变量只有一个单独的范围.这个单独的范围跨度同样包含了include和require引入的文件.</p>
+</blockquote>
+<ul>
+<li>内部使用外部变量<br>global关键字.<br>$GLOBALS及其他超全局数组</li>
+</ul>
+<blockquote>
+<p>静态变量仅在局部函数域中存在,但当程序执行离开作用域时,其值不会消失.</p>
+</blockquote>
+<ul>
+<li>static关键字</li>
+</ul>
+<ol>
+<li>仅初始化一次</li>
+<li>初始化时需要赋值</li>
+<li>每次执行函数该值会保留</li>
+<li>static修饰的变量是局部的,仅在函数内部有效</li>
+<li>可以记录函数的调用次数,从而可以在某些条件下中止递归</li>
+</ol>
+<blockquote>
+<p>函数的参数</p>
+</blockquote>
+<p>默认情况下,函数的参数通过值传递<br>如果希望允许函数修改他的值,必须通过引用传递参数</p>
+<blockquote>
+<p>函数的返回值</p>
+</blockquote>
+<p>值通过使用可选的返回的返回语句(return)返回<br>可以返回包括数组和对象的任意类型<br>返回语句会中止函数的执行,将控制权交回函数调用处<br>省略return,返回值为null,不可有多个返回值</p>
+<blockquote>
+<p>函数的引用返回</p>
+</blockquote>
+<p>从函数返回一个引用,必须在函数声明和指派返回值给一个变量是都使用引用运算符&amp;</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> &amp;<span class="title">myFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">static</span> <span class="variable">$b</span> = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$b</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="title function_ invoke__">myFunc</span>(); <span class="comment">// 10</span></span><br><span class="line"><span class="variable">$a</span> = &amp;<span class="title function_ invoke__">myFunc</span>();</span><br><span class="line"><span class="variable">$a</span> = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">myFunc</span>(); <span class="comment">// 100 函数的值被改了</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>外部文件的导入</p>
+</blockquote>
+<p>include&#x2F;require语句包含并运行指定文件<br>如果给出路径名称按路径来找,否则从include_path中查找;如果include_path中也没有,则从调用脚本文件所在的目录和当前工作目录下寻找;加载过程中未找到文件,include发出warning,require发出fatel error<br>到一个文件被包含时,其中所包含的代码继承了include所在行的变量范围</p>
+<blockquote>
+<p>系统内置函数</p>
+</blockquote>
+<p>时间日期函数<br>data(),strtotime(),mktime(),</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/64186.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/64186.html" class="post-title-link" itemprop="url">PHP基础知识之网络协议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>HTTP&#x2F;1.1中</p>
+<p>HTTP协议状态码</p>
+<p>五类响应: 1xx,2xx,3xx,4xx,5xx</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1**(信息类)</td>
+<td>表示接收到请求并且继续处理</td>
+</tr>
+<tr>
+<td>100</td>
+<td>客户必须继续发出请求</td>
+</tr>
+<tr>
+<td>101</td>
+<td>客户要求服务器根据请求转换HTTP协议版本</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2**(响应成功)</td>
+<td>表示动作被成功接收、理解和接受</td>
+</tr>
+<tr>
+<td>200</td>
+<td>表明该请求被成功地完成，所请求的资源发送回客户端</td>
+</tr>
+<tr>
+<td>201</td>
+<td>提示知道新文件的URL</td>
+</tr>
+<tr>
+<td>202</td>
+<td>接受和处理、但处理未完成</td>
+</tr>
+<tr>
+<td>203</td>
+<td>返回信息不确定或不完整</td>
+</tr>
+<tr>
+<td>204</td>
+<td>请求收到，但返回信息为空</td>
+</tr>
+<tr>
+<td>205</td>
+<td>服务器完成了请求，用户代理必须复位当前已经浏览过的文件</td>
+</tr>
+<tr>
+<td>206</td>
+<td>服务器已经完成了部分用户的GET请求</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3**(重定向类)</td>
+<td>为了完成指定的动作，必须接受进一步处理</td>
+</tr>
+<tr>
+<td>300</td>
+<td>请求的资源可在多处得到</td>
+</tr>
+<tr>
+<td>301</td>
+<td>本网页被永久性转移到另一个URL</td>
+</tr>
+<tr>
+<td>302</td>
+<td>请求的网页被转移到一个新的地址，但客户访问仍继续通过原始URL地址，重定向，新的URL会在response中的Location中返回，浏览器将会使用新的URL发出新的Request。</td>
+</tr>
+<tr>
+<td>303</td>
+<td>建议客户访问其他URL或访问方式</td>
+</tr>
+<tr>
+<td>304</td>
+<td>自从上次请求后，请求的网页未修改过，服务器返回此响应时，不会返回网页内容，代表上次的文档已经被缓存了，还可以继续使用</td>
+</tr>
+<tr>
+<td>305</td>
+<td>请求的资源必须从服务器指定的地址得到</td>
+</tr>
+<tr>
+<td>306</td>
+<td>前一版本HTTP中使用的代码，现行版本中不再使用</td>
+</tr>
+<tr>
+<td>307</td>
+<td>申明请求的资源临时性删除</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4**(客户端错误类)</td>
+<td>请求包含错误语法或不能正确执行</td>
+</tr>
+<tr>
+<td>400</td>
+<td>客户端请求有语法错误，不能被服务器所理解</td>
+</tr>
+<tr>
+<td>401</td>
+<td>请求未经授权，这个状态代码必须和WWW-Authenticate报头域一起使用</td>
+</tr>
+<tr>
+<td>401.2</td>
+<td>未授权  服务器配置问题导致登录失败</td>
+</tr>
+<tr>
+<td>401.3</td>
+<td>ACL 禁止访问资源</td>
+</tr>
+<tr>
+<td>401.4</td>
+<td>未授权 授权被筛选器拒绝</td>
+</tr>
+<tr>
+<td>401.5</td>
+<td>未授权 ISAPI 或 CGI 授权失败</td>
+</tr>
+<tr>
+<td>402</td>
+<td>保留有效ChargeTo头响应</td>
+</tr>
+<tr>
+<td>403</td>
+<td>禁止访问，服务器收到请求，但是拒绝提供服务</td>
+</tr>
+<tr>
+<td>403.1</td>
+<td>禁止访问 禁止可执行访问</td>
+</tr>
+<tr>
+<td>403.2</td>
+<td>禁止访问 禁止读访问</td>
+</tr>
+<tr>
+<td>403.3</td>
+<td>禁止访问 禁止写访问</td>
+</tr>
+<tr>
+<td>403.4</td>
+<td>禁止访问 要求 SSL</td>
+</tr>
+<tr>
+<td>403.5</td>
+<td>禁止访问 要求 SSL 128</td>
+</tr>
+<tr>
+<td>403.6</td>
+<td>禁止访问 IP 地址被拒绝</td>
+</tr>
+<tr>
+<td>403.7</td>
+<td>禁止访问 要求客户证书</td>
+</tr>
+<tr>
+<td>403.8</td>
+<td>禁止访问 禁止站点访问</td>
+</tr>
+<tr>
+<td>403.9</td>
+<td>禁止访问 连接的用户过多</td>
+</tr>
+<tr>
+<td>403.10</td>
+<td>禁止访问 配置无效</td>
+</tr>
+<tr>
+<td>403.11</td>
+<td>禁止访问 密码更改</td>
+</tr>
+<tr>
+<td>403.12</td>
+<td>禁止访问 映射器拒绝访问</td>
+</tr>
+<tr>
+<td>403.13</td>
+<td>禁止访问 客户证书已被吊销</td>
+</tr>
+<tr>
+<td>403.15</td>
+<td>禁止访问 客户访问许可过多</td>
+</tr>
+<tr>
+<td>403.16</td>
+<td>禁止访问 客户证书不可信或者无效</td>
+</tr>
+<tr>
+<td>403.17</td>
+<td>禁止访问 客户证书已经到期或者尚未生效</td>
+</tr>
+<tr>
+<td>404</td>
+<td>一个404错误表明可连接服务器，但服务器无法取得所请求的网页，请求资源不存在。eg  输入了错误的URL</td>
+</tr>
+<tr>
+<td>405</td>
+<td>用户在Request-Line字段定义的方法不允许</td>
+</tr>
+<tr>
+<td>406</td>
+<td>根据用户发送的Accept拖，请求资源不可访问</td>
+</tr>
+<tr>
+<td>407</td>
+<td>类似401，用户必须首先在代理服务器上得到授权</td>
+</tr>
+<tr>
+<td>408</td>
+<td>客户端没有在用户指定的饿时间内完成请求</td>
+</tr>
+<tr>
+<td>409</td>
+<td>对当前资源状态，请求不能完成</td>
+</tr>
+<tr>
+<td>410</td>
+<td>服务器上不再有此资源且无进一步的参考地址</td>
+</tr>
+<tr>
+<td>411</td>
+<td>服务器拒绝用户定义的Content-Length属性请求</td>
+</tr>
+<tr>
+<td>412</td>
+<td>一个或多个请求头字段在当前请求中错误</td>
+</tr>
+<tr>
+<td>413</td>
+<td>请求的资源大于服务器允许的大小</td>
+</tr>
+<tr>
+<td>414</td>
+<td>请求的资源URL长于服务器允许的长度</td>
+</tr>
+<tr>
+<td>415</td>
+<td>请求资源不支持请求项目格式</td>
+</tr>
+<tr>
+<td>416</td>
+<td>请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段</td>
+</tr>
+<tr>
+<td>417</td>
+<td>服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5**(服务端错误类)</td>
+<td>服务器不能正确执行一个正确的请求</td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务器遇到错误，无法完成请求</td>
+</tr>
+<tr>
+<td>500.100</td>
+<td>内部服务器错误 ASP 错误</td>
+</tr>
+<tr>
+<td>500-11</td>
+<td>服务器关闭</td>
+</tr>
+<tr>
+<td>500-12</td>
+<td>应用程序重新启动</td>
+</tr>
+<tr>
+<td>500-13</td>
+<td>服务器太忙</td>
+</tr>
+<tr>
+<td>500-14</td>
+<td>应用程序无效</td>
+</tr>
+<tr>
+<td>500-15</td>
+<td>不允许请求 global.asa</td>
+</tr>
+<tr>
+<td>501</td>
+<td>未实现</td>
+</tr>
+<tr>
+<td>502</td>
+<td>网关错误</td>
+</tr>
+<tr>
+<td>503</td>
+<td>由于超载或停机维护，服务器目前无法使用，一段时间后可能恢复正常</td>
+</tr>
+</tbody></table>
+<p>延伸: OSI七层模型</p>
+<ul>
+<li>物理层<ul>
+<li>建立,维护,断开物理连接</li>
+</ul>
+</li>
+<li>数据链路层<ul>
+<li>建立逻辑连接,进行硬件地址寻址,差错校验等功能</li>
+</ul>
+</li>
+<li>网络层<ul>
+<li>进行逻辑地址寻址,实现不同网络之间的路径选择</li>
+</ul>
+</li>
+<li>传输层<ul>
+<li>定义传输数据的协议端口号,以及流控和差错校验</li>
+<li>协议有:TCP UDP,数据包一旦离开网卡即进入网络传输层</li>
+</ul>
+</li>
+<li>会话层<ul>
+<li>建立,管理,终止会话</li>
+</ul>
+</li>
+<li>表示层<ul>
+<li>数据的表示,安全和压缩</li>
+</ul>
+</li>
+<li>应用层<ul>
+<li>网络服务和最终用户的一个接口</li>
+<li>协议有HTTPS,FTP等</li>
+</ul>
+</li>
+</ul>
+<p>延伸:HTTP协议的工作特点和工作原理</p>
+<ul>
+<li>工作特点<ul>
+<li>基于B&#x2F;S模式</li>
+<li>通信开销小,简单快速,传输成本低</li>
+<li>使用灵活,可使用超文本传输协议</li>
+<li>节省传输时间</li>
+<li>无状态</li>
+</ul>
+</li>
+<li>工作原理<ul>
+<li>客户端发送请求给服务器,创建一个TCP连接,指定端口号(默认80),连接到服务器,服务器监听浏览器请求,一旦监听到客户端请求,分析请求类型后,服务器会想客户端返回状态信息和数据内容<br>延伸:HTTP协议常见请求&#x2F;响应头和请求方法</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>常见请求&#x2F;响应头</p>
+</blockquote>
+<ul>
+<li>Content-Type</li>
+<li>Accept</li>
+<li>Origin</li>
+<li>Cookie</li>
+<li>Cache-Control</li>
+<li>User-Agent</li>
+<li>Referrer</li>
+<li>X-Forwarded-For</li>
+<li>Access-Control-Allow-Origin</li>
+<li>Last-Modified</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>协议头</th>
+<th>说明</th>
+<th>示例</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accept-Encoding</td>
+<td>可接受的响应内容的编码方式。</td>
+<td><code>Accept-Encoding:gzip,deflate</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>可接受的响应内容语言列表。</td>
+<td><code>Accept-Language:en-US</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Accept-Datetime</td>
+<td>可接受的按照时间来表示的响应内容版本</td>
+<td>Accept-Datetime:Sat,26Dec201517:30:00GMT</td>
+<td>临时</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>用于表示HTTP协议中需要认证资源的认证信息</td>
+<td>Authorization:BasicOSdjJGRpbjpvcGVuIANlc2SdDE&#x3D;&#x3D;</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Cache-Control</td>
+<td>用来指定当前的请求&#x2F;回复中的，是否使用缓存机制。</td>
+<td><code>Cache-Control:no-cache</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>客户端（浏览器）想要优先使用的连接类型</td>
+<td><code>Connection:keep-alive</code><p><code>Connection:Upgrade</code></p></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Cookie</td>
+<td>由之前服务器通过<code>Set-Cookie</code>（见下文）设置的一个HTTP协议Cookie</td>
+<td><code>Cookie:$Version=1;Skin=new;</code></td>
+<td>固定：标准</td>
+</tr>
+<tr>
+<td>Content-Length</td>
+<td>以8进制表示的请求体的长度</td>
+<td><code>Content-Length:348</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Content-MD5</td>
+<td>请求体的内容的二进制MD5散列值（数字签名），以Base64编码的结果</td>
+<td>Content-MD5:oD8dH2sgSW50ZWdyaIEd9D&#x3D;&#x3D;</td>
+<td>废弃</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>请求体的MIME类型（用于POST和PUT请求中）</td>
+<td>Content-Type:application&#x2F;x-www-form-urlencoded</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>发送该消息的日期和时间（以&lt;ahref&#x3D;”<a href="http://tools.ietf.org/html/rfc7231#section-7.1.1.1&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;RFC7231">http://tools.ietf.org/html/rfc7231#section-7.1.1.1&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;RFC7231</a></a>中定义的”HTTP日期”格式来发送）</td>
+<td>Date:Dec,26Dec201517:30:00GMT</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Expect</td>
+<td>表示客户端要求服务器做出特定的行为</td>
+<td><code>Expect:100-continue</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>From</td>
+<td>发起此请求的用户的邮件地址</td>
+<td><code>From:<a href="mailto:&#x75;&#115;&#x65;&#x72;&#64;&#105;&#116;&#98;&#x69;&#x6c;&#117;&#x2e;&#99;&#x6f;&#109;">&#x75;&#115;&#x65;&#x72;&#64;&#105;&#116;&#98;&#x69;&#x6c;&#117;&#x2e;&#99;&#x6f;&#109;</a></code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>表示服务器的域名以及服务器所监听的端口号。如果所请求的端口是对应的服务的标准端口（80），则端口号可以省略。</td>
+<td><code>Host:<a target="_blank" rel="noopener" href="http://www.itbilu.com/">www.itbilu.com:80</a></code><p><code>Host:<a target="_blank" rel="noopener" href="http://www.itbilu.com/">www.itbilu.com</a></code></p></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td>仅当客户端提供的实体与服务器上对应的实体相匹配时，才进行对应的操作。主要用于像PUT这样的方法中，仅当从用户上次更新某个资源后，该资源未被修改的情况下，才更新该资源。</td>
+<td>If-Match:”9jd00cdj34pss9ejqiw39d82f20d0ikd”</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>允许在对应的资源未被修改的情况下返回304未修改</td>
+<td>If-Modified-Since:Dec,26Dec201517:30:00GMT</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td>允许在对应的内容未被修改的情况下返回304未修改（304NotModified），参考超文本传输协议的实体标记</td>
+<td>If-None-Match:”9jd00cdj34pss9ejqiw39d82f20d0ikd”</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>If-Range</td>
+<td>如果该实体未被修改过，则向返回所缺少的那一个或多个部分。否则，返回整个新的实体</td>
+<td>If-Range:”9jd00cdj34pss9ejqiw39d82f20d0ikd”</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>If-Unmodified-Since</td>
+<td>仅当该实体自某个特定时间以来未被修改的情况下，才发送回应。</td>
+<td>If-Unmodified-Since:Dec,26Dec201517:30:00GMT</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Max-Forwards</td>
+<td>限制该消息可被代理及网关转发的次数。</td>
+<td><code>Max-Forwards:10</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Origin</td>
+<td>发起一个针对&lt;ahref&#x3D;”<a href="http://itbilu.com/javascript/js/VkiXuUcC.html&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB">http://itbilu.com/javascript/js/VkiXuUcC.html&quot;rel=&quot;nofollow&quot;target=&quot;_blank&quot;&gt;跨域资源共享</a></a>的请求（该请求要求服务器在响应中加入一个<code>Access-Control-Allow-Origin</code>的消息头，表示访问控制所允许的来源）。</td>
+<td><code>Origin:<a target="_blank" rel="noopener" href="http://www.itbilu.com/">http://www.itbilu.com</a></code></td>
+<td>固定:标准</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>与具体的实现相关，这些字段可能在请求&#x2F;回应链中的任何时候产生。</td>
+<td><code>Pragma:no-cache</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Proxy-Authorization</td>
+<td>用于向代理进行认证的认证信息。</td>
+<td>Proxy-Authorization:BasicIOoDZRgDOi0vcGVuIHNlNidJi2&#x3D;&#x3D;</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Range</td>
+<td>表示请求某个实体的一部分，字节偏移以0开始。</td>
+<td><code>Range:bytes=500-999</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Referer</td>
+<td>表示浏览器所访问的前一个页面，可以认为是之前访问页面的链接将浏览器带到了当前页面。<code>Referer</code>其实是<code>Referrer</code>这个单词，但RFC制作标准时给拼错了，后来也就将错就错使用<code>Referer</code>了。</td>
+<td>Referer:<a target="_blank" rel="noopener" href="http://itbilu.com/nodejs">http://itbilu.com/nodejs</a></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>浏览器预期接受的传输时的编码方式：可使用回应协议头<code>Transfer-Encoding</code>中的值（还可以使用”trailers”表示数据传输时的分块方式）用来表示浏览器希望在最后一个大小为0的块之后还接收到一些额外的字段。</td>
+<td><code>TE:trailers,deflate</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>浏览器的身份标识字符串</td>
+<td><code>User-Agent:Mozilla/……</code></td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>要求服务器升级到一个高版本协议。</td>
+<td>Upgrade:HTTP&#x2F;2.0,SHTTP&#x2F;1.3,IRC&#x2F;6.9,RTA&#x2F;x11</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Via</td>
+<td>告诉服务器，这个请求是由哪些代理发出的。</td>
+<td>Via:1.0fred,1.1itbilu.com.com(Apache&#x2F;1.1)</td>
+<td>固定</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>一个一般性的警告，表示在实体内容体中可能存在错误。</td>
+<td>Warning:199Miscellaneouswarning</td>
+<td>固定</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>请求方法</p>
+</blockquote>
+<p>get,post,head,options,put,delete,trace</p>
+<p>get和post的区别</p>
+<p>延伸:HTTPS协议的工作原理</p>
+<p>HTTPS是一种基于ssl&#x2F;tls的http协议,所有的http数据都是在ssl&#x2F;tls协议封装之上传输的</p>
+<p>HTTPs协议在http协议的基础上,添加了ssl&#x2F;tls握手以及数据加密传输,也属于应用层协议</p>
+<p>延伸:常见网络协议含义及端口</p>
+<ul>
+<li>ftp 文件传输</li>
+<li>telnet 远程登录</li>
+<li>smtp 简单邮件传输协议</li>
+<li>pop3 接收邮件</li>
+<li>http 超文本传输协议</li>
+<li>dns 用于域名解析</li>
+</ul>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jianying/p/7992622.html">HTTP状态码大全</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30553235/article/details/79282113">常用的HTTP请求头与响应头</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/1739.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/1739.html" class="post-title-link" itemprop="url">PHP基础知识之文件及目录处理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>27</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h2><p>用来打开一个文件,打开时需要指定打开模式</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/47123.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/47123.html" class="post-title-link" itemprop="url">php函数积累</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="register-shutdown-function"><a href="#register-shutdown-function" class="headerlink" title="register_shutdown_function"></a>register_shutdown_function</h3><h3 id="array-multisort"><a href="#array-multisort" class="headerlink" title="array_multisort"></a>array_multisort</h3><blockquote>
+<p>bool array_multisort ( array &amp;$array1 [, mixed $array1_sort_order &#x3D; SORT_ASC [, mixed $array1_sort_flags &#x3D; SORT_REGULAR [, mixed $… ]]] )</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://php.net/manual/zh/function.array-multisort.php">array_multisort()</a> 可以用来一次对多个数组进行排序，或者根据某一维或多维对多维数组进行排序。</p>
+<p>这种类似于从sql语句中的sort by排序还是挺有用的.</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$data</span> = [</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">70</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">60</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;computer&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">40</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">30</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;math&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">20</span>,</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;english&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;score&#x27;</span> =&gt; <span class="number">90</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="variable">$column</span>[<span class="string">&#x27;class&#x27;</span>][<span class="variable">$key</span>] = <span class="variable">$value</span>[<span class="string">&#x27;class&#x27;</span>];</span><br><span class="line">    <span class="variable">$column</span>[<span class="string">&#x27;score&#x27;</span>][<span class="variable">$key</span>] = <span class="variable">$value</span>[<span class="string">&#x27;score&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 类似于sql中的 select * from student order by `class` asc, score desc;</span></span><br><span class="line"><span class="title function_ invoke__">array_multisort</span>(<span class="variable">$column</span>[<span class="string">&#x27;class&#x27;</span>], SORT_ASC, SORT_STRING , <span class="variable">$column</span>[<span class="string">&#x27;score&#x27;</span>], SORT_DESC, <span class="variable">$data</span>);</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$data</span>);</span><br></pre></td></tr></table></figure>
+
+<p>有趣的是他的参数，还可以这么用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="variable">$b</span> = [<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>];</span><br><span class="line"><span class="variable">$c</span> = [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">array_multisort</span>(<span class="variable">$a</span>, SORT_DESC, <span class="variable">$b</span>, <span class="variable">$c</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$a</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$b</span>);</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$c</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以从结果中看到 $b&#x2F;$c 都是按照 $a 的顺序重新排的</p>
+<h3 id="get-object-vars"><a href="#get-object-vars" class="headerlink" title="get_object_vars"></a>get_object_vars</h3><p>返回由对象属性组成的关联数组</p>
+<h3 id="接口Countable"><a href="#接口Countable" class="headerlink" title="接口Countable"></a>接口Countable</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/class.countable.php">类实现 Countable 可被用于 count() 函数. </a></p>
+<p>如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountMe</span> <span class="keyword">implements</span> \<span class="title">Countable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$_myCount</span> = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;_myCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$countable</span> = <span class="keyword">new</span> <span class="title class_">CountMe</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">count</span>(<span class="variable">$countable</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里，count 可以直接作用于对象。</p>
+<h3 id="debug-backtrace"><a href="#debug-backtrace" class="headerlink" title="debug_backtrace"></a>debug_backtrace</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.debug-backtrace.php">产生一条回溯跟踪(backtrace)</a></p>
+<p>比如可以这样用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dump</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$debugInfo</span> = <span class="title function_ invoke__">debug_backtrace</span>();</span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;&lt;hr&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">print</span> <span class="variable">$debugInfo</span>[<span class="number">0</span>][<span class="string">&#x27;file&#x27;</span>] . <span class="string">&quot;:&quot;</span> . <span class="variable">$debugInfo</span>[<span class="number">0</span>][<span class="string">&#x27;line&#x27;</span>]; <span class="comment">// 获取调用这个代码的文件名和行数</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span> . <span class="variable">$value</span> . <span class="string">&#x27;&lt;/pre&gt;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/a.php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a_test</span>(<span class="params"><span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\nHi: <span class="subst">$str</span>&quot;</span>;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">debug_backtrace</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">a_test</span>(<span class="string">&#x27;friend&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/b.php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&#x27;/tmp/a.php&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// execute result</span></span><br><span class="line"></span><br><span class="line">Hi: <span class="title function_ invoke__">friendarray</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  [<span class="number">0</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">10</span>)</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;a_test&quot;</span></span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;friend&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\b.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">3</span>)</span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">12</span>) <span class="string">&quot;include_once&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>断言，配合assert_options使用效果很妙</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 激活断言，并设置它为 quiet</span></span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_ACTIVE, <span class="number">1</span>);</span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_WARNING, <span class="number">0</span>);</span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_QUIET_EVAL, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建处理函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">my_assert_handler</span>(<span class="params"><span class="variable">$file</span>, <span class="variable">$line</span>, <span class="variable">$code</span>, <span class="variable">$desc</span> = <span class="literal">null</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;Assertion failed at <span class="subst">$file</span>:<span class="subst">$line</span>: <span class="subst">$code</span>&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$desc</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;: <span class="subst">$desc</span>&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置回调函数</span></span><br><span class="line"><span class="title function_ invoke__">assert_options</span>(ASSERT_CALLBACK, <span class="string">&#x27;my_assert_handler&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Make an assertion that should fail</span></span><br><span class="line"><span class="variable">$a</span> = <span class="number">2</span> &lt; <span class="number">1</span>;</span><br><span class="line"><span class="title function_ invoke__">assert</span>(<span class="variable">$a</span>, <span class="string">&#x27;Two is less than one&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="strftime"><a href="#strftime" class="headerlink" title="strftime"></a>strftime</h3><p>根据区域设置来格式化本地日期和时间</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/63586.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/63586.html" class="post-title-link" itemprop="url">PHP基础知识及配置考点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-06T00:00:00+08:00">2018-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>362</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>版本控制软件</p>
+<ul>
+<li><p>集中式<br>  需要一个中央服务器,所有的代码都通过中央服务器进行管理</p>
+</li>
+<li><p>分布式<br>  每个客户端都有代码</p>
+</li>
+<li><p>cvs和svn</p>
+</li>
+<li><p>git</p>
+</li>
+</ul>
+<p>延伸:php的运行原理</p>
+<p>nginx+php-fpm</p>
+<p>CGI</p>
+<p>FastCGI</p>
+<p>PHP-FPM 是FastCGI的管理器</p>
+<p>延伸: PHP常见配置项</p>
+<ul>
+<li>register-globals<br>  注入变量</li>
+<li>allow_url_fopen<br>  是否允许打开远程文件</li>
+<li>all_url_include<br>  运程包含文件</li>
+<li>data.timezone<br>  时区</li>
+<li>display_errors<br>  是否展示错误</li>
+<li>error_reporting<br>  展示错误级别</li>
+<li>safe_mode<br>  是否开启安全模式</li>
+<li>upload_max_filesize<br>  上传的最大文件大小</li>
+<li>max_file_uploads<br>  上传最大文件数量</li>
+<li>post_max_size<br>  post的最大文件大小</li>
+</ul>
+<blockquote>
+<p>请简述CGI,FastCGI和PHP-FPM的区别</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">181</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">214k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:15</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
