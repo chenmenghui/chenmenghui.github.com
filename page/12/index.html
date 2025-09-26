@@ -194,6 +194,698 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/1081.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/1081.html" class="post-title-link" itemprop="url">MySQL提示1418错误</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-01-08 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-08T00:00:00+08:00">2020-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>247</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>MySQL提示1418错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1418 (HY000): This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)</span><br></pre></td></tr></table></figure>
+<p>这样就行啦</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> log_bin_trust_function_creators<span class="operator">=</span><span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/26518.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/26518.html" class="post-title-link" itemprop="url">composer添加自己的命名空间</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-31 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>838</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这个其实读文档应该就可以了，只是自己一直以来没有这么做过。好吧，昨儿遇见了，就在此说一下吧。</p>
+<p>添加的composer.json中的autoload中，像这样</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;valen/simple_test&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;authors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Valen&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;chenmenghui_008@163.com&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;autoload&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;psr-4&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;app\\&quot;</span><span class="punctuation">:</span> <span class="string">&quot;app/&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;core\\&quot;</span><span class="punctuation">:</span> <span class="string">&quot;core/&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;files&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;common/function/dump.php&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;common/config/config.php&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;require&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;ext-mysqli&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;ext-json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>其中prs-4就是自己的命名空间，而files指的就是直接引用的文件<br>然后运行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dumpautoload</span><br></pre></td></tr></table></figure>
+<p>该命令将composer.json中的autoload部分更新到相应的命名空间配置文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">├─vendor</span><br><span class="line">│  │  autoload.php</span><br><span class="line">│  │</span><br><span class="line">│  └─composer</span><br><span class="line">│          autoload_files.php</span><br><span class="line">│          autoload_psr4.php</span><br></pre></td></tr></table></figure>
+<p>比如这两个文件就保存上述json中autoload配置</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/59180.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/59180.html" class="post-title-link" itemprop="url">自动测试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-31 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">细碎知识</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>behat大致就是把自然语言转化成代码。<br>但其实这个「自然语言」也是实现编辑好的方法。<br>比如在.feature中使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Feature: Search</span><br><span class="line"></span><br><span class="line">  Scenario: Searching for a page that does exist</span><br><span class="line">    Given open &quot;https://www.baidu.com&quot;</span><br></pre></td></tr></table></figure>
+<p>其实就是看Given中的open，就需要在FeatureContext.php文件定义好这个方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Given</span> open :arg1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">open</span>(<span class="params"><span class="variable">$arg1</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&#x27;feature.txt&#x27;</span>, <span class="title function_ invoke__">var_export</span>(<span class="variable">$arg1</span>, <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，这其中对应方法其实是包含在注释中的。方法名反而不重要。比如可以这个样子</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Given</span> open :param</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"><span class="variable">$arg1</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&#x27;feature.txt&#x27;</span>, <span class="title function_ invoke__">var_export</span>(<span class="variable">$arg1</span>, <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，这不是什么重要的东西，即便不知道，在开发的过程中稍稍试一试便知道了。</p>
+<p>注意注释的三个部分</p>
+<table>
+<thead>
+<tr>
+<th>注释部分</th>
+<th>对应.feature中Given open “<a href="https://www.baidu.com&quot;的？">https://www.baidu.com&quot;的？</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Given</td>
+<td>Given</td>
+</tr>
+<tr>
+<td>open</td>
+<td>操作open</td>
+</tr>
+<tr>
+<td>:param</td>
+<td>引号中的内容</td>
+</tr>
+</tbody></table>
+<p>设置好对应在FeatureContext.php中的方法，就可以操作selenium、phpunit之类的工具了。</p>
+<p>至于那些类，应该都可以在composer找得到。</p>
+<p>另外，再次夸一下phpstorm，都有现成的支持behat的插件，默认已经安装好了。<br>也就意味着，这是个使用频率极高的功能，我居然连听都没听过~~~</p>
+<p>后记：</p>
+<p>说起来也不知道自己是怎么看的，不会查找自己需要的资料。然后三天时间，终于大致知道behat的概念了。<br>花了那么长的时间，也就收获了这么少的东西，我都有些过意不去。</p>
+<p>昨天晚上，前同事（前端）问我打印机的是。我就甩手一个网站，然后一个小时多点，她那边的后台就搞定了。这个速度也实在是太快了。</p>
+<p>想到以前我调试支付宝支付的时候，硬生生的花了一个多星期，还没有搞定——就是那个密匙。说起来也太不应该了。之后解决的办法也很简单，就是直接问支付宝的客服~~~</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/38694.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/38694.html" class="post-title-link" itemprop="url">正则在开发中遇到的坑</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-27 09:29:42" itemprop="dateCreated datePublished" datetime="2019-12-27T09:29:42+08:00">2019-12-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AD%A3%E5%88%99/" itemprop="url" rel="index"><span itemprop="name">正则</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="非m模式下匹配范围内「如引号」包括-n在内所有的字符"><a href="#非m模式下匹配范围内「如引号」包括-n在内所有的字符" class="headerlink" title="非m模式下匹配范围内「如引号」包括\n在内所有的字符"></a>非m模式下匹配范围内「如引号」包括\n在内所有的字符</h3><p>一开始使用&#x2F;[.\n]&#x2F;发现匹配失败，改用了&#x2F;(.|\n)&#x2F;才成功。除非是 m 模式，否则 \n 是不会匹配换行符的。</p>
+<p>如&#x2F;[\s\S]&#x2F;之类，都可以满足匹配所有字符包括换行的需求。如果使用&#x2F;(.|\n)&#x2F;反而会收到文件换行符的干扰，特别情况需写成&#x2F;(.|\r\n|\r|\n)&#x2F;。</p>
+<h3 id="PHP中模式分隔符不是必须的"><a href="#PHP中模式分隔符不是必须的" class="headerlink" title="PHP中模式分隔符不是必须的"></a>PHP中模式分隔符不是必须的</h3><p>诚然，直接写在注入preg_replace()第一个参数位置时是需要使用模式分隔符的。但使用变量引用的话可以忽略。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sContent</span> = <span class="string">&#x27;&#x27;</span>; <span class="comment">// 匹配对象</span></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">&quot;&lt;input.*?type=\&quot;hidden\&quot;.*?name=\&quot;unitid\&quot;.*?value=\&quot;(?&lt;unitid&gt;.*?)\&quot;&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">preg_match_all</span>(<span class="variable">$pattern</span>, <span class="variable">$sContent</span>, <span class="variable">$match</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$match</span>[<span class="string">&#x27;unitid&#x27;</span>];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则匹配中英文字符"><a href="#正则匹配中英文字符" class="headerlink" title="正则匹配中英文字符"></a>正则匹配中英文字符</h3><p>&#x2F;^([\p{Han}\p{P}A-Za-z0-9])*$&#x2F;u</p>
+<p>其中</p>
+<ul>
+<li>\p{Han}表示utf-8编码中的所有中文字符，</li>
+<li>\p{P}表示中英文标点，</li>
+<li>A-Z表示大写字母，</li>
+<li>a-z表示小写英文字母，</li>
+<li>0-9表示数字，</li>
+<li>*表示&gt;&#x3D;0, </li>
+<li>&#x2F;u 表示按unicode(utf-8)匹配（主要针对多字节比如汉字）</li>
+</ul>
+<p>更多 \p 语法参考 <a target="_blank" rel="noopener" href="https://www.regular-expressions.info/unicode.html#prop">Unicode Regular Expressions</a></p>
+<h3 id="php-之-match-结果"><a href="#php-之-match-结果" class="headerlink" title="php 之 match 结果"></a>php 之 match 结果</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pattern</span> = <span class="string">&quot;&lt;input.*?type=\&quot;hidden\&quot;.*?name=\&quot;unitid\&quot;.*?value=\&quot;(?&lt;unitid&gt;.*?)\&quot;&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> ( <span class="title function_ invoke__">preg_match_all</span>( <span class="variable">$pattern</span>, <span class="variable">$sContent</span>, <span class="variable">$match</span> ) )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$match</span>[<span class="string">&#x27;unitid&#x27;</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/53424.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/53424.html" class="post-title-link" itemprop="url">CURL操作</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-26T00:00:00+08:00">2019-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>其实也就是简单的封装，再一个就是继承当前浏览器的header，主要是Cookie和Referer。这两个经常会被服务端做过滤之类的处理。</p>
+<p>刚刚犯的错误，QueryCurl::_setData()，其中「CURLOPT_POSTFIELDS」只是post传值。</p>
+<p>工作中遇到一个问题，就是执行这个脚本的时候，进行了诸如退出这样修改Session的操作，导致一些因session不一致产生了业务上的错误。这里最好的解决方式是操作session、cookie这样的操作时，不要使用同一个浏览器。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QueryCurl</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$sTargetHost</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$sParams</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$rCurlOption</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$mCurlResult</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$sCurlContent</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$mCurlRequestHeads</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$mCurlResponseHeads</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$bPost</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="variable constant_">DEBUG</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get data through get</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $sUrl</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $aParams</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getQuery</span>(<span class="params"><span class="variable">$sUrl</span>, <span class="variable">$aParams</span> = []</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;sTargetHost = <span class="variable">$sUrl</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;sParams = <span class="title function_ invoke__">http_build_query</span>(<span class="variable">$aParams</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;bPost = <span class="literal">false</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">_run</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;sCurlContent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get data through post</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $sUrl</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $aParams</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">postQuery</span>(<span class="params"><span class="variable">$sUrl</span>, <span class="variable">$aParams</span> = []</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;sTargetHost = <span class="variable">$sUrl</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;sParams = <span class="title function_ invoke__">http_build_query</span>(<span class="variable">$aParams</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;bPost = <span class="literal">true</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">_run</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;sCurlContent;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_inheritHeader</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$aHeader</span> = [];</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$_SERVER</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">stripos</span>(<span class="variable">$key</span>, <span class="string">&#x27;HTTP&#x27;</span>) !== <span class="literal">false</span>) &#123;</span><br><span class="line">                <span class="variable">$key</span> = <span class="title function_ invoke__">substr</span>(<span class="variable">$key</span>, <span class="number">5</span>);</span><br><span class="line">                <span class="variable">$aHeader</span>[<span class="variable">$key</span>] = <span class="variable">$key</span> . <span class="string">&#x27;:&#x27;</span> . <span class="variable">$value</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">self</span>::<span class="variable constant_">DEBUG</span>) &#123;</span><br><span class="line">            <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&#x27;test_head.txt&#x27;</span>, <span class="title function_ invoke__">var_export</span>(<span class="variable">$aHeader</span>, <span class="number">1</span>) . <span class="string">&quot;\n&quot;</span>, FILE_APPEND);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_HTTPHEADER, <span class="variable">$aHeader</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_setData</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;bPost) &#123;</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_CUSTOMREQUEST, <span class="string">&#x27;POST&#x27;</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_POST, <span class="literal">true</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_POSTFIELDS, <span class="variable">$this</span>-&gt;sParams);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;sParams) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="literal">false</span> === <span class="title function_ invoke__">strpos</span>(<span class="variable">$this</span>-&gt;sTargetHost, <span class="string">&#x27;?&#x27;</span>)) &#123;</span><br><span class="line">                    <span class="variable language_">$this</span>-&gt;sTargetHost .= <span class="string">&#x27;?&#x27;</span> . <span class="variable language_">$this</span>-&gt;sParams;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="variable language_">$this</span>-&gt;sTargetHost .= <span class="string">&#x27;&amp;&#x27;</span> . <span class="variable language_">$this</span>-&gt;sParams;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_run</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;rCurlOption = <span class="title function_ invoke__">curl_init</span>();</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">_setData</span>();</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">_inheritHeader</span>();</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_URL, <span class="variable">$this</span>-&gt;sTargetHost);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_SSL_VERIFYPEER, <span class="number">0</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_SSL_VERIFYHOST, <span class="number">0</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_USERAGENT, <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_USER_AGENT&#x27;</span>]);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_AUTOREFERER, <span class="number">1</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_TIMEOUT, <span class="number">0</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_HEADER, <span class="number">1</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">            <span class="title function_ invoke__">curl_setopt</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLINFO_HEADER_OUT, <span class="literal">true</span>);</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;mCurlResult = <span class="title function_ invoke__">curl_exec</span>(<span class="variable">$this</span>-&gt;rCurlOption);</span><br><span class="line">            <span class="variable">$errno</span> = <span class="title function_ invoke__">curl_errno</span>(<span class="variable">$this</span>-&gt;rCurlOption);</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$errno</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Exception</span>(<span class="variable">$errno</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;mCurlRequestHeads = <span class="title function_ invoke__">curl_getinfo</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLINFO_HEADER_OUT);</span><br><span class="line">            <span class="variable">$response_heads_size</span> = <span class="title function_ invoke__">curl_getinfo</span>(<span class="variable">$this</span>-&gt;rCurlOption, CURLINFO_HEADER_SIZE);</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;mCurlResponseHeads = <span class="variable language_">$this</span>-&gt;mCurlResponseHeads = <span class="title function_ invoke__">substr</span>(<span class="variable">$this</span>-&gt;mCurlResult, <span class="number">0</span>, <span class="variable">$response_heads_size</span>);</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;sCurlContent = <span class="title function_ invoke__">substr</span>(<span class="variable">$this</span>-&gt;mCurlResult, <span class="variable">$response_heads_size</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">self</span>::<span class="variable constant_">DEBUG</span>) &#123;</span><br><span class="line">                <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&#x27;head.txt&#x27;</span>, <span class="variable">$this</span>-&gt;mCurlRequestHeads . <span class="string">&quot;\n&quot;</span>, FILE_APPEND);</span><br><span class="line">                <span class="variable">$rand</span> = <span class="title function_ invoke__">time</span>();</span><br><span class="line">                <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&quot;result_<span class="subst">&#123;$rand&#125;</span>.txt&quot;</span>, <span class="variable">$this</span>-&gt;mCurlResult);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">curl_close</span>(<span class="variable">$this</span>-&gt;rCurlOption);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$exception</span>) &#123;</span><br><span class="line">            <span class="comment">// logs</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">self</span>::<span class="variable constant_">DEBUG</span>) &#123;</span><br><span class="line">                <span class="title function_ invoke__">file_put_contents</span>(<span class="string">&#x27;./curl_error_log.txt&#x27;</span>, <span class="title function_ invoke__">var_export</span>(<span class="variable">$exception</span>-&gt;<span class="title function_ invoke__">getMessage</span>(), <span class="number">1</span>), FILE_APPEND);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/4870.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/4870.html" class="post-title-link" itemprop="url">实际开发中遇到的一些实用却不常见的函数/功能等</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-26T00:00:00+08:00">2019-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="接口Countable"><a href="#接口Countable" class="headerlink" title="接口Countable"></a>接口Countable</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/class.countable.php">类实现 Countable 可被用于 count() 函数. </a></p>
+<p>如</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CountMe</span> <span class="keyword">implements</span> \<span class="title">Countable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$_myCount</span> = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;_myCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$countable</span> = <span class="keyword">new</span> <span class="title class_">CountMe</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">count</span>(<span class="variable">$countable</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法debug-backtrace"><a href="#方法debug-backtrace" class="headerlink" title="方法debug_backtrace"></a>方法debug_backtrace</h3><p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/function.debug-backtrace.php">产生一条回溯跟踪(backtrace)</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/a.php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a_test</span>(<span class="params"><span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;\nHi: <span class="subst">$str</span>&quot;</span>;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">debug_backtrace</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">a_test</span>(<span class="string">&#x27;friend&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// filename: /tmp/b.php</span></span><br><span class="line"><span class="keyword">include_once</span> <span class="string">&#x27;/tmp/a.php&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// execute result</span></span><br><span class="line"></span><br><span class="line">Hi: <span class="title function_ invoke__">friendarray</span>(<span class="number">2</span>) &#123;</span><br><span class="line">  [<span class="number">0</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">10</span>)</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;a_test&quot;</span></span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">6</span>) <span class="string">&quot;friend&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  [<span class="number">1</span>]=&gt;</span><br><span class="line">  <span class="keyword">array</span>(<span class="number">4</span>) &#123;</span><br><span class="line">    [<span class="string">&quot;file&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\b.php&quot;</span></span><br><span class="line">    [<span class="string">&quot;line&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">int</span>(<span class="number">3</span>)</span><br><span class="line">    [<span class="string">&quot;args&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">array</span>(<span class="number">1</span>) &#123;</span><br><span class="line">      [<span class="number">0</span>]=&gt;</span><br><span class="line">      <span class="keyword">string</span>(<span class="number">17</span>) <span class="string">&quot;F:\test\tmp\a.php&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="string">&quot;function&quot;</span>]=&gt;</span><br><span class="line">    <span class="keyword">string</span>(<span class="number">12</span>) <span class="string">&quot;include_once&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Process finished with <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/33585.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/33585.html" class="post-title-link" itemprop="url">PHP模式分隔符</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-26 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-26T00:00:00+08:00">2019-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%AD%A3%E5%88%99/" itemprop="url" rel="index"><span itemprop="name">正则</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/regexp.reference.delimiters.php">分隔符</a></p>
+<p>说起来这个不是什么特别重要的东西，但不知道我为什么会在乎这个</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Another rule</span></span><br><span class="line"><span class="variable">$aPatternMode2</span>[<span class="string">&#x27;tasksetid&#x27;</span>] = <span class="string">&quot;&lt;input.*?name=\&quot;unitinfo\[(?&lt;unitinfoid&gt;\d+)\]\[tasksetid\]\[(?&lt;key&gt;\d+)\]\&quot;.*?value=\&quot;(?&lt;value&gt;.*?)\&quot;.*?&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$aPatternMode2</span>[<span class="string">&#x27;islost&#x27;</span>] = <span class="string">&quot;&lt;input.*?name=\&quot;unitinfo\[(?&lt;unitinfoid&gt;\d+)\]\[islost\]\[(?&lt;key&gt;\d+)\]\&quot;.*?value=\&quot;(?&lt;value&gt;.*?)\&quot;.*?&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$aPatternMode2</span>[<span class="string">&#x27;sequenceOrder&#x27;</span>] = <span class="string">&quot;&lt;input.*?name=\&quot;unitinfo\[(?&lt;unitinfoid&gt;\d+)\]\[sequenceOrder\]\[(?&lt;key&gt;\d+)\]\&quot;.*?value=\&quot;(?&lt;value&gt;.*?)\&quot;.*?&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$aPatternMode2</span>[<span class="string">&#x27;schedule_set_id&#x27;</span>] = <span class="string">&quot;&lt;input.*?name=\&quot;unitinfo\[(?&lt;unitinfoid&gt;\d+)\]\[schedule_set_id\]\[(?&lt;key&gt;\d+)\]\&quot;.*?value=\&quot;(?&lt;value&gt;.*?)\&quot;.*?&gt;&quot;</span>;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$aPatternMode2</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$pattern</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">preg_match_all</span>(<span class="variable">$pattern</span>, <span class="variable">$sContent</span>, <span class="variable">$match</span>, PREG_SET_ORDER)) &#123;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$match</span> <span class="keyword">as</span> <span class="variable">$matchItem</span>) &#123;</span><br><span class="line">            <span class="variable">$aUnitinfo</span>[<span class="variable">$matchItem</span>[<span class="string">&#x27;unitinfoid&#x27;</span>]][<span class="variable">$key</span>][<span class="variable">$matchItem</span>[<span class="string">&#x27;key&#x27;</span>]] = <span class="variable">$matchItem</span>[<span class="string">&#x27;value&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>像这样，分隔符就别的可有可无了。我也是无意间发现的。</p>
+<p>明明是一件不重要的事情，可就是让我如鲠在喉。<br>其实我是模式修饰符用的不多，这个分隔符加在模式和<a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/reference.pcre.pattern.modifiers.php">修饰符</a>之间的，是相当有用的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/59755.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -468,655 +1160,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/59756.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/59756.html" class="post-title-link" itemprop="url">获取get中的参数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-23T00:00:00+08:00">2019-12-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>439</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">GetRequest</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> url = location.<span class="property">search</span>; <span class="comment">//获取url中含&quot;?&quot;符后的字串</span></span><br><span class="line">    <span class="keyword">var</span> theRequest = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">if</span> (url.<span class="title function_">indexOf</span>(<span class="string">&quot;?&quot;</span>) != -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> str = url.<span class="title function_">substr</span>(<span class="number">1</span>);</span><br><span class="line">        strs = str.<span class="title function_">split</span>(<span class="string">&quot;&amp;&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; strs.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            theRequest[strs[i].<span class="title function_">split</span>(<span class="string">&quot;=&quot;</span>)[<span class="number">0</span>]] = <span class="built_in">decodeURIComponent</span>(strs[i].<span class="title function_">split</span>(<span class="string">&quot;=&quot;</span>)[<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> theRequest;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> url = <span class="title class_">GetRequest</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;url:&quot;</span>, url);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/13150.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/13150.html" class="post-title-link" itemprop="url">PHP允许跨域</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-23T00:00:00+08:00">2019-12-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>51</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin:*&#x27;</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/35012.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/35012.html" class="post-title-link" itemprop="url">PHP批量重命名文件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-21T00:00:00+08:00">2019-12-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>571</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>看《SQL进阶》，只是随书附带代码后缀居然是txt，看着不爽，就想批量重命名成sql。<br>没有什么难点，但是自己长时间不写类似的代码居然不能第一时间搞定。什么时候自己变得那么菜了。<br>好吧，一点一点dump试出来的，实在是难受。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deep</span>(<span class="params"><span class="variable">$dir</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">is_dir</span>(<span class="variable">$dir</span>)) &#123;</span><br><span class="line">        <span class="variable">$current_files</span> = ****<span class="title function_ invoke__">scandir</span>(<span class="variable">$dir</span>);</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$current_files</span> <span class="keyword">as</span> <span class="variable">$item</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$item</span> != <span class="string">&#x27;.&#x27;</span> &amp;&amp; <span class="variable">$item</span> != <span class="string">&#x27;..&#x27;</span> &amp;&amp; <span class="variable">$item</span> != <span class="string">&#x27;./idea&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable">$current_file</span> = <span class="variable">$dir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$item</span>;</span><br><span class="line">                <span class="title function_ invoke__">deep</span>(<span class="variable">$current_file</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$new_name</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/txt$/&#x27;</span>, <span class="string">&#x27;sql&#x27;</span>, <span class="variable">$dir</span>)) &#123;</span><br><span class="line">            <span class="title function_ invoke__">rename</span>(<span class="variable">$dir</span>, <span class="variable">$new_name</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">deep</span>(<span class="string">&#x27;./&#x27;</span>);;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/3148.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/3148.html" class="post-title-link" itemprop="url">PHP把文件格式转化成utf8</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-21T00:00:00+08:00">2019-12-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>751</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>看《SQL进阶》，附带的sql文件居然都是GBK格式，中文全是乱码，于是就这样搞定吧。其实就是那个批量重命名的改版。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">str_to_utf8</span> (<span class="params"><span class="variable">$str</span> = <span class="string">&#x27;&#x27;</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$current_encode</span> = <span class="title function_ invoke__">mb_detect_encoding</span>(<span class="variable">$str</span>, <span class="keyword">array</span>(<span class="string">&quot;ASCII&quot;</span>,<span class="string">&quot;GB2312&quot;</span>,<span class="string">&quot;GBK&quot;</span>,<span class="string">&#x27;BIG5&#x27;</span>,<span class="string">&#x27;UTF-8&#x27;</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">mb_convert_encoding</span>(<span class="variable">$str</span>, <span class="string">&#x27;UTF-8&#x27;</span>, <span class="variable">$current_encode</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deep</span>(<span class="params"><span class="variable">$dir</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">is_dir</span>(<span class="variable">$dir</span>)) &#123;</span><br><span class="line">        <span class="variable">$current_files</span> = <span class="title function_ invoke__">scandir</span>(<span class="variable">$dir</span>);</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$current_files</span> <span class="keyword">as</span> <span class="variable">$item</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable">$item</span> != <span class="string">&#x27;.&#x27;</span> &amp;&amp; <span class="variable">$item</span> != <span class="string">&#x27;..&#x27;</span> &amp;&amp; <span class="variable">$item</span> != <span class="string">&#x27;./idea&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable">$current_file</span> = <span class="variable">$dir</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$item</span>;</span><br><span class="line">                <span class="title function_ invoke__">deep</span>(<span class="variable">$current_file</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable">$fileTxt</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$dir</span>);</span><br><span class="line">        <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$dir</span>, <span class="title function_ invoke__">str_to_utf8</span>(<span class="variable">$fileTxt</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">deep</span>(<span class="string">&#x27;./&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/19934.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/19934.html" class="post-title-link" itemprop="url">正则匹配修饰符</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 01:26:15" itemprop="dateCreated datePublished" datetime="2019-12-19T01:26:15+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%AD%A3%E5%88%99/" itemprop="url" rel="index"><span itemprop="name">正则</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="被WIN下的CRLF换行符坑了一把"><a href="#被WIN下的CRLF换行符坑了一把" class="headerlink" title="被WIN下的CRLF换行符坑了一把"></a>被WIN下的CRLF换行符坑了一把</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// crlf模式</span></span><br><span class="line"><span class="variable">$str</span> = <span class="string">&lt;&lt;&lt;str</span></span><br><span class="line"><span class="string">aaaa |</span></span><br><span class="line"><span class="string">|</span></span><br><span class="line"><span class="string">kkk |</span></span><br><span class="line"><span class="string">str</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">&quot;/\|\r$/m&quot;</span>;</span><br><span class="line"><span class="variable">$replace</span> = <span class="string">&quot;i&quot;</span>;</span><br><span class="line"><span class="variable">$res</span> = <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$pattern</span>,<span class="variable">$replace</span>, <span class="variable">$str</span>);</span><br><span class="line"><span class="keyword">echo</span> (<span class="variable">$res</span>);</span><br></pre></td></tr></table></figure>
-<p>result</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aaaa i</span><br><span class="line">i</span><br><span class="line">kkk |</span><br></pre></td></tr></table></figure>
-
-<p>回过头一看，居然忘了「\r」是什么了。</p>
-<p>时隔数月又一次遇到这种问题，win（CRLF）下的回车换行是两个不可见字符~~~</p>
-<h3 id="终于写出一个把命令行查出结果转化成excel的小脚本了"><a href="#终于写出一个把命令行查出结果转化成excel的小脚本了" class="headerlink" title="终于写出一个把命令行查出结果转化成excel的小脚本了"></a>终于写出一个把命令行查出结果转化成excel的小脚本了</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class TurnToExcel</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TurnToExcel</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$file_name</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$target_name</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$result</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$content</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $file_name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setFileName</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$file_name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;file_name = <span class="variable">$file_name</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> mixed $target_name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setTargetName</span>(<span class="params"><span class="variable">$target_name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;target_name = <span class="variable">$target_name</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $content</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params"><span class="variable">$content</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;content = <span class="variable">$content</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable language_">$this</span>-&gt;content)) &#123;</span><br><span class="line">            <span class="variable language_">$this</span>-&gt;content = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$this</span>-&gt;file_name);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;<span class="title function_ invoke__">getContent</span>();</span><br><span class="line">        <span class="variable">$pattern</span> = [</span><br><span class="line">            <span class="string">&quot;/(\r|\n|\r\n)&#123;2,&#125;/&quot;</span>,               <span class="comment">// 删除多余空行</span></span><br><span class="line">            <span class="string">&quot;/\+(-+\+)*(\r|\n|\r\n)?/&quot;</span>,         <span class="comment">// 删除「+-----+----+」</span></span><br><span class="line">            <span class="string">&quot;/^\| */m&quot;</span>,                         <span class="comment">// 删除行首「|」</span></span><br><span class="line">            <span class="string">&quot;/ *\|(\r|\n|\r\n)/&quot;</span>,               <span class="comment">// 删除行尾「|」              // 为什么只有在「lf」换行符模式下才能用「/ *\|$/」</span></span><br><span class="line">            <span class="string">&quot;/ *\| */&quot;</span>,                         <span class="comment">// 把行内「|」替换成「tab」</span></span><br><span class="line">            <span class="string">&quot;/(\r\n|\r|\n)?$/&quot;</span>,                 <span class="comment">// 删除最后一个换行</span></span><br><span class="line">        ];</span><br><span class="line">        <span class="variable">$replace</span> = [</span><br><span class="line">            <span class="string">&quot;<span class="subst">$1</span>&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;<span class="subst">$1</span>&quot;</span>,</span><br><span class="line">            <span class="string">&quot;\t&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&quot;</span>,</span><br><span class="line">        ];</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;result = <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$pattern</span>, <span class="variable">$replace</span>, <span class="variable">$this</span>-&gt;content);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">save</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">$this</span>-&gt;target_name) &#123;</span><br><span class="line">            <span class="title function_ invoke__">file_put_contents</span>(<span class="variable">$this</span>-&gt;target_name, <span class="variable">$this</span>-&gt;result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">dump</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable language_">$this</span>-&gt;result;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> $this</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">download</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">header</span>(<span class="string">&quot;Content-Type:application/vnd.ms-excel&quot;</span>);</span><br><span class="line">        <span class="title function_ invoke__">header</span>(<span class="string">&quot;Content-Disposition:attachment;filename=<span class="subst">&#123;$this-&gt;target_name&#125;</span>&quot;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="title function_ invoke__">iconv</span>(<span class="string">&#x27;utf-8&#x27;</span>, <span class="string">&#x27;gbk//TRANSLIT&#x27;</span>, <span class="variable">$this</span>-&gt;result);</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="title class_">TurnToExcel</span>())</span><br><span class="line">    -&gt;<span class="title function_ invoke__">setFileName</span>(<span class="string">&#x27;data.txt&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">setTargetName</span>(<span class="string">&#x27;data1.txt&#x27;</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">run</span>()</span><br><span class="line">    -&gt;<span class="title function_ invoke__">save</span>();</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/8777.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/8777.html" class="post-title-link" itemprop="url">MySQL刚接触的东西</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-19T00:00:00+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>673</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="USING"><a href="#USING" class="headerlink" title="USING"></a>USING</h3><p>using等价于join操作中的on，例如a和b根据id字段关联，那么以下等价<br>using(id)<br>on a.id&#x3D;b.id<br>以下2个实例等价：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.name,b.age <span class="keyword">from</span> test <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">join</span> test2 <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">on</span> a.id<span class="operator">=</span>b.id</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.name,b.age <span class="keyword">from</span> test <span class="keyword">as</span> a</span><br><span class="line"><span class="keyword">join</span> test2 <span class="keyword">as</span> b</span><br><span class="line"><span class="keyword">using</span>(id)</span><br></pre></td></tr></table></figure>
-
-<h3 id="COALESCE"><a href="#COALESCE" class="headerlink" title="COALESCE"></a>COALESCE</h3><p>返回参数中的第一个非空表达式（从左向右依次类推）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COALESCE(x, y) = (CASE WHEN x IS NOT NULL THEN x ELSE y END)</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COALESCE</span>(<span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="keyword">NULL</span>, <span class="number">1</span>); </span><br><span class="line"><span class="comment">-- Return 1 </span></span><br></pre></td></tr></table></figure>
-
-<h3 id="NATURAL"><a href="#NATURAL" class="headerlink" title="NATURAL"></a>NATURAL</h3><p>Natural join即自然连接，natural join等同于inner join或inner using，其作用是将两个表中具有相同名称的列进行匹配<br>关联的表具有一对或多对同名的列<br>连接时候不需要使用on或者using关键字</p>
-<h3 id="WITH-ROLLUP"><a href="#WITH-ROLLUP" class="headerlink" title="WITH ROLLUP"></a>WITH ROLLUP</h3><p>在group分组字段的基础上再进行汇总统计数据</p>
-<h3 id="关于外键"><a href="#关于外键" class="headerlink" title="关于外键"></a>关于外键</h3><p>注意，在创建外键时，引用字段和外键字段都需要匹配：</p>
-<ul>
-<li>引擎应该是相同的，例如InnoDB;</li>
-<li>数据类型应该相同)，并且长度相同;</li>
-<li>编码应该相同，例如utf8；</li>
-<li>外键应引用引用表中primary key的字段;</li>
-<li>如果一个有UNSIGNED，另一个必须也要有.</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET FOREIGN_KEY_CHECKS = 0;</span><br></pre></td></tr></table></figure>
-
-<p>关闭外键</p>
-<h3 id="COLLATE"><a href="#COLLATE" class="headerlink" title="COLLATE"></a>COLLATE</h3><p>一种MySQL排序规则</p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1366841">MYSQL中的COLLATE是什么？</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/57935.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/57935.html" class="post-title-link" itemprop="url">mysql事务之修改不确定的表结构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-19T00:00:00+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>工作中的失误，导致一堆数据库中，同名的表没有全部改掉。</p>
-<p>尝试着写一段SQL，自行判断需不需要更改表结构。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">DELIMITER ;;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> IF <span class="keyword">EXISTS</span> Alter_Table_Valen;;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> Alter_Table_Valen()</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">    <span class="keyword">DECLARE</span> ColumnExists <span class="type">int</span>;</span><br><span class="line">    <span class="keyword">DECLARE</span> TableName <span class="type">varchar</span>(<span class="number">50</span>);</span><br><span class="line">    <span class="keyword">DECLARE</span> ColumnName <span class="type">varchar</span>(<span class="number">50</span>);</span><br><span class="line">    <span class="keyword">DECLARE</span> AddColumnSql text;</span><br><span class="line">    <span class="keyword">SET</span> ColumnExists <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">SET</span> TableName <span class="operator">=</span> <span class="string">&#x27;maintenanceschedule_set&#x27;</span>;</span><br><span class="line">    <span class="keyword">SET</span> ColumnName <span class="operator">=</span> <span class="string">&#x27;VisitCount&#x27;</span>;</span><br><span class="line">    <span class="keyword">SET</span> AddColumnSql <span class="operator">=</span> <span class="string">&#x27; ADD (`OverlapRule` tinyint(1) NOT NULL DEFAULT 0,</span></span><br><span class="line"><span class="string">        `VisitCount` int(2) NOT NULL DEFAULT 0,</span></span><br><span class="line"><span class="string">        `ScheduleMethod` tinyint(2) NOT NULL DEFAULT 0,</span></span><br><span class="line"><span class="string">        `MethodOption` varchar(255) NOT NULL DEFAULT &#x27;&#x27;&#x27;&#x27;,</span></span><br><span class="line"><span class="string">        `OtherLogic` varchar(255) NOT NULL DEFAULT &#x27;&#x27;&#x27;&#x27;,</span></span><br><span class="line"><span class="string">        `Priority` int(2) NOT NULL DEFAULT 0</span></span><br><span class="line"><span class="string">        )&#x27;</span>;</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="operator">*</span>)</span><br><span class="line">    <span class="keyword">INTO</span> ColumnExists</span><br><span class="line">    <span class="keyword">FROM</span> information_schema.COLUMNS</span><br><span class="line">    <span class="keyword">WHERE</span> TABLE_NAME <span class="operator">=</span> TableName</span><br><span class="line">      <span class="keyword">AND</span> COLUMN_NAME <span class="operator">=</span> ColumnName;</span><br><span class="line">    IF (ColumnExists <span class="operator">=</span> <span class="number">0</span>) <span class="keyword">THEN</span></span><br><span class="line">        <span class="keyword">SET</span> <span class="variable">@SQL1</span> <span class="operator">=</span> concat(<span class="string">&#x27;ALTER TABLE &#x27;</span>, TableName, AddColumnSql);</span><br><span class="line">        <span class="keyword">PREPARE</span> stmt1 <span class="keyword">FROM</span> <span class="variable">@SQL1</span>;</span><br><span class="line">        <span class="keyword">EXECUTE</span> stmt1;</span><br><span class="line">    <span class="keyword">END</span> IF;</span><br><span class="line"><span class="keyword">END</span> ;;</span><br><span class="line"><span class="keyword">CALL</span> Alter_Table_Valen;;</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> IF <span class="keyword">EXISTS</span> Alter_Table_Valen;;</span><br><span class="line">DELIMITER ;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1186,7 +1229,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">181</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1199,7 +1242,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1252,12 +1295,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">214k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:15</span>
+    <span title="站点阅读时长">3:21</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenmenghui.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394function pair(head, t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.2.1 序列的表示">
+<meta property="og:url" content="https://chenmenghui.gitee.io/posts/44fcda4c.html">
+<meta property="og:site_name" content="陈孟辉的学习笔记">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394function pair(head, t">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgZGF0YS1kaWFncmFtLXR5cGU9IkpTT04iIGhlaWdodD0iMTEycHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo2MzdweDtoZWlnaHQ6MTEycHg7YmFja2dyb3VuZDojRkZGRkZGOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjM3IDExMiIgd2lkdGg9IjYzN3B4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjEwIiB5PSIxMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzOC45MzA3IiB4PSIxNSIgeT0iMjQuOTk1MSI+aGVhZDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4LjkwNzIiIHg9IjYzLjkzMDciIHk9IjI0Ljk5NTEiPjE8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjU4LjkzMDciIHgyPSI1OC45MzA3IiB5MT0iMTAiIHkyPSIzMC4yOTY5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjEwIiB4Mj0iODIuMjgxMyIgeTE9IjMwLjI5NjkiIHkyPSIzMC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI1LjczNzMiIHg9IjE1IiB5PSI0NS4yOTIiPnRhaWw8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTMuMzUwNiIgeD0iNjMuOTMwNyIgeT0iNDUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjU4LjkzMDciIHgyPSI1OC45MzA3IiB5MT0iMzAuMjk2OSIgeTI9IjUwLjU5MzgiLz48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjQwLjU5MzgiIHJ4PSI1IiByeT0iNSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNzIuMjgxMyIgeD0iMTAiIHk9IjEwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjExOSIgeT0iMjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMTI0IiB5PSIzNC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMTcyLjkzMDciIHk9IjM0Ljk5NTEiPjI8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjE2Ny45MzA3IiB4Mj0iMTY3LjkzMDciIHkxPSIyMCIgeTI9IjQwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMTE5IiB4Mj0iMTkxLjI4MTMiIHkxPSI0MC4yOTY5IiB5Mj0iNDAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIxMjQiIHk9IjU1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIxNzIuOTMwNyIgeT0iNTUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjE2Ny45MzA3IiB4Mj0iMTY3LjkzMDciIHkxPSI0MC4yOTY5IiB5Mj0iNjAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIxMTkiIHk9IjIwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjIyOCIgeT0iMzAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMjMzIiB5PSI0NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMjgxLjkzMDciIHk9IjQ0Ljk5NTEiPjM8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjI3Ni45MzA3IiB4Mj0iMjc2LjkzMDciIHkxPSIzMCIgeTI9IjUwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMjI4IiB4Mj0iMzAwLjI4MTMiIHkxPSI1MC4yOTY5IiB5Mj0iNTAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIyMzMiIHk9IjY1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIyODEuOTMwNyIgeT0iNjUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjI3Ni45MzA3IiB4Mj0iMjc2LjkzMDciIHkxPSI1MC4yOTY5IiB5Mj0iNzAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIyMjgiIHk9IjMwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjMzNyIgeT0iNDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMzQyIiB5PSI1NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMzkwLjkzMDciIHk9IjU0Ljk5NTEiPjQ8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjM4NS45MzA3IiB4Mj0iMzg1LjkzMDciIHkxPSI0MCIgeTI9IjYwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMzM3IiB4Mj0iNDA5LjI4MTMiIHkxPSI2MC4yOTY5IiB5Mj0iNjAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIzNDIiIHk9Ijc1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIzOTAuOTMwNyIgeT0iNzUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjM4NS45MzA3IiB4Mj0iMzg1LjkzMDciIHkxPSI2MC4yOTY5IiB5Mj0iODAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIzMzciIHk9IjQwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjQ0NiIgeT0iNTAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iNDUxIiB5PSI2NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iNDk5LjkzMDciIHk9IjY0Ljk5NTEiPjU8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjQ5NC45MzA3IiB4Mj0iNDk0LjkzMDciIHkxPSI1MCIgeTI9IjcwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iNDQ2IiB4Mj0iNTE4LjI4MTMiIHkxPSI3MC4yOTY5IiB5Mj0iNzAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSI0NTEiIHk9Ijg1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSI0OTkuOTMwNyIgeT0iODUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjQ5NC45MzA3IiB4Mj0iNDk0LjkzMDciIHkxPSI3MC4yOTY5IiB5Mj0iOTAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSI0NDYiIHk9IjUwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcwLjEzMDYiIHg9IjU1NSIgeT0iNjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iNTYwIiB5PSI3NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iNjA4LjkzMDciIHk9Ijc0Ljk5NTEiPjY8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjYwMy45MzA3IiB4Mj0iNjAzLjkzMDciIHkxPSI2MCIgeTI9IjgwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iNTU1IiB4Mj0iNjI1LjEzMDYiIHkxPSI4MC4yOTY5IiB5Mj0iODAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSI1NjAiIHk9Ijk1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMS4yIiB4PSI2MDguOTMwNyIgeT0iOTUuMjkyIj4mIzkyMTY7PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiIHgxPSI2MDMuOTMwNyIgeDI9IjYwMy45MzA3IiB5MT0iODAuMjk2OSIgeTI9IjEwMC41OTM4Ii8+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcwLjEzMDYiIHg9IjU1NSIgeT0iNjAiLz48cGF0aCBkPSJNNTA1LjUsODAuNSBMNTE4LjUsODAuNSBDNTI3LjkzNDUsODAuNSA1MzguMDc0Miw4MC41IDU0Ny42NTQsODAuNSIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxO3N0cm9rZS1kYXNoYXJyYXk6My4wLDMuMDsiLz48cGF0aCBkPSJNNTQ3LjY1NCw4My41MTU1IEw1NDkuOTE1Niw4MC41IEw1NDcuNjU0LDc3LjQ4NDUgTDU1NS4xOTI3LDgwLjUgTDU0Ny42NTQsODMuNTE1NSIgZmlsbD0iIzAwMDAwMCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxlbGxpcHNlIGN4PSI1MDUuNSIgY3k9IjgwLjUiIGZpbGw9IiMwMDAwMDAiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik0zOTYuNSw3MC41IEw0MDkuNSw3MC41IEM0MTguOTY4OCw3MC41IDQyOS4xMzc5LDcwLjUgNDM4Ljc2NCw3MC41IiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7c3Ryb2tlLWRhc2hhcnJheTozLjAsMy4wOyIvPjxwYXRoIGQ9Ik00MzguNzY0LDczLjUzMTkgTDQ0MS4wMzc5LDcwLjUgTDQzOC43NjQsNjcuNDY4MSBMNDQ2LjM0MzgsNzAuNSBMNDM4Ljc2NCw3My41MzE5IiBmaWxsPSIjMDAwMDAwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PGVsbGlwc2UgY3g9IjM5Ni41IiBjeT0iNzAuNSIgZmlsbD0iIzAwMDAwMCIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PHBhdGggZD0iTTI4Ny41LDYwLjUgTDMwMC41LDYwLjUgQzMwOS45Njg4LDYwLjUgMzIwLjEzNzksNjAuNSAzMjkuNzY0LDYwLjUiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTtzdHJva2UtZGFzaGFycmF5OjMuMCwzLjA7Ii8+PHBhdGggZD0iTTMyOS43NjQsNjMuNTMxOSBMMzMyLjAzNzksNjAuNSBMMzI5Ljc2NCw1Ny40NjgxIEwzMzcuMzQzOCw2MC41IEwzMjkuNzY0LDYzLjUzMTkiIGZpbGw9IiMwMDAwMDAiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48ZWxsaXBzZSBjeD0iMjg3LjUiIGN5PSI2MC41IiBmaWxsPSIjMDAwMDAwIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48cGF0aCBkPSJNMTc4LjUsNTAuNSBMMTkxLjUsNTAuNSBDMjAwLjk2ODgsNTAuNSAyMTEuMTM3OSw1MC41IDIyMC43NjQsNTAuNSIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxO3N0cm9rZS1kYXNoYXJyYXk6My4wLDMuMDsiLz48cGF0aCBkPSJNMjIwLjc2NCw1My41MzE5IEwyMjMuMDM3OSw1MC41IEwyMjAuNzY0LDQ3LjQ2ODEgTDIyOC4zNDM4LDUwLjUgTDIyMC43NjQsNTMuNTMxOSIgZmlsbD0iIzAwMDAwMCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxlbGxpcHNlIGN4PSIxNzguNSIgY3k9IjUwLjUiIGZpbGw9IiMwMDAwMDAiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik02OS41LDQwLjUgTDgyLjUsNDAuNSBDOTEuOTY4OCw0MC41IDEwMi4xMzc5LDQwLjUgMTExLjc2NCw0MC41IiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7c3Ryb2tlLWRhc2hhcnJheTozLjAsMy4wOyIvPjxwYXRoIGQ9Ik0xMTEuNzY0LDQzLjUzMTkgTDExNC4wMzc5LDQwLjUgTDExMS43NjQsMzcuNDY4MSBMMTE5LjM0MzgsNDAuNSBMMTExLjc2NCw0My41MzE5IiBmaWxsPSIjMDAwMDAwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PGVsbGlwc2UgY3g9IjY5LjUiIGN5PSI0MC41IiBmaWxsPSIjMDAwMDAwIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48IS0tU1JDPVtWUDFIUXk4bTU4TlZ5b2lrRlliYU9qakxIdnU0am1jYjFUY3F4clVSVEhkcjFqQWFDNFJfLXhCTE9PVkxGRU1TeXZyeHVJdmhZeVAtcjloTzVtRl9Ia3lJWXY2MFc3VkllZ2d5eEM4LTRGQXBURzdybU9aX2ptVlhWazZVTnFQTklfcllwOFZaYy1OLVczY19aZm82YUFrZ0dRWGJqdnNwd2R1alF6YklLbDV4VXhRZmFFbWtJdzZIZmJRUTg5WTZpcDJVWGtFamF2MFdtTW0xbUs5NGlPWmNpRGtrdTJVVWlGNXdhcUFqZEpiOEE1SGpaVGV4d19pSmJjMjN5RUI4Z2dDS2kzUThMUHh6NlYxNFpKQVFaZjhpSV85Q21BbFItcFBRMk5kNjdrS1JraWZ3d2cwQkhRTm02dl9sN2JZQUwzZWl2VWFDQS1zZGNTekVWR0MwXS0tPjwvZz48L3N2Zz4=">
+<meta property="og:image" content="https://www.plantuml.com/plantuml/png/SoWkIImgoIhEp-Egvb800gMCrCGK9Ii5Gnq8joGnCmV8XKWYAp3IGGXXA49MQAo3AenLCR864nrCAPoQa3MQwc2NngiPsG0p7TnAe8RabURaO5LKouLV1C63i6gvQhaSKlDIG64F0000">
+<meta property="article:published_time" content="2025-09-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-26T07:25:11.755Z">
+<meta property="article:author" content="陈孟辉">
+<meta property="article:tag" content="计算器程序的构造和解释">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgZGF0YS1kaWFncmFtLXR5cGU9IkpTT04iIGhlaWdodD0iMTEycHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo2MzdweDtoZWlnaHQ6MTEycHg7YmFja2dyb3VuZDojRkZGRkZGOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjM3IDExMiIgd2lkdGg9IjYzN3B4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjEwIiB5PSIxMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzOC45MzA3IiB4PSIxNSIgeT0iMjQuOTk1MSI+aGVhZDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4LjkwNzIiIHg9IjYzLjkzMDciIHk9IjI0Ljk5NTEiPjE8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjU4LjkzMDciIHgyPSI1OC45MzA3IiB5MT0iMTAiIHkyPSIzMC4yOTY5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjEwIiB4Mj0iODIuMjgxMyIgeTE9IjMwLjI5NjkiIHkyPSIzMC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI1LjczNzMiIHg9IjE1IiB5PSI0NS4yOTIiPnRhaWw8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTMuMzUwNiIgeD0iNjMuOTMwNyIgeT0iNDUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjU4LjkzMDciIHgyPSI1OC45MzA3IiB5MT0iMzAuMjk2OSIgeTI9IjUwLjU5MzgiLz48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjQwLjU5MzgiIHJ4PSI1IiByeT0iNSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNzIuMjgxMyIgeD0iMTAiIHk9IjEwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjExOSIgeT0iMjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMTI0IiB5PSIzNC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMTcyLjkzMDciIHk9IjM0Ljk5NTEiPjI8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjE2Ny45MzA3IiB4Mj0iMTY3LjkzMDciIHkxPSIyMCIgeTI9IjQwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMTE5IiB4Mj0iMTkxLjI4MTMiIHkxPSI0MC4yOTY5IiB5Mj0iNDAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIxMjQiIHk9IjU1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIxNzIuOTMwNyIgeT0iNTUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjE2Ny45MzA3IiB4Mj0iMTY3LjkzMDciIHkxPSI0MC4yOTY5IiB5Mj0iNjAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIxMTkiIHk9IjIwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjIyOCIgeT0iMzAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMjMzIiB5PSI0NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMjgxLjkzMDciIHk9IjQ0Ljk5NTEiPjM8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjI3Ni45MzA3IiB4Mj0iMjc2LjkzMDciIHkxPSIzMCIgeTI9IjUwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMjI4IiB4Mj0iMzAwLjI4MTMiIHkxPSI1MC4yOTY5IiB5Mj0iNTAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIyMzMiIHk9IjY1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIyODEuOTMwNyIgeT0iNjUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjI3Ni45MzA3IiB4Mj0iMjc2LjkzMDciIHkxPSI1MC4yOTY5IiB5Mj0iNzAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIyMjgiIHk9IjMwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjMzNyIgeT0iNDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMzQyIiB5PSI1NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMzkwLjkzMDciIHk9IjU0Ljk5NTEiPjQ8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjM4NS45MzA3IiB4Mj0iMzg1LjkzMDciIHkxPSI0MCIgeTI9IjYwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMzM3IiB4Mj0iNDA5LjI4MTMiIHkxPSI2MC4yOTY5IiB5Mj0iNjAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIzNDIiIHk9Ijc1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIzOTAuOTMwNyIgeT0iNzUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjM4NS45MzA3IiB4Mj0iMzg1LjkzMDciIHkxPSI2MC4yOTY5IiB5Mj0iODAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIzMzciIHk9IjQwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjQ0NiIgeT0iNTAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iNDUxIiB5PSI2NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iNDk5LjkzMDciIHk9IjY0Ljk5NTEiPjU8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjQ5NC45MzA3IiB4Mj0iNDk0LjkzMDciIHkxPSI1MCIgeTI9IjcwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iNDQ2IiB4Mj0iNTE4LjI4MTMiIHkxPSI3MC4yOTY5IiB5Mj0iNzAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSI0NTEiIHk9Ijg1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSI0OTkuOTMwNyIgeT0iODUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjQ5NC45MzA3IiB4Mj0iNDk0LjkzMDciIHkxPSI3MC4yOTY5IiB5Mj0iOTAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSI0NDYiIHk9IjUwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcwLjEzMDYiIHg9IjU1NSIgeT0iNjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iNTYwIiB5PSI3NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iNjA4LjkzMDciIHk9Ijc0Ljk5NTEiPjY8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjYwMy45MzA3IiB4Mj0iNjAzLjkzMDciIHkxPSI2MCIgeTI9IjgwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iNTU1IiB4Mj0iNjI1LjEzMDYiIHkxPSI4MC4yOTY5IiB5Mj0iODAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSI1NjAiIHk9Ijk1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMS4yIiB4PSI2MDguOTMwNyIgeT0iOTUuMjkyIj4mIzkyMTY7PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiIHgxPSI2MDMuOTMwNyIgeDI9IjYwMy45MzA3IiB5MT0iODAuMjk2OSIgeTI9IjEwMC41OTM4Ii8+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcwLjEzMDYiIHg9IjU1NSIgeT0iNjAiLz48cGF0aCBkPSJNNTA1LjUsODAuNSBMNTE4LjUsODAuNSBDNTI3LjkzNDUsODAuNSA1MzguMDc0Miw4MC41IDU0Ny42NTQsODAuNSIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxO3N0cm9rZS1kYXNoYXJyYXk6My4wLDMuMDsiLz48cGF0aCBkPSJNNTQ3LjY1NCw4My41MTU1IEw1NDkuOTE1Niw4MC41IEw1NDcuNjU0LDc3LjQ4NDUgTDU1NS4xOTI3LDgwLjUgTDU0Ny42NTQsODMuNTE1NSIgZmlsbD0iIzAwMDAwMCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxlbGxpcHNlIGN4PSI1MDUuNSIgY3k9IjgwLjUiIGZpbGw9IiMwMDAwMDAiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik0zOTYuNSw3MC41IEw0MDkuNSw3MC41IEM0MTguOTY4OCw3MC41IDQyOS4xMzc5LDcwLjUgNDM4Ljc2NCw3MC41IiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7c3Ryb2tlLWRhc2hhcnJheTozLjAsMy4wOyIvPjxwYXRoIGQ9Ik00MzguNzY0LDczLjUzMTkgTDQ0MS4wMzc5LDcwLjUgTDQzOC43NjQsNjcuNDY4MSBMNDQ2LjM0MzgsNzAuNSBMNDM4Ljc2NCw3My41MzE5IiBmaWxsPSIjMDAwMDAwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PGVsbGlwc2UgY3g9IjM5Ni41IiBjeT0iNzAuNSIgZmlsbD0iIzAwMDAwMCIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PHBhdGggZD0iTTI4Ny41LDYwLjUgTDMwMC41LDYwLjUgQzMwOS45Njg4LDYwLjUgMzIwLjEzNzksNjAuNSAzMjkuNzY0LDYwLjUiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTtzdHJva2UtZGFzaGFycmF5OjMuMCwzLjA7Ii8+PHBhdGggZD0iTTMyOS43NjQsNjMuNTMxOSBMMzMyLjAzNzksNjAuNSBMMzI5Ljc2NCw1Ny40NjgxIEwzMzcuMzQzOCw2MC41IEwzMjkuNzY0LDYzLjUzMTkiIGZpbGw9IiMwMDAwMDAiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48ZWxsaXBzZSBjeD0iMjg3LjUiIGN5PSI2MC41IiBmaWxsPSIjMDAwMDAwIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48cGF0aCBkPSJNMTc4LjUsNTAuNSBMMTkxLjUsNTAuNSBDMjAwLjk2ODgsNTAuNSAyMTEuMTM3OSw1MC41IDIyMC43NjQsNTAuNSIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxO3N0cm9rZS1kYXNoYXJyYXk6My4wLDMuMDsiLz48cGF0aCBkPSJNMjIwLjc2NCw1My41MzE5IEwyMjMuMDM3OSw1MC41IEwyMjAuNzY0LDQ3LjQ2ODEgTDIyOC4zNDM4LDUwLjUgTDIyMC43NjQsNTMuNTMxOSIgZmlsbD0iIzAwMDAwMCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxlbGxpcHNlIGN4PSIxNzguNSIgY3k9IjUwLjUiIGZpbGw9IiMwMDAwMDAiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik02OS41LDQwLjUgTDgyLjUsNDAuNSBDOTEuOTY4OCw0MC41IDEwMi4xMzc5LDQwLjUgMTExLjc2NCw0MC41IiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7c3Ryb2tlLWRhc2hhcnJheTozLjAsMy4wOyIvPjxwYXRoIGQ9Ik0xMTEuNzY0LDQzLjUzMTkgTDExNC4wMzc5LDQwLjUgTDExMS43NjQsMzcuNDY4MSBMMTE5LjM0MzgsNDAuNSBMMTExLjc2NCw0My41MzE5IiBmaWxsPSIjMDAwMDAwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PGVsbGlwc2UgY3g9IjY5LjUiIGN5PSI0MC41IiBmaWxsPSIjMDAwMDAwIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48IS0tU1JDPVtWUDFIUXk4bTU4TlZ5b2lrRlliYU9qakxIdnU0am1jYjFUY3F4clVSVEhkcjFqQWFDNFJfLXhCTE9PVkxGRU1TeXZyeHVJdmhZeVAtcjloTzVtRl9Ia3lJWXY2MFc3VkllZ2d5eEM4LTRGQXBURzdybU9aX2ptVlhWazZVTnFQTklfcllwOFZaYy1OLVczY19aZm82YUFrZ0dRWGJqdnNwd2R1alF6YklLbDV4VXhRZmFFbWtJdzZIZmJRUTg5WTZpcDJVWGtFamF2MFdtTW0xbUs5NGlPWmNpRGtrdTJVVWlGNXdhcUFqZEpiOEE1SGpaVGV4d19pSmJjMjN5RUI4Z2dDS2kzUThMUHh6NlYxNFpKQVFaZjhpSV85Q21BbFItcFBRMk5kNjdrS1JraWZ3d2cwQkhRTm02dl9sN2JZQUwzZWl2VWFDQS1zZGNTekVWR0MwXS0tPjwvZz48L3N2Zz4=">
+
+<link rel="canonical" href="https://chenmenghui.gitee.io/posts/44fcda4c.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2.2.1 序列的表示 | 陈孟辉的学习笔记</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="陈孟辉的学习笔记" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">陈孟辉的学习笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">加油吧骚年</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/rss2.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/44fcda4c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2.2.1 序列的表示
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-09-26 00:00:00 / 修改时间：15:25:11" itemprop="dateCreated datePublished" datetime="2025-09-26T00:00:00+08:00">2025-09-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pair</span>(<span class="params">head, tail</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">head</span>: head,</span><br><span class="line">        <span class="attr">tail</span>: tail,</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">head</span>(<span class="params">p</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> p.<span class="property">head</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">tail</span>(<span class="params">p</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> p.<span class="property">tail</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">is_null</span>(<span class="params">v</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span> === v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">list</span>(<span class="params">...values</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (values.<span class="property">length</span> === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> head = values[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> rest = values.<span class="title function_">slice</span>(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">pair</span>(head, <span class="title function_">list</span>(...rest));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">is_pair</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> obj !== <span class="literal">null</span></span><br><span class="line">        &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">&#x27;object&#x27;</span></span><br><span class="line">        &amp;&amp; obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;head&#x27;</span>)</span><br><span class="line">        &amp;&amp; obj.<span class="title function_">hasOwnProperty</span>(<span class="string">&#x27;tail&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">display</span>(<span class="params">l</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">null</span> == l) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">is_pair</span>(l)) &#123;</span><br><span class="line">        <span class="keyword">let</span> s = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        <span class="keyword">let</span> e = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        s = <span class="title function_">is_pair</span>(l.<span class="property">head</span>) ? <span class="title function_">display</span>(l.<span class="property">head</span>) : <span class="title class_">String</span>(l.<span class="property">head</span>);</span><br><span class="line">        e = <span class="title function_">display</span>(l.<span class="property">tail</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`[<span class="subst">$&#123;s&#125;</span>, <span class="subst">$&#123;e&#125;</span>]`</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">String</span>(l);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">append</span>(<span class="params">l1, l2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="literal">null</span> == l1)</span><br><span class="line">        ? l2</span><br><span class="line">        : <span class="title function_">pair</span>(<span class="title function_">head</span>(l1), <span class="title function_">append</span>(<span class="title function_">tail</span>(l1), l2));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">count_leaves</span>(<span class="params">l</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">is_pair</span>(l)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">count_leaves</span>(<span class="title function_">head</span>(l)) + <span class="title function_">count_leaves</span>(<span class="title function_">tail</span>(l));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> l = <span class="title function_">list</span>(<span class="number">1</span>, <span class="title function_">pair</span>(<span class="number">2</span>, <span class="number">3</span>), <span class="title function_">list</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>), <span class="title function_">pair</span>(<span class="number">7</span>, <span class="number">8</span>));</span><br><span class="line"></span><br><span class="line"><span class="title function_">count_leaves</span>(l);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">map</span>(<span class="params">func, item</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">is_null</span>(item)</span><br><span class="line">        ? <span class="literal">null</span></span><br><span class="line">        : <span class="title function_">pair</span>(<span class="title function_">func</span>(<span class="title function_">head</span>(item)), <span class="title function_">map</span>(func, <span class="title function_">tail</span>(item)));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">display</span>(<span class="title function_">map</span>(<span class="function"><span class="params">x</span> =&gt;</span> x * x, <span class="title function_">list</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">tree_map</span>(<span class="params">func, tree</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">is_null</span>(tree)</span><br><span class="line">        ? <span class="literal">null</span></span><br><span class="line">        : <span class="title function_">is_pair</span>(tree)</span><br><span class="line">            ? <span class="title function_">pair</span>(<span class="title function_">tree_map</span>(func, <span class="title function_">head</span>(tree)), <span class="title function_">tree_map</span>(func, <span class="title function_">tail</span>(tree)))</span><br><span class="line">            : <span class="title function_">func</span>(tree);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">display</span>(<span class="title function_">tree_map</span>(<span class="function"><span class="params">x</span> =&gt;</span> x * x, <span class="title function_">list</span>(<span class="number">1</span>, <span class="title function_">pair</span>(<span class="number">2</span>, <span class="number">3</span>), <span class="title function_">list</span>(<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>), <span class="title function_">pair</span>(<span class="number">7</span>, <span class="number">8</span>))))</span><br></pre></td></tr></table></figure>
+
+<p>pair 我并没有使用书中原有的实现，这么写有个好处，就是执行的结果就是json，很易读。配合PlantUML还可以直观的看出数据结构，比如</p>
+<img class="kroki" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgZGF0YS1kaWFncmFtLXR5cGU9IkpTT04iIGhlaWdodD0iMTEycHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo2MzdweDtoZWlnaHQ6MTEycHg7YmFja2dyb3VuZDojRkZGRkZGOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNjM3IDExMiIgd2lkdGg9IjYzN3B4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjEwIiB5PSIxMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzOC45MzA3IiB4PSIxNSIgeT0iMjQuOTk1MSI+aGVhZDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4LjkwNzIiIHg9IjYzLjkzMDciIHk9IjI0Ljk5NTEiPjE8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjU4LjkzMDciIHgyPSI1OC45MzA3IiB5MT0iMTAiIHkyPSIzMC4yOTY5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjEwIiB4Mj0iODIuMjgxMyIgeTE9IjMwLjI5NjkiIHkyPSIzMC4yOTY5Ii8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjI1LjczNzMiIHg9IjE1IiB5PSI0NS4yOTIiPnRhaWw8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMTMuMzUwNiIgeD0iNjMuOTMwNyIgeT0iNDUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjU4LjkzMDciIHgyPSI1OC45MzA3IiB5MT0iMzAuMjk2OSIgeTI9IjUwLjU5MzgiLz48cmVjdCBmaWxsPSJub25lIiBoZWlnaHQ9IjQwLjU5MzgiIHJ4PSI1IiByeT0iNSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNzIuMjgxMyIgeD0iMTAiIHk9IjEwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjExOSIgeT0iMjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMTI0IiB5PSIzNC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMTcyLjkzMDciIHk9IjM0Ljk5NTEiPjI8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjE2Ny45MzA3IiB4Mj0iMTY3LjkzMDciIHkxPSIyMCIgeTI9IjQwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMTE5IiB4Mj0iMTkxLjI4MTMiIHkxPSI0MC4yOTY5IiB5Mj0iNDAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIxMjQiIHk9IjU1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIxNzIuOTMwNyIgeT0iNTUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjE2Ny45MzA3IiB4Mj0iMTY3LjkzMDciIHkxPSI0MC4yOTY5IiB5Mj0iNjAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIxMTkiIHk9IjIwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjIyOCIgeT0iMzAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMjMzIiB5PSI0NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMjgxLjkzMDciIHk9IjQ0Ljk5NTEiPjM8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjI3Ni45MzA3IiB4Mj0iMjc2LjkzMDciIHkxPSIzMCIgeTI9IjUwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMjI4IiB4Mj0iMzAwLjI4MTMiIHkxPSI1MC4yOTY5IiB5Mj0iNTAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIyMzMiIHk9IjY1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIyODEuOTMwNyIgeT0iNjUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjI3Ni45MzA3IiB4Mj0iMjc2LjkzMDciIHkxPSI1MC4yOTY5IiB5Mj0iNzAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIyMjgiIHk9IjMwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjMzNyIgeT0iNDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iMzQyIiB5PSI1NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iMzkwLjkzMDciIHk9IjU0Ljk5NTEiPjQ8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjM4NS45MzA3IiB4Mj0iMzg1LjkzMDciIHkxPSI0MCIgeTI9IjYwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iMzM3IiB4Mj0iNDA5LjI4MTMiIHkxPSI2MC4yOTY5IiB5Mj0iNjAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSIzNDIiIHk9Ijc1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSIzOTAuOTMwNyIgeT0iNzUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjM4NS45MzA3IiB4Mj0iMzg1LjkzMDciIHkxPSI2MC4yOTY5IiB5Mj0iODAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSIzMzciIHk9IjQwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcyLjI4MTMiIHg9IjQ0NiIgeT0iNTAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iNDUxIiB5PSI2NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iNDk5LjkzMDciIHk9IjY0Ljk5NTEiPjU8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjQ5NC45MzA3IiB4Mj0iNDk0LjkzMDciIHkxPSI1MCIgeTI9IjcwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iNDQ2IiB4Mj0iNTE4LjI4MTMiIHkxPSI3MC4yOTY5IiB5Mj0iNzAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSI0NTEiIHk9Ijg1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMy4zNTA2IiB4PSI0OTkuOTMwNyIgeT0iODUuMjkyIj4mIzE2MDsmIzE2MDsmIzE2MDs8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjQ5NC45MzA3IiB4Mj0iNDk0LjkzMDciIHkxPSI3MC4yOTY5IiB5Mj0iOTAuNTkzOCIvPjxyZWN0IGZpbGw9Im5vbmUiIGhlaWdodD0iNDAuNTkzOCIgcng9IjUiIHJ5PSI1IiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSI3Mi4yODEzIiB4PSI0NDYiIHk9IjUwIi8+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6I0YxRjFGMTtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcwLjEzMDYiIHg9IjU1NSIgeT0iNjAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzguOTMwNyIgeD0iNTYwIiB5PSI3NC45OTUxIj5oZWFkPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjguOTA3MiIgeD0iNjA4LjkzMDciIHk9Ijc0Ljk5NTEiPjY8L3RleHQ+PGxpbmUgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIgeDE9IjYwMy45MzA3IiB4Mj0iNjAzLjkzMDciIHkxPSI2MCIgeTI9IjgwLjI5NjkiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7IiB4MT0iNTU1IiB4Mj0iNjI1LjEzMDYiIHkxPSI4MC4yOTY5IiB5Mj0iODAuMjk2OSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyNS43MzczIiB4PSI1NjAiIHk9Ijk1LjI5MiI+dGFpbDwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMS4yIiB4PSI2MDguOTMwNyIgeT0iOTUuMjkyIj4mIzkyMTY7PC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiIHgxPSI2MDMuOTMwNyIgeDI9IjYwMy45MzA3IiB5MT0iODAuMjk2OSIgeTI9IjEwMC41OTM4Ii8+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSI0MC41OTM4IiByeD0iNSIgcnk9IjUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjcwLjEzMDYiIHg9IjU1NSIgeT0iNjAiLz48cGF0aCBkPSJNNTA1LjUsODAuNSBMNTE4LjUsODAuNSBDNTI3LjkzNDUsODAuNSA1MzguMDc0Miw4MC41IDU0Ny42NTQsODAuNSIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxO3N0cm9rZS1kYXNoYXJyYXk6My4wLDMuMDsiLz48cGF0aCBkPSJNNTQ3LjY1NCw4My41MTU1IEw1NDkuOTE1Niw4MC41IEw1NDcuNjU0LDc3LjQ4NDUgTDU1NS4xOTI3LDgwLjUgTDU0Ny42NTQsODMuNTE1NSIgZmlsbD0iIzAwMDAwMCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxlbGxpcHNlIGN4PSI1MDUuNSIgY3k9IjgwLjUiIGZpbGw9IiMwMDAwMDAiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik0zOTYuNSw3MC41IEw0MDkuNSw3MC41IEM0MTguOTY4OCw3MC41IDQyOS4xMzc5LDcwLjUgNDM4Ljc2NCw3MC41IiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7c3Ryb2tlLWRhc2hhcnJheTozLjAsMy4wOyIvPjxwYXRoIGQ9Ik00MzguNzY0LDczLjUzMTkgTDQ0MS4wMzc5LDcwLjUgTDQzOC43NjQsNjcuNDY4MSBMNDQ2LjM0MzgsNzAuNSBMNDM4Ljc2NCw3My41MzE5IiBmaWxsPSIjMDAwMDAwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PGVsbGlwc2UgY3g9IjM5Ni41IiBjeT0iNzAuNSIgZmlsbD0iIzAwMDAwMCIgcng9IjMiIHJ5PSIzIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PHBhdGggZD0iTTI4Ny41LDYwLjUgTDMwMC41LDYwLjUgQzMwOS45Njg4LDYwLjUgMzIwLjEzNzksNjAuNSAzMjkuNzY0LDYwLjUiIGZpbGw9Im5vbmUiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTtzdHJva2UtZGFzaGFycmF5OjMuMCwzLjA7Ii8+PHBhdGggZD0iTTMyOS43NjQsNjMuNTMxOSBMMzMyLjAzNzksNjAuNSBMMzI5Ljc2NCw1Ny40NjgxIEwzMzcuMzQzOCw2MC41IEwzMjkuNzY0LDYzLjUzMTkiIGZpbGw9IiMwMDAwMDAiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48ZWxsaXBzZSBjeD0iMjg3LjUiIGN5PSI2MC41IiBmaWxsPSIjMDAwMDAwIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48cGF0aCBkPSJNMTc4LjUsNTAuNSBMMTkxLjUsNTAuNSBDMjAwLjk2ODgsNTAuNSAyMTEuMTM3OSw1MC41IDIyMC43NjQsNTAuNSIgZmlsbD0ibm9uZSIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxO3N0cm9rZS1kYXNoYXJyYXk6My4wLDMuMDsiLz48cGF0aCBkPSJNMjIwLjc2NCw1My41MzE5IEwyMjMuMDM3OSw1MC41IEwyMjAuNzY0LDQ3LjQ2ODEgTDIyOC4zNDM4LDUwLjUgTDIyMC43NjQsNTMuNTMxOSIgZmlsbD0iIzAwMDAwMCIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxlbGxpcHNlIGN4PSIxNzguNSIgY3k9IjUwLjUiIGZpbGw9IiMwMDAwMDAiIHJ4PSIzIiByeT0iMyIgc3R5bGU9InN0cm9rZTojMDAwMDAwO3N0cm9rZS13aWR0aDoxOyIvPjxwYXRoIGQ9Ik02OS41LDQwLjUgTDgyLjUsNDAuNSBDOTEuOTY4OCw0MC41IDEwMi4xMzc5LDQwLjUgMTExLjc2NCw0MC41IiBmaWxsPSJub25lIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7c3Ryb2tlLWRhc2hhcnJheTozLjAsMy4wOyIvPjxwYXRoIGQ9Ik0xMTEuNzY0LDQzLjUzMTkgTDExNC4wMzc5LDQwLjUgTDExMS43NjQsMzcuNDY4MSBMMTE5LjM0MzgsNDAuNSBMMTExLjc2NCw0My41MzE5IiBmaWxsPSIjMDAwMDAwIiBzdHlsZT0ic3Ryb2tlOiMwMDAwMDA7c3Ryb2tlLXdpZHRoOjE7Ii8+PGVsbGlwc2UgY3g9IjY5LjUiIGN5PSI0MC41IiBmaWxsPSIjMDAwMDAwIiByeD0iMyIgcnk9IjMiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTsiLz48IS0tU1JDPVtWUDFIUXk4bTU4TlZ5b2lrRlliYU9qakxIdnU0am1jYjFUY3F4clVSVEhkcjFqQWFDNFJfLXhCTE9PVkxGRU1TeXZyeHVJdmhZeVAtcjloTzVtRl9Ia3lJWXY2MFc3VkllZ2d5eEM4LTRGQXBURzdybU9aX2ptVlhWazZVTnFQTklfcllwOFZaYy1OLVczY19aZm82YUFrZ0dRWGJqdnNwd2R1alF6YklLbDV4VXhRZmFFbWtJdzZIZmJRUTg5WTZpcDJVWGtFamF2MFdtTW0xbUs5NGlPWmNpRGtrdTJVVWlGNXdhcUFqZEpiOEE1SGpaVGV4d19pSmJjMjN5RUI4Z2dDS2kzUThMUHh6NlYxNFpKQVFaZjhpSV85Q21BbFItcFBRMk5kNjdrS1JraWZ3d2cwQkhRTm02dl9sN2JZQUwzZWl2VWFDQS1zZGNTekVWR0MwXS0tPjwvZz48L3N2Zz4='>
+
+<p>接触PlantUML可以直观看出</p>
+<p><img src="https://www.plantuml.com/plantuml/png/SoWkIImgoIhEp-Egvb800gMCrCGK9Ii5Gnq8joGnCmV8XKWYAp3IGGXXA49MQAo3AenLCR864nrCAPoQa3MQwc2NngiPsG0p7TnAe8RabURaO5LKouLV1C63i6gvQhaSKlDIG64F0000" alt="数据结构展示"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/" rel="tag"># 计算器程序的构造和解释</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/e573cac4.html" rel="prev" title="2.2.3 序列操作 accumulate 解析">
+      <i class="fa fa-chevron-left"></i> 2.2.3 序列操作 accumulate 解析
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">陈孟辉</p>
+  <div class="site-description" itemprop="description">日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">188</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" title="http:&#x2F;&#x2F;tool.oschina.net&#x2F;uploads&#x2F;apidocs&#x2F;jquery&#x2F;regexp.html" rel="noopener" target="_blank">正则表达式</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" title="https:&#x2F;&#x2F;www.cs.usfca.edu&#x2F;~galles&#x2F;visualization&#x2F;Algorithms.html" rel="noopener" target="_blank">算法图示</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈孟辉</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">221k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:21</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -194,6 +194,668 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/575.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/575.html" class="post-title-link" itemprop="url">MySql锁</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-09 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-09T00:00:00+08:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>85</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h2><h3 id="共享锁"><a href="#共享锁" class="headerlink" title="共享锁"></a>共享锁</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> lock <span class="keyword">in</span> share mode;</span><br></pre></td></tr></table></figure>
+
+<h3 id="排它锁"><a href="#排它锁" class="headerlink" title="排它锁"></a>排它锁</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> test <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">for</span> <span class="keyword">update</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/42295.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/42295.html" class="post-title-link" itemprop="url">VS code 设置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-04T00:00:00+08:00">2021-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vscode/" itemprop="url" rel="index"><span itemprop="name">vscode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>67</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="使用的插件"><a href="#使用的插件" class="headerlink" title="使用的插件"></a>使用的插件</h1><ul>
+<li>run code</li>
+<li>PHP intelephense</li>
+<li>MySQL</li>
+<li></li>
+<li></li>
+</ul>
+<h1 id="光标移动到折叠代码会自动打开折叠"><a href="#光标移动到折叠代码会自动打开折叠" class="headerlink" title="光标移动到折叠代码会自动打开折叠"></a>光标移动到折叠代码会自动打开折叠</h1><p>设置搜索 vim:foldfix 并开启它</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/9324.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/9324.html" class="post-title-link" itemprop="url">日期时间相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-23T00:00:00+08:00">2020-11-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="计算两个日期相差的天数"><a href="#计算两个日期相差的天数" class="headerlink" title="计算两个日期相差的天数"></a>计算两个日期相差的天数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">date_diff</span>(<span class="title function_ invoke__">date_create</span>(<span class="variable">$startDate</span>), <span class="title function_ invoke__">date_create</span>(<span class="variable">$endDate</span>))-&gt;<span class="title function_ invoke__">format</span>(<span class="string">&#x27;%a&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>注意直接用strtotime计算秒的差值可能会有问题，因为有的时区有夏令时&#x2F;冬令时，导致有的天是23或25小时。<br>最起码也要转化成格林威治,最简单的方式是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strtotime($date.&#x27;UTC&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取日期对应周的范围"><a href="#获取日期对应周的范围" class="headerlink" title="获取日期对应周的范围"></a>获取日期对应周的范围</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getWeekRangeOfDate</span>(<span class="params"> <span class="variable">$date</span> </span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$iDate</span> = <span class="title function_ invoke__">strtotime</span>( <span class="variable">$date</span> );</span><br><span class="line">    <span class="variable">$k</span> = <span class="title function_ invoke__">strftime</span>( <span class="string">&#x27;%u&#x27;</span>, <span class="variable">$iDate</span> );</span><br><span class="line">    <span class="variable">$forStart</span> = <span class="variable">$k</span> - <span class="number">1</span>;</span><br><span class="line">    <span class="variable">$forEnd</span> = <span class="number">7</span> - <span class="variable">$k</span>;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">&#x27;startDate&#x27;</span> =&gt; <span class="title function_ invoke__">strftime</span>( <span class="string">&#x27;%Y-%m-%d&#x27;</span>, <span class="title function_ invoke__">strtotime</span>(<span class="string">&quot;- <span class="subst">&#123;$forStart&#125;</span> day&quot;</span>, <span class="variable">$iDate</span>) ),</span><br><span class="line">        <span class="string">&#x27;endDate&#x27;</span> =&gt; <span class="title function_ invoke__">strftime</span>( <span class="string">&#x27;%Y-%m-%d&#x27;</span>, <span class="title function_ invoke__">strtotime</span>(<span class="string">&quot;+ <span class="subst">&#123;$forEnd&#125;</span> day&quot;</span>, <span class="variable">$iDate</span>) ),</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">print_r</span>( <span class="title function_ invoke__">getWeekRangeOfDate</span>( <span class="string">&#x27;2020-12-6&#x27;</span> ) );</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取一段时间的日期"><a href="#获取一段时间的日期" class="headerlink" title="获取一段时间的日期"></a>获取一段时间的日期</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$start_date</span> = <span class="title function_ invoke__">date_create</span>(<span class="string">&quot;1900-01-01&quot;</span>);</span><br><span class="line"><span class="variable">$end_date</span>   = <span class="title function_ invoke__">date_create</span>(<span class="string">&quot;1970-01-05&quot;</span>); <span class="comment">// If you want to include this date, add 1 day</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$interval</span> = <span class="title class_">DateInterval</span>::<span class="title function_ invoke__">createFromDateString</span>(<span class="string">&#x27;1 week&#x27;</span>);</span><br><span class="line"><span class="variable">$daterange</span> = <span class="keyword">new</span> <span class="title class_">DatePeriod</span>(<span class="variable">$start_date</span>, <span class="variable">$interval</span> ,<span class="variable">$end_date</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$daterange</span> <span class="keyword">as</span> <span class="variable">$date1</span>)&#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="variable">$date1</span>-&gt;<span class="title function_ invoke__">format</span>(<span class="string">&#x27;Y-m-d&#x27;</span>).PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;&lt;br&gt;&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/46118.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/46118.html" class="post-title-link" itemprop="url">使用存储过程删除外键索引字段</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00+08:00">2020-09-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>每次上线都要在一堆库中执行SQL，一个库报错就会导致不知道那些库还没有执行操作~~~为了避免遇到这种报错，就只得另觅他法了。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE if EXISTS unitscheduling_week;</span><br><span class="line">CREATE TABLE `unitscheduling_week`</span><br><span class="line">(</span><br><span class="line">    `id`    int(10) UNSIGNED NOT NULL AUTO_INCREMENT,</span><br><span class="line">    `Value` varchar(10)      NOT NULL DEFAULT &#x27;&#x27;,</span><br><span class="line">    PRIMARY KEY (`id`, `Value`)</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DROP TABLE IF EXISTS unit_history;</span><br><span class="line">CREATE TABLE `unit_history`</span><br><span class="line">(</span><br><span class="line">    `id`               int(10) UNSIGNED NOT NULL AUTO_INCREMENT,</span><br><span class="line">    `UnitScheduleWeek` int(10) UNSIGNED DEFAULT NULL,</span><br><span class="line">    `FromDate`         datetime         NOT NULL,</span><br><span class="line">    PRIMARY KEY (`id`, `FromDate`),</span><br><span class="line">    KEY `UnitScheduleWeek` (`UnitScheduleWeek`),</span><br><span class="line">    CONSTRAINT `unit_history_ibfk_3` FOREIGN KEY (`UnitScheduleWeek`) REFERENCES `unitscheduling_week` (`id`) ON DELETE CASCADE</span><br><span class="line">) ENGINE = InnoDB</span><br><span class="line">  DEFAULT CHARSET = utf8 COMMENT =&#x27;Unit within a building&#x27;;</span><br></pre></td></tr></table></figure>
+<h3 id="删外键"><a href="#删外键" class="headerlink" title="删外键"></a>删外键</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS dropForeignKeyByValen;</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE dropForeignKeyByValen(IN foreignKeyName varchar(255))</span><br><span class="line">BEGIN</span><br><span class="line">    DECLARE tableName varchar(255);</span><br><span class="line">    SELECT TABLE_NAME</span><br><span class="line">    INTO tableName</span><br><span class="line">    FROM information_schema.KEY_COLUMN_USAGE</span><br><span class="line">    WHERE TABLE_SCHEMA = database()</span><br><span class="line">      AND CONSTRAINT_NAME = foreignKeyName;</span><br><span class="line">    IF tableName IS NOT NULL THEN</span><br><span class="line">        SET FOREIGN_KEY_CHECKS = 0;</span><br><span class="line">        SET @ddl = CONCAT(&#x27;ALTER TABLE &#x27;, tableName, &#x27; DROP FOREIGN KEY &#x27;, foreignKeyName);</span><br><span class="line">        PREPARE stmt FROM @ddl;</span><br><span class="line">        EXECUTE stmt;</span><br><span class="line">        SET FOREIGN_KEY_CHECKS = 1;</span><br><span class="line">    END IF;</span><br><span class="line">END //</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL dropForeignKeyByValen(&#x27;unit_history_ibfk_3&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="删索引"><a href="#删索引" class="headerlink" title="删索引"></a>删索引</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS dropIndexByValen;</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE dropIndexByValen(IN tableName varchar(255), IN indexName varchar(255))</span><br><span class="line">BEGIN</span><br><span class="line">    IF exists(SELECT TABLE_NAME</span><br><span class="line">              FROM information_schema.statistics</span><br><span class="line">              WHERE TABLE_SCHEMA = database()</span><br><span class="line">                AND TABLE_NAME = tableName</span><br><span class="line">                AND INDEX_NAME = indexName) THEN</span><br><span class="line">        SET @ddl = CONCAT(&#x27;ALTER TABLE &#x27;, tableName, &#x27; DROP KEY &#x27;, indexName);</span><br><span class="line">        PREPARE stmt FROM @ddl;</span><br><span class="line">        EXECUTE stmt;</span><br><span class="line">    END IF;</span><br><span class="line">END //</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL dropIndexByValen(&#x27;unit_history&#x27;, &#x27;UnitScheduleWeek&#x27;);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="删字段"><a href="#删字段" class="headerlink" title="删字段"></a>删字段</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">DROP PROCEDURE IF EXISTS dropColumnByValen;</span><br><span class="line">DELIMITER //</span><br><span class="line">CREATE PROCEDURE dropColumnByValen(IN tableName varchar(255), IN columnName varchar(255))</span><br><span class="line">BEGIN</span><br><span class="line">    IF exists(SELECT TABLE_NAME</span><br><span class="line">              FROM information_schema.columns</span><br><span class="line">              WHERE TABLE_SCHEMA = database()</span><br><span class="line">                AND TABLE_NAME = tableName</span><br><span class="line">                AND COLUMN_NAME = columnName) THEN</span><br><span class="line">        SET @ddl = CONCAT(&#x27;ALTER TABLE &#x27;, tableName, &#x27; DROP COLUMN &#x27;, columnName);</span><br><span class="line">        PREPARE stmt FROM @ddl;</span><br><span class="line">        EXECUTE stmt;</span><br><span class="line">    END IF;</span><br><span class="line">END //</span><br><span class="line">DELIMITER ;</span><br><span class="line"></span><br><span class="line">CALL dropColumnByValen(&#x27;unit_history&#x27;, &#x27;UnitScheduleWeek&#x27;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/25108.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/25108.html" class="post-title-link" itemprop="url">spl_autoload_register 参数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-27T00:00:00+08:00">2020-08-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>736</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>function spl_autoload_register ($autoload_function &#x3D; null, $throw &#x3D; true, $prepend &#x3D; false) bool</p>
+</blockquote>
+<p>将函数注册到SPL __autoload函数队列中。如果该队列中的函数尚未激活，则激活它们。</p>
+<ul>
+<li>$throw<ul>
+<li>此参数设置了 autoload_function 无法成功注册时， spl_autoload_register()是否抛出异常。</li>
+</ul>
+</li>
+<li>$prepend<ul>
+<li>如果是 true，spl_autoload_register() 会添加函数到队列之首，而不是队列尾部。</li>
+</ul>
+</li>
+</ul>
+<p>具体运行下述代码可以很容易的区分。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a1</span>(<span class="params"><span class="variable">$className</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a2</span>(<span class="params"><span class="variable">$className</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a3</span>(<span class="params"><span class="variable">$className</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">spl_autoload_register</span>(<span class="string">&#x27;a1&#x27;</span>, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="title function_ invoke__">spl_autoload_register</span>(<span class="string">&#x27;a2&#x27;</span>, <span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line"><span class="title function_ invoke__">spl_autoload_register</span>(<span class="string">&#x27;a3&#x27;</span>, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="title function_ invoke__">spl_autoload_register</span>(<span class="string">&#x27;a4&#x27;</span>, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="title function_ invoke__">spl_autoload_register</span>(<span class="string">&#x27;a5&#x27;</span>, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Test</span>();</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/50525.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/50525.html" class="post-title-link" itemprop="url">触发器和存储过程的简单例子</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-26T00:00:00+08:00">2020-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>尽管存储过程很少用，但还是碰到了~~~</p>
+<p>简单例子，帮助理解。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE IF NOT EXISTS student</span><br><span class="line">(</span><br><span class="line">    id          int            NOT NULL PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    name        varchar(255)   NOT NULL DEFAULT &#x27;&#x27;,</span><br><span class="line">    total_score decimal(10, 2) NOT NULL DEFAULT 0</span><br><span class="line">) CHARSET utf8</span><br><span class="line">  ENGINE innodb;</span><br><span class="line"></span><br><span class="line">CREATE TABLE IF NOT EXISTS score</span><br><span class="line">(</span><br><span class="line">    id         int           NOT NULL PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    student_id int           NOT NULL,</span><br><span class="line">    score      decimal(5, 2) NOT NULL DEFAULT 0</span><br><span class="line">) CHARSET utf8</span><br><span class="line">  ENGINE innodb;</span><br><span class="line"></span><br><span class="line">DROP PROCEDURE IF EXISTS update_user_total_score;</span><br><span class="line">CREATE</span><br><span class="line">    PROCEDURE update_user_total_score(IN studentId int, IN scoreNum decimal(5, 2))</span><br><span class="line">BEGIN</span><br><span class="line">    UPDATE student SET total_score = total_score + scoreNum WHERE id = studentId;</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DROP TRIGGER IF EXISTS score_insert;</span><br><span class="line">CREATE TRIGGER score_insert</span><br><span class="line">    AFTER INSERT</span><br><span class="line">    ON score</span><br><span class="line">    FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    CALL update_user_total_score(NEW.student_id, NEW.score);</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DROP TRIGGER IF EXISTS score_update;</span><br><span class="line">CREATE TRIGGER score_update</span><br><span class="line">    AFTER UPDATE</span><br><span class="line">    ON score</span><br><span class="line">    FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    CALL update_user_total_score(NEW.student_id, NEW.score - OLD.score);</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DROP TRIGGER IF EXISTS score_delete;</span><br><span class="line">CREATE TRIGGER score_delete</span><br><span class="line">    AFTER DELETE</span><br><span class="line">    ON score</span><br><span class="line">    FOR EACH ROW</span><br><span class="line">BEGIN</span><br><span class="line">    CALL update_user_total_score(OLD.student_id, 0 - OLD.score);</span><br><span class="line">END;</span><br><span class="line"></span><br><span class="line">DELETE</span><br><span class="line">FROM score</span><br><span class="line">WHERE id = 15;</span><br><span class="line"></span><br><span class="line">TRUNCATE score;</span><br><span class="line">TRUNCATE student;</span><br><span class="line"></span><br><span class="line">INSERT INTO student(id, name)</span><br><span class="line">VALUES (1, &#x27;Grey&#x27;),</span><br><span class="line">       (2, &#x27;Yellow&#x27;),</span><br><span class="line">       (3, &#x27;Pink&#x27;),</span><br><span class="line">       (4, &#x27;Red&#x27;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INSERT INTO score (student_id, score)</span><br><span class="line">VALUES (1, 80)</span><br><span class="line">     , (1, 90)</span><br><span class="line">     , (2, 70)</span><br><span class="line">     , (3, 60)</span><br><span class="line">     , (4, 10)</span><br><span class="line">     , (4, 30)</span><br><span class="line">     , (4, 20)</span><br><span class="line">;</span><br><span class="line"></span><br><span class="line">DELETE</span><br><span class="line">FROM score</span><br><span class="line">WHERE id = 1;</span><br><span class="line"></span><br><span class="line">UPDATE</span><br><span class="line">    score</span><br><span class="line">SET score = 100</span><br><span class="line">WHERE id = 2;</span><br><span class="line"></span><br><span class="line">DELETE FROM score WHERE 1;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM student;</span><br><span class="line"></span><br><span class="line">SELECT *</span><br><span class="line">FROM score;</span><br><span class="line"></span><br><span class="line">CALL update_user_total_score(1, 10);</span><br><span class="line">SHOW CREATE PROCEDURE update_user_total_score;</span><br><span class="line"></span><br><span class="line">SELECT 10</span><br><span class="line">INTO @totalScore;</span><br><span class="line">UPDATE student</span><br><span class="line">SET total_score = total_score + @totalScore</span><br><span class="line">WHERE id = 1;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/29007.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/29007.html" class="post-title-link" itemprop="url">ob 系列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-26T00:00:00+08:00">2020-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>244</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这个东西用的比较少，每每都是用到哪个查那个。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">ob_start</span>();</span><br><span class="line"><span class="comment">//ob_implicit_flush(true);</span></span><br><span class="line"><span class="title function_ invoke__">ob_implicit_flush</span>(<span class="literal">false</span>); <span class="comment">// 是否立刻刷新</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">ob_get_contents</span>());</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">ob_get_contents</span>());</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>ob_start()</p>
+</li>
+<li><p>ob_f</p>
+</li>
+<li><p>ob_get_clean()</p>
+</li>
+<li><p>ob_get_contents()</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/39739.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -456,1062 +1118,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/44019.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/44019.html" class="post-title-link" itemprop="url">大小比较</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-22T00:00:00+08:00">2020-07-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>440</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ol>
-<li>总是转换为相同的原始类型再做判断</li>
-<li>逻辑值总是转换为数值类型</li>
-<li>数值类型和字符串类型比较,总是把字符串转为数值</li>
-<li>对象(引用类型)总是转换为原始类型再比较（ obj.valueOf(), arr.toString() )</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Number</span>(<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2020-7-22 11:08:42&#x27;</span>)));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2020-7-22 11:08:42&#x27;</span>)).<span class="title function_">toString</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>((<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2020-7-22 11:08:42&#x27;</span>)).<span class="title function_">valueOf</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">new</span> <span class="title class_">Date</span>(<span class="string">&#x27;2020-7-22 11:08:42&#x27;</span>).<span class="title function_">getTime</span>());</span><br></pre></td></tr></table></figure>
-
-<p>结果如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1595387322000</span><br><span class="line">Wed Jul 22 2020 11:08:42 GMT+0800 (中国标准时间)</span><br><span class="line">1595387322000</span><br><span class="line">1595387322000</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/60867.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/60867.html" class="post-title-link" itemprop="url">正态分布</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-15T00:00:00+08:00">2020-07-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">实用代码</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>410</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (! <span class="title function_ invoke__">function_exists</span>(<span class="string">&#x27;stats_rand_gen_normal&#x27;</span>)) &#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">stats_rand_gen_normal</span>(<span class="params"><span class="variable">$av</span>, <span class="variable">$sd</span></span>): <span class="title">float</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$x</span> = <span class="title function_ invoke__">mt_rand</span>() / <span class="title function_ invoke__">mt_getrandmax</span>();</span><br><span class="line">        <span class="variable">$y</span> = <span class="title function_ invoke__">mt_rand</span>() / <span class="title function_ invoke__">mt_getrandmax</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">sqrt</span>(-<span class="number">2</span> * <span class="title function_ invoke__">log</span>(<span class="variable">$x</span>)) * <span class="title function_ invoke__">cos</span>(<span class="number">2</span> * <span class="title function_ invoke__">pi</span>() * <span class="variable">$y</span>) * <span class="variable">$sd</span> + <span class="variable">$av</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateScore</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$res</span> = <span class="title function_ invoke__">floor</span>(<span class="title function_ invoke__">stats_rand_gen_normal</span>(<span class="number">80</span>, <span class="number">20</span>));</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$res</span> &gt; <span class="number">100</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">generateScore</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$res</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">generateScore</span>();</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/45672.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/45672.html" class="post-title-link" itemprop="url">MySql Between</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-16T00:00:00+08:00">2020-06-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>735</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一直下意识的认为 between 只针对一个范围，但其实 between 是可以有好几个范围的。</p>
-<p>像这样</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> test_range</span><br><span class="line">(</span><br><span class="line">    id    <span class="type">int</span> <span class="keyword">PRIMARY</span> KEY AUTO_INCREMENT,</span><br><span class="line">    <span class="keyword">start</span> <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>,</span><br><span class="line">    <span class="keyword">end</span>   <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span></span><br><span class="line">) ENGINE innodb</span><br><span class="line">  CHARSET utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test_range (<span class="keyword">start</span>, <span class="keyword">end</span>)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="number">5</span>),</span><br><span class="line">       (<span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> TEMPORARY <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> test_value</span><br><span class="line">(</span><br><span class="line">    id    <span class="type">int</span> <span class="keyword">PRIMARY</span> KEY AUTO_INCREMENT,</span><br><span class="line">    <span class="keyword">value</span> <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span></span><br><span class="line">) ENGINE innodb</span><br><span class="line">  CHARSET utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> test_value(<span class="keyword">value</span>)</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="number">1</span>),</span><br><span class="line">       (<span class="number">2</span>),</span><br><span class="line">       (<span class="number">3</span>),</span><br><span class="line">       (<span class="number">4</span>),</span><br><span class="line">       (<span class="number">5</span>),</span><br><span class="line">       (<span class="number">6</span>),</span><br><span class="line">       (<span class="number">7</span>),</span><br><span class="line">       (<span class="number">8</span>),</span><br><span class="line">       (<span class="number">9</span>),</span><br><span class="line">       (<span class="number">10</span>),</span><br><span class="line">       (<span class="number">11</span>),</span><br><span class="line">       (<span class="number">12</span>),</span><br><span class="line">       (<span class="number">13</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> tv.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> test_value tv</span><br><span class="line"><span class="keyword">JOIN</span> test_range tr <span class="keyword">ON</span> tv.value <span class="keyword">BETWEEN</span> tr.start <span class="keyword">AND</span> tr.end</span><br><span class="line"><span class="keyword">WHERE</span> tr.id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"># 等价于</span><br><span class="line"><span class="keyword">SELECT</span> tv.<span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> test_value tv</span><br><span class="line"><span class="keyword">JOIN</span> test_range tr <span class="keyword">ON</span> tv.value <span class="operator">&gt;=</span> tr.start <span class="keyword">AND</span> tv.value <span class="operator">&lt;=</span>tr.end</span><br><span class="line"><span class="keyword">WHERE</span> tr.id <span class="keyword">IN</span> (<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/11629.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/11629.html" class="post-title-link" itemprop="url">学习Yii</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-09 00:00:00" itemprop="dateCreated datePublished" datetime="2020-06-09T00:00:00+08:00">2020-06-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>9.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="依赖注入-控制反转-依赖倒置"><a href="#依赖注入-控制反转-依赖倒置" class="headerlink" title="依赖注入 控制反转 依赖倒置"></a>依赖注入 控制反转 依赖倒置</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/moreorless/article/details/4510859">依赖倒置、控制反转和依赖注入辨析</a></p>
-<p>其实<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?type=content&q=%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC">知乎上就有非常好的解析</a>。</p>
-<p>说起来自己看了这个概念也快两年了，一直没能够理解。一方面是代码量太少，另一方面其实没有概念，只扣字眼是看不出什么的。这个时候生动的例子就格外重要了。</p>
-<p>说起来，自己写的代码里也一直没有用到这些东西。</p>
-<p>背历史政治的时候最怕的就是什么背景啊意义啊什么的。太多搞不明白其中有什么区别的情况。现在是工作，没必要扣字眼。</p>
-<p>简单的来说，控制反转是思想，依赖注入是方法。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailSender</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;发送邮件&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$email</span> = <span class="keyword">new</span> <span class="title class_">EmailSender</span>;</span><br><span class="line">        <span class="variable">$email</span>-&gt;<span class="title function_ invoke__">send</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如下修改之后</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#2</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">EmailSender</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailSenderByQq</span> <span class="keyword">implements</span> <span class="title">EmailSender</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">send</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;通过qq发送邮件&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$_emailSenderObject</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">EmailSender <span class="variable">$_emailSenderObject</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;_emailSenderObject = <span class="variable">$_emailSenderObject</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;_emailSenderObject-&gt;<span class="title function_ invoke__">send</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$user</span> = <span class="keyword">new</span> <span class="title class_">User</span>(<span class="keyword">new</span> <span class="title class_">EmailSenderByQq</span>()); <span class="comment">// 依赖注入 依赖倒置原则</span></span><br><span class="line"><span class="variable">$user</span>-&gt;<span class="title function_ invoke__">register</span>();</span><br></pre></td></tr></table></figure>
-
-<p>看到上面两端代码，应该可以看到其中的区别。#1 是我常用的方式，其缺点显而易见，就是 User 类内部绑死了 EmailSender。这种操作应该就是「正向控制流程」。那「控制反转」自然就是反向操作——在User 类内部绑死的类被移交到 User 外部绑定，这就是依赖注入。</p>
-<p>其实我在实际工作中体会不到这种优势，因为工作流程大都固定，类的数量较少，其中关联关系的数量就更少了。加上更多是在框架上敲业务代码，不免就远离了这些。</p>
-<p>不要抱怨什么了。书到用时方恨少。这些都是前人的总结，浪费就太可惜了。</p>
-<h1 id="Yii的依赖注入容器"><a href="#Yii的依赖注入容器" class="headerlink" title="Yii的依赖注入容器"></a>Yii的依赖注入容器</h1><p>Yii中包含一个重要的基类「BaseObject」，几乎所有的类都会继承于它。覆写了那些魔术方法及构造函数。</p>
-<p>Yii的配置比较灵活。比如可以方便地对框架自带的类属性进行覆写。<br>简单看就是设置类属性。把类属性设置和类声明分开，可以实现统一设置多处引用效果。</p>
-<p>以分页类为例。查阅代码可知两个重要的参数「page（当前页）」「per-page（每页条数）」，在框架中有自己的定义。可以这般实现自定义。</p>
-<p><em>最基本的用法</em></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">controllers</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这里就是直接在实例化类的时候通过构造函数初始化那些预设的属性</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$pagination</span> = <span class="keyword">new</span> <span class="title class_">Pagination</span>([</span><br><span class="line">            <span class="string">&#x27;totalCount&#x27;</span> =&gt; <span class="number">9</span>,</span><br><span class="line">            <span class="string">&#x27;pageParam&#x27;</span>      =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">halt</span>(<span class="variable">$pagination</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>进而</em>可以这样</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">controllers</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 利用容器——其中一点和单例模式挺像的，每每实例化类的时候先看看其中有没有，有的话就直接返回了</span></span><br><span class="line"><span class="comment">     *（容器的另一个特点是可以自动实例化那些被当下实例化类所依赖的类）</span></span><br><span class="line"><span class="comment">     * 利用这点，可以在保存在容器前利用构造函数覆盖类中的属性，这样之后的调用就可以拿到「自定义」一些属性的类了</span></span><br><span class="line"><span class="comment">     * 下面几个方法就是这一点的更进一步的运用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>,[</span><br><span class="line">            <span class="string">&#x27;pageParam&#x27;</span>      =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$pagination</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [],[</span><br><span class="line">            <span class="string">&#x27;totalCount&#x27;</span>    =&gt; <span class="number">9</span></span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">halt</span>(<span class="variable">$pagination</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>然后</em>可以把那两个自定义的参数封装到bootstrap中（bootstrap是在入口脚本处引入的）</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//frontend/config/bootstrap.php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [</span><br><span class="line">    <span class="string">&#x27;pageParam&#x27;</span>      =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
-
-<p>现在就可以在frontend模块中所有的地方使用</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">controllers</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">web</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ApiController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionIndex</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$pagination</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [],[</span><br><span class="line">            <span class="string">&#x27;totalCount&#x27;</span>    =&gt; <span class="number">9</span></span><br><span class="line">        ]);</span><br><span class="line"></span><br><span class="line">        <span class="title function_ invoke__">halt</span>(<span class="variable">$pagination</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>再进一步</em>，bootstrap的那段可以自定义引导类更灵活的配置</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//frontend/bootstrap/DiBootstrap.php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">bootstrap</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">data</span>\<span class="title">Pagination</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">BootstrapInterface</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这里使用了接口「BootstrapInterface」</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DiBootstrap</span> <span class="keyword">implements</span> <span class="title">BootstrapInterface</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">bootstrap</span>(<span class="params"><span class="variable">$app</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">Pagination</span>::<span class="variable language_">class</span>, [</span><br><span class="line">            <span class="string">&#x27;pageParam&#x27;</span>     =&gt; <span class="string">&#x27;page-index&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;pageSizeParam&#x27;</span> =&gt; <span class="string">&#x27;page-size&#x27;</span>,</span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此时在需要的模块配置文件中配置好引导类，像这样</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//frontend/config/main.php</span></span><br><span class="line">...</span><br><span class="line"><span class="string">&#x27;bootstrap&#x27;</span> =&gt; [<span class="string">&#x27;log&#x27;</span>, \frontend\bootstrap<span class="title class_">\DiBootstrap</span>::<span class="variable language_">class</span>],</span><br><span class="line">..  .</span><br></pre></td></tr></table></figure>
-
-<p>调用和上一个方式一样</p>
-<h1 id="Yii中创建对象的三种方法"><a href="#Yii中创建对象的三种方法" class="headerlink" title="Yii中创建对象的三种方法"></a>Yii中创建对象的三种方法</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">models</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 只需要简单的创建一个类</span></span><br><span class="line"><span class="comment"> * Class User</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> frontend\models</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">models</span>\<span class="title">User</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">defined</span>(<span class="string">&#x27;YII_DEBUG&#x27;</span>) <span class="keyword">or</span> <span class="title function_ invoke__">define</span>(<span class="string">&#x27;YII_DEBUG&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="title function_ invoke__">defined</span>(<span class="string">&#x27;YII_ENV&#x27;</span>) <span class="keyword">or</span> <span class="title function_ invoke__">define</span>(<span class="string">&#x27;YII_ENV&#x27;</span>, <span class="string">&#x27;dev&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/autoload.php&#x27;</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/yiisoft/yii2/Yii.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 向此容器注册一个类定义</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>, [</span><br><span class="line">    <span class="string">&#x27;id&#x27;</span>   =&gt; <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Grey&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">26</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实例化的三种方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="variable">$user1</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>);</span><br><span class="line"><span class="variable">$user2</span> = <span class="title class_">Yii</span>::<span class="title function_ invoke__">createObject</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>);</span><br><span class="line"><span class="variable">$user3</span> = \yii\di<span class="title class_">\Instance</span>::<span class="title function_ invoke__">ensure</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>);</span><br></pre></td></tr></table></figure>
-
-<h1 id="容器扩展"><a href="#容器扩展" class="headerlink" title="容器扩展"></a>容器扩展</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/autoload.php&#x27;</span>;</span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span> . <span class="string">&#x27;/../../vendor/yiisoft/yii2/Yii.php&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$val</span> = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="variable">$id</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$age</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">private</span> Foo <span class="variable">$foo</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Foo <span class="variable">$foo</span>, <span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;foo = <span class="variable">$foo</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;id = <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> \<span class="title">yii</span>\<span class="title">base</span>\<span class="title">BaseObject</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> <span class="variable">$id</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="variable">$age</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">private</span> Foo <span class="variable">$foo</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Foo <span class="variable">$foo</span>, <span class="variable">$id</span>, <span class="variable">$config</span> = []</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">parent</span>::<span class="title function_ invoke__">__construct</span>(<span class="variable">$config</span>);</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;foo = <span class="variable">$foo</span>;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;id = <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$container</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>;</span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">User</span>::<span class="variable language_">class</span>, [<span class="number">1</span> =&gt; <span class="number">123</span>], [</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Grey&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>  =&gt; <span class="number">28</span>,</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="variable">$student</span> = <span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">Student</span>::<span class="variable language_">class</span>,</span><br><span class="line">    [<span class="number">1</span> =&gt; <span class="number">123</span>, ],</span><br><span class="line">    [</span><br><span class="line">        <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">26</span>,</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;Red&#x27;</span></span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">die</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-<p>注意上述代码中类 User 和类 Student 的参数不同之处。</p>
-<p>Yii 会使用__set&#x2F;__get对类中已声明的属性进行覆盖。但对于继承 BaseObject 的类，就需要配置第三个参数「$config」来覆盖了。</p>
-<h1 id="模仿-laravel-中的-Facade"><a href="#模仿-laravel-中的-Facade" class="headerlink" title="模仿 laravel 中的 Facade"></a>模仿 laravel 中的 Facade</h1><ol start="0">
-<li>创建 接口 和 类</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">service</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IUserService</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findAll</span>(<span class="params"><span class="variable">$offset</span>, <span class="variable">$limit</span></span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findOne</span>(<span class="params"><span class="variable">$id</span></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">service</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">IUserService</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findAll</span>(<span class="params"><span class="variable">$offset</span>, <span class="variable">$limit</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="variable">$offset</span>, <span class="variable">$limit</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">findOne</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="0">
-<li>在 bootstrap 中绑定接口和类</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// frontend/config/bootstrap.php</span></span><br><span class="line"><span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">set</span>(\frontend\service<span class="title class_">\IUserService</span>::<span class="variable language_">class</span>, \frontend\service<span class="title class_">\UserServiceImpl</span>::<span class="variable language_">class</span>);</span><br></pre></td></tr></table></figure>
-
-<ol start="0">
-<li>创建 Facade</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">service</span>\<span class="title">IUserService</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class UserFacade</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> frontend\facade</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findAll($offset, $limit)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findOne($id)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__callStatic</span>(<span class="params"><span class="keyword">string</span> <span class="variable">$name</span>, <span class="keyword">array</span> <span class="variable">$arguments</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">/** <span class="doctag">@var</span> IUserService $service */</span></span><br><span class="line">        <span class="variable">$service</span> = <span class="title class_">Yii</span>::<span class="variable">$container</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="title class_">IUserService</span>::<span class="variable language_">class</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$service</span>, <span class="variable">$name</span>], <span class="variable">$arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="0">
-<li>调用</li>
-</ol>
-<p>比如在控制器中</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// \frontend\controllers\ApiController</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionService3</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">halt</span>(<span class="title class_">StudentFacade</span>::<span class="title function_ invoke__">findAll</span>(<span class="number">60</span>,<span class="number">20</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="0">
-<li>更进一步，创建一个 Facade 基类</li>
-</ol>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">base</span>\<span class="title">InvalidConfigException</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">di</span>\<span class="title">Instance</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> object|string|array|static</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> InvalidConfigException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidConfigException</span>(<span class="string">&#x27;Facade does not implement getFacadeAccessor method&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $arguments</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> InvalidConfigException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__callStatic</span>(<span class="params"><span class="variable">$name</span>, <span class="variable">$arguments</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$server</span> = <span class="title class_">Instance</span>::<span class="title function_ invoke__">ensure</span>(<span class="built_in">static</span>::<span class="title function_ invoke__">getFacadeAccessor</span>());</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$server</span>, <span class="variable">$name</span>], <span class="variable">$arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后在创建类</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">service</span>\<span class="title">IUserService</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class UserFacade</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> frontend\facade</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findAll($offset, $limit)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> IUserService findOne($id)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentFacade</span> <span class="keyword">extends</span> <span class="title">BaseFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">IUserService</span>::<span class="variable language_">class</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>调用方式和4一致</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// \frontend\controllers\ApiController</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionService3</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">halt</span>(<span class="title class_">StudentFacade</span>::<span class="title function_ invoke__">findAll</span>(<span class="number">60</span>,<span class="number">20</span>));</span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-<ol start="0">
-<li>利用这一点可以更「方便」的使用诸如Redis。</li>
-</ol>
-<p>注意 Yii 中的 redis 模块是 composer 另外安装的。所以在ide中没有代码提示的功能</p>
-<p>安装之后，需要配置在 config 中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// common/config/main-local.php</span><br><span class="line">&lt;?php</span><br><span class="line">return [</span><br><span class="line">    &#x27;components&#x27; =&gt; [</span><br><span class="line">        ...</span><br><span class="line">        &#x27;redis&#x27;  =&gt; [</span><br><span class="line">            &#x27;class&#x27;    =&gt; &#x27;yii\redis\Connection&#x27;,</span><br><span class="line">            &#x27;hostname&#x27; =&gt; &#x27;127.0.0.1&#x27;,</span><br><span class="line">            &#x27;port&#x27;     =&gt; 6379,</span><br><span class="line">            &#x27;database&#x27; =&gt; 0,</span><br><span class="line">        ],</span><br><span class="line">        ...</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-
-<p>这个时候就可以使用 Yii::$app-&gt;redis 来调用 redis 类中的方法了</p>
-<p>其中的注释也是必要的，从 yii\redis\Connection 中复制后在每个 method 后加 static，ide可以据此提供代码提示的功能</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">frontend</span>\<span class="title class_">facade</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">frontend</span>\<span class="title">service</span>\<span class="title">IUserService</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Yii</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">yii</span>\<span class="title">redis</span>\<span class="title">LuaScriptBuilder</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ...</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> static mixed set($key, $value, ...$options) Set the string value of a key. &lt;https://redis.io/commands/set&gt;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@method</span> static mixed get($key) Get the value of a key. &lt;https://redis.io/commands/get&gt;</span></span><br><span class="line"><span class="comment"> * ...</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Redis</span> <span class="keyword">extends</span> <span class="title">BaseFacade</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 其实5中的基类就是实现这个功能</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// public static function __callStatic($name, $arguments)</span></span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//     if (isset(Yii::$app-&gt;redis)) &#123;</span></span><br><span class="line">    <span class="comment">//         $service = Yii::$app-&gt;redis;</span></span><br><span class="line">    <span class="comment">//         return call_user_func_array([$service, $name], $arguments);</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Instance::ensure(&#x27;redis&#x27;) 在这里其实就是调用了 Yii::$app-&gt;redi</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;redis&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结起来，这一步其实就是对 __callstatic 和 Instance 的实际应用</p>
-<p>代码很容易读懂，使用也比较舒服。</p>
-<h3 id="控制器生命周期"><a href="#控制器生命周期" class="headerlink" title="控制器生命周期"></a>控制器生命周期</h3><ol start="0">
-<li>在控制器创建和配置之后，yii\base\Controller::init()方法会被调用</li>
-<li>控制器根据请求ID创建一个操作对象：<ul>
-<li>如果操作ID没有指定，会使用default action ID默认操作ID</li>
-<li>如果在action map找到操作ID, 会创建一个独立操作</li>
-<li>如果操作ID对应操作方法,会创建一个内联操作</li>
-<li>否则会抛出yii\base\InvalidRouteException异常</li>
-</ul>
-</li>
-<li>控制器按顺序调用应用主题,模块(如果控制器属于模块),控制器的beforeAction方法<ul>
-<li>如果任意一个调用返回false,后面为调用的beforeAction()会跳过并且操作执行会被取消</li>
-<li>默认情况下每个beforeAciton()方法会触发一个beforeAction事件,在事件中可以追加事件处理操作</li>
-</ul>
-</li>
-<li>控制器执行操作<ul>
-<li>请求数据解析和填入到操作参数</li>
-</ul>
-</li>
-<li>控制器按顺序调用控制器,模块(如果控制器属于模块),应用主体的afterAction()<ul>
-<li>默认情况下每个afterAction()会触发一个afterAction事件,在事件中可以追加事件处理操作</li>
-</ul>
-</li>
-<li>应用主体获取操作结果并赋值给响应</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/25320.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/25320.html" class="post-title-link" itemprop="url">PHP 常用函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-20T00:00:00+08:00">2020-05-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/PHP%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">PHP基础知识</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><em>摘自知乎</em></p>
-<p>数组函数：</p>
-<p>1.排序类：【1.无返回值，传值引用，就直接对原数组进行了修改】</p>
-<p>按V：sort,rsort,asort,arsort,</p>
-<p>按K：ksort,krsort</p>
-<p>sort()	按升序对给定数组的值排序，不保留键名</p>
-<p>rsort()	对数组逆向排序，不保留键名</p>
-<p>asort() 对数组排序，保持索引关系</p>
-<p>arsort() 对数组逆向排序，保持索引关系</p>
-<p>ksort() 按键名对数组排序</p>
-<p>krsort() 将数组按照键逆向排序</p>
-<p>natsort() 用自然顺序算法对数组中的元素排序</p>
-<p>natcasesort() 自然排序，不区分大小写</p>
-<p>2.键值操作类：【都有返回值，没有在原来参数上修改】</p>
-<p>array_values($arr); &#x2F;&#x2F;获取$arr中的值重排,去掉下标,返回值-&gt;新索引数组</p>
-<p>array_keys($arr[,”str”,true])	&#x2F;&#x2F;获取$arr中所有字符是”str”的下标，形成</p>
-<p>索引数组,true表示区分大小写【返回新索引数组】</p>
-<p>array_search(“is”,$arr[,true]) &#x2F;&#x2F;返回值”is”在$arr中的key，找不到返回</p>
-<p>fales,true表示严格按照类型(8,”8”)【返回第一个匹配值】</p>
-<p>in_array(“str”,$arr);	&#x2F;&#x2F;判断”str”在$arr中是否存在，【返回BOOL】</p>
-<p>is_array($arr);	&#x2F;&#x2F;判断是否是数组【返回BOOL】</p>
-<p>array_key_exists($key,$arr); &#x2F;&#x2F;查询$arr中是否有$key，【返回BOOL】,</p>
-<p>此方法比in_array效率更高</p>
-<p>array_flip($arr); &#x2F;&#x2F; 交换键值，如有重复，后来居上，【返回新数组】</p>
-<p>array_reverse($arr,[true|false]); &#x2F;&#x2F;数组顺序反转，param2是否保留原</p>
-<p>来键值【返回新关联&#x2F;索引数组】</p>
-<p>array_column(array(),’name’[,name_two]) — 返回数组中指定的name列</p>
-<p>[可选参数，如果有返回name&#x3D;&gt;name_two的形式]【返回一维数组】</p>
-<p>3.元素个数和唯一性</p>
-<p>array_unique($arr);	&#x2F;&#x2F;去掉$arr中的重复值，重复的保留第一个值，【返回</p>
-<p>数组，键值保留】</p>
-<p>array_count_values($arr)	&#x2F;&#x2F;统计数组值出现的次数，【返回数组，</p>
-<p>KEY为原来数组的值，VALUE为统计的次数】</p>
-<p>count($arr[,1])&#x2F;sizeof();	&#x2F;&#x2F;统计$arr的元素个数，参数”1”表示统计多维数</p>
-<p>组开启，默认0为关闭【返回统计个数】</p>
-<p>4.回调函数</p>
-<p>array_filter($arr,”function”);	&#x2F;&#x2F;把$arr放到函数function中处理，【返回判</p>
-<p>断为TRUE的数据组成新数组，键值保留】</p>
-<p>array_walk($arr,”function”[,”data”]);	&#x2F;&#x2F;把$arr放function(&amp;$v,$k,$data)</p>
-<p>中处理【返回值为bool】</p>
-<p>array_map(“function”,$arr,$arr2,$arr3,….);	&#x2F;&#x2F;把所有数组返回到回调函</p>
-<p>数统一处理，【返回数组】</p>
-<p>array_reduce($arr,myfunction[,initial]); &#x2F;&#x2F;把一维数组$arr中的</p>
-<p>值依次传到自定义函数myfunction($v1,$v2)的v2上，v1为累加值类似于( .&#x3D;</p>
-<p>),[如果有initial，先把其当v1传进去]【返回字符串】</p>
-<p>5.拆分，合并，分解，接合数组</p>
-<p>array_slice($arr,1[,2]);	&#x2F;&#x2F;在$arr中，从第二个开始取[，返回俩个值]【返</p>
-<p>回新数组(对原数组无影响)，键值保留】</p>
-<p>array_splice($arr,1[,2,”aaa”,”bb”])	; &#x2F;&#x2F;删除或替换，从$arr第二个开始</p>
-<p>取，删除或替换2个值【返回值为新数组，拆掉原数组】</p>
-<p>array_combine($arr1,$arr2);	&#x2F;&#x2F;数组$arr1为KEY,$arr2为VALUES结合形</p>
-<p>成新索引数组【返回索引数组】</p>
-<p>array_merge($arr1,$arr2,$arr3…);	&#x2F;&#x2F;数组进行合并，保留键值，有重复，</p>
-<p>后来者居上 【返回新数组】 array_merge 发现有 key 值相同的， 取后</p>
-<p>者; $arr1+$arr2 发现有key值相同的，取前者，第二个重复的值丢弃</p>
-<p>array_intersect($arr1,$arr2);	&#x2F;&#x2F;返回两个数组的交集，键值不变</p>
-<p>array_diff($arr1,$arr2);	&#x2F;&#x2F;返回两数组的差集，返回的值为第一个数组的</p>
-<p>值，键值不变</p>
-<p>array_chunk($arr,2);	&#x2F;&#x2F;分割数组,把$arr按照【2个为一组】均等分割</p>
-<p>【返回一个二维数组】</p>
-<p>6.数组的数据结构【无返回值，传值引用，就直接对原数组进</p>
-<p>行了修改】</p>
-<p>array_shift($arr) &#x2F;&#x2F;从开头，删除数组第一个元素</p>
-<p>array_unshift($arr,”one”,”two”) &#x2F;&#x2F;从开头，添加元素</p>
-<p>array_pop($arr) &#x2F;&#x2F;从结尾，删除数组最后一个元素</p>
-<p>array_push($arr,”aaa”);	&#x2F;&#x2F;从结尾，添加元素</p>
-<p>current($arr) &#x2F;&#x2F;返回数组中的当前单元 比如是关联数组是不知道下标，</p>
-<p>可以输出当前数组的办法解决(返回的是数组中第一个健值)</p>
-<p>key($arr)	&#x2F;&#x2F;返回当前指针指向元素的键值</p>
-<p>next($arr)	&#x2F;&#x2F;当前指针下移</p>
-<p>pre($arr)	&#x2F;&#x2F;当前指针上移</p>
-<p>end($arr)	&#x2F;&#x2F;指针指到最后</p>
-<p>reset($arr)	&#x2F;&#x2F;指针回归到开头</p>
-<p>unset($arr)&#x2F;&#x2F;销毁此数组</p>
-<p>7.其他</p>
-<p>array_rand($arr,2);	&#x2F;&#x2F;随机返回两个$arr数组当中的key【返回值为值或者</p>
-<p>数组】</p>
-<p>shuffle($arr)	&#x2F;&#x2F;随机的重组$arr，顺序变乱【返回新数组，保留键值】</p>
-<p>array_sum($arr);	&#x2F;&#x2F;返回$arr的value的和【返回一个值】</p>
-<p>range(0,10,2,)	&#x2F;&#x2F;快速创建0，10的数组，间隔为2，所以有5个值【返回新</p>
-<p>索引数组】</p>
-<p>http_build_query($arr)	&#x2F;&#x2F;把关联数组转换成一个经过urlencode加密的</p>
-<p>URL eg:array[“a”&#x3D;&gt;2];&#x3D;&gt;URL:a&#x3D;2&amp;</p>
-<p>字符串函数</p>
-<p>1.返回bool</p>
-<p>isset($a)	&#x2F;&#x2F;当$a&#x3D;NULL 或不存在，返回false，反之为true</p>
-<p>empty($a)	&#x2F;&#x2F;当$a&#x3D;NULL&#x2F;‘’&#x2F;array()&#x2F;0&#x2F;‘0’&#x2F;不存在 时 返回true,反之为false</p>
-<ol start="2">
-<li>返回值为自字符</li>
-</ol>
-<p>substr(字符串,开始地方,[返回字符串的长度]);	&#x2F;&#x2F;截取字符串的一部分,第一</p>
-<p>个字符位置为0</p>
-<p>substr_replace($str,”aaa”,start[,length]);	&#x2F;&#x2F;在$str上操作，从第start个</p>
-<p>开始,把【后边】的字符[全&#x2F;或length个]替换</p>
-<p>sub_count($str,”is”[,5,10]); &#x2F;&#x2F;[ 从第五个字符开始，搜索长度为10，]搜</p>
-<p>索is在$str中出现的次数，【返回次数】</p>
-<p>strstr($email,”@”[,true]) &#x2F;&#x2F;从头开始搜索,无true返回@后边字符，有true</p>
-<p>返回@前边的字符[strrchr对比]</p>
-<p>strrchr($email,”@”) &#x2F;&#x2F;从结尾开始搜索，返回@后的所有字符</p>
-<p>str_replace &#x2F;&#x2F;(被替换词,替换词，被搜索字符串，[统计替换次数</p>
-<p>$num]) 前两个参数也可为数组，两个数组元素个数相同</p>
-<p>str_repeat($str,num);	&#x2F;&#x2F;重复$str字符串 num次，</p>
-<p>3.返回值为数字类的</p>
-<p>strpos($str,”@”); &#x2F;&#x2F;返回@【第一次出现的位置】</p>
-<p>strrpos($str,”@”);	&#x2F;&#x2F;返回@【最后一次出现的位置】</p>
-<p>str_word_count($str[,0&#x2F;1&#x2F;2]);	&#x2F;&#x2F;返回$str中单词的数量[0指返回次数,默认</p>
-<p>值&#x2F;1指以数组形式返回单词值&#x2F;2指返回关联数组，k为单词首字母下标,v单词</p>
-<p>值]</p>
-<p>strcmp($str1,$str2); &#x2F;&#x2F;按ASCII码比较 str1&gt;str2 则返回1 相等返回0 &lt;</p>
-<p>返回-1 strcasecmp不区分大小写的比较</p>
-<p>strnatcmp($str1,$str2); &#x2F;&#x2F;按自然数的排序比较，上边的比较10&lt;2；本函</p>
-<p>数比较10&gt;2,按自然数大小来的 strcasecmp($str1,$str2);strnatcasecmp&#x2F;&#x2F;</p>
-<p>以上4个函数，$str1，$str2比较，【返回值：相等0，小于-1，大于1】</p>
-<p>number_format(10000[,2]); &#x2F;&#x2F;&#x3D;&#x3D;》10,000.00 把第一个参数格式</p>
-<p>化,保留2位小数</p>
-<p>strlen($string);成功则返回字符串 $string 的长度</p>
-<p>mb_strlen($string,’utf8’);&#x2F;&#x2F;获取字符串$string长度，多字节的字符被计为</p>
-<p>1。</p>
-<p>4.文本处理类</p>
-<p>strtoupper($str) &#x2F;&#x2F;字母全转为大写【返回全大写字符串】</p>
-<p>strtolower() &#x2F;&#x2F;字母全转为小写【返回全小写字符串】</p>
-<p>strtotime(‘2015-10-10 10:10:10’); &#x2F;&#x2F;指定时间转换为时间戳【返回时间</p>
-<p>戳】</p>
-<p>str_pad($str,length,[—，STR_PAD_BOTH]); &#x2F;&#x2F;在$str的两边填补“—“，</p>
-<p>注意，length若小于$str长度，不填补</p>
-<p>trim($str[,”a”,STR_PAD_BOTH]) &#x2F;&#x2F;去除两边&#x2F;左&#x2F;右的空白或”a”,默认是空</p>
-<p>白，或自定义字符</p>
-<p>floatval(“123.45aa”) &#x2F;&#x2F;&#x3D;》获取变量的浮点值【123.45】</p>
-<p>ucfirst() &#x2F;&#x2F;整个$str首字母大写</p>
-<p>ucword() &#x2F;&#x2F;$str每个单词首字母大写</p>
-<ol start="5">
-<li>HTML类处理</li>
-</ol>
-<p>htmlspecialchars($str) &#x2F;&#x2F;函数把【预定义字符】转换为【 HTML 实</p>
-<p>体】，&amp;转换成&amp;amp</p>
-<p>htmlspecialchars_decode($str); &#x2F;&#x2F;把【HTML实体】转换成【预定义字</p>
-<p>符】，&amp;amp转换成&amp;</p>
-<p>htmlentities($str); &#x2F;&#x2F;函数把【预定义字符】转换为【 HTML 实体】，&amp;</p>
-<p>转换成&amp;amp，有乱码问题，注意第二第三个参数，若编码不正确，会在实</p>
-<p>体化时把信息丢失</p>
-<p>html_entity_decode($str) &#x2F;&#x2F;把【HTML实体】转换成【预定义字符】，</p>
-<p>&amp;amp转换成&amp;, &amp;gt 转成 &lt;</p>
-<p>addslashes($html)； &#x2F;&#x2F;添加转义字符“&#x2F;”</p>
-<p>stripslashes($html); &#x2F;&#x2F;删除转义字符“&#x2F;”</p>
-<p>strip_tags($html); &#x2F;&#x2F;去除HTML标签</p>
-<p>nl2br($str) &#x2F;&#x2F;在$str中的换行&#x2F;n前插入<br>，因为\n在源码可以换行，但是</p>
-<p>在浏览器窗口不行，有这个就可以</p>
-<p>iconv( from_charset ; to_charset,$str); &#x2F;&#x2F;转化字符格式</p>
-<p>$file_name &#x3D; iconv(“gb2312”,”utf-8”,$file_name);</p>
-<p>正则函数</p>
-<p>[原则，能用字符串函数解决不用正则，速度问题]</p>
-<p>1.字符串的匹配查找</p>
-<p>preg_match($pattern,$subject,$arr); &#x2F;&#x2F;按正则$pattern处理$subject,第</p>
-<p>一次匹配结果返回到数组中【函数的返回值为匹配次数】</p>
-<p>preg_match_all($pattern,$subject,$arr) &#x2F;&#x2F;按正则$pattern处理$subject,</p>
-<p>全部匹配结果返回到数组中【函数的返回值为匹配次数】</p>
-<p>strstr($str,”@”[,true]);</p>
-<p>strpos,strrpos,substr($str,position) &#x2F;&#x2F;联合使用</p>
-<p>2.字符串的替换</p>
-<p>preg_replace($pattenr,$replace,$str); &#x2F;&#x2F;【强大的字符串处理函数】</p>
-<p>在$str中,把$parrern匹配的值替换成$replcae【返回值为处理后的字符串】</p>
-<p>str_replace($str,”aaa”,”bbb”); &#x2F;&#x2F;把$str中的aaa换成bbb</p>
-<p>3.字符串的分割和链接</p>
-<p>preg_split($pattern,$str); 通过一个正则表达式分隔字符串【返回值为</p>
-<p>数组】</p>
-<p>举例:</p>
-<p>1.$keywords &#x3D; preg_split(“&#x2F;[\s,]+&#x2F;“, “hypertext language, programming”)</p>
-<p>结果Array([0] &#x3D;&gt; hypertext,[1] &#x3D;&gt; language[2] &#x3D;&gt; programming)</p>
-<p>2.explode(“,”,$str[,$limit_num]);&#x2F;&#x2F;把$str按照”，”分割成一个数组[可选参</p>
-<p>数为返回数组的元素个数]【返回一个分割后的数组】</p>
-<p>3.impolde(“+”,$arr);&#x2F;&#x2F;把$arr里的元素按照“+”链接成一个字符串</p>
-<ol start="4">
-<li>xss安全相关</li>
-</ol>
-<p>addcslashes</p>
-<p>举例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 这是在项目中遇到的，如果json字符串中有「`」，就会把</span><br><span class="line">&lt;?php</span><br><span class="line">$arr = [ [ &#x27;name&#x27; =&gt; &quot;valen&#x27;s&quot;, &#x27;age&#x27;  =&gt; 27, ], [ &#x27;name&#x27; =&gt; &#x27;blue&#x27;, &#x27;age&#x27;  =&gt; 26, ], ];</span><br><span class="line"></span><br><span class="line">$json =  addcslashes(json_encode($arr), &#x27;\&#x27;&#x27;);</span><br><span class="line">?&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    console.log(JSON.parse(&#x27;&lt;?=$json?&gt;&#x27;));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>文件处理函数</p>
-<p>1.基础函数</p>
-<p>file_exists($file) &#x2F;&#x2F;文件是否存在，【true&#x2F;false】</p>
-<p>filesize($file) &#x2F;&#x2F;返回文件的大小【大小字节&#x2F;出错false】</p>
-<p>is_readale($file) &#x2F;&#x2F;是否可读【返回bool】</p>
-<p>is_writeable($file) &#x2F;&#x2F;是否可写【返回bool】</p>
-<p>is_executable($file) &#x2F;&#x2F;是否可执行【返回bool】</p>
-<p>filectime($file) &#x2F;&#x2F;文件创建时间【时间戳】</p>
-<p>filemtime($file) &#x2F;&#x2F;文件修改时间【时间戳】</p>
-<p>fileatime($file) &#x2F;&#x2F;文件访问时间【时间戳】</p>
-<p>stat($file) &#x2F;&#x2F;返回文件的大部分信息【文件信息数组】</p>
-<ol start="2">
-<li>目录的基本操作</li>
-</ol>
-<p>basename($file) &#x2F;&#x2F;返回文件名，index.php</p>
-<p>dirname($file) &#x2F;&#x2F;返回文件的路径，c:&#x2F;&#x2F;php&#x2F;</p>
-<p>pathinfo($file) &#x2F;&#x2F;返回该文件路径的所有信息 [“dirname”目录</p>
-<p>名] [“basename”文件名] [“extension”文件后缀]</p>
-<p>目录复制，删除，统计大小使用的总结：</p>
-<p>本质：依靠递归思想，对目录的的循环遍历,通过每一个文件的操作，得</p>
-<p>出结果</p>
-<p>函数：复制：copy($org,$to);mkdir()</p>
-<p>删除：unlink($file);mrdir();</p>
-<p>统计大小:filesize($file)</p>
-<p>3.遍历目录</p>
-<p>opendir($file) &#x2F;&#x2F;打开一个目录，参数为目录名或目录路径【返回资源型</p>
-<p>的目录句柄$dir_handle,无权限返false】</p>
-<p>readdir($dir_handle); &#x2F;&#x2F;读取目录，参数为目录句柄，while,返回当前指</p>
-<p>向对象的名字，目录指针后移【返回filename,没有是返false】</p>
-<p>closedir($dir_handle) &#x2F;&#x2F;关闭打开的目录</p>
-<p>rewinddir($dir_handle) &#x2F;&#x2F;倒回目录句柄，将目录指针重置到目录开始</p>
-<ol start="4">
-<li>建立和删除目录</li>
-</ol>
-<p>mkdir(“dir_name”); &#x2F;&#x2F;建立一个空的目录</p>
-<p>rmdir(“dir_name”); &#x2F;&#x2F;删除一个空的目录</p>
-<p>unlink(“file_name”) &#x2F;&#x2F;删除一个文件，当删除目录是，必须删除该目录下的文件</p>
-<p>5.文件的基本操作</p>
-<p>fopen($fileName,”模式字符r,w,x”) &#x2F;&#x2F;打开一个文件，【返回值为资源型</p>
-<p>$handle】</p>
-<p>fclose($handle) &#x2F;&#x2F;关闭打开的文件【返回BOOL】</p>
-<p>fwrite($handle,”$data”) &#x2F;&#x2F;把$data写入$handle文件,先清空后写入，</p>
-<p>【成功返回$handle，失败返回false】</p>
-<p>file_put_contents($filename,$data); &#x2F;&#x2F;它是上边三个合起来的效果</p>
-<p>file_get_contents($filename) &#x2F;&#x2F;读取文件里的信息【返回字符串】</p>
-<p>flock($handle,$operation) &#x2F;&#x2F;用$operation锁定文件$handle</p>
-<p>copy($file1,$file2); &#x2F;&#x2F;赋值$file1，形成$file2【返回BOOL】</p>
-<p>unlink($file); &#x2F;&#x2F;删除$file文件【返回BOOL】</p>
-<p>rename($file1,$file_new_name); &#x2F;&#x2F;重命名【返回BOOL】</p>
-<p>6.文件的上传</p>
-<p>is_upload_file($_FILES[‘file’][‘tmp_name’]) &#x2F;&#x2F;检查是否合法</p>
-<p>move_upload_file($_FILES[‘file’][‘tmp_name’],$url); &#x2F;&#x2F;上传合法文件</p>
-<p>到$url</p>
-<p>注意：html:form: method&#x3D;”post” ;enctype&#x3D;”multipart&#x2F;form-data”</p>
-<p>文件下载</p>
-<p>header(‘contentdisposition:attachment;filename&#x3D;’.basename</p>
-<p>($filename));&#x2F;&#x2F;表示附件方式下载</p>
-<p>header(‘content-length:’.filesize($filename));</p>
-<p>readfile($filename);</p>
-<p>SQL函数</p>
-<p>mysql_connect(‘localhost’,”root”,”root”); &#x2F;&#x2F;连接数据库</p>
-<p>mysql_select_db(‘data’,$conn); &#x2F;&#x2F;选择数据库名</p>
-<p>mysql_query(‘set names utf8’); &#x2F;&#x2F;设置编码</p>
-<p>mysql_affect_array(); &#x2F;&#x2F;试返回值为关联&#x2F;索引数组</p>
-<p>mysql_affect_row(); &#x2F;&#x2F;返回索引数组</p>
-<p>mysql_affect_assoc(); &#x2F;&#x2F;返回关联数组</p>
-<p>mysql_num_rows(); &#x2F;&#x2F;返回上一次select的查询语句条数</p>
-<p>mysql_affected_rows(); &#x2F;&#x2F;返回上一次insert,update,delete的数据条数</p>
-<p>mysql_close();&#x2F;&#x2F;关闭数据库</p>
-<p>数学函数</p>
-<p>ceil() &#x2F;&#x2F;向上取整</p>
-<p>floor() &#x2F;&#x2F;向下取整</p>
-<p>round(); &#x2F;&#x2F;四舍五入</p>
-<p>abs(); &#x2F;&#x2F;取绝对值</p>
-<p>rand(10，100) &#x2F;&#x2F;随机取值</p>
-<p>mt_rand(10,100) &#x2F;&#x2F;随机取值，算法不同，速度更快</p>
-<p>fmod() &#x2F;&#x2F;返回除法浮点形余数</p>
-<p>max(int&#x2F;$arr) &#x2F;&#x2F;取最大值</p>
-<p>min(int&#x2F;$arr) &#x2F;&#x2F;取最小值</p>
-<p>pow(1024,2) &#x2F;&#x2F;返回1021的2次幂</p>
-<p>时间函数</p>
-<p>date_default_timezone_set()(‘PRC’); &#x2F;&#x2F;设置时区为中国</p>
-<p>date.timezone &#x3D;”PRC”; &#x2F;&#x2F;PHP.INI</p>
-<p>time(); &#x2F;&#x2F;默认获取当前时间，【返回时间戳格式】</p>
-<p>micritime(); &#x2F;&#x2F;获取当前时间【返回毫秒的时间戳】</p>
-<p>mktime(H,i,s,m,d,Y) &#x2F;&#x2F;指定时间转为时间戳，参数为空的时候作用与</p>
-<p>time()相同【返回时间戳格式】</p>
-<p>strtotime(‘2015-10-10 10:10:10’); &#x2F;&#x2F;指定时间转换为时间戳【返回时间</p>
-<p>戳】</p>
-<p>date(“Y-m-d H:i:s”,time()) ; &#x2F;&#x2F;转换时间戳为日期格式【返回目标格式的</p>
-<p>字符串】</p>
-<p>getdate() &#x2F;&#x2F;获取当前时间，【返回一个数组，参数年，月，日等都有】</p>
-<p>URL处理函数</p>
-<p>urlencode($url) &#x2F;&#x2F;对该URL进行编码；原因：防止乱码，解决空格的呢个字符不能传递问题，form也是此编码格式传递</p>
-<p>urldecode($url) &#x2F;&#x2F;对该URL进行解码</p>
-<p>parse_url($url) &#x2F;&#x2F;返回该URL的所有信息，[scheme协议][host域名] [path路径][query参数] 【返回含信息的数组】</p>
-<p>pathinfo($url) &#x2F;&#x2F;[“dirname”目录名] [“basename”文件名] [“extension”文件后缀]【返回含信息的数组，下标不同】</p>
-<p>get_meta_tags($url) &#x2F;&#x2F;获取该页面的所有META标签【返回关联数组】</p>
-<p>JSON</p>
-<p>json_encode($data); &#x2F;&#x2F;对变量进行JSON编码</p>
-<p>json_decode($data) &#x2F;&#x2F;对JSON格式的字符串进行解码</p>
-<p>json_last_error(); &#x2F;&#x2F;返回最后一次反生的错误</p>
-<p>其他函数</p>
-<p>sleep(10) &#x2F;&#x2F;脚本执行到这里后，延迟10秒继续执行</p>
-<p>serialize() &#x2F;&#x2F;返回字符串，此字符串包含了表示 value 的字节流，可以存</p>
-<p>储于任何地方。</p>
-<p>unserialize() &#x2F;&#x2F;对单一的已序列化的变量进行操作，将其转换回 PHP 的</p>
-<p>值。</p>
-<p>当序列化对象时，PHP 将试图在序列动作之前调用该对象的成员函</p>
-<p>数 __sleep()。这样就允许对象在被序列化之前做任何清除操作。类似的,</p>
-<p>当使用 unserialize() 恢复对象时， 将调用 __wakeup() 成员函数。</p>
-<p>类型转换</p>
-<p>setType($a);	&#x2F;&#x2F;获取变量的类型</p>
-<p>$b&#x3D;(int)$a;	&#x2F;&#x2F;把$a转换为整形</p>
-<p>is_int($b); &#x2F;&#x2F;判断$b是否为整形，返回bool值</p>
-<p>类型转换：</p>
-<p>(int),(bool),(float),(string),(array),(object); intval(),floatval();strval()</p>
-<p>判断类型：</p>
-<p>is_bool&#x2F;int&#x2F;float&#x2F;string&#x2F;array&#x2F;object&#x2F;resource&#x2F;null</p>
-<p>is_numberic();’&#x2F;&#x2F;判断是否为任何类型的数字或者数组字符串</p>
-<p>is_callable();&#x2F;&#x2F;判断是否为有效函数名称</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/40647.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/40647.html" class="post-title-link" itemprop="url">PHP7.4 属性的类型提示</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-19T00:00:00+08:00">2020-05-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>251</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> ?<span class="keyword">string</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bar</span> <span class="keyword">extends</span> <span class="title">foo</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable language_">$this</span>-&gt;value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">new</span> <span class="title function_ invoke__">bar</span>())-&gt;<span class="title function_ invoke__">test</span>();</span><br></pre></td></tr></table></figure>
-
-<p>php7会报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Typed property foo::$value must not be accessed before initialization</span><br></pre></td></tr></table></figure>
-
-<p>即 $value 有类型限制，但是没有给初始值。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/35819.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/35819.html" class="post-title-link" itemprop="url">Yii2 bindParam.</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-19T00:00:00+08:00">2020-05-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/Yii/" itemprop="url" rel="index"><span itemprop="name">Yii</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>330</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$comment</span> = <span class="title class_">Yii</span>::<span class="variable">$app</span>-&gt;db-&gt;<span class="title function_ invoke__">createCommand</span>(<span class="variable">$insert</span>);</span><br><span class="line"><span class="variable">$comment</span>-&gt;<span class="title function_ invoke__">bindParam</span>(<span class="string">&#x27;sid&#x27;</span>, <span class="variable">$sid</span>, \PDO::<span class="variable constant_">PARAM_INT</span>)</span><br><span class="line">    -&gt;<span class="title function_ invoke__">bindParam</span>(<span class="string">&#x27;score&#x27;</span>, <span class="variable">$score</span>, \PDO::<span class="variable constant_">PARAM_STR</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">1</span>; <span class="variable">$i</span> &lt;= <span class="number">100</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">    <span class="variable">$sid</span> = <span class="title function_ invoke__">mt_rand</span>(<span class="number">1</span>, <span class="number">9</span>);</span><br><span class="line">    <span class="variable">$score</span> = <span class="title function_ invoke__">mt_rand</span>(<span class="number">6000</span>, <span class="number">9999</span>) / <span class="number">100</span>;</span><br><span class="line">    <span class="variable">$comment</span>-&gt;<span class="title function_ invoke__">execute</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意 bindParam 的第三个参数。如果不写就没有赋值（php7.4、yii2.25）。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1581,7 +1187,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">181</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1594,7 +1200,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1647,12 +1253,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">214k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:15</span>
+    <span title="站点阅读时长">3:21</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

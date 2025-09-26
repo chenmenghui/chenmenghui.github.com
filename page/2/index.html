@@ -194,6 +194,709 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/3789039.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/3789039.html" class="post-title-link" itemprop="url">邱奇数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-09-02 14:51:00" itemprop="dateCreated datePublished" datetime="2025-09-02T14:51:00+08:00">2025-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-24 09:55:19" itemprop="dateModified" datetime="2025-09-24T09:55:19+08:00">2025-09-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>邱奇数（Church numerals）是由数学家阿隆佐·邱奇（Alonzo Church）在20世纪30年代提出的一种数学概念，它通过纯函数的形式在λ演算（Lambda Calculus）中表示自然数。这种编码方式彻底颠覆了传统数值的表示方法，将数字转化为函数的组合与应用，深刻影响了计算机科学和函数式编程的发展。</p>
+<h3 id="一、核心定义：用函数应用次数计数"><a href="#一、核心定义：用函数应用次数计数" class="headerlink" title="一、核心定义：用函数应用次数计数"></a>一、核心定义：用函数应用次数计数</h3><p>邱奇数的本质是将自然数 <strong>n</strong> 表示为“将某个函数 <strong>f</strong> 应用 <strong>n 次</strong>”的高阶函数。具体定义如下：</p>
+<ol>
+<li><strong>0的表示</strong>：λf.λx.x<br>这是一个不应用任何函数的恒等函数，无论输入什么函数 <strong>f</strong> 和初始值 <strong>x</strong>，始终返回 <strong>x</strong>。</li>
+<li><strong>1的表示</strong>：λf.λx.f(x)<br>将函数 <strong>f</strong> 应用一次到 <strong>x</strong>，即 **f(x)**。</li>
+<li><strong>n的表示</strong>：λf.λx.f(f(…f(x)…))（共应用 <strong>n</strong> 次）<br>例如，2表示为λf.λx.f(f(x))，3表示为λf.λx.f(f(f(x)))，依此类推。</li>
+</ol>
+<p>这种定义方式使得每个自然数都成为一个 <strong>函数工厂</strong>，可以接受任意函数并生成对应的迭代结果。例如，邱奇数2作用于函数 <code>f</code> 和初始值 <code>x</code> 时，等价于计算 <code>f(f(x))</code>。</p>
+<h3 id="二、数学原理：与皮亚诺公理的契合"><a href="#二、数学原理：与皮亚诺公理的契合" class="headerlink" title="二、数学原理：与皮亚诺公理的契合"></a>二、数学原理：与皮亚诺公理的契合</h3><p>邱奇数的设计严格遵循自然数的 <strong>皮亚诺公理</strong>，通过以下方式实现：</p>
+<ol>
+<li><strong>后继函数（加1操作）</strong><br>定义为 <code>SUCC = λn.λf.λx.f(n(f)(x))</code>，即对邱奇数 <strong>n</strong> 对应的函数应用一次额外的 <strong>f</strong>。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SUCC(0) = λf.λx.f(0(f)(x)) = λf.λx.f(x) = 1</span><br><span class="line">SUCC(1) = λf.λx.f(1(f)(x)) = λf.λx.f(f(x)) = 2</span><br></pre></td></tr></table></figure></li>
+<li><strong>归纳性</strong><br>邱奇数的递归构造方式满足皮亚诺公理的归纳要求：所有自然数都可以通过0和后继函数生成。</li>
+</ol>
+<h3 id="三、算术运算的函数式实现"><a href="#三、算术运算的函数式实现" class="headerlink" title="三、算术运算的函数式实现"></a>三、算术运算的函数式实现</h3><p>邱奇数的强大之处在于所有算术运算都可以通过函数组合完成：</p>
+<ol>
+<li><strong>加法</strong><br>定义为 <code>ADD = λm.λn.λf.λx.m(f)(n(f)(x))</code>，即先应用 <strong>n</strong> 次 <strong>f</strong>，再应用 <strong>m</strong> 次 <strong>f</strong>。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ADD(2, 3) = λf.λx.2(f)(3(f)(x)) = λf.λx.f(f(f(f(f(x))))) = 5</span><br></pre></td></tr></table></figure></li>
+<li><strong>乘法</strong><br>定义为 <code>MUL = λm.λn.λf.m(n(f))</code>，即对函数 <strong>f</strong> 先应用 <strong>n</strong> 次，再将结果作为新函数应用 <strong>m</strong> 次。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MUL(2, 3) = λf.2(3(f)) = λf.λx.3(f)(3(f)(x)) = λf.λx.f^6(x) = 6</span><br></pre></td></tr></table></figure></li>
+<li><strong>指数运算</strong><br>定义为 <code>EXP = λm.λn.n(m)</code>，即把邱奇数 <strong>m</strong> 作为函数应用 <strong>n</strong> 次。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXP(2, 3) = 3(2) = λf.λx.2(f)(2(f)(2(f)(x))) = λf.λx.f^8(x) = 8</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="四、理论意义：计算即函数变换"><a href="#四、理论意义：计算即函数变换" class="headerlink" title="四、理论意义：计算即函数变换"></a>四、理论意义：计算即函数变换</h3><p>邱奇数的提出为 <strong>邱奇-图灵论题</strong> 提供了关键支撑，证明了以下核心思想：</p>
+<ol>
+<li><strong>一切计算皆可函数化</strong><br>自然数、布尔值（如 <code>TRUE = λa.λb.a</code>，<code>FALSE = λa.λb.b</code>）、甚至数据结构（如列表、树）都可以用λ项编码，所有运算都能通过函数组合实现。</li>
+<li><strong>可计算性的等价性</strong><br>邱奇证明了λ演算与图灵机、递归函数在计算能力上等价，为现代计算机科学奠定了理论基础。</li>
+</ol>
+<h3 id="五、实际应用：函数式编程的基石"><a href="#五、实际应用：函数式编程的基石" class="headerlink" title="五、实际应用：函数式编程的基石"></a>五、实际应用：函数式编程的基石</h3><p>邱奇数在编程实践中虽不直接用于数值计算，但其思想深刻影响了函数式语言设计：</p>
+<ol>
+<li><strong>高阶函数的典范</strong><br>例如在Lisp中，邱奇数的加法实现为：<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">define</span> (<span class="name">add</span> m n) (<span class="name">lambda</span> (<span class="name">f</span>) (<span class="name">lambda</span> (<span class="name">x</span>) (<span class="name">m</span> f (<span class="name">n</span> f x)))))</span><br></pre></td></tr></table></figure></li>
+<li><strong>惰性计算与无限结构</strong><br>邱奇数的递归定义启发了惰性求值（如Haskell的<code>Maybe</code>类型）和无限列表的构建。</li>
+<li><strong>形式化验证</strong><br>在Coq等证明辅助工具中，邱奇数被用于验证算法的数学正确性。</li>
+</ol>
+<h3 id="六、与传统数值的本质区别"><a href="#六、与传统数值的本质区别" class="headerlink" title="六、与传统数值的本质区别"></a>六、与传统数值的本质区别</h3><table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>传统数值</strong></th>
+<th><strong>邱奇数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>表示方式</strong></td>
+<td>直接存储数值（如二进制）</td>
+<td>函数应用次数的抽象表示</td>
+</tr>
+<tr>
+<td><strong>运算方式</strong></td>
+<td>依赖硬件指令或库函数</td>
+<td>纯函数组合，无副作用</td>
+</tr>
+<tr>
+<td><strong>扩展性</strong></td>
+<td>受限于数据类型范围</td>
+<td>理论上可表示无限大的数，仅受计算资源限制</td>
+</tr>
+<tr>
+<td><strong>语义内涵</strong></td>
+<td>静态数值</td>
+<td>动态计算过程的编码</td>
+</tr>
+</tbody></table>
+<h3 id="七、总结：从数学抽象到计算范式"><a href="#七、总结：从数学抽象到计算范式" class="headerlink" title="七、总结：从数学抽象到计算范式"></a>七、总结：从数学抽象到计算范式</h3><p>邱奇数不仅是数学理论的优美体现，更是计算思维的一次革命。它揭示了“计算即函数变换”的本质，为函数式编程、编译器设计和形式化方法提供了核心思想。理解邱奇数有助于突破对数值的直观认知，掌握函数式编程的高阶抽象能力，进而在算法设计、系统建模等领域实现更优雅的解决方案。正如邱奇本人所说：“任何可计算的函数都可以用λ项表示。” 这一理念至今仍在推动计算机科学的前沿探索。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/5c99672a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/5c99672a.html" class="post-title-link" itemprop="url">练习 2.2 线段</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-09-02 14:05:28" itemprop="dateCreated datePublished" datetime="2025-09-02T14:05:28+08:00">2025-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-24 09:55:19" itemprop="dateModified" datetime="2025-09-24T09:55:19+08:00">2025-09-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>919</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">make_point</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">m</span> =&gt;</span> <span class="title function_">m</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">x_point</span>(<span class="params">p</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">p</span>(<span class="function">(<span class="params">x, y</span>) =&gt;</span> x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">y_point</span>(<span class="params">p</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">p</span>(<span class="function">(<span class="params">x, y</span>) =&gt;</span> y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">print_segment</span>(<span class="params">p</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`(<span class="subst">$&#123;x_point(p)&#125;</span>, <span class="subst">$&#123;y_point(p)&#125;</span>)`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">make_segment</span>(<span class="params">start, end</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="attr">start</span>: start, <span class="attr">end</span>: end&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">start_segment</span>(<span class="params">seg</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> seg.<span class="property">start</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">end_segment</span>(<span class="params">seg</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> seg.<span class="property">end</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">midpoint_segment</span>(<span class="params">seg</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="attr">x</span>: (<span class="title function_">x_point</span>(<span class="title function_">start_segment</span>(seg)) + <span class="title function_">x_point</span>(<span class="title function_">end_segment</span>(seg))) / <span class="number">2</span>,</span><br><span class="line">        <span class="attr">y</span>: (<span class="title function_">y_point</span>(<span class="title function_">start_segment</span>(seg)) + <span class="title function_">y_point</span>(<span class="title function_">end_segment</span>(seg))) / <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="title function_">make_point</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">let</span> b = <span class="title function_">make_point</span>(<span class="number">10</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">print_segment</span>(b);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> l1 = <span class="title function_">make_segment</span>(a, b);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">start_segment</span>(l1));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">end_segment</span>(l1));</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r = <span class="title function_">midpoint_segment</span>(l1);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(r);</span><br></pre></td></tr></table></figure>
+
+<p><code>make_point</code> 这个参考了<em>练习 2.4</em>中序对的写法</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/35fef434.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/35fef434.html" class="post-title-link" itemprop="url">练习 2.4 序对</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-09-01 14:36:07 / 修改时间：14:48:15" itemprop="dateCreated datePublished" datetime="2025-09-01T14:36:07+08:00">2025-09-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>497</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pair</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">m</span> =&gt;</span> <span class="title function_">m</span>(x, y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">head</span>(<span class="params">z</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">z</span>(<span class="function">(<span class="params">p, q</span>) =&gt;</span> p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">tail</span>(<span class="params">z</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">z</span>(<span class="function">(<span class="params">p, q</span>) =&gt;</span> q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="如何理解？"><a href="#如何理解？" class="headerlink" title="如何理解？"></a>如何理解？</h3><blockquote>
+<p>代换模型（substitution model）是解释函数式程序执行的一种经典方式，核心思想是：<strong>函数调用时，用实际参数替换函数体中的形式参数，逐步简化表达式，直到得到最终结果</strong></p>
+</blockquote>
+<p>根据<strong>代换模型</strong>，可得</p>
+<p>假设执行<code>head(pair(1,2))</code></p>
+<p>&#x2F;&#x2F; 第1步：代换pair(1,2)<br><code>head(m =&gt; m(1, 2))</code></p>
+<p>&#x2F;&#x2F; 第2步：代换head中的z<br><code>(m =&gt; m(1, 2))((p, q) =&gt; p)</code></p>
+<p>&#x2F;&#x2F; 第3步：代换m参数<br><code>((p, q) =&gt; p)(1, 2)</code></p>
+<p>&#x2F;&#x2F; 第4步：代换p、q参数<br><code>1</code></p>
+<h4 id="或者可以直接这么干"><a href="#或者可以直接这么干" class="headerlink" title="或者可以直接这么干"></a>或者可以直接这么干</h4><p>step 1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">pair</span>(<span class="number">1</span>, <span class="number">2</span>)(<span class="function">(<span class="params">p, g</span>) =&gt;</span> p)</span><br></pre></td></tr></table></figure>
+
+<p>step 2</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function">(<span class="params">p, g</span>) =&gt;</span> p)(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/ea9a5a4a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/ea9a5a4a.html" class="post-title-link" itemprop="url">1.3.3 求函数不动点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-08-29 16:31:49" itemprop="dateCreated datePublished" datetime="2025-08-29T16:31:49+08:00">2025-08-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 14:41:32" itemprop="dateModified" datetime="2025-09-01T14:41:32+08:00">2025-09-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>409</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>即求函数的零点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fixed_point</span>(<span class="params">f, first_guess</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> tolerance = <span class="number">0.00001</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">close_enough</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">abs</span>(x - y) &lt; tolerance</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">try_with</span>(<span class="params">guess</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> next = <span class="title function_">f</span>(guess);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">close_enough</span>(guess, next)</span><br><span class="line">            ? next</span><br><span class="line">            : <span class="title function_">try_with</span>(next);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">try_with</span>(first_guess);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用这个求某个数的平方根</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">a = x^2</span></span><br><span class="line"><span class="comment">=&gt; x = a/x</span></span><br><span class="line"><span class="comment">=&gt; x + x = a/x +x</span></span><br><span class="line"><span class="comment">=&gt; x = (a/x + x)/2</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="title function_">fixed_point</span>(<span class="function"><span class="params">x</span> =&gt;</span> (a / x + x) / <span class="number">2</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/b679181b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/b679181b.html" class="post-title-link" itemprop="url">1.3.3 求函数零点</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-08-29 11:28:16" itemprop="dateCreated datePublished" datetime="2025-08-29T11:28:16+08:00">2025-08-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-01 14:41:32" itemprop="dateModified" datetime="2025-09-01T14:41:32+08:00">2025-09-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>896</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这个没什么难点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">negative</span>(<span class="params">x</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">positive</span>(<span class="params">x</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> x &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">average</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (x + y) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">search</span>(<span class="params">f, neg_point, pos_point</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> midpoint = <span class="title function_">average</span>(neg_point, pos_point);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_">close_enough</span>(neg_point, pos_point)) &#123;</span><br><span class="line">        <span class="keyword">return</span> midpoint;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> test_value = <span class="title function_">f</span>(midpoint);</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">positive</span>(test_value)</span><br><span class="line">            ? <span class="title function_">search</span>(f, neg_point, midpoint)</span><br><span class="line">            : <span class="title function_">negative</span>(test_value)</span><br><span class="line">                ? <span class="title function_">search</span>(f, midpoint, pos_point)</span><br><span class="line">                : midpoint</span><br><span class="line">            ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">close_enough</span>(<span class="params">x, y</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">abs</span>(x - y) &lt; <span class="number">0.001</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">half_interval_method</span>(<span class="params">f, a, b</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> a_value = <span class="title function_">f</span>(a);</span><br><span class="line">    <span class="keyword">const</span> b_value = <span class="title function_">f</span>(b);</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">negative</span>(a_value) &amp;&amp; <span class="title function_">positive</span>(b_value) ?</span><br><span class="line">        <span class="title function_">search</span>(f, a, b)</span><br><span class="line">        : <span class="title function_">negative</span>(b_value) &amp;&amp; <span class="title function_">positive</span>(a_value)</span><br><span class="line">            ? <span class="title function_">search</span>(f, b, a)</span><br><span class="line">            : <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;values are not of opposite sign&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">half_interval_method</span>(<span class="function"><span class="params">x</span> =&gt;</span> x * x - <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/f4296d31.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/f4296d31.html" class="post-title-link" itemprop="url">练习 1.12 杨辉三角</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-08-26 19:51:58" itemprop="dateCreated datePublished" datetime="2025-08-26T19:51:58+08:00">2025-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-08-27 09:23:04" itemprop="dateModified" datetime="2025-08-27T09:23:04+08:00">2025-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>410</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="打印杨辉三角"><a href="#打印杨辉三角" class="headerlink" title="打印杨辉三角"></a>打印杨辉三角</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">i, j</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i &lt;= <span class="number">0</span> || j &lt;= <span class="number">0</span> || j &gt; i) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j === <span class="number">1</span> || i === j) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">fn</span>(i - <span class="number">1</span>, j - <span class="number">1</span>) + <span class="title function_">fn</span>(i - <span class="number">1</span>, j)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试：打印杨辉三角的前5行（1-5行）</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> row = [];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">        row.<span class="title function_">push</span>(<span class="title function_">fn</span>(i, j));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`第<span class="subst">$&#123;i&#125;</span>行: <span class="subst">$&#123;row.join(<span class="string">&#x27; &#x27;</span>)&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>主要就是拿到公式 <code>fn(i,j) = fn(i - 1, j - 1) + fn(i - 1, j)</code>。拿到公式之后就好办了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/cb2aa728.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="陈孟辉">
+      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈孟辉的学习笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/cb2aa728.html" class="post-title-link" itemprop="url">练习 1.11</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-08-26 19:24:59" itemprop="dateCreated datePublished" datetime="2025-08-26T19:24:59+08:00">2025-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-08-27 09:23:04" itemprop="dateModified" datetime="2025-08-27T09:23:04+08:00">2025-08-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">图书</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>641</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>函数定义如下：</p>
+<ul>
+<li>当 n &lt; 3 时，f(n) &#x3D; n;</li>
+<li>当 n &gt;&#x3D; 3 时，f(n) &#x3D; f(n-1) + 2<em>f(n-2) + 3</em>f(n-1)<br>使用递归和迭代两种方式计算</li>
+</ul>
+<h3 id="递归计算"><a href="#递归计算" class="headerlink" title="递归计算"></a>递归计算</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">fn</span>(n - <span class="number">1</span>) + <span class="number">2</span> * <span class="title function_">fn</span>(n - <span class="number">2</span>) + <span class="number">3</span> * <span class="title function_">fn</span>(n - <span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如此简单明了，对于任意n值，在递归处理之后，总会得到数个 fn(0) fn(1) fn(2) 的加值</p>
+<h3 id="迭代计算"><a href="#迭代计算" class="headerlink" title="迭代计算"></a>迭代计算</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">r</span>(<span class="params">a, b, c, n, total</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> cur = c + <span class="number">2</span> * b + <span class="number">3</span> * a;</span><br><span class="line">    <span class="keyword">if</span> (n &gt;= total) &#123;</span><br><span class="line">        <span class="keyword">return</span> cur</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">r</span>(b, c, cur, ++n, total);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">r</span>(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">0</span>, b = <span class="number">1</span>, c = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">3</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> current = c + <span class="number">2</span> * b + <span class="number">3</span> * a;</span><br><span class="line">        a = b;</span><br><span class="line">        b = c;</span><br><span class="line">        c = current;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从 3 开始，往复循环，直到加到需要的值。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/f6ac0eba.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -474,662 +1177,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/d4048d6b.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/d4048d6b.html" class="post-title-link" itemprop="url">递归溢出</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2023-03-28T00:00:00+08:00">2023-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-26 11:11:17" itemprop="dateModified" datetime="2025-08-26T11:11:17+08:00">2025-08-26</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">细碎知识</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>605</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>递归过深，且无法修改PHP配置文件的话，就只能从代码层面想办法。但PHP不支持尾递归（尾递归指递归函数的最后一步是调用自身），如下尾递归也会报错。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params"><span class="variable">$n</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">tail_factorial</span>(<span class="variable">$n</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tail_factorial</span>(<span class="params"><span class="variable">$n</span>, <span class="variable">$acc</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$n</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$acc</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">tail_factorial</span>(<span class="variable">$n</span> - <span class="number">1</span>, <span class="variable">$n</span> + <span class="variable">$acc</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">factorial</span>(<span class="number">1000000</span>); <span class="comment">// 进程已结束,退出代码-1073741571 (0xC00000FD)</span></span><br></pre></td></tr></table></figure>
-
-<p>可以想办法改成循环，比如：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">iterative_factorial</span>(<span class="params"><span class="variable">$n</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$stack</span> = [[<span class="variable">$n</span>, <span class="number">1</span>]];</span><br><span class="line">    <span class="keyword">while</span> (<span class="title function_ invoke__">count</span>(<span class="variable">$stack</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">list</span>(<span class="variable">$n</span>, <span class="variable">$acc</span>) = <span class="title function_ invoke__">array_pop</span>(<span class="variable">$stack</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$n</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$acc</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$stack</span>[] = [<span class="variable">$n</span> - <span class="number">1</span>, <span class="variable">$n</span> + <span class="variable">$acc</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">iterative_factorial</span>(<span class="number">1000000</span>); <span class="comment">// 500000500000</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/c56e918e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/c56e918e.html" class="post-title-link" itemprop="url">Apache 配置反向代理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-23 00:00:00" itemprop="dateCreated datePublished" datetime="2022-11-23T00:00:00+08:00">2022-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" itemprop="url" rel="index"><span itemprop="name">开发环境</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>475</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangrouzhu/article/details/80986082">参考文档</a></p>
-<p>本地使用 laragon 做开发环境，apache 开启 mod_proxy.so、mod_proxy_http.so 后，修改相应站点配置如下：</p>
-<figure class="highlight apacheconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *<span class="number">:80</span>&gt;</span></span><br><span class="line">    <span class="attribute">DocumentRoot</span> <span class="string">&quot;D:/www/dist&quot;</span></span><br><span class="line">    <span class="attribute">ServerName</span> dist.test</span><br><span class="line">    <span class="attribute">ServerAlias</span> *.dist.test</span><br><span class="line">    <span class="section">&lt;Directory <span class="string">&quot;D:/www/dist&quot;</span>&gt;</span></span><br><span class="line">        <span class="attribute">AllowOverride</span> <span class="literal">All</span></span><br><span class="line">        <span class="attribute">Require</span> <span class="literal">all</span> granted</span><br><span class="line">    <span class="section">&lt;/Directory&gt;</span></span><br><span class="line">    <span class="attribute">Proxyrequests</span> <span class="literal">off</span></span><br><span class="line">    <span class="section">&lt;Proxy *&gt;</span></span><br><span class="line">        <span class="attribute">Order</span> <span class="literal">deny</span>,<span class="literal">allow</span></span><br><span class="line">        <span class="attribute">Allow</span> from <span class="literal">all</span></span><br><span class="line">    <span class="section">&lt;/Proxy&gt;</span></span><br><span class="line">    <span class="attribute">Proxypass</span> /api/ http://tp.test/</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If you want to use SSL, enable it by going to Menu &gt; Apache &gt; SSL &gt; Enabled</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/674324bf.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/674324bf.html" class="post-title-link" itemprop="url">VUE 安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-17 11:10:57" itemprop="dateCreated datePublished" datetime="2022-11-17T11:10:57+08:00">2022-11-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>81</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>安装 echarts 老是碰到  ERESOLVE could not resolve 的情况</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install echarts --save  --legacy-peer-deps</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/6f34fc8a.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/6f34fc8a.html" class="post-title-link" itemprop="url">MySQL常用函数</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-11-11 14:17:55" itemprop="dateCreated datePublished" datetime="2022-11-11T14:17:55+08:00">2022-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>209</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>CONVERT_TZ</p>
-<table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>功能</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>CONVERT_TZ</td>
-<td>时间转时区</td>
-<td>CONVERT_TZ(IFNULL(MAX(LastModifiedDate), ‘1990-01-01’), ‘GMT’, bh.TimeZone) AS LastScheduleTime</td>
-</tr>
-<tr>
-<td>coalesce</td>
-<td>获取第一个不为null的值</td>
-<td>COALESCE(e.FirstName_local, e.FirstName_en)</td>
-</tr>
-<tr>
-<td>concat</td>
-<td>连接字符串</td>
-<td>concat( 1, 2, 3)</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/af5c8077.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/af5c8077.html" class="post-title-link" itemprop="url">PHP 获取文件名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-29 09:49:31" itemprop="dateCreated datePublished" datetime="2022-09-29T09:49:31+08:00">2022-09-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>310</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">basename</span>(<span class="keyword">__FILE__</span>, <span class="string">&#x27;.php&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">pathinfo</span>(<span class="keyword">__FILE__</span>, PATHINFO_DIRNAME);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">pathinfo</span>(<span class="keyword">__FILE__</span>, PATHINFO_BASENAME);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">pathinfo</span>(<span class="keyword">__FILE__</span>, PATHINFO_EXTENSION);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">pathinfo</span>(<span class="keyword">__FILE__</span>, PATHINFO_FILENAME);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/a1ef8378.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/a1ef8378.html" class="post-title-link" itemprop="url">集合运算法则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-11T00:00:00+08:00">2022-09-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>583</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="集合运算法则"><a href="#集合运算法则" class="headerlink" title="集合运算法则"></a>集合运算法则</h2><p>交换律：A∩B&#x3D;B∩A；A∪B&#x3D;B∪A</p>
-<p>结合律：A∪(B∪C)&#x3D;(A∪B)∪C；A∩(B∩C)&#x3D;(A∩B)∩C</p>
-<p>分配对偶律：A∩(B∪C)&#x3D;(A∩B)∪(A∩C)；A∪(B∩C)&#x3D;(A∪B)∩(A∪C)</p>
-<p>对偶律：(A∪B)^C&#x3D;A^C∩B^C；(A∩B)^C&#x3D;A^C∪B^C</p>
-<p>同一律：A∪∅&#x3D;A；A∩U&#x3D;A</p>
-<p>求补律：A∪A’&#x3D;U；A∩A’&#x3D;∅</p>
-<p>对合律：A’’&#x3D;A</p>
-<p>等幂律：A∪A&#x3D;A；A∩A&#x3D;A</p>
-<p>零一律：A∪U&#x3D;U；A∩∅&#x3D;∅</p>
-<p>吸收律：A∪(A∩B)&#x3D;A；A∩(A∪B)&#x3D;A</p>
-<p>反演律（德·摩根律）：(A∪B)’&#x3D;A’∩B’；(A∩B)’&#x3D;A’∪B’。文字表述：1.集合A与集合B的并集的补集等于集合A的补集与集合B的补集的交集;2.集合A与集合B的交集的补集等于集合A的补集与集合B的补集的并集。</p>
-<p>容斥原理（特殊情况）：</p>
-<p>card(A∪B)&#x3D;card(A)+card(B)-card(A∩B)</p>
-<p>card(A∪B∪C)&#x3D;card(A)+card(B)+card(C)-card(A∩B)-card(B∩C)-card(C∩A)+card(A∩B∩C)。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://chenmenghui.gitee.io/posts/9ce9bb84.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="陈孟辉">
-      <meta itemprop="description" content="日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="陈孟辉的学习笔记">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/9ce9bb84.html" class="post-title-link" itemprop="url">样式选择器-正则</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-12 15:20:36" itemprop="dateCreated datePublished" datetime="2022-07-12T15:20:36+08:00">2022-07-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-07 14:47:26" itemprop="dateModified" datetime="2024-04-07T14:47:26+08:00">2024-04-07</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>782</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;frm_maintenanceentry[2302][planvsactualsetid]&quot;</span> <span class="attr">name</span>=<span class="string">&quot;frm_maintenanceentry[2302][planvsactualsetid]&quot;</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">value</span>=<span class="string">&quot;65&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    $(<span class="string">&quot;input[id^=frm_maintenanceentry][id$=\\[planvsactualsetid\\]]&quot;</span>).<span class="title function_">each</span>(<span class="keyword">function</span> (<span class="params">index, element</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>($(element).<span class="title function_">val</span>());</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>值得注意的是，「[]」这种特殊符号，需要两个「\」。毕竟中括号在jQuery样式选择器中有特殊含义。</p>
-<p>比如</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;frm_maintenanceentry[2302][plantasksetid]&quot;</span> <span class="attr">name</span>=<span class="string">&quot;frm_maintenanceentry[2302][plantasksetid]&quot;</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">value</span>=<span class="string">&quot;139&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> &gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">$(<span class="string">&#x27;#frm_maintenanceentry\\[2302\\]\\[plantasksetid\\]&#x27;</span>).<span class="title function_">val</span>() </span></span><br><span class="line"><span class="language-javascript"><span class="comment">// or</span></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;frm_maintenanceentry[2302][plantasksetid]&#x27;</span>).<span class="property">value</span>;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1199,7 +1246,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">181</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1212,7 +1259,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1265,12 +1312,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">214k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:15</span>
+    <span title="站点阅读时长">3:21</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

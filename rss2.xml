@@ -15,11 +15,211 @@
     <atom:link href="https://chenmenghui.gitee.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。</description>
-    <pubDate>Wed, 24 Sep 2025 03:31:51 GMT</pubDate>
+    <pubDate>Fri, 26 Sep 2025 07:25:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>PlantUML 演示</title>
+      <title>2.2.1 序列的表示</title>
+      <link>https://chenmenghui.gitee.io/posts/44fcda4c.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/44fcda4c.html</guid>
+      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/44fcda4c.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2.2.3 序列操作 accumulate 解析</title>
+      <link>https://chenmenghui.gitee.io/posts/e573cac4.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/e573cac4.html</guid>
+      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/e573cac4.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2.2.3 序列操作</title>
+      <link>https://chenmenghui.gitee.io/posts/e6d7482e.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/e6d7482e.html</guid>
+      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/e6d7482e.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>练习 2.34 补全方法</title>
+      <link>https://chenmenghui.gitee.io/posts/f02c7080.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/f02c7080.html</guid>
+      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;结合&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/f02c7080.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>练习 2.33 补全方法</title>
+      <link>https://chenmenghui.gitee.io/posts/95e1da40.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/95e1da40.html</guid>
+      <pubDate>Thu, 25 Sep 2025 06:34:23 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/95e1da40.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PlantUML 之 活动图</title>
+      <link>https://chenmenghui.gitee.io/posts/b25a07e4.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/b25a07e4.html</guid>
+      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h1&gt;&lt;h2 id=&quot;关键字&quot;&gt;&lt;a href=&quot;#关键字&quot; class=&quot;headerlink&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/b25a07e4.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PlantUML 之 类图</title>
+      <link>https://chenmenghui.gitee.io/posts/12deb1f3.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/12deb1f3.html</guid>
+      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;要素&quot;&gt;&lt;a href=&quot;#要素&quot; class=&quot;headerlink&quot; title=&quot;要素&quot;&gt;&lt;/a&gt;要素&lt;/h1&gt;&lt;img class=&quot;kroki&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/12deb1f3.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PlantUML 五种核心图表演示</title>
       <link>https://chenmenghui.gitee.io/posts/88aad2c.html</link>
       <guid>https://chenmenghui.gitee.io/posts/88aad2c.html</guid>
       <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
@@ -37,10 +237,10 @@
       
       
       
-      <category domain="https://chenmenghui.gitee.io/categories/%E6%9D%82%E7%9F%A5/">杂知</category>
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
       
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E6%9D%82%E7%9F%A5/">杂知</category>
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
       
       
       <comments>https://chenmenghui.gitee.io/posts/88aad2c.html#disqus_thread</comments>
@@ -392,208 +592,6 @@
       
       
       <comments>https://chenmenghui.gitee.io/posts/d6256ea7.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>递归溢出</title>
-      <link>https://chenmenghui.gitee.io/posts/d4048d6b.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/d4048d6b.html</guid>
-      <pubDate>Mon, 27 Mar 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;递归过深，且无法修改PHP配置文件的话，就只能从代码层面想办法。但PHP不支持尾递归（尾递归指递归函数的最后一步是调用自身），如下尾递归也会报错。&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/PHP/">PHP</category>
-      
-      <category domain="https://chenmenghui.gitee.io/categories/PHP/%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86/">细碎知识</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/PHP/">PHP</category>
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86/">细碎知识</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/d4048d6b.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Apache 配置反向代理</title>
-      <link>https://chenmenghui.gitee.io/posts/c56e918e.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/c56e918e.html</guid>
-      <pubDate>Tue, 22 Nov 2022 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/zhangrouzhu/article/details/80986082&quot;&gt;参考文档&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;本地使用 laragon 做开发环境，apache 开启</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</category>
-      
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/c56e918e.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>VUE 安装</title>
-      <link>https://chenmenghui.gitee.io/posts/674324bf.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/674324bf.html</guid>
-      <pubDate>Thu, 17 Nov 2022 03:10:57 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;安装 echarts 老是碰到  ERESOLVE could not resolve 的情况&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/vue/">vue</category>
-      
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/674324bf.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>MySQL常用函数</title>
-      <link>https://chenmenghui.gitee.io/posts/6f34fc8a.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/6f34fc8a.html</guid>
-      <pubDate>Fri, 11 Nov 2022 06:17:55 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;CONVERT_TZ&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;函数名&lt;/th&gt;
-&lt;th&gt;功能&lt;/th&gt;
-&lt;th&gt;举例&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;CONVERT_TZ&lt;/td&gt;
-&lt;td&gt;时间转时区&lt;/td&gt;
-&lt;t</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/mysql/">mysql</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/6f34fc8a.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>PHP 获取文件名</title>
-      <link>https://chenmenghui.gitee.io/posts/af5c8077.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/af5c8077.html</guid>
-      <pubDate>Thu, 29 Sep 2022 01:49:31 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/PHP/">PHP</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/PHP/">PHP</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/af5c8077.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>集合运算法则</title>
-      <link>https://chenmenghui.gitee.io/posts/a1ef8378.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/a1ef8378.html</guid>
-      <pubDate>Sat, 10 Sep 2022 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;集合运算法则&quot;&gt;&lt;a href=&quot;#集合运算法则&quot; class=&quot;headerlink&quot;</description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/a1ef8378.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>样式选择器-正则</title>
-      <link>https://chenmenghui.gitee.io/posts/9ce9bb84.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/9ce9bb84.html</guid>
-      <pubDate>Tue, 12 Jul 2022 07:20:36 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/js/">js</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/js%E8%BF%90%E7%94%A8/">js运用</category>
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81/">实用代码</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/9ce9bb84.html#disqus_thread</comments>
       
     </item>
     
