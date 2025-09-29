@@ -15,14 +15,14 @@
     <atom:link href="https://chenmenghui.gitee.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>日积月藏，不做咸鱼。这里是陈孟辉的个人学习笔记，现就职于合肥麦克斯信息科技有限公司，负责维护企业ERP系统。</description>
-    <pubDate>Fri, 26 Sep 2025 07:25:11 GMT</pubDate>
+    <pubDate>Mon, 29 Sep 2025 02:48:11 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>2.2.1 序列的表示</title>
-      <link>https://chenmenghui.gitee.io/posts/44fcda4c.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/44fcda4c.html</guid>
-      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
+      <title>练习 2.35 重写 count_leaves</title>
+      <link>https://chenmenghui.gitee.io/posts/976bac07.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/976bac07.html</guid>
+      <pubDate>Fri, 26 Sep 2025 16:00:00 GMT</pubDate>
       
         
         
@@ -37,71 +37,15 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       
-      <comments>https://chenmenghui.gitee.io/posts/44fcda4c.html#disqus_thread</comments>
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-    </item>
-    
-    <item>
-      <title>2.2.3 序列操作 accumulate 解析</title>
-      <link>https://chenmenghui.gitee.io/posts/e573cac4.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/e573cac4.html</guid>
-      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
-          
-        
+      <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
       
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/e573cac4.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>2.2.3 序列操作</title>
-      <link>https://chenmenghui.gitee.io/posts/e6d7482e.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/e6d7482e.html</guid>
-      <pubDate>Thu, 25 Sep 2025 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/e6d7482e.html#disqus_thread</comments>
+      <comments>https://chenmenghui.gitee.io/posts/976bac07.html#disqus_thread</comments>
       
     </item>
     
@@ -115,8 +59,8 @@
         
           
           
-      <description>&lt;p&gt;结合&lt;/p&gt;
-&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</description>
+      <description>&lt;p&gt;结合 &lt;a href=&quot;e573cac4&quot;&gt;accumulate 解析&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</description>
           
         
       
@@ -125,8 +69,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -154,8 +100,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -192,33 +140,6 @@
     </item>
     
     <item>
-      <title>PlantUML 之 类图</title>
-      <link>https://chenmenghui.gitee.io/posts/12deb1f3.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/12deb1f3.html</guid>
-      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1 id=&quot;要素&quot;&gt;&lt;a href=&quot;#要素&quot; class=&quot;headerlink&quot; title=&quot;要素&quot;&gt;&lt;/a&gt;要素&lt;/h1&gt;&lt;img class=&quot;kroki&quot;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/12deb1f3.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>PlantUML 五种核心图表演示</title>
       <link>https://chenmenghui.gitee.io/posts/88aad2c.html</link>
       <guid>https://chenmenghui.gitee.io/posts/88aad2c.html</guid>
@@ -248,6 +169,126 @@
     </item>
     
     <item>
+      <title>PlantUML 之 类图</title>
+      <link>https://chenmenghui.gitee.io/posts/12deb1f3.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/12deb1f3.html</guid>
+      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;h1 id=&quot;要素&quot;&gt;&lt;a href=&quot;#要素&quot; class=&quot;headerlink&quot; title=&quot;要素&quot;&gt;&lt;/a&gt;要素&lt;/h1&gt;&lt;img class=&quot;kroki&quot;</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%B7%A5%E5%85%B7/">工具</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/12deb1f3.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2.2.3 序列操作 accumulate 解析</title>
+      <link>https://chenmenghui.gitee.io/posts/e573cac4.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/e573cac4.html</guid>
+      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/e573cac4.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2.2.1 序列的表示</title>
+      <link>https://chenmenghui.gitee.io/posts/44fcda4c.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/44fcda4c.html</guid>
+      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/44fcda4c.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2.2.3 序列操作</title>
+      <link>https://chenmenghui.gitee.io/posts/e6d7482e.html</link>
+      <guid>https://chenmenghui.gitee.io/posts/e6d7482e.html</guid>
+      <pubDate>Tue, 23 Sep 2025 16:00:00 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
+      
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
+      
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E5%AD%A6%E4%B9%A0/">学习</category>
+      
+      
+      <comments>https://chenmenghui.gitee.io/posts/e6d7482e.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>练习 2.21 补全方法</title>
       <link>https://chenmenghui.gitee.io/posts/cd74c505.html</link>
       <guid>https://chenmenghui.gitee.io/posts/cd74c505.html</guid>
@@ -266,8 +307,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -295,8 +338,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -324,8 +369,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85/">知识补充</category>
       
@@ -353,8 +400,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -382,8 +431,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -410,10 +461,8 @@
       
       
       
-      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
-      
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       
       <comments>https://chenmenghui.gitee.io/posts/ea9a5a4a.html#disqus_thread</comments>
@@ -440,8 +489,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       
       <comments>https://chenmenghui.gitee.io/posts/b679181b.html#disqus_thread</comments>
@@ -467,8 +518,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -499,8 +552,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       <category domain="https://chenmenghui.gitee.io/tags/%E7%BB%83%E4%B9%A0/">练习</category>
       
@@ -529,8 +584,10 @@
       
       <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/">图书</category>
       
+      <category domain="https://chenmenghui.gitee.io/categories/%E5%9B%BE%E4%B9%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
-      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E5%99%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算器程序的构造和解释</category>
+      
+      <category domain="https://chenmenghui.gitee.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E8%A7%A3%E9%87%8A/">计算机程序的构造和解释</category>
       
       
       <comments>https://chenmenghui.gitee.io/posts/f6ac0eba.html#disqus_thread</comments>
@@ -563,35 +620,6 @@
       
       
       <comments>https://chenmenghui.gitee.io/posts/23a75c66.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>使用 PHP 把 plantuml 转化为 图片等</title>
-      <link>https://chenmenghui.gitee.io/posts/d6256ea7.html</link>
-      <guid>https://chenmenghui.gitee.io/posts/d6256ea7.html</guid>
-      <pubDate>Wed, 26 Apr 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;&lt;a href=&quot;https://plantuml.com/pte&quot;&gt;官方接口文档&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;可以拿过来直接用&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://chenmenghui.gitee.io/categories/%E5%B7%A5%E5%85%B7/">工具</category>
-      
-      
-      <category domain="https://chenmenghui.gitee.io/tags/plantuml/">plantuml</category>
-      
-      
-      <comments>https://chenmenghui.gitee.io/posts/d6256ea7.html#disqus_thread</comments>
       
     </item>
     
